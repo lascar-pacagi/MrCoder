@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Introduction :: MrCodeur</title>
+
+    
+    <link href="/css/nucleus.css?1562741884" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1562741884" rel="stylesheet">
+    <link href="/css/hybrid.css?1562741884" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1562741884" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1562741884" rel="stylesheet">
+    <link href="/css/auto-complete.css?1562741884" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1562741884" rel="stylesheet">
+    <link href="/css/theme.css?1562741884" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1562741884" rel="stylesheet">
+    
+      <link href="/css/theme-green.css?1562741884" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1562741884"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/fr/compiler/minijava/introduction/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+    <svg
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:cc="http://creativecommons.org/ns#"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        id="svg179483"
+        version="1.1"
+        viewBox="0 0 107.91786 52.916723"
+        style="width:100%; height:100%;">
+  <defs
+     id="defs179477" />
+  <metadata
+     id="metadata179480">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-12.961248,-224.46166)"
+     id="layer1">
+    <g
+       id="g180120">
+      <ellipse
+         transform="matrix(-0.07754829,0.9969886,-0.99317428,-0.11663985,0,0)"
+         ry="5.7996831"
+         rx="22.034641"
+         cy="-68.859497"
+         cx="182.89189"
+         id="path893"
+         style="opacity:0;fill:#000000;stroke-width:0.29795077" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.08587646px;line-height:1.25;font-family:MathJax_Typewriter;-inkscape-font-specification:'MathJax_Typewriter, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:12.34969139"
+       x="19.948143"
+       y="174.74361"
+       id="text180030"
+       transform="scale(0.63184997,1.5826542)"><tspan
+         id="tspan180028"
+         x="19.948143"
+         y="174.74361"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.08587646px;font-family:MathJax_Typewriter;-inkscape-font-specification:'MathJax_Typewriter, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:12.34969139">MrCoder</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.56813812px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#73ab5f;fill-opacity:1;stroke:none;stroke-width:0.06420345"
+       x="-244.72531"
+       y="17.58206"
+       id="text180034"
+       transform="matrix(-0.00110427,-1.0929059,0.9149907,-0.00114646,0,0)"><tspan
+         id="tspan180032"
+         x="-244.72531"
+         y="17.58206"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.56813812px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#73ab5f;fill-opacity:1;stroke-width:0.06420345">#include &lt;stdio.h&gt;</tspan></text>
+    <text
+       transform="matrix(-0.00110427,-1.0929059,0.9149907,-0.00114646,0,0)"
+       id="text180042"
+       y="28.04365"
+       x="-244.7363"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.56813812px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#73ab5f;fill-opacity:1;stroke:none;stroke-width:0.06420345"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.56813812px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#73ab5f;fill-opacity:1;stroke-width:0.06420345"
+         y="28.04365"
+         x="-244.7363"
+         id="tspan180040">#include &lt;stdlib.h&gt;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.63532495px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#73ab5f;fill-opacity:1;stroke:none;stroke-width:0.06588313"
+       x="114.32946"
+       y="258.28601"
+       id="text180060"
+       transform="matrix(0.93849797,-0.00533499,0.00714352,1.0654918,0,0)"><tspan
+         id="tspan180058"
+         x="114.32946"
+         y="258.28601"
+         style="fill:#73ab5f;fill-opacity:1;stroke-width:0.06588313">0x57</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.64136362px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#73ab5f;fill-opacity:1;stroke:none;stroke-width:0.0660341"
+       x="-85.840019"
+       y="230.7789"
+       id="text180060-7"
+       transform="matrix(0.58915246,-0.71968841,0.717766,0.82055524,0,0)"><tspan
+         id="tspan180058-8"
+         x="-85.840019"
+         y="230.7789"
+         style="fill:#73ab5f;fill-opacity:1;stroke-width:0.0660341">0x59</tspan></text>
+    <ellipse
+       ry="3.0427084"
+       rx="2.0505209"
+       cy="264.15289"
+       cx="68.764267"
+       id="path180242"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.12750006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+    <ellipse
+       ry="3.0427084"
+       rx="2.0505209"
+       cy="264.32394"
+       cx="83.569588"
+       id="path180242-2"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.12750006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+    <text
+       transform="matrix(1,0,0,0.99125117,-0.52916723,2.3868376)"
+       x="-0.52916723"
+       id="text1104"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35000658px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:1;fill:#73ab5f;fill-opacity:1;stroke:none;stroke-width:0.26458362;"
+       xml:space="preserve"><textPath
+         id="textPath1133"
+         xlink:href="#path1129"><tspan
+   id="tspan1102"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222533px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#73ab5f;fill-opacity:1;stroke-width:0.26458362;">λf.(λx.f(x x)) (λx.f(x x))</tspan></textPath></text>
+    <ellipse
+       transform="matrix(-0.00696313,0.99997576,-0.98922382,-0.1464112,0,0)"
+       ry="3.8613245"
+       rx="17.709063"
+       cy="-53.659695"
+       cx="245.66827"
+       id="path1129"
+       style="opacity:1;fill:none;fill-opacity:1;stroke-width:0.16135114" />
+  </g>
+</svg>
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Rechercher...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1562741884"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1562741884"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/fr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1562741884"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fr/compiler/" title="Compilation" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/fr/compiler/">
+          Compilation
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/fr/compiler/minijava/" title="MiniJava" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/fr/compiler/minijava/">
+          MiniJava
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fr/compiler/minijava/introduction/" title="Introduction" class="dd-item active">
+        <a href="/fr/compiler/minijava/introduction/">
+        Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>Contact</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/lascar-pacagi"><i class='fab fa-fw fa-github'></i>dépôt GitHub</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://protonmail.com/"><i class='far fa-fw fa-envelope'></i> lascar.pacagi@protonmail.com</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="/fr/"><b>IRC</b> freenode #mrcoder</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="fr" value="/fr/compiler/minijava/introduction/" selected>Français</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/fr/'>MrCodeur</a> > <a href='/fr/compiler/'>Compilation</a> > <a href='/fr/compiler/minijava/'>MiniJava</a> > Introduction
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#description-de-minijava">Description de MiniJava</a></li>
+<li><a href="#vue-d-ensemble-du-transpileur">Vue d&rsquo;ensemble du transpileur</a></li>
+<li><a href="#vidéo">Vidéo</a></li>
+<li><a href="#questions">Questions</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Introduction
+            </h1>
+          
+
+        
+
+
+
+
+
+<h2 id="description-de-minijava">Description de MiniJava</h2>
+
+<p>Nous allons réaliser un transpileur, ou compilateur source à source, pour un sous-ensemble du langage <a href="https://fr.wikipedia.org/wiki/Java_(langage)">Java</a>, le langage
+<a href="http://www.cambridge.org/resources/052182060X/">MiniJava</a>. La représentation d&rsquo;entrée pour notre compilateur sera donc le langage MiniJava. La représentation en sortie
+de notre compilateur sera le langage <a href="https://fr.wikipedia.org/wiki/C_(langage)">C</a>.<br />
+Une exemple de programme permettant de calculer une <a href="https://fr.wikipedia.org/wiki/Factorielle">factorielle</a>
+est donné ci-dessous.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Factorial</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Fac<span style="color:#f92672">().</span><span style="color:#a6e22e">computeFac</span><span style="color:#f92672">(</span>10<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fac</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">computeFac</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> numAux<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>num <span style="color:#f92672">&lt;</span> 1<span style="color:#f92672">)</span> numAux <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">else</span> numAux <span style="color:#f92672">=</span> num <span style="color:#f92672">*</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">computeFac</span><span style="color:#f92672">(</span>num<span style="color:#f92672">-</span>1<span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> numAux<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+
+<div class="notices tip" ><p>Comme Minijava est un sous-ensemble de Java, nous pourrons compiler nos fichiers MiniJava en utilisant le compilateur Java <code>javac</code> ce qui sera pratique pour tester la validité
+de nos traductions en langage C. En effet, nous pourrons comparer la sortie du programme obtenu en utilisant le compilateur Java, avec la sortie obtenue par l&rsquo;exécutable obtenu
+grâce à notre transpileur.</p>
+</div>
+
+
+<p>La grammaire de MiniJava, dans sa forme <a href="https://fr.wikipedia.org/wiki/Extended_Backus-Naur_Form">EBNF</a>
+est donnée ci-dessous. Une version sûrement plus lisible pour nous en <a href="https://fr.wikipedia.org/wiki/Diagramme_syntaxique">diagramme syntaxique</a> est donnée
+<a href="/fr/compiler/minijava/grammar.xhtml">ici</a>.<sup class="footnote-ref" id="fnref:La-description-d"><a href="#fn:La-description-d">1</a></sup></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ebnf" data-lang="ebnf"><span style="color:#66d9ef">Program </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">MainClass </span>{ <span style="color:#66d9ef">ClassDeclaration </span>} <span style="color:#e6db74">&#39;eof&#39;</span> ;
+
+<span style="color:#66d9ef">MainClass </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;{&#39;</span> <span style="color:#e6db74">&#39;public&#39;</span> <span style="color:#e6db74">&#39;static&#39;</span> <span style="color:#e6db74">&#39;void&#39;</span> <span style="color:#e6db74">&#39;main&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#e6db74">&#39;String&#39;</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#e6db74">&#39;]&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#e6db74">&#39;{&#39;</span> <span style="color:#66d9ef">Statement </span><span style="color:#e6db74">&#39;}&#39;</span> <span style="color:#e6db74">&#39;}&#39;</span> ;
+
+<span style="color:#66d9ef">ClassDeclaration </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span> <span style="color:#66d9ef">Identifier </span>[ <span style="color:#e6db74">&#39;extends&#39;</span> <span style="color:#66d9ef">Identifier </span>] <span style="color:#e6db74">&#39;{&#39;</span> { <span style="color:#66d9ef">VarDeclaration </span>} { <span style="color:#66d9ef">MethodDeclaration </span>} <span style="color:#e6db74">&#39;}&#39;</span> ;
+
+<span style="color:#66d9ef">VarDeclaration </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Type Identifier </span><span style="color:#e6db74">&#39;;&#39;</span> ;
+
+<span style="color:#66d9ef">MethodDeclaration </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;public&#39;</span> <span style="color:#66d9ef">Type Identifier </span><span style="color:#e6db74">&#39;(&#39;</span> [ <span style="color:#66d9ef">Type Identifier </span>{ <span style="color:#e6db74">&#39;,&#39;</span> <span style="color:#66d9ef">Type Identifier </span>} ] <span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#e6db74">&#39;{&#39;</span> { <span style="color:#66d9ef">VarDeclaration </span>} { <span style="color:#66d9ef">Statement </span>} <span style="color:#e6db74">&#39;return&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;;&#39;</span> <span style="color:#e6db74">&#39;}&#39;</span> ;
+
+<span style="color:#66d9ef">Type </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;int&#39;</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#e6db74">&#39;]&#39;</span>
+        | <span style="color:#e6db74">&#39;boolean&#39;</span>
+        | <span style="color:#e6db74">&#39;int&#39;</span>
+        |  <span style="color:#66d9ef">Identifier </span>;
+
+<span style="color:#66d9ef">Statement </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{&#39;</span> { <span style="color:#66d9ef">Statement </span>} <span style="color:#e6db74">&#39;}&#39;</span>
+        | <span style="color:#e6db74">&#39;if&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#66d9ef">Statement </span><span style="color:#e6db74">&#39;else&#39;</span> <span style="color:#66d9ef">Statement</span>
+        | <span style="color:#e6db74">&#39;while&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#66d9ef">Statement</span>
+        | <span style="color:#e6db74">&#39;System.out.println&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#e6db74">&#39;;&#39;</span>
+        | <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;=&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;;&#39;</span>
+        | <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;]&#39;</span> <span style="color:#e6db74">&#39;=&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;;&#39;</span> ;
+
+<span style="color:#66d9ef">Expression </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Expression </span>( <span style="color:#e6db74">&#39;&amp;&amp;&#39;</span> | <span style="color:#e6db74">&#39;&lt;&#39;</span> | <span style="color:#e6db74">&#39;+&#39;</span> | <span style="color:#e6db74">&#39;-&#39;</span> | <span style="color:#e6db74">&#39;*&#39;</span> ) <span style="color:#66d9ef">Expression</span>
+        | <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;]&#39;</span>
+        | <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#e6db74">&#39;length&#39;</span>
+        | <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;(&#39;</span> [<span style="color:#66d9ef">Expression </span>{<span style="color:#e6db74">&#39;,&#39;</span> <span style="color:#66d9ef">Expression</span>}] <span style="color:#e6db74">&#39;)&#39;</span>
+        | <span style="color:#66d9ef">Integer</span>
+        | <span style="color:#e6db74">&#39;true&#39;</span>
+        | <span style="color:#e6db74">&#39;false&#39;</span>
+        | <span style="color:#66d9ef">Identifier</span>
+        | <span style="color:#e6db74">&#39;this&#39;</span>
+        | <span style="color:#e6db74">&#39;new&#39;</span> <span style="color:#e6db74">&#39;int&#39;</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;]&#39;</span>
+        | <span style="color:#e6db74">&#39;new&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#e6db74">&#39;)&#39;</span>
+        | <span style="color:#e6db74">&#39;!&#39;</span> <span style="color:#66d9ef">Expression</span>
+        | <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> ;
+
+<span style="color:#66d9ef">Letter </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span> | <span style="color:#e6db74">&#39;B&#39;</span> | <span style="color:#e6db74">&#39;C&#39;</span> | <span style="color:#e6db74">&#39;D&#39;</span> | <span style="color:#e6db74">&#39;E&#39;</span> | <span style="color:#e6db74">&#39;F&#39;</span> | <span style="color:#e6db74">&#39;G&#39;</span>
+       | <span style="color:#e6db74">&#39;H&#39;</span> | <span style="color:#e6db74">&#39;I&#39;</span> | <span style="color:#e6db74">&#39;J&#39;</span> | <span style="color:#e6db74">&#39;K&#39;</span> | <span style="color:#e6db74">&#39;L&#39;</span> | <span style="color:#e6db74">&#39;M&#39;</span> | <span style="color:#e6db74">&#39;N&#39;</span>
+       | <span style="color:#e6db74">&#39;O&#39;</span> | <span style="color:#e6db74">&#39;P&#39;</span> | <span style="color:#e6db74">&#39;Q&#39;</span> | <span style="color:#e6db74">&#39;R&#39;</span> | <span style="color:#e6db74">&#39;S&#39;</span> | <span style="color:#e6db74">&#39;T&#39;</span> | <span style="color:#e6db74">&#39;U&#39;</span>
+       | <span style="color:#e6db74">&#39;V&#39;</span> | <span style="color:#e6db74">&#39;W&#39;</span> | <span style="color:#e6db74">&#39;X&#39;</span> | <span style="color:#e6db74">&#39;Y&#39;</span> | <span style="color:#e6db74">&#39;Z&#39;</span> | <span style="color:#e6db74">&#39;a&#39;</span> | <span style="color:#e6db74">&#39;b&#39;</span>
+       | <span style="color:#e6db74">&#39;c&#39;</span> | <span style="color:#e6db74">&#39;d&#39;</span> | <span style="color:#e6db74">&#39;e&#39;</span> | <span style="color:#e6db74">&#39;f&#39;</span> | <span style="color:#e6db74">&#39;g&#39;</span> | <span style="color:#e6db74">&#39;h&#39;</span> | <span style="color:#e6db74">&#39;i&#39;</span>
+       | <span style="color:#e6db74">&#39;j&#39;</span> | <span style="color:#e6db74">&#39;k&#39;</span> | <span style="color:#e6db74">&#39;l&#39;</span> | <span style="color:#e6db74">&#39;m&#39;</span> | <span style="color:#e6db74">&#39;n&#39;</span> | <span style="color:#e6db74">&#39;o&#39;</span> | <span style="color:#e6db74">&#39;p&#39;</span>
+       | <span style="color:#e6db74">&#39;q&#39;</span> | <span style="color:#e6db74">&#39;r&#39;</span> | <span style="color:#e6db74">&#39;s&#39;</span> | <span style="color:#e6db74">&#39;t&#39;</span> | <span style="color:#e6db74">&#39;u&#39;</span> | <span style="color:#e6db74">&#39;v&#39;</span> | <span style="color:#e6db74">&#39;w&#39;</span>
+       | <span style="color:#e6db74">&#39;x&#39;</span> | <span style="color:#e6db74">&#39;y&#39;</span> | <span style="color:#e6db74">&#39;z&#39;</span> ;
+
+<span style="color:#66d9ef">Digit </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span> | <span style="color:#e6db74">&#39;1&#39;</span> | <span style="color:#e6db74">&#39;2&#39;</span> | <span style="color:#e6db74">&#39;3&#39;</span> | <span style="color:#e6db74">&#39;4&#39;</span> | <span style="color:#e6db74">&#39;5&#39;</span> | <span style="color:#e6db74">&#39;6&#39;</span> | <span style="color:#e6db74">&#39;7&#39;</span> | <span style="color:#e6db74">&#39;8&#39;</span> | <span style="color:#e6db74">&#39;9&#39;</span> ;
+
+<span style="color:#66d9ef">Integer </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Digit </span>{ <span style="color:#66d9ef">Digit </span>} ;
+
+<span style="color:#66d9ef">Character </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Letter </span>| <span style="color:#66d9ef">Digit </span>| <span style="color:#e6db74">&#39;_&#39;</span> ;
+
+<span style="color:#66d9ef">Identifier </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Letter </span>{ <span style="color:#66d9ef">Letter </span>| <span style="color:#66d9ef">Digit </span>| <span style="color:#e6db74">&#39;_&#39;</span> } ;</code></pre></div>
+
+<p>Pour reprendre la description donnée par <a href="https://www.cs.princeton.edu/~appel/">Andrew W. Appel</a> dans
+une annexe de son livre <a href="https://www.cs.princeton.edu/~appel/modern/"><em>Modern Compiler Implementation in Java</em></a>, on a :</p>
+
+<ul>
+<li>La sémantique de MiniJava est donnée par sa sémantique en tant que programme Java.</li>
+<li>La surcharge d&rsquo;opérateurs n&rsquo;est pas autorisée dans MiniJava.</li>
+<li>L&rsquo;instruction <code>System.out.printl()</code> ne peut imprimer que des entiers.</li>
+<li>L&rsquo;expression MiniJava <code>e.length</code> ne s&rsquo;applique qu&rsquo;à des expressions de type <code>int[]</code>.</li>
+</ul>
+
+<h2 id="vue-d-ensemble-du-transpileur">Vue d&rsquo;ensemble du transpileur</h2>
+
+<p>Nous allons considérer le programme MiniJava suivant pour illustrer cette section.
+<a name="minijava_introduction_prog"></a>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Print42</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>35 <span style="color:#f92672">+</span> 2 <span style="color:#f92672">*</span> 3 <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div></p>
+
+<p>La figure suivante montre les différentes étapes permettant de passer du fichier source en MiniJava au fichier source transpilé en C.</p>
+
+
+<div class="mermaid" align="center">
+graph LR;
+A[source en MiniJava] -->|caractères| B(fa:fa-tools<br/> Analyse <br/> lexicale)
+B -->|unités lexicales| C(fa:fa-tools <br/> Analyse <br/> syntaxique)
+C -->|arbre syntaxique abstrait| D(fa:fa-tools <br/> Analyse <br/> de types)
+D -->|arbre syntaxique abstrait| E(fa:fa-tools <br/> Générateur <br/> de code C)
+E -->|caractères| F[source en C]
+</div>
+
+
+<ul>
+<li>La première étape est l&rsquo;analyse lexicale qui va permettre de découper un flot de caractères en mots. Ces mots sont appelés unités lexicales. On obtient alors une information
+plus structurée où les mots clés du langage, les identifiants, les entiers et les booléens ont été identifiés. Cette phase va aussi nous permettre de supprimer les commentaires et
+les blancs (espaces et retours à la ligne).<br />
+Pour le programme <a href="#minijava_introduction_prog">ci-dessus</a>, l&rsquo;analyse lexicale va produire le flot d&rsquo;unités lexicales suivantes. On peut voir, par exemple, que le mot clé <code>CLASS</code>
+a été identifié, que la constante entière <code>INT_CONST 35</code> aussi.</li>
+</ul>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CLASS
+IDENT ‘Print42‘
+LBRACE
+PUBLIC
+STATIC
+VOID
+MAIN
+LPAREN
+STRING
+LBRACKET
+RBRACKET
+IDENT ‘a‘
+RPAREN
+LBRACE
+SYSO
+LPAREN
+INT_CONST ‘35‘
+PLUS
+INT_CONST ‘2‘
+TIMES
+INT_CONST ‘3‘
+PLUS
+INT_CONST ‘1‘
+RPAREN
+SEMICOLON
+RBRACE
+RBRACE
+EOF</code></pre></div>
+
+<ul>
+<li>La deuxième étape, l&rsquo;analyse syntaxique, prend en entrée le flot d&rsquo;unités lexicales, et va construire un arbre syntaxique abstrait permettant de représenter la structure du
+programme sous la forme d&rsquo;un arbre.<br />
+Pour le programme <a href="#minijava_introduction_prog">ci-dessus</a>, on obtient l&rsquo;arbre suivant. On peut y voir, par exemple, l&rsquo;expression arithmétique avec de manière explicite la priorité
+des opérateurs (plus c&rsquo;est bas dans l&rsquo;arbre et plus c&rsquo;est prioritaire).</li>
+</ul>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">program
+  ├name Print42
+  ├main_args a
+  └main
+     └ISyso
+        └EBinOp OpAdd
+          ├EBinOp OpAdd
+          │  ├EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">35</span><span style="color:#f92672">)</span>
+          │  └EBinOp OpMul
+          │    ├EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span>
+          │    └EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">3</span><span style="color:#f92672">)</span>
+          └EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span></code></pre></div>
+
+<ul>
+<li><p>La troisième étape, l&rsquo;analyse de types, va prendre en entrée l&rsquo;arbre abstrait et va vérifier si le typage est correct. Par exemple, on va vérifier qu&rsquo;on utilise les méthodes
+avec le bon nombre de paramètres, que les opérateurs <code>+</code> et <code>*</code> sont utilisés avec des opérandes entières, qu&rsquo;une classe est compatible avec une autre via la relation d&rsquo;héritage, &hellip;</p></li>
+
+<li><p>La dernière étape va consister à générer le code en C. On va de nouveau parcourir l&rsquo;arbre syntaxique abstrait pour générer ce code.
+Pour notre <a href="#minijava_introduction_prog">example</a>, on obtient le fichier C ci-dessous.</p></li>
+</ul>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+  printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, ((<span style="color:#ae81ff">35</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>));
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}</code></pre></div>
+
+<h2 id="vidéo">Vidéo</h2>
+
+<!-- 
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/qKUGR93h0y8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+ -->
+
+<h2 id="questions">Questions</h2>
+
+<h2 id="ressources">Ressources</h2>
+
+
+<div class="notices info" ><p>TO DO</p>
+</div>
+
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:La-description-d">La description de la grammaire qui permet de générer le diagramme ne suit pas strictement la forme EBNF. Les détails sont donnés <a href="https://www.w3.org/TR/xml/#sec-notation">ici</a>. <a class="footnote-return" href="#fnref:La-description-d"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/fr/compiler/minijava/" title="MiniJava"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1562741884"></script>
+    <script src="/js/perfect-scrollbar.min.js?1562741884"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1562741884"></script>
+    <script src="/js/jquery.sticky.js?1562741884"></script>
+    <script src="/js/featherlight.min.js?1562741884"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1562741884"></script>
+    <script src="/js/highlight.pack.js?1562741884"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1562741884"></script>
+    <script src="/js/learn.js?1562741884"></script>
+    <script src="/js/hugo-learn.js?1562741884"></script>
+
+    <link href="/mermaid/mermaid.css?1562741884" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1562741884"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

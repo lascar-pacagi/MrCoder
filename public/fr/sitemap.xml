@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/fr/compiler/minijava/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/compiler/minijava/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/compiler/minijava/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/compiler/minijava/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/tags/bash/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/bash/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/bash/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tags/c/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/c/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/c/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tags/compilation/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/fr/compiler/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/compiler/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/compiler/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tags/langage-%C3%A0-objets/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/fr/tags/menhir/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/menhir/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/menhir/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tags/minijava/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/minijava/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/minijava/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tags/ocaml/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/ocaml/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/ocaml/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tags/ramasse-miettes/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/fr/tags/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tags/transpileur/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

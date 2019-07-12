@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MrCodeur</title>
+    <link>/fr/</link>
+    <description>Recent content on MrCodeur</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/fr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction</title>
+      <link>/fr/compiler/minijava/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/compiler/minijava/introduction/</guid>
+      <description>Description de MiniJava Nous allons réaliser un transpileur, ou compilateur source à source, pour un sous-ensemble du langage Java, le langage MiniJava. La représentation d&amp;rsquo;entrée pour notre compilateur sera donc le langage MiniJava. La représentation en sortie de notre compilateur sera le langage C.
+Une exemple de programme permettant de calculer une factorielle est donné ci-dessous.
+class Factorial { public static void main(String[] a) { System.out.println(new Fac().computeFac(10)); } } class Fac { public int computeFac(int num) { int numAux; if (num &amp;lt; 1) numAux = 1; else numAux = num * (this.</description>
+    </item>
+    
+  </channel>
+</rss>

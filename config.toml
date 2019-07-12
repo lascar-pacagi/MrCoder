@@ -1,0 +1,60 @@
+baseURL = "/"
+languageCode = "en-US"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+theme = "hugo-theme-learn"
+title = "MrCoder"
+
+# For search functionality
+[outputs]
+    home = [ ]
+
+[params]
+    # Change default color scheme with a variant one. Can be "red", "blue", "green".
+    themeVariant = "green"
+
+[Languages]
+[Languages.en]
+title = "MrCoder"
+weight = 1
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+#identifier = "ds"
+url = "https://github.com/lascar-pacagi"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='far fa-fw fa-envelope'></i> lascar.pacagi@protonmail.com"
+url = "https://protonmail.com/"
+#identifier = "ds"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<b>IRC</b> freenode #mrcoder"
+#identifier = "ds"
+weight = 30
+
+
+[Languages.fr]
+title = "MrCodeur"
+weight = 2
+languageName = "Français"
+
+[[Languages.fr.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i>dépôt GitHub"
+#identifier = "ds"
+url = "https://github.com/lascar-pacagi"
+weight = 10
+
+[[Languages.fr.menu.shortcuts]]
+name = "<i class='far fa-fw fa-envelope'></i> lascar.pacagi@protonmail.com"
+url = "https://protonmail.com/"
+#identifier = "ds"
+weight = 20
+
+[[Languages.fr.menu.shortcuts]]
+name = "<b>IRC</b> freenode #mrcoder"
+#identifier = "ds"
+weight = 30

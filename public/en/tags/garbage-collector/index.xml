@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Garbage Collector on MrCoder</title>
+    <link>/en/tags/garbage-collector/</link>
+    <description>Recent content in Garbage Collector on MrCoder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/en/tags/garbage-collector/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MiniJava</title>
+      <link>/en/compiler/minijava/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/compiler/minijava/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
