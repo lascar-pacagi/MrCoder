@@ -94,13 +94,23 @@ Identifier = Letter { Letter | Digit | '_' } ;
 
 {{< /highlight>}}
 
-Pour reprendre la description donnée par [Andrew W. Appel](https://www.cs.princeton.edu/~appel/) dans
-une annexe de son livre [*Modern Compiler Implementation in Java*](https://www.cs.princeton.edu/~appel/modern/), on a :
+<!-- Pour reprendre la description donnée par [Andrew W. Appel](https://www.cs.princeton.edu/~appel/) dans -->
+<!-- une annexe de son livre [*Modern Compiler Implementation in Java*](https://www.cs.princeton.edu/~appel/modern/), on a : -->
 
-* La sémantique de MiniJava est donnée par sa sémantique en tant que programme Java.
-* La surcharge d'opérateurs n'est pas autorisée dans MiniJava.
+La sémantique de MiniJava est donnée par sa sémantique en tant que programme Java. Les principales restrictions sont
+
+* Les classes n'héritent pas de la classe `Object`.
+* Le mot clé `super` n'existe pas.
+* Il y a simplement un constructeur par défaut.
+* Les seuls types autorisés sont,
+ * `int`.
+ * `boolean`.
+ * `int[]`.
+ * Les classes définies par l'utilisateur.
+* La surcharge d'opérateurs n'est pas autorisée.
 * L'instruction `System.out.printl()` ne peut imprimer que des entiers.
-* L'expression MiniJava `e.length` ne s'applique qu'à des expressions de type `int[]`.
+* Toutes les méthodes doivent retourner une valeur.
+* Il n'y a pas d'interface, d'exception, de généricité, de lambda.
 
 ## Vue d'ensemble du transpileur
 
@@ -164,7 +174,7 @@ RBRACE
 EOF
 {{< /highlight >}}
 
-* La deuxième étape, l'analyse syntaxique, prend en entrée le flot d'unités lexicales, et va construire un arbre syntaxique abstrait permettant de représenter la structure du
+* La deuxième étape, l'analyse syntaxique, prend en entrée le flot d'unités lexicales et va construire un arbre syntaxique abstrait permettant de représenter la structure du
 programme sous la forme d'un arbre.\
 Pour le programme [ci-dessus](#minijava_introduction_prog), on obtient l'arbre suivant. On peut y voir, par exemple, l'expression arithmétique avec de manière explicite la priorité
 des opérateurs (plus c'est bas dans l'arbre et plus c'est prioritaire).
@@ -198,14 +208,160 @@ int main(int argc, char *argv[]) {
 }
 {{< /highlight >}}
 
-## Vidéo
+## Vidéos
+
+Pour suivre les démos dans les vidéos, commencer par installer les dépendances comme indiqué ici.
+Télécharger ensuite le code en faisant
+
+{{< highlight git >}}
+git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git
+cd MiniJava
+git checkout v1.0
+make
+{{< /highlight >}}
+
+La branche `master` est la version avec le ramasse miettes et le tag `v1.0` est une version sans ramasse miettes.
+Si vous voulez apporter des modifications à la version 1.0, vous
+pouvez créer une nouvelle branche (`from_v1.0` par exemple) en faisant
+
+{{< highlight git >}}
+git checkout -b from_v1.0 v1.0
+{{< /highlight >}}
+
+Le code que je vais utiliser pendant les démos se trouve ci-dessous.
+
+{{% attachments /%}}
+
+### Analyse lexicale
 
 <!-- {{< youtube qKUGR93h0y8 >}} -->
 
+### Analyse syntaxique
+
+
+### Typage
+
+
+### Génération de code
+
+
+### Principales différences entre MiniJava et Java
+
+
+### Rappels sur la liaison dynamique en Java
+
+
 ## Questions
+
+Reprenons la [grammaire de MiniJava](/fr/compiler/minijava/grammar.xhtml).
+Nous voudrions ajouter la possibilité d'avoir
+
+* L'opérateur de comparaison `==`.
+* Des constructeurs.
+* Des constructeurs et méthodes `private`.
+
+{{%expand "Quelles sont les modifications à apporter à cette grammaire pour incorporer ces nouveaux éléments ?" %}}
+[Grammaire de MiniJava modifiée](/fr/compiler/minijava/grammar_private_constructor_equality.xhtml).
+{{% /expand%}}
+
+---
+
+{{%expand "Dans la question précédente, quels terminaux avez-vous dû ajouter à la grammaire (un terminal dans la grammaire deviendra une unité lexicale) ?" %}}
+`==` et `private`.
+{{% /expand%}}
+
+---
+
+Soit le programme suivant.
+
+{{< highlight java "linenos=inline">}}
+class A {
+    public int m1(int n) {
+        System.out.println("int A:m1(int n)");
+        return 0;
+    }
+}
+
+class B extends A {
+    public boolean m1(int n) {
+        System.out.println("boolean B:m1(int n)");
+        return false;
+    }
+}
+{{< /highlight >}}
+
+
+{{%expand "Ce code compile-t-il ?" %}}
+Ce code ne compile pas. En effet, à la ligne 9, la méthode `m1` est une redéfinition de la
+méthode `m1` de la ligne 2 : elle à le même nom et les mêmes paramètres. Par contre, pour être
+une redéfinition correcte, il aurait fallu que le type de retour `boolean` soit compatible avec
+le type de retour `int`, mais ce n'est pas le cas.
+{{% /expand%}}
+
+---
+
+Soit le programme suivant.
+
+{{< highlight java "linenos=inline">}}
+class A {
+    public int m1(int n) {
+        System.out.println("int A:m1(int n)");
+        return 0;
+    }
+    public boolean m1(int n) {
+        System.out.println("boolean A:m1(int n)");
+        return false;
+    }
+}
+{{< /highlight >}}
+
+
+{{%expand "Ce code compile-t-il ?" %}}
+Ce code ne compile pas. En effet, le type de retour ne permet pas de différentier deux méthodes. Donc
+même si les méthodes aux lignes 2 et 6 ont des types de retour différents, comme elles se nomment pareil et ont les
+mêmes paramètres, on a pas une surcharge et il y a donc une erreur.
+{{% /expand%}}
+
+---
+
+Soit le programme suivant.
+
+{{< highlight java "linenos=inline">}}
+class A {
+    public int m1(A a) {
+        System.out.println("int A:m1(A a)");
+        return 0;
+    }
+    public boolean m1(B b) {
+        System.out.println("boolean A:m1(B b)");
+        return false;
+    }
+}
+
+class B extends A {
+}
+{{< /highlight >}}
+
+
+{{%expand "Ce code compile-t-il ?" %}}
+Ce code compile. Cette fois-ci, la méthode à la ligne 6 est bien une surcharge de la méthode
+à la ligne 2 car le paramètre est d'un type différent.
+{{% /expand%}}
+
 
 ## Ressources
 
 {{% notice info %}}
-TO DO
+[Cours sur Java de Coursera partie 1](https://www.coursera.org/learn/initiation-programmation-java)\
+[Cours sur Java de Coursera partie 2](https://www.coursera.org/learn/programmation-orientee-objet-java)\
+[Cours sur Java de Coursera partie 3](https://www.coursera.org/learn/projet-programmation-java)\
+[Cours sur Java de Princeton](https://introcs.cs.princeton.edu/java/home/)\
+[Spécifications du langage Java](https://docs.oracle.com/javase/specs/)\
+[Page de MiniJava](http://www.cambridge.org/resources/052182060X/)\
+[Diagramme syntaxique de MiniJava](/fr/compiler/minijava/grammar.xhtml)\
+[Cours sur le langage C partie 1](https://www.edx.org/v2/course/c-programming-language-foundations)\
+[Cours sur le langage C partie 2](https://www.edx.org/v2/course/modular-programming-and-memory-management)\
+[Cours sur le langage C partie 3](https://www.edx.org/v2/course/programming-in-c-pointers-and-memory-management)\
+[Cours sur le langage C partie 4](https://www.edx.org/v2/course/c-programming-advanced-data-types)\
+[Spécifications du langage C (norme C11)](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)
 {{% /notice %}}

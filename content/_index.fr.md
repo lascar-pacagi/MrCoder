@@ -17,13 +17,13 @@ J'espère que ce site sera utile pour certains d'entre vous et que vous vous amu
 
 Je vais utiliser du texte, des vidéos et du code pour expliquer les différents sujets:
 
-* Les vidéos seront en français avec des sous-titres anglais
-* Le code sera sur [github](https://github.com/lascar-pacagi)
+* Les vidéos seront en français avec des sous-titres anglais.
+* Le code sera sur [github](https://github.com/lascar-pacagi).
 
 Choisissez votre sujet sur le panneau de gauche ou parmis les thèmes ci-dessous, et nous allons pouvoir commencer à explorer ensemble le monde vaste et passionnant
 de l'informatique !
 
-## Thèmes abordées
+## Thèmes abordés
 * [**MiniJava transpileur**]({{%ref "/compiler/minijava/_index.md" %}})
  * Nous transformons un fichier source contenant un programme écrit dans un sous-ensemble du langage [Java](https://fr.wikipedia.org/wiki/Java_(langage)),
 le langage [MiniJava](http://www.cambridge.org/resources/052182060X/), en un fichier en langage [C](https://fr.wikipedia.org/wiki/C_(langage)). Nous utilisons

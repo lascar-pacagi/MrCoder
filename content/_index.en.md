@@ -18,8 +18,8 @@ I hope this will be helpful for some of you and that you will have fun learning.
 
 I will use text, videos and code to explain the different subjects:
 
-* Videos are in french with english subtitles
-* Code is on [github](https://github.com/lascar-pacagi)
+* Videos are in french with english subtitles.
+* Code is on [github](https://github.com/lascar-pacagi).
 
 Go to the left panel or look at the themes below to choose your subject and let's dive into the vast and beautiful world of computer science!
 
