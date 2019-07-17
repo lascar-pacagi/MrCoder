@@ -210,7 +210,7 @@ int main(int argc, char *argv[]) {
 
 ## Vidéos
 
-Pour suivre les démos dans les vidéos, commencer par installer les dépendances comme indiqué ici.
+Pour suivre les démos dans les vidéos, commencer par installer les dépendances comme indiqué [ici](https://github.com/lascar-pacagi/MiniJava/blob/master/README.md).
 Télécharger ensuite le code en faisant
 
 {{< highlight git >}}

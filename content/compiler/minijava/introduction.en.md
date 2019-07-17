@@ -208,7 +208,8 @@ int main(int argc, char *argv[]) {
 
 ## Videos
 
-To follow along with the videos, start to install the dependencies as stated here. Then download the code
+To follow along with the videos, start to install the dependencies as stated [here](https://github.com/lascar-pacagi/MiniJava/blob/master/README.md).
+Then download the code
 
 {{< highlight git >}}
 git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git
@@ -313,7 +314,7 @@ class A {
 
 {{%expand "Does this code compile?" %}}
 This code doesn't compile. Indeed, the return type is not used to differentiate methods.
-Therefore, even if the methods on lines 2 and 6 have different types, because they have the same
+Therefore, even if the methods on lines 2 and 6 have different return types, because they have the same
 name and the same parameters, this is not overloading and so we have an error.
 {{% /expand%}}
 
