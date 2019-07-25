@@ -231,10 +231,11 @@ The code I use during the videos is given below.
 
 ### Lexical Analysis
 
-<!-- {{< youtube qKUGR93h0y8 >}} -->
+{{< youtube DaSCO7JwpGU >}}
 
 ### Syntactic Analysis
 
+{{< youtube xUatwjMbjYk >}}
 
 ### Typechecker
 

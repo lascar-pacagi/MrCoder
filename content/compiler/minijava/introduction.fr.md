@@ -234,10 +234,11 @@ Le code que je vais utiliser pendant les démos se trouve ci-dessous.
 
 ### Analyse lexicale
 
-<!-- {{< youtube qKUGR93h0y8 >}} -->
+{{< youtube DaSCO7JwpGU >}}
 
 ### Analyse syntaxique
 
+{{< youtube xUatwjMbjYk >}}
 
 ### Typage
 
