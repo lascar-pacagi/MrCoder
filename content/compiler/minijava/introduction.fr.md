@@ -242,6 +242,7 @@ Le code que je vais utiliser pendant les démos se trouve ci-dessous.
 
 ### Typage
 
+{{< youtube mz0kVQd0rXY >}}
 
 ### Génération de code
 

@@ -239,6 +239,7 @@ The code I use during the videos is given below.
 
 ### Typechecker
 
+{{< youtube mz0kVQd0rXY >}}
 
 ### Code Generation
 
