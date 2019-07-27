@@ -246,6 +246,7 @@ Le code que je vais utiliser pendant les démos se trouve ci-dessous.
 
 ### Génération de code
 
+{{< youtube 4wsr3Zr1vjs >}}
 
 ### Principales différences entre MiniJava et Java
 
@@ -274,7 +275,7 @@ Nous voudrions ajouter la possibilité d'avoir
 
 ---
 
-Soit le programme suivant.
+Soit le programme Java suivant.
 
 {{< highlight java "linenos=inline">}}
 class A {
@@ -302,7 +303,7 @@ le type de retour `int`, mais ce n'est pas le cas.
 
 ---
 
-Soit le programme suivant.
+Soit le programme Java suivant.
 
 {{< highlight java "linenos=inline">}}
 class A {
@@ -326,7 +327,7 @@ mêmes paramètres, on a pas une surcharge et il y a donc une erreur.
 
 ---
 
-Soit le programme suivant.
+Soit le programme Java suivant.
 
 {{< highlight java "linenos=inline">}}
 class A {

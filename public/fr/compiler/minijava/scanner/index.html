@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Ramasse Miettes :: MrCodeur</title>
+    <title>Analyse lexicale :: MrCodeur</title>
 
     
     <link href="/css/nucleus.css?1564237684" rel="stylesheet">
@@ -39,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/fr/tags/ramasse-miettes/">
+  <body class="" data-url="/fr/compiler/minijava/scanner/">
     <nav id="sidebar" class="">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/fr/compiler/" title="Compilation" class="dd-item 
-        
+        parent
         
         
         ">
@@ -108,7 +108,7 @@
   
     
     <li data-nav-id="/fr/compiler/minijava/" title="MiniJava" class="dd-item 
-        
+        parent
         
         
         ">
@@ -151,7 +151,7 @@
  
   
     
-      <li data-nav-id="/fr/compiler/minijava/scanner/" title="Analyse lexicale" class="dd-item ">
+      <li data-nav-id="/fr/compiler/minijava/scanner/" title="Analyse lexicale" class="dd-item active">
         <a href="/fr/compiler/minijava/scanner/">
         Analyse lexicale
         
@@ -225,7 +225,7 @@
                   
                     
                     
-                      <option id="fr" value="/fr/tags/ramasse-miettes/" selected>Français</option>
+                      <option id="fr" value="/fr/compiler/minijava/scanner/" selected>Français</option>
                     
                   
               
@@ -282,7 +282,25 @@
                     
           
           
-            Ramasse Miettes
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/fr/'>MrCodeur</a> > <a href='/fr/compiler/'>Compilation</a> > <a href='/fr/compiler/minijava/'>MiniJava</a> > Analyse lexicale
+          
+         
+          
+         
+          
+         
           
         
                  
@@ -291,7 +309,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#expressions-régulières">Expressions régulières</a></li>
+<li><a href="#analyseur-lexical">Analyseur lexical</a></li>
+<li><a href="#vidéos">Vidéos</a></li>
+<li><a href="#questions">Questions</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -307,9 +336,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Ramasse Miettes
+              Analyse lexicale
             </h1>
           
 
@@ -320,16 +347,34 @@
 
 
 
-<ul>
-	
-		<li><a href="/fr/compiler/minijava/">MiniJava</a></li>
-	
-</ul>
+<div class="mermaid" align="center">
+graph LR;
+A[source en MiniJava] -->|caractères| B(fa:fa-tools<br/> Analyse <br/> lexicale)
+B -->|unités lexicales| C(fa:fa-tools <br/> Analyse <br/> syntaxique)
+C -->|arbre syntaxique abstrait| D(fa:fa-tools <br/> Analyse <br/> de types)
+D -->|arbre syntaxique abstrait| E(fa:fa-tools <br/> Générateur <br/> de code C)
+E -->|caractères| F[source en C]
+
+classDef green fill:#74B559,stroke:#222723,stroke-width:5px;
+class B green
+</div>
+
+
+<h2 id="expressions-régulières">Expressions régulières</h2>
+
+<h2 id="analyseur-lexical">Analyseur lexical</h2>
+
+<h2 id="vidéos">Vidéos</h2>
+
+<h2 id="questions">Questions</h2>
+
+<h2 id="ressources">Ressources</h2>
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -362,8 +407,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -380,6 +423,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -392,6 +436,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -408,6 +455,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -435,8 +483,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/fr/compiler/minijava/introduction/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/fr/compiler/" title="Compilation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/fr/compiler/minijava/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -467,3 +517,4 @@
 
   </body>
 </html>
+

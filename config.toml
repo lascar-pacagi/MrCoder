@@ -7,12 +7,12 @@ title = "MrCoder"
 
 # For search functionality
 [outputs]
-    home = [ "HTML", "RSS", "JSON" ]
+home = [ "HTML", "RSS", "JSON" ]
 
 [params]
-    disableInlineCopyToClipBoard = true
-    # Change default color scheme with a variant one. Can be "red", "blue", "green".
-    themeVariant = "green"
+disableInlineCopyToClipBoard = true
+# Change default color scheme with a variant one. Can be "red", "blue", "green".
+themeVariant = "green"
 
 [Languages]
 [Languages.en]

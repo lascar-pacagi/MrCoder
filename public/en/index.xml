@@ -10,5 +10,16 @@
 	<atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Introduction</title>
+      <link>/en/compiler/minijava/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/compiler/minijava/introduction/</guid>
+      <description>Description of MiniJava We will build a transpiler, or source to source compiler, for a subset of Java, the MiniJava language. The input representation for our compiler is the MiniJava language and the output representation is the C language.
+A sample program which computes the factorial of a given number is given below.
+class Factorial { public static void main(String[] a) { System.out.println(new Fac().computeFac(10)); } } class Fac { public int computeFac(int num) { int numAux; if (num &amp;lt; 1) numAux = 1; else numAux = num * (this.</description>
+    </item>
+    
   </channel>
 </rss>

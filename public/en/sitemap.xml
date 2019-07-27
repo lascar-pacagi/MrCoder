@@ -3,6 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/en/compiler/minijava/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/compiler/minijava/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/compiler/minijava/"
+                />
+  </url>
+  
+  <url>
+    <loc>/en/compiler/minijava/introduction/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/compiler/minijava/introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/compiler/minijava/introduction/"
+                />
+  </url>
+  
+  <url>
     <loc>/en/tags/bash/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -83,20 +111,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/en/tags/menhir/"
-                />
-  </url>
-  
-  <url>
-    <loc>/en/compiler/minijava/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/compiler/minijava/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/compiler/minijava/"
                 />
   </url>
   

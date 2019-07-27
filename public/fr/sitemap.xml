@@ -18,6 +18,20 @@
   
   <url>
     <loc>/fr/compiler/minijava/introduction/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/compiler/minijava/introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/compiler/minijava/introduction/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/compiler/minijava/scanner/</loc>
   </url>
   
   <url>

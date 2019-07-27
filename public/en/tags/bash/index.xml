@@ -16,7 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/en/compiler/minijava/</guid>
-      <description></description>
+      <description>MiniJava The compiler we study in this part is a transpiler that goes from the MiniJava language to the C language. We will construct this transpiler using the OCaml language and Menhir for the syntactic analysis.
+To download the code : git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git.</description>
     </item>
     
   </channel>

@@ -243,6 +243,7 @@ The code I use during the videos is given below.
 
 ### Code Generation
 
+{{< youtube 4wsr3Zr1vjs >}}
 
 ### Main differences between Java and MiniJava
 
@@ -271,7 +272,7 @@ We would like to add to the language
 
 ---
 
-Consider the following program.
+Consider the following Java program.
 
 {{< highlight java "linenos=inline">}}
 class A {
@@ -298,7 +299,7 @@ the return type must be compatible, and `boolean` is not compatible with `int`.
 
 ---
 
-Consider the following program.
+Consider the following Java program.
 
 {{< highlight java "linenos=inline">}}
 class A {
@@ -322,7 +323,7 @@ name and the same parameters, this is not overloading and so we have an error.
 
 ---
 
-Consider the following program.
+Consider the following Java program.
 
 {{< highlight java "linenos=inline">}}
 class A {
