@@ -4,7 +4,7 @@ disableNextPrev = true
 +++
 
 # **MrCodeur**
-"C'est en forgeant qu'on devient forgeron"
+"C'est en forgeant qu'on devient forgeron."
 ___
 
 ## Objectif

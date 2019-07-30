@@ -247,6 +247,72 @@ The code I use during the videos is given below.
 
 ### Main differences between Java and MiniJava
 
+{{< youtube tNKBDxaML8c >}}
+
+#### Default Initialisation in Java ([see here](https://docs.oracle.com/javase/specs/jls/se12/html/jls-4.html#jls-4.12.5))
+
+Let's consider the following Java program `Init.java`.
+
+{{< highlight java "linenos=inline">}}
+class Init {
+    public static void main(String[] args) {
+        int i;
+        boolean b;
+        int[] a;
+        System.out.println(i + " " + b + " " + a);
+    }
+}
+{{< /highlight >}}
+
+When we compile it, we get the following error messages.
+
+{{< highlight bash >}}
+$ javac Init.java
+Init.java:6: error: variable i might not have been initialized
+        System.out.println(i + " " + b + " " + a);
+                           ^
+Init.java:6: error: variable b might not have been initialized
+        System.out.println(i + " " + b + " " + a);
+                                     ^
+Init.java:6: error: variable a might not have been initialized
+        System.out.println(i + " " + b + " " + a);
+                                               ^
+3 errors
+{{< /highlight >}}
+
+Indeed, the three variables `i`, `b` and `a` are put on the stack when `main` is called. Java does not initialize
+local variables, and their values are whatever was currently in those locations on the stack.
+The compiler rejects this program because of the arbitrary values that go into those variables, by telling
+us that those variables have not been initialized.
+
+On the other hand, the following program is correct, because attributes have a default value.
+
+{{< highlight java "linenos=inline">}}
+class Init {
+    public static void main(String[] args) {
+        new Default().print();
+    }
+}
+
+class Default {
+    private int i;
+    private boolean b;
+    private int[] a;
+
+    public void print() {
+        System.out.println(i + " " + b + " " + a);
+    }
+}
+{{< /highlight >}}
+
+And we get the following output.
+
+{{< highlight bash >}}
+$ javac Init.java
+$ java Init
+0 false null
+{{< /highlight >}}
+
 
 ### Review of Java's Dynamic Binding
 

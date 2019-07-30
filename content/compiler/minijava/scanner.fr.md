@@ -18,9 +18,11 @@ class B green
 
 ## Expressions régulières
 
-## Analyseur lexical
+## Automates
 
-## Vidéos
+## Identification de motifs
+
+## Analyseur lexical avec ocamlex
 
 ## Questions
 

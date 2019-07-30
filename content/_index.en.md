@@ -4,7 +4,7 @@ disableNextPrev = true
 +++
 
 # **MrCoder**
-"C'est en forgeant qu'on devient forgeron" (french proverb)
+"C'est en forgeant qu'on devient forgeron." (french proverb)
 ___
 
 ## Goal

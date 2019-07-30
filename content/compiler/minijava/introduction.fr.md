@@ -250,6 +250,71 @@ Le code que je vais utiliser pendant les démos se trouve ci-dessous.
 
 ### Principales différences entre MiniJava et Java
 
+{{< youtube tNKBDxaML8c >}}
+
+#### Initialisation par défaut en Java ([voir ici](https://docs.oracle.com/javase/specs/jls/se12/html/jls-4.html#jls-4.12.5))
+
+Soit le programme Java `Init.java` suivant.
+
+{{< highlight java "linenos=inline">}}
+class Init {
+    public static void main(String[] args) {
+        int i;
+        boolean b;
+        int[] a;
+        System.out.println(i + " " + b + " " + a);
+    }
+}
+{{< /highlight >}}
+
+Si on le compile, on obtient les messages d'erreur suivants.
+
+{{< highlight bash >}}
+$ javac Init.java
+Init.java:6: error: variable i might not have been initialized
+        System.out.println(i + " " + b + " " + a);
+                           ^
+Init.java:6: error: variable b might not have been initialized
+        System.out.println(i + " " + b + " " + a);
+                                     ^
+Init.java:6: error: variable a might not have been initialized
+        System.out.println(i + " " + b + " " + a);
+                                               ^
+3 errors
+{{< /highlight >}}
+
+En effet, les trois variables `i`, `b` et `a` sont situées sur la pile, et leurs valeurs
+vont dépendre des valeurs qui sont situées sur la pile lors de l'appel du `main`. Java n'initialisant
+pas les variables locales avec une valeur par défaut, le compilateur refuse le programme en nous indiquant
+que l'on cherche à utiliser des variables non initialisées.
+
+Par contre, le programme suivant est correct car les attributs ont des valeurs par défaut.
+
+{{< highlight java "linenos=inline">}}
+class Init {
+    public static void main(String[] args) {
+        new Default().print();
+    }
+}
+
+class Default {
+    private int i;
+    private boolean b;
+    private int[] a;
+
+    public void print() {
+        System.out.println(i + " " + b + " " + a);
+    }
+}
+{{< /highlight >}}
+
+Et on obtient la sortie suivante.
+
+{{< highlight bash >}}
+$ javac Init.java
+$ java Init
+0 false null
+{{< /highlight >}}
 
 ### Rappels sur la liaison dynamique en Java
 
