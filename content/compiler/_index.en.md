@@ -20,7 +20,7 @@ end
 Usually, the input file contains a programming language source (a C source file for example) and the output file contains an executable file for the target machine or
 for a virtual machine.
 A compiler generally produces different kind of intermediate representations before producing the final representation. The compiler can, depending on the source language,
-some static analysis to detect some errors before the execution of the program. The compiler can transform the source program, without modifying its semantic, into a more
+do some static analysis to detect some errors before the execution of the program. The compiler can transform the source program, without modifying its semantic, into a more
 efficient code : this transformation is called optimisation.
 
 * In the [**MiniJava**]({{%relref "compiler/minijava/_index.md" %}}) part, we will study a kind of compiler, a transpiler or source to source compiler, for which the input
