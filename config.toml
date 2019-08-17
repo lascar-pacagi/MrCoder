@@ -1,6 +1,7 @@
 baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
+metaDataFormat = "yaml"
 defaultContentLanguageInSubdir = true
 theme = "hugo-theme-learn"
 title = "MrCoder"
@@ -9,8 +10,6 @@ title = "MrCoder"
 disableInlineCopyToClipBoard = true
 # Change default color scheme with a variant one. Can be "red", "blue", "green".
 themeVariant = "green"
-[params.search]
-client = "lunr"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
