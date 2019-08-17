@@ -1,9 +1,8 @@
 [build]
   publish = "public"
-  command = "hugo -gc"
 
-[build.environment]
-  HUGO_THEME = "repo"
+[context.production.environment]
+  HUGO_BASEURL = "https://learn.netlify.com/"
   HUGO_VERSION = "0.55.5"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
