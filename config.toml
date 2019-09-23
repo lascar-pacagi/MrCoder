@@ -10,6 +10,7 @@ title = "MrCoder"
 disableInlineCopyToClipBoard = true
 # Change default color scheme with a variant one. Can be "red", "blue", "green".
 themeVariant = "green"
+#enableEmoji = true
 
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
@@ -58,5 +59,6 @@ weight = 20
 
 [[Languages.fr.menu.shortcuts]]
 name = "<b>IRC</b> freenode #mrcoder"
+url = "https://kiwiirc.com/nextclient/irc.freenode.net/#mrcoder"
 #identifier = "ds"
 weight = 30

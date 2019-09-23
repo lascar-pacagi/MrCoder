@@ -433,5 +433,6 @@ is of a different type.
 [C language course part 3](https://www.edx.org/v2/course/programming-in-c-pointers-and-memory-management)\
 [C language course part 4](https://www.edx.org/v2/course/c-programming-advanced-data-types)\
 [Learn C by building a Lisp](http://www.buildyourownlisp.com/)\
+[modern C](http://icube-icps.unistra.fr/img_auth.php/d/db/ModernC.pdf)\
 [C language specifications (C11 norm)](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)
 {{% /notice %}}

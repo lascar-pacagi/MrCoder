@@ -438,5 +438,6 @@ Ce code compile. Cette fois-ci, la méthode à la ligne 6 est bien une surcharge
 [Cours sur le langage C partie 3](https://www.edx.org/v2/course/programming-in-c-pointers-and-memory-management)\
 [Cours sur le langage C partie 4](https://www.edx.org/v2/course/c-programming-advanced-data-types)\
 [Apprendre le C en construisant un Lisp](http://www.buildyourownlisp.com/)\
+[Cours sur le C moderne](http://icube-icps.unistra.fr/img_auth.php/d/db/ModernC.pdf)\
 [Spécifications du langage C (norme C11)](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)
 {{% /notice %}}
