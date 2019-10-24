@@ -138,7 +138,7 @@ Nous donnons ci-dessous quelques examples d'expressions régulières toujours su
 [Vous pouvez vous amuser en utilisant les expressions régulières sur Regex Crossword <i class="far fa-smile-beam"></i>.](https://regexcrossword.com/)
 {{% /notice %}}
 
-{{< youtube "https://youtu.be/5VNKh7aaZ-g" >}}
+{{< youtube 5VNKh7aaZ-g >}}
 
 ### Questions
 
