@@ -140,6 +140,8 @@ Nous donnons ci-dessous quelques examples d'expressions régulières toujours su
 
 {{< youtube 5VNKh7aaZ-g >}}
 
+{{< youtube Wl8FXqv6dak >}}
+
 ### Questions
 
 ## Automates
