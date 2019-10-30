@@ -98,12 +98,14 @@ décrivent.\
         | $\color{green}{(0\\ \|\\ 1)(0\\ \|\\ 1)}$                           | $\\{00, 01, 10, 11\\}$      |
 
  * L'opérateur d'itération noté `*` permet de juxtaposer $0$ ou plusieurs fois les mots engendrés par une expression régulières. Soit $\color{green}{r}$ une expression régulière, alors
- l'expression régulière $\color{green}{r^*}$ représente l'hypothétique^[Une expression régulière doit être de taille finie.] expression régulière $\color{green}{\epsilon \\ |\\ r\\ |\\ rr\\ |\\ rrr\\ |\\ rrrr\\ |\\ \cdots}$.
+ l'expression régulière $\color{green}{r^*}$ représente l'hypothétique^[Une expression régulière doit être de taille finie.] expression régulière
+ $\color{green}{\epsilon \\ |\\ r\\ |\\ rr\\ |\\ rrr\\ |\\ rrrr\\ |\\ \cdots}$.
 
-        | <center>Expression</center> | <center>Ensemble de mots</center>          |                                                                         |
-        | :----------------:          | :----------------:                         |                                                                         |
-        | $\color{green}{0^*}$        | $\\{\epsilon, 0, 00, 000, 0000, \cdots\\}$ |                                                                         |
-        | $\color{green}{(0\\ \       | \\ 1)^*}$                                  | $\\{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001, 010, 011, 100, \cdots\\}$ |
+
+        | <center>Expression</center> | <center>Ensemble de mots</center>          |
+        | :----------------:          | :----------------:                         |
+        | $\color{green}{0^*}$        | $\\{\epsilon, 0, 00, 000, 0000, \cdots\\}$ |
+        | $\color{green}{(0\\ \| \\ 1)^*}$ | $\\{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001, 010, 011, 100, \cdots\\}$ |
 
 
 {{% notice note %}}
@@ -123,13 +125,13 @@ Nous donnons ci-dessous quelques examples d'expressions régulières toujours su
 <!-- } -->
 <!-- </style> -->
 
-| <center>Description</center> | <center>Expression</center> | <center>Ensemble de mots</center> |
-| :----------------:           | :----------------:          | :----------------: |
-| Les nombres binaires (sans zéro non significatif) | $\color{green}{0\\ \|\\ 1(0\\ \|\\ 1)^*}$ | $\\{0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, 1100, \cdots\\}$ |
-| Les nombres binaires impairs | $\color{green}{1\\ \|\\ 1(0\\ \|\\ 1)^*1}$ | $\\{1, 11, 101, 111, 1001, 1011, 1101, 1111, 10001, \cdots\\}$ |
-| Les chaînes de bits ne contenant que des zeros et des uns alternés | $\color{green}{10(10)^* \\ \| \\ 01(01)^*}$ | $\\{10, 01, 1010, 0101, 101010, 010101, \cdots\\}$ |
-| Les chaînes de bits dont la longueur est multiple de 3 | $\color{green}{((0\\ \|\\ 1)(0\\ \|\\ 1)(0\\ \|\\ 1))^*}$ | $\\{\epsilon, 000, 001, 010, 011, 100, \cdots, 111000, 111001, \cdots, 101011110, \cdots \\}$ |
-| Les chaînes de bits ne contenant pas la sous-chaîne $11$ | $\color{green}{0^* ( 100^* )^* (1\\ \|\\ \epsilon)}$ | $\\{\epsilon, 0, 1, 00, 01, 10, 000, 001, 010, 100, 101, 0000, 0001, \cdots\\}$ |
+| <center>Description</center>                                       | <center>Expression</center>           | <center>Ensemble de mots</center> |                                                                                 |                                                                                |                                                                                               |
+| :----------------:                                                 | :----------------:                    | :----------------:                |                                                                                 |                                                                                |                                                                                               |
+| Les nombres binaires (sans zéro non significatif)                  | $\color{green}{0\\ \                  | \\ 1(0\\ \                        | \\ 1)^*}$                                                                       | $\\{0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, 1100, \cdots\\}$ |                                                                                               |
+| Les nombres binaires impairs                                       | $\color{green}{1\\ \                  | \\ 1(0\\ \                        | \\ 1)^*1}$                                                                      | $\\{1, 11, 101, 111, 1001, 1011, 1101, 1111, 10001, \cdots\\}$                 |                                                                                               |
+| Les chaînes de bits ne contenant que des zeros et des uns alternés | $\color{green}{10(10)^* \\ \          | \\ 01(01)^*}$                     | $\\{10, 01, 1010, 0101, 101010, 010101, \cdots\\}$                              |                                                                                |                                                                                               |
+| Les chaînes de bits dont la longueur est multiple de 3             | $\color{green}{((0\\ \                | \\ 1)(0\\ \                       | \\ 1)(0\\ \                                                                     | \\ 1))^*}$                                                                     | $\\{\epsilon, 000, 001, 010, 011, 100, \cdots, 111000, 111001, \cdots, 101011110, \cdots \\}$ |
+| Les chaînes de bits ne contenant pas la sous-chaîne $11$           | $\color{green}{0^* ( 100^* )^* (1\\ \ | \\ \epsilon)}$                    | $\\{\epsilon, 0, 1, 00, 01, 10, 000, 001, 010, 100, 101, 0000, 0001, \cdots\\}$ |                                                                                |                                                                                               |
 
 
 {{% notice info %}}
@@ -530,7 +532,7 @@ mais on ne doit pas trouver quatre `H` ou quatre `D`. On doit donc avoir exactem
 
 ---
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Quel est le langage décrit par l'expression régulière suivante : $\color{green}{0^*10^*10^*(10^*\ |\ \epsilon)}$ ?" %}}
+{{%expand "Soit l'alphabet $\{0, 1\}$. Quel est le langage décrit par l'expression régulière suivante : $\color{green}{0^*10^*10^*(10^*\ |\ \epsilon)}$ ?" %}}
 Le langage contenant deux ou trois `1`.
 {{% /expand%}}
 
