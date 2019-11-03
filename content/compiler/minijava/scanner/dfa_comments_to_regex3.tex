@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0}
+
+\begin{document}
+
+%\begin{center}
+  \begin{tabular}{c}
+    \\
+    \begin{tikzpicture}[scale=0.2]
+      \tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (6.2,-27.8) circle (3);
+\draw (6.2,-27.8) node {$0$};
+\draw [black] (71.1,-27.8) circle (3);
+\draw (71.1,-27.8) node {$7$};
+\draw [black] (71.1,-27.8) circle (2.4);
+\draw [black] (2.1,-22.5) -- (4.36,-25.43);
+\fill [black] (4.36,-25.43) -- (4.27,-24.49) -- (3.48,-25.1);
+\draw [black] (9.2,-27.8) -- (68.1,-27.8);
+\fill [black] (68.1,-27.8) -- (67.3,-27.3) -- (67.3,-28.3);
+\draw (38.65,-28.3) node [below] {$/*{\color{darkgreen}{(}}{\color{darkgreen}{(}}/\mbox{ }{\color{darkgreen}{|}}\mbox{ }a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}}\mbox{ }{\color{darkgreen}{|}}\mbox{ }**^{\color{darkgreen}{*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}}{\color{darkgreen}{)}}^{\color{darkgreen}{*}}**^{\color{darkgreen}{*}}/$};
+\end{tikzpicture}\\
+\end{tabular}
+%  \end{center}
+
+\end{document}
