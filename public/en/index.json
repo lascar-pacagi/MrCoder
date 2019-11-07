@@ -1,0 +1,113 @@
+[
+{
+	"uri": "/en/compiler/minijava/",
+	"title": "MiniJava",
+	"tags": ["compiler", "transpiler", "garbage collector", "object oriented language", "MiniJava", "C", "OCaml", "Menhir", "Bash"],
+	"description": "",
+	"content": " MiniJava The compiler we study in this part is a transpiler that goes from the MiniJava language to the C language. We will construct this transpiler using the OCaml language and Menhir for the syntactic analysis.\nTo download the code : git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git.\n"
+},
+{
+	"uri": "/en/compiler/minijava/introduction/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": " We will build a transpiler, or source to source compiler, for a subset of Java, the MiniJava language. The input representation for our compiler is the MiniJava language and the output representation is the C language.\nA sample program which computes the factorial of a given number is given below.\nclass Factorial { public static void main(String[] a) { System.out.println(new Fac().computeFac(10)); } } class Fac { public int computeFac(int num) { int numAux; if (num \u0026lt; 1) numAux = 1; else numAux = num * (this.computeFac(num-1)); return numAux; } } As Minijava is a subset of Java, we will be able to compile our MiniJava programs using the Java compiler javac. This will be very usefull to test the validity of our translations in C. Indeed, we will be able to compare the output of the program compiled with the Java compiler with the output of the program obtained by our transpiler.\n Overview of the Transpiler We will use the following MiniJava program as a running example for this section.  class Print42 { public static void main(String[] a) { System.out.println(35 + 2 * 3 + 1); } }\nThe following figure shows the main steps to transform a MiniJava program to a transpiled C source file.\ngraph LR; A[MiniJava source file] --|characters| B(fa:fa-tools Lexical  analysis) B --|tokens| C(fa:fa-tools  Syntactic  analysis) C --|abstract syntax tree| D(fa:fa-tools  Typechecker) D --|abstract syntax tree| E(fa:fa-tools  C code  generator) E --|characters| F[C source file]  We will now describe the different steps shown on the figure above.\nTo follow along with the videos that follow, start to install the dependencies as stated here. Then download the code\ngit clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git cd MiniJava git checkout v1.0 make The master branch is the version with a garbage collector and the tag v1.0 is a version without a garbage collector. If you want to modify the version 1.0, you can create a new branch (from_v1.0 for example)\ngit checkout -b from_v1.0 v1.0 The code we use during the videos is given below.\n  Attachments   demo_code.tgz  (3 ko)    Lexical Analysis The first step is the lexical analysis. This phase will group characters into words. Those words are called tokens. After this step we get a more structured information where the keywords of MiniJava, the identifiers, the integer constants and the boolean constants have been recognized. This is in this phase that commentaries and whitespaces are suppressed.\nFor the program given above, the scanner, the program responsible of the lexical analysis phase, will produce the following stream of tokens. For example, we can see that the keyword CLASS has been recognized, as the integer constant INT_CONST 35.\nCLASS IDENT ‘Print42‘ LBRACE PUBLIC STATIC VOID MAIN LPAREN STRING LBRACKET RBRACKET IDENT ‘a‘ RPAREN LBRACE SYSO LPAREN INT_CONST ‘35‘ PLUS INT_CONST ‘2‘ TIMES INT_CONST ‘3‘ PLUS INT_CONST ‘1‘ RPAREN SEMICOLON RBRACE RBRACE EOF   Syntactic Analysis The second step, the syntactic analysis, takes as input the stream of tokens and produces an abstract syntax tree which represents the structure of the program with a tree data structure.\nFor the program given above, the parser, the program responsible of the syntactic analysis phase, will produce the following tree. We can see the arithmetic expression with the operators precedence explicitly stated (expressions deeper in the tree have more priority).\nprogram ├name Print42 ├main_args a └main └ISyso └EBinOp OpAdd ├EBinOp OpAdd │ ├EConst (ConstInt 35) │ └EBinOp OpMul │ ├EConst (ConstInt 2) │ └EConst (ConstInt 3) └EConst (ConstInt 1) The syntactic analyser needs to know the structure of a MiniJava program. This structure is given in the form of a grammar. The MiniJava grammar, in its EBNF form is given below. Another version, certainly easier to read for us, using syntax diagrams is given here.1\nProgram = MainClass { ClassDeclaration } \u0026#39;eof\u0026#39; ; MainClass = \u0026#39;class\u0026#39; Identifier \u0026#39;{\u0026#39; \u0026#39;public\u0026#39; \u0026#39;static\u0026#39; \u0026#39;void\u0026#39; \u0026#39;main\u0026#39; \u0026#39;(\u0026#39; \u0026#39;String\u0026#39; \u0026#39;[\u0026#39; \u0026#39;]\u0026#39; Identifier \u0026#39;)\u0026#39; \u0026#39;{\u0026#39; Statement \u0026#39;}\u0026#39; \u0026#39;}\u0026#39; ; ClassDeclaration = \u0026#39;class\u0026#39; Identifier [ \u0026#39;extends\u0026#39; Identifier ] \u0026#39;{\u0026#39; { VarDeclaration } { MethodDeclaration } \u0026#39;}\u0026#39; ; VarDeclaration = Type Identifier \u0026#39;;\u0026#39; ; MethodDeclaration = \u0026#39;public\u0026#39; Type Identifier \u0026#39;(\u0026#39; [ Type Identifier { \u0026#39;,\u0026#39; Type Identifier } ] \u0026#39;)\u0026#39; \u0026#39;{\u0026#39; { VarDeclaration } { Statement } \u0026#39;return\u0026#39; Expression \u0026#39;;\u0026#39; \u0026#39;}\u0026#39; ; Type = \u0026#39;int\u0026#39; \u0026#39;[\u0026#39; \u0026#39;]\u0026#39; | \u0026#39;boolean\u0026#39; | \u0026#39;int\u0026#39; | Identifier ; Statement = \u0026#39;{\u0026#39; { Statement } \u0026#39;}\u0026#39; | \u0026#39;if\u0026#39; \u0026#39;(\u0026#39; Expression \u0026#39;)\u0026#39; Statement \u0026#39;else\u0026#39; Statement | \u0026#39;while\u0026#39; \u0026#39;(\u0026#39; Expression \u0026#39;)\u0026#39; Statement | \u0026#39;System.out.println\u0026#39; \u0026#39;(\u0026#39; Expression \u0026#39;)\u0026#39; \u0026#39;;\u0026#39; | Identifier \u0026#39;=\u0026#39; Expression \u0026#39;;\u0026#39; | Identifier \u0026#39;[\u0026#39; Expression \u0026#39;]\u0026#39; \u0026#39;=\u0026#39; Expression \u0026#39;;\u0026#39; ; Expression = Expression ( \u0026#39;\u0026amp;\u0026amp;\u0026#39; | \u0026#39;\u0026lt;\u0026#39; | \u0026#39;+\u0026#39; | \u0026#39;-\u0026#39; | \u0026#39;*\u0026#39; ) Expression | Expression \u0026#39;[\u0026#39; Expression \u0026#39;]\u0026#39; | Expression \u0026#39;.\u0026#39; \u0026#39;length\u0026#39; | Expression \u0026#39;.\u0026#39; Identifier \u0026#39;(\u0026#39; [Expression {\u0026#39;,\u0026#39; Expression}] \u0026#39;)\u0026#39; | Integer | \u0026#39;true\u0026#39; | \u0026#39;false\u0026#39; | Identifier | \u0026#39;this\u0026#39; | \u0026#39;new\u0026#39; \u0026#39;int\u0026#39; \u0026#39;[\u0026#39; Expression \u0026#39;]\u0026#39; | \u0026#39;new\u0026#39; Identifier \u0026#39;(\u0026#39; \u0026#39;)\u0026#39; | \u0026#39;!\u0026#39; Expression | \u0026#39;(\u0026#39; Expression \u0026#39;)\u0026#39; ; Letter = \u0026#39;A\u0026#39; | \u0026#39;B\u0026#39; | \u0026#39;C\u0026#39; | \u0026#39;D\u0026#39; | \u0026#39;E\u0026#39; | \u0026#39;F\u0026#39; | \u0026#39;G\u0026#39; | \u0026#39;H\u0026#39; | \u0026#39;I\u0026#39; | \u0026#39;J\u0026#39; | \u0026#39;K\u0026#39; | \u0026#39;L\u0026#39; | \u0026#39;M\u0026#39; | \u0026#39;N\u0026#39; | \u0026#39;O\u0026#39; | \u0026#39;P\u0026#39; | \u0026#39;Q\u0026#39; | \u0026#39;R\u0026#39; | \u0026#39;S\u0026#39; | \u0026#39;T\u0026#39; | \u0026#39;U\u0026#39; | \u0026#39;V\u0026#39; | \u0026#39;W\u0026#39; | \u0026#39;X\u0026#39; | \u0026#39;Y\u0026#39; | \u0026#39;Z\u0026#39; | \u0026#39;a\u0026#39; | \u0026#39;b\u0026#39; | \u0026#39;c\u0026#39; | \u0026#39;d\u0026#39; | \u0026#39;e\u0026#39; | \u0026#39;f\u0026#39; | \u0026#39;g\u0026#39; | \u0026#39;h\u0026#39; | \u0026#39;i\u0026#39; | \u0026#39;j\u0026#39; | \u0026#39;k\u0026#39; | \u0026#39;l\u0026#39; | \u0026#39;m\u0026#39; | \u0026#39;n\u0026#39; | \u0026#39;o\u0026#39; | \u0026#39;p\u0026#39; | \u0026#39;q\u0026#39; | \u0026#39;r\u0026#39; | \u0026#39;s\u0026#39; | \u0026#39;t\u0026#39; | \u0026#39;u\u0026#39; | \u0026#39;v\u0026#39; | \u0026#39;w\u0026#39; | \u0026#39;x\u0026#39; | \u0026#39;y\u0026#39; | \u0026#39;z\u0026#39; ; Digit = \u0026#39;0\u0026#39; | \u0026#39;1\u0026#39; | \u0026#39;2\u0026#39; | \u0026#39;3\u0026#39; | \u0026#39;4\u0026#39; | \u0026#39;5\u0026#39; | \u0026#39;6\u0026#39; | \u0026#39;7\u0026#39; | \u0026#39;8\u0026#39; | \u0026#39;9\u0026#39; ; Integer = Digit { Digit } ; Character = Letter | Digit | \u0026#39;_\u0026#39; ; Identifier = Letter { Letter | Digit | \u0026#39;_\u0026#39; } ;    Typechecker The third step, the typechecker, takes as input the abstract syntax tree and will check if the types are correct. For example, the typechecker will check if we call a method with the correct number of arguments, that the operators + and * are used with integer operands, that a class is compatible with another one using the class hierarchy, \u0026hellip;\n  Code Generation The last step is the code generator phase. We will again visit the abstract syntax tree to generate C code. For our running example, we get the following C source file.\n#include \u0026lt;stdio.h\u0026gt;int main(int argc, char *argv[]) { printf(\u0026#34;%d\\n\u0026#34;, ((35 + (2 * 3)) + 1)); return 0; }   Semantic of a MiniJava Program The semantic of a MiniJava program is given by its semantic as a Java program2. The main restrictions are\n No class has Object as a superclass. No super keyword. Only a default constructor. The only types available are  int. boolean. int[]. User defined classes.  No overloading. All methods return a value. The return statement is at the end. System.out.println() only prints integers. No interfaces, no exceptions, no generic types, no lambdas.  We explain in the following video the main differences between Java and MiniJava.\n  We described briefly in the video the default initialization mechanism in Java (and MiniJava). We give further details below. You can look here for all the details.\nLet\u0026rsquo;s consider the following Java program Init.java.\n1class Init { 2 public static void main(String[] args) { 3 int i; 4 boolean b; 5 int[] a; 6 System.out.println(i + \u0026#34; \u0026#34; + b + \u0026#34; \u0026#34; + a); 7 } 8} When we compile it, we get the following error messages.\n$ javac Init.java Init.java:6: error: variable i might not have been initialized System.out.println(i + \u0026#34; \u0026#34; + b + \u0026#34; \u0026#34; + a); ^ Init.java:6: error: variable b might not have been initialized System.out.println(i + \u0026#34; \u0026#34; + b + \u0026#34; \u0026#34; + a); ^ Init.java:6: error: variable a might not have been initialized System.out.println(i + \u0026#34; \u0026#34; + b + \u0026#34; \u0026#34; + a); ^ 3 errors Indeed, the three variables i, b and a are put on the stack when main is called. Java does not initialize local variables, and their values are whatever was currently in those locations on the stack. The compiler rejects this program because of the arbitrary values that go into those variables, by telling us that those variables have not been initialized.\nOn the other hand, the following program is correct, because attributes have a default value.\n1class Init { 2 public static void main(String[] args) { 3 new Default().print(); 4 } 5} 6 7class Default { 8 private int i; 9 private boolean b; 10 private int[] a; 11 12 public void print() { 13 System.out.println(i + \u0026#34; \u0026#34; + b + \u0026#34; \u0026#34; + a); 14 } 15} And we get the following output.\n$ javac Init.java $ java Init 0 false null Review of Java\u0026rsquo;s Dynamic Binding We will review dynamic binding in Java in the following video, because the management of dynamic binding will be one of the most difficult point to handle in our transpiler.\n  Questions Let\u0026rsquo;s have a look again at the MiniJava grammar. We would like to add to the language\n The == operator. Constructors. private methods and constructors.    How to update the grammar to add those new elements?   MiniJava grammar updated.\n    In the previous question, what terminals did you add to the grammar (a terminal in the grammar will become a token for the scanner)?   == and private.\n  Consider the following Java program.\n1class A { 2 public int m1(int n) { 3 System.out.println(\u0026#34;int A:m1(int n)\u0026#34;); 4 return 0; 5 } 6} 7 8class B extends A { 9 public boolean m1(int n) { 10 System.out.println(\u0026#34;boolean B:m1(int n)\u0026#34;); 11 return false; 12 } 13}   Does this code compile?   This code doesn\u0026rsquo;t compile. Indeed, on line 9, the m1 method overrides the m1 method of line 2: It has the same name and the same parameters. But to correctly overrides the m1 method of line 2, the return type must be compatible, and boolean is not compatible with int.\n  Consider the following Java program.\n1class A { 2 public int m1(int n) { 3 System.out.println(\u0026#34;int A:m1(int n)\u0026#34;); 4 return 0; 5 } 6 public boolean m1(int n) { 7 System.out.println(\u0026#34;boolean A:m1(int n)\u0026#34;); 8 return false; 9 } 10}   Does this code compile?   This code doesn\u0026rsquo;t compile. Indeed, the return type is not used to differentiate methods. Therefore, even if the methods on lines 2 and 6 have different return types, because they have the same name and the same parameters, this is not overloading and so we have an error.\n  Consider the following Java program.\n1class A { 2 public int m1(A a) { 3 System.out.println(\u0026#34;int A:m1(A a)\u0026#34;); 4 return 0; 5 } 6 public boolean m1(B b) { 7 System.out.println(\u0026#34;boolean A:m1(B b)\u0026#34;); 8 return false; 9 } 10} 11 12class B extends A { 13}   Does this code compile?   This code compiles. This time, the method on line 6 overloads the method on line 2 because the parameter is of a different type.\n  Ressources Java language course from Princeton\nJava language course from Microsoft\nJava language specifications\nMiniJava page\nMiniJava syntactic diagram\nC language course part 1\nC language course part 2\nC language course part 3\nC language course part 4\nLearn C by building a Lisp\nmodern C\nC language specifications (C11 norm)\n  The description of the grammar used to generate the diagram does not follow exactly the EBNF form. Details are given here. [return] See here for the semantic of the Java language. [return]   "
+},
+{
+	"uri": "/en/compiler/minijava/scanner/",
+	"title": "Lexical Analysis",
+	"tags": [],
+	"description": "",
+	"content": " graph LR; A[MiniJava source file] --|characters| B(fa:fa-tools Lexical  analysis) B --|tokens| C(fa:fa-tools  Syntactic  analysis) C --|abstract syntax tree| D(fa:fa-tools  Typechecker) D --|abstract syntax tree| E(fa:fa-tools  C code  generator) E --|characters| F[C source file] classDef green fill:#74B559,stroke:#222723,stroke-width:5px; class B green  Regular Expressions Automata Regular Expressions Matching Scanner with ocamlex Questions Ressources "
+},
+{
+	"uri": "/en/tags/bash/",
+	"title": "Bash",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/c/",
+	"title": "C",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/compiler/",
+	"title": "Compiler",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/compiler/",
+	"title": "Compiler",
+	"tags": [],
+	"description": "",
+	"content": "Abstractly a compiler is a program that takes as input a representation of some sort and transforms this representation into another one as its output.\ngraph LR; subgraph input file A[Representation A] end A[Representation A] -- C(fa:fa-tools Compiler) C -- B subgraph output file B[Representation B] end  Usually, the input file contains a programming language source (a C source file for example) and the output file contains an executable file for the target machine or for a virtual machine. A compiler generally produces different kind of intermediate representations before producing the final representation. The compiler can, depending on the source language, do some static analysis to detect some errors before the execution of the program. The compiler can transform the source program, without modifying its semantic, into a more efficient code : this transformation is called optimisation.\n In the MiniJava part, we will study a kind of compiler, a transpiler or source to source compiler, for which the input representation will be a programming language (the MiniJava language) and the output representation will be another programming language (the C language). In this way, we will be able to take advantage of the presence of a C compiler and focus only on the static type checking and the generation in C of the object orienting part of MiniJava.\nThis first compiler will be an easier step into compilation but still will be a very practical approach to compilation because we will produce quickly a compiler without the hard part of generating optimized machine code for a given architecture.  "
+},
+{
+	"uri": "/en/tags/garbage-collector/",
+	"title": "Garbage Collector",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/menhir/",
+	"title": "Menhir",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/minijava/",
+	"title": "Minijava",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/",
+	"title": "MrCoder",
+	"tags": [],
+	"description": "",
+	"content": " MrCoder \u0026ldquo;C\u0026rsquo;est en forgeant qu\u0026rsquo;on devient forgeron.\u0026rdquo; (french proverb)\nGoal This little corner of the web is dedicated to learn computer science by coding stuff. We will go together, step by step, through different themes of computer science, building along the way softwares to thoroughly understand the different subjects. I hope this will be helpful for some of you and that you will have fun learning.\nSite structure I will use text, videos and code to explain the different subjects:\n Videos are in french with english subtitles. Code is on github.  Go to the left panel or look at the themes below to choose your subject and let\u0026rsquo;s dive into the vast and beautiful world of computer science!\nSubjects overview  MiniJava transpiler  We transform a MiniJava source file, which is a subset of Java, into a C source file. We then use gcc to translate the C file into an executable one.\nTo do this transpiling, we first do a lexical analysis of the MiniJava source file, then a syntax analysis, then we typecheck the code and finally, we generate a C source file from the abstract syntax tree of MiniJava. The most difficult parts for the code generation are the class and dynamic binding representations and the inclusion of a garbage collector.\nThe transpiler is written in OCaml using Menhir for the parser.   "
+},
+{
+	"uri": "/en/tags/object-oriented-language/",
+	"title": "Object Oriented Language",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/ocaml/",
+	"title": "Ocaml",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/transpiler/",
+	"title": "Transpiler",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

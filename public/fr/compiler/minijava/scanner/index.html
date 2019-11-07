@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="fr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Analyse lexicale :: MrCodeur</title>
+
+    
+    <link href="/css/nucleus.css?1573020273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1573020273" rel="stylesheet">
+    <link href="/css/hybrid.css?1573020273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1573020273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1573020273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1573020273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1573020273" rel="stylesheet">
+    <link href="/css/theme.css?1573020273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1573020273" rel="stylesheet">
+    
+      <link href="/css/theme-green.css?1573020273" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1573020273"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/fr/compiler/minijava/scanner/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+    <img src="/images/logo.png">
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Rechercher...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1573020273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1573020273"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/fr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1573020273"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fr/compiler/" title="Compilation" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/fr/compiler/">
+          Compilation
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/fr/compiler/minijava/" title="MiniJava" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/fr/compiler/minijava/">
+          MiniJava
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fr/compiler/minijava/introduction/" title="Introduction" class="dd-item ">
+        <a href="/fr/compiler/minijava/introduction/">
+        Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fr/compiler/minijava/scanner/" title="Analyse lexicale" class="dd-item active">
+        <a href="/fr/compiler/minijava/scanner/">
+        Analyse lexicale
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>Contact</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/lascar-pacagi"><i class='fab fa-fw fa-github'></i>dépôt GitHub</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://protonmail.com/"><i class='far fa-fw fa-envelope'></i> lascar.pacagi@protonmail.com</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://kiwiirc.com/nextclient/irc.freenode.net/#mrcoder"><b>IRC</b> freenode #mrcoder</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/compiler/minijava/scanner/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="fr" value="/fr/compiler/minijava/scanner/" selected>Français</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p><i class="fas fa-mug-hot fa-2x"></i></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/fr/'>MrCodeur</a> > <a href='/fr/compiler/'>Compilation</a> > <a href='/fr/compiler/minijava/'>MiniJava</a> > Analyse lexicale
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#expressions-régulières">Expressions régulières</a>
+<ul>
+<li><a href="#définition">Définition</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#questions">Questions</a></li>
+</ul></li>
+<li><a href="#automates">Automates</a>
+<ul>
+<li><a href="#automates-finis-non-déterministes">Automates finis non-déterministes</a></li>
+<li><a href="#automates-finis-déterministes">Automates finis déterministes</a></li>
+<li><a href="#passage-d-un-automate-à-une-expression-régulière">Passage d&rsquo;un automate à une expression régulière</a></li>
+</ul></li>
+<li><a href="#identification-de-motifs">Identification de motifs</a></li>
+<li><a href="#analyseur-lexical-avec-ocamllex">Analyseur lexical avec ocamllex</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+                
+                Analyse lexicale
+            </h1>
+            
+
+            
+            <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: { equationNumbers: { autoNumber: "AMS" } }
+ });
+</script>
+
+
+
+
+
+<div class="mermaid" align="center">
+graph LR;
+A[source en MiniJava] -->|caractères| B(fa:fa-tools<br/> Analyse <br/> lexicale)
+B -->|unités lexicales| C(fa:fa-tools <br/> Analyse <br/> syntaxique)
+C -->|arbre syntaxique abstrait| D(fa:fa-tools <br/> Analyse <br/> de types)
+D -->|arbre syntaxique abstrait| E(fa:fa-tools <br/> Générateur <br/> de code C)
+E -->|caractères| F[source en C]
+
+classDef green fill:#74B559,stroke:#222723,stroke-width:5px;
+class B green
+</div>
+
+
+<p>Nous allons décrire l&rsquo;analyseur lexical de MiniJava qui va permettre de découper les caractères
+du fichier source en unités lexicales. Ces unités lexicales seront ensuite utilisées par l&rsquo;analyseur
+syntaxique.<br />
+Avant de décrire cet analyseur lexical, nous allons présenter les expressions régulières qui seront utilisées
+pour décrire les unités lexicales. Nous étudierons aussi les automates qui permettront d&rsquo;implémenter
+la reconnaissance des expressions régulières.</p>
+
+<h2 id="expressions-régulières">Expressions régulières</h2>
+
+<p>Les expressions régulières vont nous permettre de décrire succintement et assez intuitivement
+les unités lexicales de MiniJava et seront utilisées dans le générateur d&rsquo;analyseur lexical <code>ocamllex</code> que nous
+allons utiliser dans notre transpiler.</p>
+
+<h3 id="définition">Définition</h3>
+
+<p>Une expression régulière va décrire un ensemble de mots sur un vocabulaire donné. Nous allons prendre comme exemple
+le vocabulaire $\mathcal{V} = \{0, 1\}$ constitué simplement de deux éléments : <code>0</code> et <code>1</code>. Nous décrivons ci-dessous de manière
+informelle les éléments de base et les opérateurs permettant de créer des expressions régulières et les mots qu&rsquo;elles
+décrivent.</p>
+
+<ul>
+<li><p>Expressions régulières de base :</p>
+
+<ul>
+<li>L&rsquo;expression régulière $\color{green}\epsilon$ génère l&rsquo;ensemble contenant simplement le mot vide<sup class="footnote-ref" id="fnref:Le-mot-vide-est"><a href="#fn:Le-mot-vide-est">1</a></sup>: $\{\epsilon\}$.</li>
+
+<li><p>Pour $c \in \mathcal{V}$, l&rsquo;expression régulière $\color{green}c$ représente l&rsquo;ensemble contenant un seul mot : $\{c\}$.
+<!--  <style> -->
+<!-- table { -->
+<!--     width:50%; -->
+<!-- } -->
+<!-- </style> --></p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Ensemble de mots</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}0$</td>
+<td align="center">$\{0\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}1$</td>
+<td align="center">$\{1\}$</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+
+<li><p>Expressions régulières composées :</p>
+
+<ul>
+<li><p>On peut utiliser des parenthèses pour regrouper des expressions régulières. Soit $\color{green}{r}$ une expression régulière, alors $\color{green}{(r)}$ représente le même ensemble de
+mots que l&rsquo;expression $\color{green}{r}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Ensemble de mots</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{(0)}$</td>
+<td align="center">$\{0\}$</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>L&rsquo;opérateur de concaténation permet de juxtaposer les mots engendrés par deux expressions régulières. Soit $\color{green}{r_1}$ et $\color{green}{r_2}$ deux expressions régulières.
+La concaténation de ces deux expressions régulières est notée : $\color{green}{r_1r_2}$. L&rsquo;ensemble des mots décrit par cette expression régulière est
+la concaténation des mots décrit par $\color{green}{r_1}$ avec ceux décrit par $\color{green}{r_2}$.<br />
+Notons que cet opérateur est associatif, c&rsquo;est-à-dire que pour toute
+expression régulière $\color{green}{r_1}$, $\color{green}{r_2}$ et $\color{green}{r_3}$, on a
+$\color{green}{(r_1r_2)r_3} = \color{green}{r_1(r_2r_3)}$ que l&rsquo;on notera simplement $\color{green}{r_1r_2r_3}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Ensemble de mots</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{\epsilon1}$</td>
+<td align="center">$\{1\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{10}$</td>
+<td align="center">$\{10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(10)1}$</td>
+<td align="center">$\{101\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{1(01)}$</td>
+<td align="center">$\{101\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{101}$</td>
+<td align="center">$\{101\}$</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>L&rsquo;opérateur d&rsquo;union permet de faire l&rsquo;union des mots engendrés par deux expressions régulières. Soit $\color{green}{r_1}$ et $\color{green}{r_2}$ deux expressions régulières.
+L&rsquo;union de ces deux expressions régulières est notée : $\color{green}{r_1 | \ r_2}$. L&rsquo;ensemble des mots décrit par cette expression régulière est
+l&rsquo;union des mots décrit par $\color{green}{r_1}$ avec ceux décrit par $\color{green}{r_2}$.<br />
+Notons que cet opérateur est commutatif, c&rsquo;est-à-dire que
+$\color{green}{r_1\ |\ r_2} = \color{green}{r_2\ |\ r_1}$. Il est aussi associatif, c&rsquo;est-à-dire que pour toute
+expression régulière $\color{green}{r_1}$, $\color{green}{r_2}$ et $\color{green}{r_3}$, on a
+$\color{green}{(r_1\ |\ r_2)\ |\ r_3} = \color{green}{r_1\ |\ (r_2\ |\ r_3)}$ que l&rsquo;on notera simplement $\color{green}{r_1\ |\ r_2\ |\ r_3}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Ensemble de mots</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{\epsilon \ | \ 1}$</td>
+<td align="center">$\{\epsilon, 1\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(00) \ | \ (10)}$</td>
+<td align="center">$\{00, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(10) \ | \ (00)}$</td>
+<td align="center">$\{00, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(0 \ | \ 1)\ |\ (10)}$</td>
+<td align="center">$\{0, 1, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{0\ |\ (1 \ | \ (10))}$</td>
+<td align="center">$\{0, 1, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{0 \ | \ 1\ |\ (10)}$</td>
+<td align="center">$\{0, 1, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(0\ |\ 1)(0\ |\ 1)}$</td>
+<td align="center">$\{00, 01, 10, 11\}$</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>L&rsquo;opérateur d&rsquo;itération noté <code>*</code> permet de juxtaposer $0$ ou plusieurs fois les mots engendrés par une expression régulières. Soit $\color{green}{r}$ une expression régulière, alors
+l&rsquo;expression régulière $\color{green}{r^*}$ représente l&rsquo;hypothétique<sup class="footnote-ref" id="fnref:Une-expression-r"><a href="#fn:Une-expression-r">2</a></sup> expression régulière
+$\color{green}{\epsilon \ |\ r\ |\ rr\ |\ rrr\ |\ rrrr\ |\ \cdots}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Ensemble de mots</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{0^*}$</td>
+<td align="center">$\{\epsilon, 0, 00, 000, 0000, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(0\ | \ 1)^*}$</td>
+<td align="center">$\{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001, 010, 011, 100, \cdots\}$</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul>
+
+
+<div class="notices note" ><p>Pour éviter trop de parenthèses, il existe une priorité entre les différents opérateurs : les parenthèses ont la plus grande priorité,
+ensuite l&rsquo;opérateur $\color{green}{*}$, puis l&rsquo;opérateur de concaténation et enfin l&rsquo;opérateur $\color{green}{|}$. On a vu aussi ci-dessus que les opérateurs
+de concaténation et d&rsquo;union sont associatifs, ce qui nous permet de supprimer d&rsquo;avantage de parenthèses.<br />
+Ainsi, l&rsquo;expression régulière $\color{green}{10^*1\ |\ 11\ |\ \epsilon}$ se lit $\color{green}{(((1(0^ *))1)\ |\ (11))\ |\ \epsilon}$</p>
+</div>
+
+
+<h3 id="examples">Examples</h3>
+
+<p>Nous donnons ci-dessous quelques examples d&rsquo;expressions régulières toujours sur le vocabulaire $\mathcal{V} = \{0, 1\}$.</p>
+
+<!--  <style> -->
+
+<!-- table { -->
+
+<!--     width:100%; -->
+
+<!-- } -->
+
+<!-- </style> -->
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Description</center></th>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Ensemble de mots</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Les nombres binaires (sans zéro non significatif)</td>
+<td align="center">$\color{green}{0\ | \ 1(0\ | \ 1)^*}$</td>
+<td align="center">$\{0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, 1100, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">Les nombres binaires impairs</td>
+<td align="center">$\color{green}{1\ | \ 1(0\ | \ 1)^*1}$</td>
+<td align="center">$\{1, 11, 101, 111, 1001, 1011, 1101, 1111, 10001, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">Les chaînes de bits ne contenant que des zeros et des uns alternés</td>
+<td align="center">$\color{green}{10(10)^* \ | \ 01(01)^*}$</td>
+<td align="center">$\{10, 01, 1010, 0101, 101010, 010101, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">Les chaînes de bits dont la longueur est multiple de 3</td>
+<td align="center">$\color{green}{((0\ | \ 1)(0\ | \ 1)(0\ | \ 1))^*}$</td>
+<td align="center">$\{\epsilon, 000, 001, 010, 011, 100, \cdots, 111000, 111001, \cdots, 101011110, \cdots \}$</td>
+</tr>
+
+<tr>
+<td align="center">Les chaînes de bits ne contenant pas la sous-chaîne $11$</td>
+<td align="center">$\color{green}{0^* ( 100^* )^* (1\ | \ \epsilon)}$</td>
+<td align="center">$\{\epsilon, 0, 1, 00, 01, 10, 000, 001, 010, 100, 101, 0000, 0001, \cdots\}$</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="notices info" ><p><a href="https://regexcrossword.com/">Vous pouvez vous amuser en utilisant les expressions régulières sur Regex Crossword <i class="far fa-smile-beam"></i>.</a></p>
+</div>
+
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/5VNKh7aaZ-g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/Wl8FXqv6dak" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="questions">Questions</h3>
+
+<p>On utilisera la notation $\{a,b\}^*$ dans les questions ci-dessous : $\{a,b\}^*$ représente le langage engendré par l&rsquo;expression
+régulière $\color{green}{(a\ |\ b)^*}$.</p>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient les mots $aa$ ou $bb$ $\}$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        
+    </div>
+</div>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Cette question même si on pourrait penser qu&#39;elle ressemble beaucoup à la précédente n&#39;est pas facile. Vous pouvez revenir sur cette question après avoir vu la section suivante sur les automates. Soit l&#39;alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb$ $\}$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        
+    </div>
+</div>
+
+<hr />
+
+<p>On veut se déplacer dans la grille ci-dessous en utilisant les deux actions : &ldquo;aller à droite&rdquo; et &ldquo;aller en haut&rdquo;. On part du coin inférieur gauche et
+on veut arriver au coin supérieur droit. Un chemin possible est indiqué dans la figure de droite.</p>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/scanner_question_grid3.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Écrire une expression régulière permettant de décrire toutes les actions permettant d&#39;aller du coin inférieur gauche au coin supérieur droit.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>On ne peut pas écrire succintement cette expression régulière sans utiliser des extensions. On va devoir énumérer les différentes configurations.
+Le nombre de possibilités est le nombre de combinaisons de 3 éléments parmis 6 : ${{6}\choose{3}} = 20$. En effet, il faut 6 actions pour aller du départ jusqu&rsquo;à l&rsquo;arrivée.
+Parmis ces 6 actions, 3 doivent aller vers la droite et 3 vers le haut. On va donc créer une expression régulière avec 20 parties. Nous utilisons <code>D</code> pour allez
+à droite et <code>H</code> pour allez en haut.</p>
+
+<p>$$
+\scriptsize
+\color{green}{HHHDDD\ |<br />
+HHDHDD\ |<br />
+HHDDHD\ |<br />
+HHDDDH\ |<br />
+HDHHDD\ |<br />
+HDHDHD\ |<br />
+HDHDDH\ |<br />
+HDDHHD\ |<br />
+HDDHDH\ |<br />
+HDDDHH\ |<br />
+DHHHDD\ |<br />
+DHHDHD\ |<br />
+DHHDDH\ |<br />
+DHDHHD\ |<br />
+DHDHDH\ |<br />
+DHDDHH\ |<br />
+DDHHHD\ |<br />
+DDHHDH\ |<br />
+DDHDHH\ |<br />
+DDDHHH
+}
+$$</p>
+
+<p>Nous avons généré les combinaisons ci-dessus grâce au programme suivant.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">const</span> string HAUT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;H&#34;</span>;
+<span style="color:#66d9ef">const</span> string DROITE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;D&#34;</span>;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">combos</span>(<span style="color:#66d9ef">int</span> nH, <span style="color:#66d9ef">int</span> nD, string res)
+{
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>nH <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>nD) {
+        cout <span style="color:#f92672">&lt;&lt;</span> res <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+    <span style="color:#66d9ef">if</span> (nH) {
+        combos(nH <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, nD, res <span style="color:#f92672">+</span> HAUT);
+    }
+    <span style="color:#66d9ef">if</span> (nD) {
+        combos(nH, nD <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, res <span style="color:#f92672">+</span> DROITE);
+    }
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+{
+    combos(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;&#34;</span>);
+}
+</code></pre></div>
+
+<p>En utilisant les extensions des expressions régulières on peut obtenir la forme plus concise suivante.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#f92672">^</span>(<span style="color:#f92672">?!</span>(<span style="color:#f92672">.*</span>H<span style="color:#f92672">.*</span>){<span style="color:#ae81ff">4</span>}<span style="color:#f92672">|</span>(<span style="color:#f92672">.*</span>D<span style="color:#f92672">.*</span>){<span style="color:#ae81ff">4</span>})(H<span style="color:#f92672">|</span>D){<span style="color:#ae81ff">6</span>}<span style="color:#f92672">$</span></code></pre></div>
+
+<p>Dans cette expression, l&rsquo;opérateur <code>(?!(.*H.*){4}|(.*D.*){4})</code> exprime qu&rsquo;il ne faut pas réussir à trouver quatre <code>H</code> ou quatre <code>D</code> dans la suite de la ligne.
+L&rsquo;expression <code>(H|D){6}</code> exprime qu&rsquo;il faut reconnaître six caractères parmis <code>H</code> et <code>D</code>. On exprime donc qu&rsquo;il faut reconnaître six caractères parmis <code>H</code> et <code>D</code>,
+mais on ne doit pas trouver quatre <code>H</code> ou quatre <code>D</code>. On doit donc avoir exactement trois <code>H</code> et trois <code>D</code>.</p>
+
+    </div>
+</div>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Cette question n&#39;est pas facile. Vous pouvez revenir sur cette question après avoir vu la section suivante sur les automates. Soit l&#39;alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ et un nombre impair de $b$ $\}$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        
+    </div>
+</div>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{0, 1\}$. Quel est le langage décrit par l&#39;expression régulière suivante : $\color{green}{0^*10^*10^*(10^*\ |\ \epsilon)}$ ?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Le langage contenant deux ou trois <code>1</code>.</p>
+
+    </div>
+</div>
+
+<h2 id="automates">Automates</h2>
+
+<p>Dans la section précédente nous avons présenté les expressions régulières qui permettent de décrire les langages dit réguliers.
+Cette notation est pratique pour décrire les langages réguliers, et nous l&rsquo;utiliserons pour décrire les unités lexicales dans l&rsquo;analyseur lexical de MiniJava.
+Par contre, pour la reconnaissance, c&rsquo;est-à-dire pour savoir si un mot donné appartient bien au langage décrit par une expression régulière, il n&rsquo;est pas facile
+d&rsquo;utiliser directement une expression régulière.</p>
+
+<p>Nous allons décrire maintenant les automates finis, non-déterministes et déterministes, qui permettent de répondre plus facilement à la question de savoir si un mot
+donné appartient bien à un langage régulier donné. Nous nous servirons de ces automates dans la section suivante pour construire un logiciel permettant de tester
+efficacement, si un mot donné appartient bien au langage engendré par une expression régulière donnée.</p>
+
+<p>Notons que les langages décrits par les automates finis (non-déterministes ou déterministes) sont les langages réguliers, les expressions régulières et les automates
+sont donc deux façons équivalentes permettant de décrire les mêmes langages.</p>
+
+<h3 id="automates-finis-non-déterministes">Automates finis non-déterministes</h3>
+
+<p>La figure suivante représente un automate fini non-déterministe qui décrit les commentaires en C de type <code>/*...*/</code>. On suppose, pour simplifier, que notre vocabulaire
+est $\mathcal{V} = \{ a, b, /, * \}$.
+Sur cette figure on peut voir les éléments suivants :</p>
+
+<ul>
+<li><p>Des <span style="color:green"><strong>états</strong></span>, les cercles sur la figure, numérotés de <code>0</code> à <code>7</code> pour cet exemple. On peut y voir l&rsquo;<span style="color:green"><strong>état de départ</strong></span>, l&rsquo;état <code>0</code>, qui possède une flèche qui arrive sur l&rsquo;état <code>0</code>
+mais qui part d&rsquo;aucun autre état. L&rsquo;état <code>7</code> est un <span style="color:green"><strong>état d&rsquo;acceptation</strong></span>, il est représenté par un double cercle.</p></li>
+
+<li><p>Des <span style="color:green"><strong>transitions</strong></span> entre états, les flèches sur la figure.</p></li>
+</ul>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<h3 id="automates-finis-déterministes">Automates finis déterministes</h3>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<h3 id="passage-d-un-automate-à-une-expression-régulière">Passage d&rsquo;un automate à une expression régulière</h3>
+
+<p>Nous allons décrire plus en détail les liens entre expressions régulières et automates dans les vidéos ci-dessous, mais nous
+pouvons retrouver l&rsquo;expression régulière permettant de décrire les commentaires en C automatiquement à partir d&rsquo;un automate fini (déterministe ou non-déterministe).
+Nous montrons ci-dessous une suite de transformations permettant de passer de l&rsquo;automate fini déterministe vu plus haut vers une expression régulière équivalente.
+On peut voir sur les transitions apparaître des expressions régulières au fur et à mesure des transformations. Pour ne pas confondre le caractère <code>*</code> avec l&rsquo;opérateur
+<span style="color:green">*</span>, nous avons écrit l&rsquo;opérateur en vert.</p>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/automata_to_regex1.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/automata_to_regex2.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<!-- 
+<figure>
+    
+        <img src="/images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto" />
+    
+    
+</figure>
+ -->
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<h2 id="identification-de-motifs">Identification de motifs</h2>
+
+<h2 id="analyseur-lexical-avec-ocamllex">Analyseur lexical avec ocamllex</h2>
+
+<h2 id="ressources">Ressources</h2>
+
+
+<div class="notices info" ><p><a href="https://regexcrossword.com/">Jouer avec les expressions régulières</a><br />
+<a href="https://regex101.com/">Tester des expressions régulières</a></p>
+</div>
+
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:Le-mot-vide-est">Le mot vide est l&rsquo;équivalent de la chaîne de caractères <code>&quot;&quot;</code>. <a class="footnote-return" href="#fnref:Le-mot-vide-est"><sup>[return]</sup></a></li>
+<li id="fn:Une-expression-r">Une expression régulière doit être de taille finie. <a class="footnote-return" href="#fnref:Une-expression-r"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/fr/compiler/minijava/introduction/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/fr/compiler/minijava/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1573020273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1573020273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1573020273"></script>
+    <script src="/js/jquery.sticky.js?1573020273"></script>
+    <script src="/js/featherlight.min.js?1573020273"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1573020273"></script>
+    <script src="/js/highlight.pack.js?1573020273"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1573020273"></script>
+    <script src="/js/learn.js?1573020273"></script>
+    <script src="/js/hugo-learn.js?1573020273"></script>
+
+    <link href="/mermaid/mermaid.css?1573020273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1573020273"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

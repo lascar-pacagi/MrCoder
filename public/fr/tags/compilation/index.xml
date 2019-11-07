@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compilation on MrCodeur</title>
+    <link>/fr/tags/compilation/</link>
+    <description>Recent content in Compilation on MrCodeur</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/fr/tags/compilation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MiniJava</title>
+      <link>/fr/compiler/minijava/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/compiler/minijava/</guid>
+      <description>MiniJava Le compilateur que nous allons étudier dans cette partie est un transpileur permettant de passer du langage MiniJava au langage C. Il sera réalisé en en OCaml en utilisant Menhir pour l&amp;rsquo;analyse syntaxique.
+Pour télécharger le code : git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,130 @@
+%\documentclass[12pt]{article}
+\documentclass{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0}
+%% \setlength{\textheight}{240mm}
+%% \setlength{\textwidth}{162mm}
+%% \setlength{\topmargin}{-15mm}
+%% \setlength{\evensidemargin}{-1cm}
+%% \setlength{\oddsidemargin}{-0.5cm}
+
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+
+%\begin{tabular}{c}
+
+  %\begin{center}
+%% \begin{tikzpicture}[scale=0.2]
+%% \tikzstyle{every node}+=[inner sep=0pt]
+%% \draw [black] (7.8,-28) circle (3);
+%% \draw (7.8,-28) node {$q_i$};
+%% \draw [black] (68.7,-28) circle (3);
+%% \draw (68.7,-28) node {$q_j$};
+%% \draw [black] (36.7,-28) circle (3);
+%% \draw (36.7,-28) node {$q$};
+%% \draw [black] (10.453,-26.603) arc (114.72354:65.27646:28.206);
+%% \fill [black] (34.05,-26.6) -- (33.53,-25.81) -- (33.11,-26.72);
+%% \draw (22.25,-23.52) node [above] {$\alpha$};
+%% \draw [black] (34.34,-29.848) arc (-55.93124:-124.06876:21.581);
+%% \fill [black] (10.16,-29.85) -- (10.54,-30.71) -- (11.1,-29.88);
+%% \draw (22.25,-34.05) node [below] {$\beta$};
+%% \draw [black] (39.463,-26.834) arc (110.58766:69.41234:37.642);
+%% \fill [black] (65.94,-26.83) -- (65.36,-26.08) -- (65.01,-27.02);
+%% \draw (52.7,-23.93) node [above] {$\gamma$};
+%% \draw [black] (66.107,-29.507) arc (-62.76711:-117.23289:29.299);
+%% \fill [black] (39.29,-29.51) -- (39.78,-30.32) -- (40.23,-29.43);
+%% \draw (52.7,-33.25) node [below] {$\delta$};
+%% \draw [black] (35.377,-25.32) arc (234:-54:2.25);
+%% \draw (36.7,-20.75) node [above] {$\theta$};
+%% \fill [black] (38.02,-25.32) -- (38.9,-24.97) -- (38.09,-24.38);
+%% \end{tikzpicture}%\\
+%\end{center}
+%% \\
+%% \\
+%%   (a) Automate initial.\\
+%%   \\
+%%   \\
+
+%% \\
+%% \\
+
+%% \end{tabular}
+
+
+%% %\begin{center}
+%% \begin{tabular}{c}
+%%   \\
+%% \begin{tikzpicture}[scale=0.2]
+%% \tikzstyle{every node}+=[inner sep=0pt]
+%% \draw [black] (7.8,-28) circle (3);
+%% \draw (7.8,-28) node {$q_i$};
+%% \draw [black] (68.7,-28) circle (3);
+%% \draw (68.7,-28) node {$q_j$};
+%% \draw [black] (10.62,-26.977) arc (108.92272:71.07728:85.2);
+%% \fill [black] (65.88,-26.98) -- (65.29,-26.24) -- (64.96,-27.19);
+%% \draw (38.25,-21.87) node [above] {$\alpha\theta^{\color{darkgreen}{*}}\gamma$};
+%% \draw [black] (66.113,-29.519) arc (-61.07143:-118.92857:57.602);
+%% \fill [black] (10.39,-29.52) -- (10.85,-30.34) -- (11.33,-29.47);
+%% \draw (38.25,-37.21) node [below] {$\delta\theta^{\color{darkgreen}{*}}\beta$};
+%% \draw [black] (6.477,-25.32) arc (234:-54:2.25);
+%% \draw (7.8,-20.75) node [above] {$\alpha\theta^{\color{darkgreen}{*}}\beta$};
+%% \fill [black] (9.12,-25.32) -- (10,-24.97) -- (9.19,-24.38);
+%% \draw [black] (67.377,-25.32) arc (234:-54:2.25);
+%% \draw (68.7,-20.75) node [above] {$\delta\theta^{\color{darkgreen}{*}}\gamma$};
+%% \fill [black] (70.02,-25.32) -- (70.9,-24.97) -- (70.09,-24.38);
+%% \end{tikzpicture}
+%% \end{tabular}
+%% %\\
+%% %\end{center}
+%% \\
+%% \\
+%%   (b) Suppression de l'état $q$.
+%%   \\
+%%   \\
+
+%% \\
+%% \\
+
+%\begin{center}
+\begin{tabular}{c}
+  \\
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (35.3,-28.8) circle (3);
+\draw (35.3,-28.8) node {$q_i$};
+\draw [black] (33.977,-26.12) arc (234:-54:2.25);
+\draw (35.3,-21.55) node [above] {$\alpha\theta^{\color{darkgreen}{*}}\beta\mbox{ }{\color{darkgreen}{|}}\mbox{ }(\alpha\theta^{\color{darkgreen}{*}}\gamma(\delta\theta^{\color{darkgreen}{*}}\gamma)^{\color{darkgreen}{*}}\delta\theta^{\color{darkgreen}{*}}\beta)^{\color{darkgreen}{*}}$};
+\fill [black] (36.62,-26.12) -- (37.5,-25.77) -- (36.69,-25.18);
+\end{tikzpicture}\\
+\end{tabular}
+%\end{center}
+
+%% \\
+%% \\
+%%   (c) Suppression de l'état $q_j$.
+%%   \\
+%%   \\
+
+%% \\
+%% \\
+
+%% $(\alpha\theta^*\beta\mbox{ }|\mbox{ }(\alpha\theta^*\gamma(\delta\theta^*\gamma)^*\delta\theta^*\beta)^*)^*$
+
+%% \\
+%% \\
+%%   (d) Suppression de l'état $q_i$.
+%%   \\
+%%   \\
+
+%% \\
+%% \\
+
+%% \end{tabular}
+
+\end{document}

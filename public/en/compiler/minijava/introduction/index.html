@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Introduction :: MrCoder</title>
+
+    
+    <link href="/css/nucleus.css?1573020273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1573020273" rel="stylesheet">
+    <link href="/css/hybrid.css?1573020273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1573020273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1573020273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1573020273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1573020273" rel="stylesheet">
+    <link href="/css/theme.css?1573020273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1573020273" rel="stylesheet">
+    
+      <link href="/css/theme-green.css?1573020273" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1573020273"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/en/compiler/minijava/introduction/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+    <img src="/images/logo.png">
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1573020273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1573020273"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/en";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1573020273"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/compiler/" title="Compiler" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/en/compiler/">
+          Compiler
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/compiler/minijava/" title="MiniJava" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/en/compiler/minijava/">
+          MiniJava
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/compiler/minijava/introduction/" title="Introduction" class="dd-item active">
+        <a href="/en/compiler/minijava/introduction/">
+        Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/compiler/minijava/scanner/" title="Lexical Analysis" class="dd-item ">
+        <a href="/en/compiler/minijava/scanner/">
+        Lexical Analysis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>Contact</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/lascar-pacagi"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://protonmail.com/"><i class='far fa-fw fa-envelope'></i> lascar.pacagi@protonmail.com</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="/en/"><b>IRC</b> freenode #mrcoder</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/compiler/minijava/introduction/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="fr" value="/fr/compiler/minijava/introduction/">Français</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p><i class="fas fa-mug-hot fa-2x"></i></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/en/'>MrCoder</a> > <a href='/en/compiler/'>Compiler</a> > <a href='/en/compiler/minijava/'>MiniJava</a> > Introduction
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#overview-of-the-transpiler">Overview of the Transpiler</a>
+<ul>
+<li><a href="#lexical-analysis">Lexical Analysis</a></li>
+<li><a href="#syntactic-analysis">Syntactic Analysis</a></li>
+<li><a href="#typechecker">Typechecker</a></li>
+<li><a href="#code-generation">Code Generation</a></li>
+<li><a href="#semantic-of-a-minijava-program">Semantic of a MiniJava Program</a></li>
+<li><a href="#review-of-java-s-dynamic-binding">Review of Java&rsquo;s Dynamic Binding</a></li>
+</ul></li>
+<li><a href="#questions">Questions</a></li>
+<li><a href="#ressources">Ressources</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+                
+                Introduction
+            </h1>
+            
+
+            
+            
+
+
+
+
+<p>We will build a transpiler, or source to source compiler, for a subset of <a href="https://en.wikipedia.org/wiki/Java_%28programming_language%29">Java</a>,
+the <a href="http://www.cambridge.org/resources/052182060X/">MiniJava</a> language. The input representation for our compiler is the MiniJava language and
+the output representation is the <a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C</a> language.<br />
+A sample program which computes the <a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> of a given number is given below.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Factorial</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Fac<span style="color:#f92672">().</span><span style="color:#a6e22e">computeFac</span><span style="color:#f92672">(</span>10<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fac</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">computeFac</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> numAux<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>num <span style="color:#f92672">&lt;</span> 1<span style="color:#f92672">)</span> numAux <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">else</span> numAux <span style="color:#f92672">=</span> num <span style="color:#f92672">*</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">computeFac</span><span style="color:#f92672">(</span>num<span style="color:#f92672">-</span>1<span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> numAux<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+
+<div class="notices tip" ><p>As Minijava is a subset of Java, we will be able to compile our MiniJava programs using the Java compiler <code>javac</code>. This will be very usefull to test the validity of our translations in C.
+Indeed, we will be able to compare the output of the program compiled with the Java compiler with the output of the program obtained by our transpiler.</p>
+</div>
+
+
+<h2 id="overview-of-the-transpiler">Overview of the Transpiler</h2>
+
+<p>We will use the following MiniJava program as a running example for this section.
+<a name="minijava_introduction_prog"></a>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Print42</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>35 <span style="color:#f92672">+</span> 2 <span style="color:#f92672">*</span> 3 <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div></p>
+
+<p>The following figure shows the main steps to transform a MiniJava program to a transpiled C source file.</p>
+
+
+<div class="mermaid" align="center">
+graph LR;
+A[MiniJava source file] -->|characters| B(fa:fa-tools<br/> Lexical <br/> analysis)
+B -->|tokens| C(fa:fa-tools <br/> Syntactic <br/> analysis)
+C -->|abstract syntax tree| D(fa:fa-tools <br/> Typechecker)
+D -->|abstract syntax tree| E(fa:fa-tools <br/> C code <br/> generator)
+E -->|characters| F[C source file]
+</div>
+
+
+<p>We will now describe the different steps shown on the figure above.</p>
+
+<p>To follow along with the videos that follow, start to install the dependencies as stated <a href="https://github.com/lascar-pacagi/MiniJava/blob/master/README.md">here</a>.
+Then download the code</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-git" data-lang="git">git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git
+cd MiniJava
+git checkout v1.0
+make</code></pre></div>
+
+<p>The <code>master</code> branch is the version with a garbage collector and the tag <code>v1.0</code> is a version without a garbage collector.
+If you want to modify the version 1.0, you can create a new branch (<code>from_v1.0</code> for example)</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-git" data-lang="git">git checkout -b from_v1.0 v1.0</code></pre></div>
+
+<p>The code we use during the videos is given below.</p>
+
+
+<section class="attachments ">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		Attachments
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/compiler/minijava/introduction.en.files/demo_code.tgz" >
+					demo_code.tgz
+				</a>
+				(3 ko)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+
+
+<h3 id="lexical-analysis">Lexical Analysis</h3>
+
+<p>The first step is the lexical analysis. This phase will group characters into words. Those words are called tokens. After this step we get a more structured information where
+the keywords of MiniJava, the identifiers, the integer constants and the boolean constants have been recognized. This is in this phase that commentaries and whitespaces are suppressed.<br />
+For the program given <a href="#minijava_introduction_prog">above</a>, the <code>scanner</code>, the program responsible of the lexical analysis phase, will produce the following stream of tokens. For example,
+we can see that the keyword <code>CLASS</code> has been recognized, as the integer constant <code>INT_CONST 35</code>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CLASS
+IDENT ‘Print42‘
+LBRACE
+PUBLIC
+STATIC
+VOID
+MAIN
+LPAREN
+STRING
+LBRACKET
+RBRACKET
+IDENT ‘a‘
+RPAREN
+LBRACE
+SYSO
+LPAREN
+INT_CONST ‘35‘
+PLUS
+INT_CONST ‘2‘
+TIMES
+INT_CONST ‘3‘
+PLUS
+INT_CONST ‘1‘
+RPAREN
+SEMICOLON
+RBRACE
+RBRACE
+EOF</code></pre></div>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/DaSCO7JwpGU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="syntactic-analysis">Syntactic Analysis</h3>
+
+<p>The second step, the syntactic analysis, takes as input the stream of tokens and produces an abstract syntax tree which represents the structure of the program with a tree
+data structure.<br />
+For the program given <a href="#minijava_introduction_prog">above</a>, the <code>parser</code>, the program responsible of the syntactic analysis phase, will produce the following tree. We can see
+the arithmetic expression with the operators precedence explicitly stated (expressions deeper in the tree have more priority).</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">program
+  ├name Print42
+  ├main_args a
+  └main
+     └ISyso
+        └EBinOp OpAdd
+          ├EBinOp OpAdd
+          │  ├EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">35</span><span style="color:#f92672">)</span>
+          │  └EBinOp OpMul
+          │    ├EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span>
+          │    └EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">3</span><span style="color:#f92672">)</span>
+          └EConst <span style="color:#f92672">(</span>ConstInt <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span></code></pre></div>
+
+<p>The syntactic analyser needs to know the structure of a MiniJava program. This structure is given in the form of a grammar.
+The MiniJava grammar, in its <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form">EBNF</a> form is given below.
+Another version, certainly easier to read for us, using <a href="https://en.wikipedia.org/wiki/Syntax_diagram">syntax diagrams</a> is given <a href="/fr/compiler/minijava/grammar.xhtml">here</a>.<sup class="footnote-ref" id="fnref:The-description"><a href="#fn:The-description">1</a></sup></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ebnf" data-lang="ebnf"><span style="color:#66d9ef">Program </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">MainClass </span>{ <span style="color:#66d9ef">ClassDeclaration </span>} <span style="color:#e6db74">&#39;eof&#39;</span> ;
+
+<span style="color:#66d9ef">MainClass </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;{&#39;</span> <span style="color:#e6db74">&#39;public&#39;</span> <span style="color:#e6db74">&#39;static&#39;</span> <span style="color:#e6db74">&#39;void&#39;</span> <span style="color:#e6db74">&#39;main&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#e6db74">&#39;String&#39;</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#e6db74">&#39;]&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#e6db74">&#39;{&#39;</span> <span style="color:#66d9ef">Statement </span><span style="color:#e6db74">&#39;}&#39;</span> <span style="color:#e6db74">&#39;}&#39;</span> ;
+
+<span style="color:#66d9ef">ClassDeclaration </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span> <span style="color:#66d9ef">Identifier </span>[ <span style="color:#e6db74">&#39;extends&#39;</span> <span style="color:#66d9ef">Identifier </span>] <span style="color:#e6db74">&#39;{&#39;</span> { <span style="color:#66d9ef">VarDeclaration </span>} { <span style="color:#66d9ef">MethodDeclaration </span>} <span style="color:#e6db74">&#39;}&#39;</span> ;
+
+<span style="color:#66d9ef">VarDeclaration </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Type Identifier </span><span style="color:#e6db74">&#39;;&#39;</span> ;
+
+<span style="color:#66d9ef">MethodDeclaration </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;public&#39;</span> <span style="color:#66d9ef">Type Identifier </span><span style="color:#e6db74">&#39;(&#39;</span> [ <span style="color:#66d9ef">Type Identifier </span>{ <span style="color:#e6db74">&#39;,&#39;</span> <span style="color:#66d9ef">Type Identifier </span>} ] <span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#e6db74">&#39;{&#39;</span> { <span style="color:#66d9ef">VarDeclaration </span>} { <span style="color:#66d9ef">Statement </span>} <span style="color:#e6db74">&#39;return&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;;&#39;</span> <span style="color:#e6db74">&#39;}&#39;</span> ;
+
+<span style="color:#66d9ef">Type </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;int&#39;</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#e6db74">&#39;]&#39;</span>
+        | <span style="color:#e6db74">&#39;boolean&#39;</span>
+        | <span style="color:#e6db74">&#39;int&#39;</span>
+        |  <span style="color:#66d9ef">Identifier </span>;
+
+<span style="color:#66d9ef">Statement </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{&#39;</span> { <span style="color:#66d9ef">Statement </span>} <span style="color:#e6db74">&#39;}&#39;</span>
+        | <span style="color:#e6db74">&#39;if&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#66d9ef">Statement </span><span style="color:#e6db74">&#39;else&#39;</span> <span style="color:#66d9ef">Statement</span>
+        | <span style="color:#e6db74">&#39;while&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#66d9ef">Statement</span>
+        | <span style="color:#e6db74">&#39;System.out.println&#39;</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#e6db74">&#39;;&#39;</span>
+        | <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;=&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;;&#39;</span>
+        | <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;]&#39;</span> <span style="color:#e6db74">&#39;=&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;;&#39;</span> ;
+
+<span style="color:#66d9ef">Expression </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Expression </span>( <span style="color:#e6db74">&#39;&amp;&amp;&#39;</span> | <span style="color:#e6db74">&#39;&lt;&#39;</span> | <span style="color:#e6db74">&#39;+&#39;</span> | <span style="color:#e6db74">&#39;-&#39;</span> | <span style="color:#e6db74">&#39;*&#39;</span> ) <span style="color:#66d9ef">Expression</span>
+        | <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;]&#39;</span>
+        | <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#e6db74">&#39;length&#39;</span>
+        | <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;(&#39;</span> [<span style="color:#66d9ef">Expression </span>{<span style="color:#e6db74">&#39;,&#39;</span> <span style="color:#66d9ef">Expression</span>}] <span style="color:#e6db74">&#39;)&#39;</span>
+        | <span style="color:#66d9ef">Integer</span>
+        | <span style="color:#e6db74">&#39;true&#39;</span>
+        | <span style="color:#e6db74">&#39;false&#39;</span>
+        | <span style="color:#66d9ef">Identifier</span>
+        | <span style="color:#e6db74">&#39;this&#39;</span>
+        | <span style="color:#e6db74">&#39;new&#39;</span> <span style="color:#e6db74">&#39;int&#39;</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;]&#39;</span>
+        | <span style="color:#e6db74">&#39;new&#39;</span> <span style="color:#66d9ef">Identifier </span><span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#e6db74">&#39;)&#39;</span>
+        | <span style="color:#e6db74">&#39;!&#39;</span> <span style="color:#66d9ef">Expression</span>
+        | <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#66d9ef">Expression </span><span style="color:#e6db74">&#39;)&#39;</span> ;
+
+<span style="color:#66d9ef">Letter </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span> | <span style="color:#e6db74">&#39;B&#39;</span> | <span style="color:#e6db74">&#39;C&#39;</span> | <span style="color:#e6db74">&#39;D&#39;</span> | <span style="color:#e6db74">&#39;E&#39;</span> | <span style="color:#e6db74">&#39;F&#39;</span> | <span style="color:#e6db74">&#39;G&#39;</span>
+       | <span style="color:#e6db74">&#39;H&#39;</span> | <span style="color:#e6db74">&#39;I&#39;</span> | <span style="color:#e6db74">&#39;J&#39;</span> | <span style="color:#e6db74">&#39;K&#39;</span> | <span style="color:#e6db74">&#39;L&#39;</span> | <span style="color:#e6db74">&#39;M&#39;</span> | <span style="color:#e6db74">&#39;N&#39;</span>
+       | <span style="color:#e6db74">&#39;O&#39;</span> | <span style="color:#e6db74">&#39;P&#39;</span> | <span style="color:#e6db74">&#39;Q&#39;</span> | <span style="color:#e6db74">&#39;R&#39;</span> | <span style="color:#e6db74">&#39;S&#39;</span> | <span style="color:#e6db74">&#39;T&#39;</span> | <span style="color:#e6db74">&#39;U&#39;</span>
+       | <span style="color:#e6db74">&#39;V&#39;</span> | <span style="color:#e6db74">&#39;W&#39;</span> | <span style="color:#e6db74">&#39;X&#39;</span> | <span style="color:#e6db74">&#39;Y&#39;</span> | <span style="color:#e6db74">&#39;Z&#39;</span> | <span style="color:#e6db74">&#39;a&#39;</span> | <span style="color:#e6db74">&#39;b&#39;</span>
+       | <span style="color:#e6db74">&#39;c&#39;</span> | <span style="color:#e6db74">&#39;d&#39;</span> | <span style="color:#e6db74">&#39;e&#39;</span> | <span style="color:#e6db74">&#39;f&#39;</span> | <span style="color:#e6db74">&#39;g&#39;</span> | <span style="color:#e6db74">&#39;h&#39;</span> | <span style="color:#e6db74">&#39;i&#39;</span>
+       | <span style="color:#e6db74">&#39;j&#39;</span> | <span style="color:#e6db74">&#39;k&#39;</span> | <span style="color:#e6db74">&#39;l&#39;</span> | <span style="color:#e6db74">&#39;m&#39;</span> | <span style="color:#e6db74">&#39;n&#39;</span> | <span style="color:#e6db74">&#39;o&#39;</span> | <span style="color:#e6db74">&#39;p&#39;</span>
+       | <span style="color:#e6db74">&#39;q&#39;</span> | <span style="color:#e6db74">&#39;r&#39;</span> | <span style="color:#e6db74">&#39;s&#39;</span> | <span style="color:#e6db74">&#39;t&#39;</span> | <span style="color:#e6db74">&#39;u&#39;</span> | <span style="color:#e6db74">&#39;v&#39;</span> | <span style="color:#e6db74">&#39;w&#39;</span>
+       | <span style="color:#e6db74">&#39;x&#39;</span> | <span style="color:#e6db74">&#39;y&#39;</span> | <span style="color:#e6db74">&#39;z&#39;</span> ;
+
+<span style="color:#66d9ef">Digit </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span> | <span style="color:#e6db74">&#39;1&#39;</span> | <span style="color:#e6db74">&#39;2&#39;</span> | <span style="color:#e6db74">&#39;3&#39;</span> | <span style="color:#e6db74">&#39;4&#39;</span> | <span style="color:#e6db74">&#39;5&#39;</span> | <span style="color:#e6db74">&#39;6&#39;</span> | <span style="color:#e6db74">&#39;7&#39;</span> | <span style="color:#e6db74">&#39;8&#39;</span> | <span style="color:#e6db74">&#39;9&#39;</span> ;
+
+<span style="color:#66d9ef">Integer </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Digit </span>{ <span style="color:#66d9ef">Digit </span>} ;
+
+<span style="color:#66d9ef">Character </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Letter </span>| <span style="color:#66d9ef">Digit </span>| <span style="color:#e6db74">&#39;_&#39;</span> ;
+
+<span style="color:#66d9ef">Identifier </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">Letter </span>{ <span style="color:#66d9ef">Letter </span>| <span style="color:#66d9ef">Digit </span>| <span style="color:#e6db74">&#39;_&#39;</span> } ;</code></pre></div>
+
+<p>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/xUatwjMbjYk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+</p>
+
+<!-- Pour reprendre la description donnée par [Andrew W. Appel](https://www.cs.princeton.edu/~appel/) dans -->
+
+<!-- une annexe de son livre [*Modern Compiler Implementation in Java*](https://www.cs.princeton.edu/~appel/modern/), on a : -->
+
+<h3 id="typechecker">Typechecker</h3>
+
+<p>The third step, the typechecker, takes as input the abstract syntax tree and will check if the types are correct. For example, the typechecker will check if we call
+a method with the correct number of arguments, that the operators <code>+</code> and <code>*</code> are used with integer operands, that a class is compatible with another one using
+the class hierarchy, &hellip;</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/mz0kVQd0rXY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="code-generation">Code Generation</h3>
+
+<p>The last step is the code generator phase. We will again visit the abstract syntax tree to generate C code. For our <a href="#minijava_introduction_prog">running example</a>,
+we get the following C source file.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+  printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, ((<span style="color:#ae81ff">35</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>));
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}</code></pre></div>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/4wsr3Zr1vjs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="semantic-of-a-minijava-program">Semantic of a MiniJava Program</h3>
+
+<p>The semantic of a MiniJava program is given by its semantic as a Java program<sup class="footnote-ref" id="fnref:See-here-https-d"><a href="#fn:See-here-https-d">2</a></sup>.
+The main restrictions are</p>
+
+<ul>
+<li>No class has <code>Object</code> as a superclass.</li>
+<li>No <code>super</code> keyword.</li>
+<li>Only a default constructor.</li>
+<li>The only types available are
+
+<ul>
+<li><code>int</code>.</li>
+<li><code>boolean</code>.</li>
+<li><code>int[]</code>.</li>
+<li>User defined classes.</li>
+</ul></li>
+<li>No overloading.</li>
+<li>All methods return a value. The <code>return</code> statement is at the end.</li>
+<li><code>System.out.println()</code> only prints integers.</li>
+<li>No interfaces, no exceptions, no generic types, no lambdas.</li>
+</ul>
+
+<p>We explain in the following video the main differences between Java and MiniJava.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/tNKBDxaML8c" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>We described briefly in the video the default initialization mechanism in Java (and MiniJava).
+We give further details below. You can look <a href="https://docs.oracle.com/javase/specs/jls/se12/html/jls-4.html#jls-4.12.5">here</a> for all the details.</p>
+
+<p>Let&rsquo;s consider the following Java program <code>Init.java</code>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Init</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>        <span style="color:#66d9ef">int</span> i<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>        <span style="color:#66d9ef">boolean</span> b<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> a<span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span><span style="color:#f92672">}</span></code></pre></div>
+
+<p>When we compile it, we get the following error messages.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ javac Init.java
+Init.java:6: error: variable i might not have been initialized
+        System.out.println<span style="color:#f92672">(</span>i + <span style="color:#e6db74">&#34; &#34;</span> + b + <span style="color:#e6db74">&#34; &#34;</span> + a<span style="color:#f92672">)</span>;
+                           ^
+Init.java:6: error: variable b might not have been initialized
+        System.out.println<span style="color:#f92672">(</span>i + <span style="color:#e6db74">&#34; &#34;</span> + b + <span style="color:#e6db74">&#34; &#34;</span> + a<span style="color:#f92672">)</span>;
+                                     ^
+Init.java:6: error: variable a might not have been initialized
+        System.out.println<span style="color:#f92672">(</span>i + <span style="color:#e6db74">&#34; &#34;</span> + b + <span style="color:#e6db74">&#34; &#34;</span> + a<span style="color:#f92672">)</span>;
+                                               ^
+<span style="color:#ae81ff">3</span> errors</code></pre></div>
+
+<p>Indeed, the three variables <code>i</code>, <code>b</code> and <code>a</code> are put on the stack when <code>main</code> is called. Java does not initialize
+local variables, and their values are whatever was currently in those locations on the stack.
+The compiler rejects this program because of the arbitrary values that go into those variables, by telling
+us that those variables have not been initialized.</p>
+
+<p>On the other hand, the following program is correct, because attributes have a default value.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Init</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>        <span style="color:#66d9ef">new</span> Default<span style="color:#f92672">().</span><span style="color:#a6e22e">print</span><span style="color:#f92672">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span><span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Default</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> b<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> a<span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span><span style="color:#f92672">}</span></code></pre></div>
+
+<p>And we get the following output.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ javac Init.java
+$ java Init
+<span style="color:#ae81ff">0</span> false null</code></pre></div>
+
+<h3 id="review-of-java-s-dynamic-binding">Review of Java&rsquo;s Dynamic Binding</h3>
+
+<p>We will review dynamic binding in Java in the following video, because the management of dynamic binding will
+be one of the most difficult point to handle in our transpiler.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/zYWyqyrNSOs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h2 id="questions">Questions</h2>
+
+<p>Let&rsquo;s have a look again at the <a href="/fr/compiler/minijava/grammar.xhtml">MiniJava grammar</a>.
+We would like to add to the language</p>
+
+<ul>
+<li>The <code>==</code> operator.</li>
+<li>Constructors.</li>
+<li><code>private</code> methods and constructors.</li>
+</ul>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	How to update the grammar to add those new elements?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p><a href="/fr/compiler/minijava/grammar_private_constructor_equality.xhtml">MiniJava grammar updated</a>.</p>
+
+    </div>
+</div>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	In the previous question, what terminals did you add to the grammar (a terminal in the grammar will become a token for the scanner)?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p><code>==</code> and <code>private</code>.</p>
+
+    </div>
+</div>
+
+<hr />
+
+<p>Consider the following Java program.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">m1</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;int A:m1(int n)&#34;</span><span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>        <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">B</span> <span style="color:#66d9ef">extends</span> A <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">m1</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;boolean B:m1(int n)&#34;</span><span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#f92672">}</span></code></pre></div>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Does this code compile?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>This code doesn&rsquo;t compile. Indeed, on line 9, the <code>m1</code> method overrides the <code>m1</code> method of line 2:
+It has the same name and the same parameters. But to correctly overrides the <code>m1</code> method of line 2,
+the return type must be compatible, and <code>boolean</code> is not compatible with <code>int</code>.</p>
+
+    </div>
+</div>
+
+<hr />
+
+<p>Consider the following Java program.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">m1</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;int A:m1(int n)&#34;</span><span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>        <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">m1</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;boolean A:m1(int n)&#34;</span><span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span><span style="color:#f92672">}</span></code></pre></div>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Does this code compile?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>This code doesn&rsquo;t compile. Indeed, the return type is not used to differentiate methods.
+Therefore, even if the methods on lines 2 and 6 have different return types, because they have the same
+name and the same parameters, this is not overloading and so we have an error.</p>
+
+    </div>
+</div>
+
+<hr />
+
+<p>Consider the following Java program.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">m1</span><span style="color:#f92672">(</span>A a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;int A:m1(A a)&#34;</span><span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>        <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">m1</span><span style="color:#f92672">(</span>B b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;boolean A:m1(B b)&#34;</span><span style="color:#f92672">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span><span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">B</span> <span style="color:#66d9ef">extends</span> A <span style="color:#f92672">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#f92672">}</span></code></pre></div>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Does this code compile?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>This code compiles. This time, the method on line 6 overloads the method on line 2 because the parameter
+is of a different type.</p>
+
+    </div>
+</div>
+
+<h2 id="ressources">Ressources</h2>
+
+
+<div class="notices info" ><p><a href="https://introcs.cs.princeton.edu/java/home/">Java language course from Princeton</a><br />
+<a href="https://www.edx.org/professional-certificate/microsoft-introduction-to-code-objects-and-algorithms">Java language course from Microsoft</a><br />
+<a href="https://docs.oracle.com/javase/specs/">Java language specifications</a><br />
+<a href="http://www.cambridge.org/resources/052182060X/">MiniJava page</a><br />
+<a href="/fr/compiler/minijava/grammar.xhtml">MiniJava syntactic diagram</a><br />
+<a href="https://www.edx.org/v2/course/c-programming-language-foundations">C language course part 1</a><br />
+<a href="https://www.edx.org/v2/course/modular-programming-and-memory-management">C language course part 2</a><br />
+<a href="https://www.edx.org/v2/course/programming-in-c-pointers-and-memory-management">C language course part 3</a><br />
+<a href="https://www.edx.org/v2/course/c-programming-advanced-data-types">C language course part 4</a><br />
+<a href="http://www.buildyourownlisp.com/">Learn C by building a Lisp</a><br />
+<a href="https://modernc.gforge.inria.fr/">modern C</a><br />
+<a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">C language specifications (C11 norm)</a></p>
+</div>
+
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:The-description">The description of the grammar used to generate the diagram does not follow exactly the EBNF form. Details are given <a href="https://www.w3.org/TR/xml/#sec-notation">here</a>. <a class="footnote-return" href="#fnref:The-description"><sup>[return]</sup></a></li>
+<li id="fn:See-here-https-d">See <a href="https://docs.oracle.com/javase/specs/">here</a> for the semantic of the Java language. <a class="footnote-return" href="#fnref:See-here-https-d"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/en/compiler/minijava/" title="MiniJava"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/en/compiler/minijava/scanner/" title="Lexical Analysis" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1573020273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1573020273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1573020273"></script>
+    <script src="/js/jquery.sticky.js?1573020273"></script>
+    <script src="/js/featherlight.min.js?1573020273"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1573020273"></script>
+    <script src="/js/highlight.pack.js?1573020273"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1573020273"></script>
+    <script src="/js/learn.js?1573020273"></script>
+    <script src="/js/hugo-learn.js?1573020273"></script>
+
+    <link href="/mermaid/mermaid.css?1573020273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1573020273"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
