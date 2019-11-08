@@ -111,7 +111,7 @@ décrivent.\
 {{% notice note %}}
 Pour éviter trop de parenthèses, il existe une priorité entre les différents opérateurs : les parenthèses ont la plus grande priorité,
 ensuite l'opérateur $\color{green}{*}$, puis l'opérateur de concaténation et enfin l'opérateur $\color{green}{|}$. On a vu aussi ci-dessus que les opérateurs
-de concaténation et d'union sont associatifs, ce qui nous permet de supprimer d'avantage de parenthèses.\
+de concaténation et d'union sont associatifs, ce qui nous permet de supprimer d'avantage de parenthèses.
 Ainsi, l'expression régulière $\color{green}{10^*1\\ |\\ 11\\ |\\ \epsilon}$ se lit $\color{green}{(((1(0^ *))1)\\ |\\ (11))\\ |\\ \epsilon}$
 {{% /notice %}}
 
@@ -350,7 +350,7 @@ Nous allons détailler dans la vidéo suivante comment détecter si un mot appar
 {{% notice note %}}
 Il nous semble plus aisé de construire l'automate fini non déterministe que nous venons de voir pour décrire le langage des commentaires que l'expression régulière
 *$/\*\color{darkgreen}{(}\*^{\color{darkgreen}{+}}\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}\ \color{darkgreen}{|}\ \color{darkgreen}{(}a\ |\ b\ |\ /\color{darkgreen}{)}\color{darkgreen}{)}^{\color{darkgreen}{\*}}\*^{\color{darkgreen}{+}}/$* que nous avions vu dans la section [précedente](#regular_expressions).
-Après, vous êtes peut-être des gurus de [Perl](https://fr.wikipedia.org/wiki/Perl_(langage))^[`Perl` signifie *Practical Extraction and Report Language*, ou *Pathologically Eclectic Rubbish Lister* <i class="far fa-smile-wink"></i>.]
+Après, vous êtes peut-être des gourous de [Perl](https://fr.wikipedia.org/wiki/Perl_(langage))^[`Perl` signifie *Practical Extraction and Report Language*, ou *Pathologically Eclectic Rubbish Lister* <i class="far fa-smile-wink"></i>.]
 et c'est juste trop facile pour vous <i class="far fa-smile-beam"></i>.
 {{% /notice %}}
 
@@ -360,7 +360,44 @@ et c'est juste trop facile pour vous <i class="far fa-smile-beam"></i>.
 
 #### Questions
 
-{{%expand "Soit l'alphabet $\{a, b\}$." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient le mot $aba$ $\}$. Par example, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$." %}}
+ {{< figure src="/images/minijava/scanner/nfa_question1.svg" width="600px" height="auto">}}
+
+Notons que cet automate calque vraiment l'expression régulière $\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}aba\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
+{{% /expand%}}
+
+
+{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas le mot $aba$ sauf s'il est précédé par le mot $bbb$ $\}$. Par exemple, $aaabbbaabaa$ est dans le langage, $abba$ aussi, mais pas $bbababbb$." %}}
+{{< figure src="/images/minijava/scanner/nfa_question2.svg" width="600px" height="auto">}}
+
+<a name="nfa_question2_states"></a>
+La partie haute de l'automate, les états `1`, `2`, `3` et `4`, permet de reconnaître une suite de trois `b` suivie de n'importe quoi. La partie basse s'occupe de reconnaître tout sauf `aba`.
+L'état `5` indique que l'on a pas encore vu de `a` ou bien que l'on vient de rencontrer une séquence se terminant par `bb` (on est donc sûr de ne pas avoir vu une séquence se terminant par `ab`).
+L'état `6` indique qu'on est en train d'analyser une suite d'au moins un `a`
+et l'état `7` qu'on vient de voir `ab`, donc qu'on ne doit pas avoir un `a` maintenant). À partir des états `5`, `6` et `7` on peut rejoindre la partie haute de l'automate car on vient d'analyser un préfixe correcte et on peut vouloir ajouter `aba` dans la suite (en ajoutant `bbb` avant).
+
+Comment être sûr que la partie basse reconnaît bien tout sauf `aba` ? Pour la partie haute, il est assez facile de se convaincre qu'elle reconnaît bien $bbb\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
+Mais ce n'est pas si évident de se convaincre que la partie basse décrit bien tout sauf la chaîne `aba`. Quand on veut vraiment être sûr, il n'y a qu'un moyen,
+c'est faire une preuve !^[Vous me direz qu'il faut encore qu'elle soit correcte. C'est pas faux <i class="far fa-smile-beam"></i>, mais dans une preuve il faut juste se convaincre que chaque étape élémentaire est correcte.]
+
+On va faire une preuve par récurrence sur la longueur de la chaîne. Pour une chaîne de longueur 0 ($\epsilon$) de longueur 1 ($a$ et $b$) et de longueur 2 ($aa$, $ab$, $ba$ et $bb$), on peut suivre les transitions
+à partir de l'état 0 vers la partie basse et voir qu'on les reconnaît toutes et elles n'ont pas `aba` dedans (car la longueur de la chaîne est inférieure ou égale à 2). Supposons
+que la propriété est vraie pour les chaînes de longueur $n \ge 2$, est-ce vraie pour les chaînes de longueur $n + 1$ ? Regardons les deux derniers caractères de la chaîne `m` de longueur $n$.
+
+ * `m` se termine par `aa`. Dans ce cas on doit forcément se trouver dans l'état `6` [comme indiqué ci-dessus](#nfa_question2_states). On peut ajouter un `a` et accepter
+ la nouvelle chaîne `ma` car on reste dans l'état `6` qui est un état d'acceptation, et on peut aussi ajouter un `b` et accepter la chaîne `mb` car on se retrouve dans l'état `7` qui est aussi
+ un état d'acceptation.
+
+ * `m` se termine par `ab`. Dans ce cas on doit forcément se trouver dans l'état `7` [comme indiqué ci-dessus](#nfa_question2_states). On ne peut pas ajouter de `a` car il n'y a aucune
+ transition sur un `a` à partir de l'état `7` et donc on ne reconnaîtra pas une chaîne contenant `aba`. On peut par contre ajouter un `b` et bien reconnaître la chaîne de longueur $n+1$ `mb`.
+
+ * `m` se termine par `ba`. Dans ce cas on doit forcément se trouver dans l'état `6` [comme indiqué ci-dessus](#nfa_question2_states) et on peut ajouter un `a` ou bien un `b` pour obtenir la
+ chaîne de longueur $n+1$ `ma` ou `mb`.
+
+ * `m` se termine par `bb`. Dans ce cas on doit forcément se trouver dans l'état `5` [comme indiqué ci-dessus](#nfa_question2_states) et on peut ajouter un `a` ou bien un `b` pour obtenir la
+ chaîne de longueur $n+1$ `ma` ou `mb`.
+
+En supposant donc qu'on peut générer tous les mots de longueur $n$ ne contenant pas `aba`, on vient de montrer qu'on peut générer tous les mots de longueur $n+1$ ne contenant pas `aba`.
 
 {{% /expand%}}
 
