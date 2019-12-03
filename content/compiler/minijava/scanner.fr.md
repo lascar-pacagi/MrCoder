@@ -287,7 +287,8 @@ Formellement, nous aurions dû écrire deux transitions au lieu d'une, avec chac
 
 L'automate va nous permettre de savoir si un mot `m` construit à partir du vocabulaire $\mathcal{V}$ appartient au langage décrit par l'automate (on note ce langage $\mathcal{L}(A_{fnd})$).
 
-#### Test de l'appartenance d'un mot au langage décrit par l'automate
+
+<!-- #### Test de l'appartenance d'un mot au langage décrit par l'automate -->
 
 Soit `/*/*/` un mot, que nous appellerons `m`, appartenant à $\mathcal{V}^*$.
 Comment savoir si ce mot est décrit par l'automate $A_{fnd}$ ?
@@ -345,7 +346,6 @@ sur l'état final `7`.
 La chaîne d'entrée `/*/*/` est acceptée par notre automate, mais comment sait-on si une chaîne n'est pas dans le langage $\mathcal{L}(A_{fnd})$, autrement dit
 comment sait-on si le mot n'est pas accepté ?
 Pour un automate non déterministe, il faut montrer qu'après avoir lu tous les caractères de la chaîne d'entrée, on ne peut pas être dans un état d'acceptation.
-Nous allons détailler dans la vidéo suivante comment détecter si un mot appartient ou non au langage engendré par un automate fini non déterministe.
 
 {{% notice note %}}
 Il nous semble plus aisé de construire l'automate fini non déterministe que nous venons de voir pour décrire le langage des commentaires que l'expression régulière
@@ -354,8 +354,15 @@ Après, vous êtes peut-être des gourous de [Perl](https://fr.wikipedia.org/wik
 et c'est juste trop facile pour vous <i class="far fa-smile-beam"></i>.
 {{% /notice %}}
 
+Nous allons détailler dans les deux vidéos suivantes les automates finis non déterministes, et comment détecter si un mot appartient ou non au langage engendré par un automate fini non déterministe.
 
-<!-- {{< youtube  >}} -->
+
+{{< youtube rZGSM0vvz58 >}}
+{{< youtube uJmyT-tE7dY >}}
+
+Dans la vidéo suivante, nous allons montrer comment passer d'une expression régulière à un automate fini non déterministe.
+
+{{< youtube KFqUYGvmAHA >}}
 
 
 #### Questions
@@ -419,7 +426,7 @@ On peut voir sur les transitions apparaître des expressions régulières au fur
 
 {{< figure src="/images/minijava/scanner/automata_to_regex2.svg" width="800px" height="auto">}}
 
-<!-- {{< figure src="/images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto">}} -->
+{{< figure src="/images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto">}}
 
 {{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
 

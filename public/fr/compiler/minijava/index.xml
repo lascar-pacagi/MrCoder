@@ -27,7 +27,9 @@ class Factorial { public static void main(String[] a) { System.out.println(new F
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/fr/compiler/minijava/scanner/</guid>
-      <description>graph LR; A[source en MiniJava] --|caractères| B(fa:fa-tools Analyse  lexicale) B --|unités lexicales| C(fa:fa-tools  Analyse  syntaxique) C --|arbre syntaxique abstrait| D(fa:fa-tools  Analyse  de types) D --|arbre syntaxique abstrait| E(fa:fa-tools  Générateur  de code C) E --|caractères| F[source en C] classDef green fill:#74B559,stroke:#222723,stroke-width:5px; class B green  Nous allons décrire l&amp;rsquo;analyseur lexical de MiniJava qui va permettre de découper les caractères du fichier source en unités lexicales.</description>
+      <description>{{}} graph LR; A[source en MiniJava] &amp;ndash;&amp;gt;|caractères| B(fa:fa-tools Analyse  lexicale) B &amp;ndash;&amp;gt;|unités lexicales| C(fa:fa-tools  Analyse  syntaxique) C &amp;ndash;&amp;gt;|arbre syntaxique abstrait| D(fa:fa-tools  Analyse  de types) D &amp;ndash;&amp;gt;|arbre syntaxique abstrait| E(fa:fa-tools  Générateur  de code C) E &amp;ndash;&amp;gt;|caractères| F[source en C]
+classDef green fill:#74B559,stroke:#222723,stroke-width:5px; class B green {{&amp;lt; /mermaid &amp;gt;}}
+Nous allons décrire l&amp;rsquo;analyseur lexical de MiniJava qui va permettre de découper les caractères du fichier source en unités lexicales.</description>
     </item>
     
   </channel>
