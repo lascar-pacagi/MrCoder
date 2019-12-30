@@ -129,7 +129,7 @@ Nous donnons ci-dessous quelques examples d'expressions régulières toujours su
 | :----------------:                                                 | :----------------:                    | :----------------:                |
 | Les nombres binaires (sans zéro non significatif)                  | $\color{green}{0\\ \| \\ 1(0\\ \| \\ 1)^*}$  | $\\{0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, 1100, \cdots\\}$ |
 | Les nombres binaires impairs                                       | $\color{green}{1\\ \| \\ 1(0\\ \| \\ 1)^*1}$ | $\\{1, 11, 101, 111, 1001, 1011, 1101, 1111, 10001, \cdots\\}$                 |
-| Les chaînes de bits ne contenant que des zeros et des uns alternés | $\color{green}{10(10)^* \\ \| \\ 01(01)^*}$  | $\\{10, 01, 1010, 0101, 101010, 010101, \cdots\\}$                              |
+| Les chaînes de bits de longueur paire ne contenant que des zeros et des uns alternés | $\color{green}{(10)^* \\ \| \\ (01)^*}$  | $\\{\epsilon, 10, 01, 1010, 0101, 101010, 010101, \cdots\\}$                              |
 | Les chaînes de bits dont la longueur est multiple de 3             | $\color{green}{((0\\ \| \\ 1)(0\\ \| \\ 1)(0\\ \| \\ 1))^*}$ | $\\{\epsilon, 000, 001, 010, 011, 100, \cdots, 111000, 111001, \cdots, 101011110, \cdots \\}$ |
 | Les chaînes de bits ne contenant pas la sous-chaîne $11$           | $\color{green}{0^* ( 100^* )^* (1\\ \| \\ \epsilon)}$ | $\\{\epsilon, 0, 1, 00, 01, 10, 000, 001, 010, 100, 101, 0000, 0001, \cdots\\}$ |
 
@@ -411,30 +411,98 @@ En supposant donc qu'on peut générer tous les mots de longueur $n$ ne contenan
 
 ### Automates finis déterministes
 
+Les automates finis déterministes sont un sous-ensemble des automates finis non-déterministes. L'intérêt de ces automates, c'est de ne plus avoir besoin
+de "deviner" la bonne transition à suivre car, dans un état donné et pour un symbole donné de l'entrée, il n'y a au plus qu'une transition possible. Comme nous l'avons vu
+dans la section précédente, on peut en réalité se servir d'un automate non-déterministe sans avoir besoin de deviner. L'algorithme que nous avons vu permet en fait de construire dynamiquement
+un automate fini déterministe. L'intérêt de partir directement d'un automate déterministe, c'est que l'on n'a pas besoin de reconstruire à chaque fois ce dernier.
+Ce sera d'autant plus intéressant pour un analyseur lexical car les expressions régulières permettant de décrire les unités lexicales ne changeront pas
+et on gagnera en efficacité en construisant une fois pour toute les automates correspondants aux expressions régulières.
+
+L'automate suivant est une version
+déterministe de l'automate non-déterministe qui reconnaît les commentaires en `C` de la section précédente.
+
+
 {{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
+
+Comme les automates finis déterministes sont une restriction des automates finis non-déterministes, on pourrait à juste titre croire qu'ils permettent de décrire moins de langages.
+En fait ce n'est pas le cas et ils sont aussi puissants que les automates finis non-déterministes.
+
+La vidéo ci-dessous va décrire les automates finis déterministe et montrer comment transformer un automate non-déterministe en un automate déterministe.
+
+{{< youtube hOAbe3TbdJ0 >}}
+
+Le code utilisé dans la vidéo précédente est accessible [ici](https://gist.github.com/lascar-pacagi/e2ac6243986672d9c85a839f26eadc52).
+
+Dans la vidéo suivante, nous allons montrer comment fonctionne un analyseur lexical et comment obtenir un automate fini déterministe de taille minimale.
+
+Dans la vidéo suivante, nous allons coder en [C++](https://isocpp.org/) un analyseur lexical pour la partie du langage présentée dans la vidéo précédente.
+Le code utilisé dans cette vidéo est accessible [ici](https://gist.github.com/lascar-pacagi/e2ac6243986672d9c85a839f26eadc52).
+
+
+#### Questions
+
+{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$. Par example, $abb$ est dans le langage, ainsi que $bbabbaa$ et $aaaaa$, mais pas $b$ ni $aabb$." %}}
+ {{< figure src="/images/minijava/scanner/dfa_question1.fr.svg" width="500px" height="auto">}}
+Dans l'automate ci-dessus, on a un état par configuration possible de la parité des $a$ et des $b$. Par exemple, l'état d'acceptation $IP$ indique que l'on a rencontré
+un nombre impair de $a$ et un nombre pair de $b$. L'état de départ $PP$ indique que l'on a vu un nombre pair de $a$ et de $b$. C'est vrai tout au début aussi, car on a alors rencontré
+aucun $a$ et aucun $b$.
+{{% /expand%}}
+
+{{%expand "Soit l'expression régulière $\color{darkgreen}{0^*(100^*)^*(1|\epsilon)}$ décrivant les chaînes de bits sur l'alphabet $\{0, 1\}$ ne contenant pas la sous-chaîne $11$. Transformer cette expression régulière en un automate fini non-déterministe, puis transformer ce dernier en un automate fini déterministe et pour terminer, minimiser ce dernier." %}}
+TO DO
+{{% /expand%}}
 
 
 ### Passage d'un automate à une expression régulière
 
-Nous allons décrire plus en détail les liens entre expressions régulières et automates dans les vidéos ci-dessous, mais nous
-pouvons retrouver l'expression régulière permettant de décrire les commentaires en C automatiquement à partir d'un automate fini (déterministe ou non-déterministe).
-Nous montrons ci-dessous une suite de transformations permettant de passer de l'automate fini déterministe vu plus haut vers une expression régulière équivalente.
+Nous pouvons construire automatiquement l'expression régulière correspondant à un automate fini (déterministe ou non-déterministe).
+Nous montrons ci-dessous une suite de transformations permettant de passer de l'automate fini déterministe correspondant aux commentaires en C vu plus haut,
+vers une expression régulière équivalente. Nous détaillerons dans la vidéo ci-dessous cette transformation.
+
 On peut voir sur les transitions apparaître des expressions régulières au fur et à mesure des transformations. Pour ne pas confondre le caractère `*` avec l'opérateur
 <span style="color:green">*</span>, nous avons écrit l'opérateur en vert.
 
-{{< figure src="/images/minijava/scanner/automata_to_regex1.svg" width="800px" height="auto">}}
+<!-- {{< figure src="/images/minijava/scanner/automata_to_regex1.svg" width="800px" height="auto">}} -->
 
-{{< figure src="/images/minijava/scanner/automata_to_regex2.svg" width="800px" height="auto">}}
+<!-- {{< figure src="/images/minijava/scanner/automata_to_regex2.svg" width="800px" height="auto">}} -->
 
-{{< figure src="/images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto">}}
+<!-- {{< figure src="/images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto">}} -->
 
 {{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
 
+Tout d'abord, nous allons réécrire l'automate en faisant apparaître clairement les expressions régulières représentant les alternatives sur les transitions.
+
+{{< figure src="/images/minijava/scanner/dfa_comments_to_regex0.svg" width="800px" height="auto">}}
+
+Nous allons maintenant éliminer tour à tour des états pour arriver à un automate ne contenant plus que deux états: un état initial et un état
+d'acceptation.
+
+Pour éliminer l'état $q = \\{3,5,6\\}$, il faut regarder pour chaque paire d'états $(q_1, q_2)$ s'il existe
+un arc entre $q_1$ et $q$ et entre $q$ et $q_2$. Il faut alors maintenir cette information en modifiant l'arc entre $q_1$ et $q_2$.
+
+Par exemple, ici, on va devoir considérer le chemin $\\{2,3,4,5\\}\rightarrow q \rightarrow \\{7\\}$ et ajouter l'expression régulière
+$\*\*^{\color{darkgreen}{\*}}/$
+entre les états $\\{2,3,4,5\\}$ et $\\{7\\}$ afin de conserver la même information. On doit aussi considérer le chemin $\\{2,3,4,5\\}\rightarrow q \rightarrow \\{2,3,4,5\\}$
+et ajouter l'expression régulière
+$\*\*^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}}$ sur la boucle de l'état $\\{2,3,4,5\\}$.
+On obtient alors l'automate suivant.
+
+<!-- $**^{\color{darkgreen}{*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}$ -->
+
 {{< figure src="/images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto">}}
+
+En éliminant l'état $\\{2,3,4,5\\}$ on obtient alors l'automate suivant.
 
 {{< figure src="/images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto">}}
 
+Et enfin, en éliminant l'état $\\{1\\}$, on obtient l'expression régulière finale qui se trouve sur l'arc reliant l'état
+de départ à l'état d'acceptation.
+
 {{< figure src="/images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto">}}
+
+La vidéo suivante va détailler cette construction.
+
+#### Questions
 
 ## Identification de motifs
 
@@ -445,4 +513,5 @@ On peut voir sur les transitions apparaître des expressions régulières au fur
 {{% notice info %}}
 [Jouer avec les expressions régulières](https://regexcrossword.com/)\
 [Tester des expressions régulières](https://regex101.com/)\
+[Transformer des expressions régulières en automates](https://cyberzhg.github.io/toolbox/min_dfa)\
 {{% /notice %}}
