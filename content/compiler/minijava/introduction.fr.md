@@ -122,6 +122,8 @@ RBRACE
 EOF
 {{< /highlight >}}
 
+Dans la vidéo suivante, nous allons donner une vue d'ensemble du transpileur, et nous présenterons l'analyseur lexical de MiniJava.
+
 {{< youtube DaSCO7JwpGU >}}
 
 ### Analyse syntaxique
@@ -208,12 +210,16 @@ Identifier = Letter { Letter | Digit | '_' } ;
 
 {{< /highlight>}}
 
+La vidéo suivante va présenter l'analyseur syntaxique de MiniJava.
+
 {{< youtube xUatwjMbjYk >}}
 
 ### Typage
 
 La troisième étape, l'analyse de types, va prendre en entrée l'arbre abstrait et va vérifier si le typage est correct. Par exemple, on va vérifier qu'on utilise les méthodes
 avec le bon nombre de paramètres, que les opérateurs `+` et `*` sont utilisés avec des opérandes entières, qu'une classe est compatible avec une autre via la relation d'héritage, ...
+
+La vidéo suivante va présenter une vue d'ensemble du typage dans MiniJava.
 
 {{< youtube mz0kVQd0rXY >}}
 
@@ -229,6 +235,8 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 {{< /highlight >}}
+
+La vidéo suivante va décrire succinctement la génération de code C dans MiniJava.
 
 {{< youtube 4wsr3Zr1vjs >}}
 
@@ -321,7 +329,7 @@ $ java Init
 ## Rappels sur la liaison dynamique en Java
 
 Nous allons faire quelques rappels sur la liaison dynamique en Java dans la vidéo ci-dessous, car la gestion
-de la liaison dynamique sera un des points les plus difficiles à gérer dans notre transpileur.
+de la liaison dynamique sera un des points difficiles à gérer dans notre transpileur.
 
 {{< youtube zYWyqyrNSOs >}}
 

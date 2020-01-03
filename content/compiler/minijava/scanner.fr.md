@@ -115,9 +115,9 @@ de concaténation et d'union sont associatifs, ce qui nous permet de supprimer d
 Ainsi, l'expression régulière $\color{green}{10^*1\\ |\\ 11\\ |\\ \epsilon}$ se lit $\color{green}{(((1(0^ *))1)\\ |\\ (11))\\ |\\ \epsilon}$
 {{% /notice %}}
 
-### Examples
+### Exemples
 
-Nous donnons ci-dessous quelques examples d'expressions régulières toujours sur le vocabulaire $\mathcal{V} = \\{0, 1\\}$.
+Nous donnons ci-dessous quelques exemples d'expressions régulières toujours sur le vocabulaire $\mathcal{V} = \\{0, 1\\}$.
 
 <!--  <style> -->
 <!-- table { -->
@@ -138,7 +138,12 @@ Nous donnons ci-dessous quelques examples d'expressions régulières toujours su
 [Vous pouvez vous amuser en utilisant les expressions régulières sur Regex Crossword <i class="far fa-smile-beam"></i>.](https://regexcrossword.com/)
 {{% /notice %}}
 
+Dans la vidéo suivante, nous allons définir formellement les expressions régulières et les langages qu'elles engendrent. Nous verrons aussi comment elles sont définies dans
+`ocamllex`.
+
 {{< youtube 5VNKh7aaZ-g >}}
+
+La vidéo suivante va donner des exemples d'expressions régulières que l'on trouvera dans `MiniJava` et montrer quelques extensions des expressions régulières.
 
 {{< youtube Wl8FXqv6dak >}}
 
@@ -151,12 +156,21 @@ régulière $\color{green}{(a\ |\ b)^*}$.
 
 {{%expand "Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient les mots $aa$ ou $bb$ $\}$." %}}
 
+Une expression régulière représentant ce langage est la suivante :
+${\color{green}{(}}a\ {\color{green}{|}}\ b{\color{green}{)}}^{\color{green}{\*}}{\color{green}{(}}aa\ {\color{green}{|}}\ bb{\color{green}{)}}{\color{green}{(}}a\ {\color{green}{|}}\ b{\color{green}{)}}^{\color{green}{*}}$
+
+Pour tester votre expression régulière, vous pouvez utiliser le site [suivant](https://regex-generate.github.io/regenerate/), qui permet de générer des mots reconnus par votre expression régulière,
+et des mots qui ne sont pas reconnus.
 {{% /expand%}}
 
 ---
 
 {{%expand "Cette question même si on pourrait penser qu'elle ressemble beaucoup à la précédente n'est pas facile. Vous pouvez revenir sur cette question après avoir vu la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb$ $\}$." %}}
 
+Une expression régulière représentant ce langage est la suivante :
+${\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}\ {\color{green}{|}}\ {\color{green}{(}}b\ {\color{green}{|}}\ ab{\color{green}{)}}{\color{green}{(}}ab{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}$
+
+Nous expliquerons comment arriver à cette expression régulière de manière assez intuitive lorsque nous aurons vu les automates dans la prochaine section.
 {{% /expand%}}
 
 ---
@@ -174,30 +188,12 @@ Le nombre de possibilités est le nombre de combinaisons de 3 éléments parmis 
 Parmis ces 6 actions, 3 doivent aller vers la droite et 3 vers le haut. On va donc créer une expression régulière avec 20 parties. Nous utilisons `D` pour allez
 à droite et `H` pour allez en haut.
 
-$$
-\scriptsize
-\color{green}{HHHDDD\ |\
-HHDHDD\ |\
-HHDDHD\ |\
-HHDDDH\ |\
-HDHHDD\ |\
-HDHDHD\ |\
-HDHDDH\ |\
-HDDHHD\ |\
-HDDHDH\ |\
-HDDDHH\ |\
-DHHHDD\ |\
-DHHDHD\ |\
-DHHDDH\ |\
-DHDHHD\ |\
-DHDHDH\ |\
-DHDDHH\ |\
-DDHHHD\ |\
-DDHHDH\ |\
-DDHDHH\ |\
-DDDHHH
-}
-$$
+{{< highlight perl>}}
+HHHDDD | HHDHDD | HHDDHD | HHDDDH | HDHHDD |
+HDHDHD | HDHDDH | HDDHHD | HDDHDH | HDDDHH |
+DHHHDD | DHHDHD | DHHDDH | DHDHHD | DHDHDH |
+DHDDHH | DDHHHD | DDHHDH | DDHDHH | DDDHHH
+{{< /highlight >}}
 
 Nous avons généré les combinaisons ci-dessus grâce au programme suivant.
 
@@ -367,12 +363,13 @@ Dans la vidéo suivante, nous allons montrer comment passer d'une expression ré
 
 #### Questions
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient le mot $aba$ $\}$. Par example, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient le mot $aba$ $\}$. Par exemple, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$." %}}
  {{< figure src="/images/minijava/scanner/nfa_question1.svg" width="600px" height="auto">}}
 
 Notons que cet automate calque vraiment l'expression régulière $\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}aba\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
 {{% /expand%}}
 
+---
 
 {{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas le mot $aba$ sauf s'il est précédé par le mot $bbb$ $\}$. Par exemple, $aaabbbaabaa$ est dans le langage, $abba$ aussi, mais pas $bbababbb$." %}}
 {{< figure src="/images/minijava/scanner/nfa_question2.svg" width="600px" height="auto">}}
@@ -436,20 +433,75 @@ Le code utilisé dans la vidéo précédente est accessible [ici](https://gist.g
 Dans la vidéo suivante, nous allons montrer comment fonctionne un analyseur lexical et comment obtenir un automate fini déterministe de taille minimale.
 
 Dans la vidéo suivante, nous allons coder en [C++](https://isocpp.org/) un analyseur lexical pour la partie du langage présentée dans la vidéo précédente.
-Le code utilisé dans cette vidéo est accessible [ici](https://gist.github.com/lascar-pacagi/e2ac6243986672d9c85a839f26eadc52).
+Le code utilisé dans cette vidéo est accessible [ici](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
 
 
 #### Questions
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$. Par example, $abb$ est dans le langage, ainsi que $bbabbaa$ et $aaaaa$, mais pas $b$ ni $aabb$." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$. Par exemple, $abb$ est dans le langage, ainsi que $bbabbaa$ et $aaaaa$, mais pas $b$ ni $aabb$." %}}
  {{< figure src="/images/minijava/scanner/dfa_question1.fr.svg" width="500px" height="auto">}}
 Dans l'automate ci-dessus, on a un état par configuration possible de la parité des $a$ et des $b$. Par exemple, l'état d'acceptation $IP$ indique que l'on a rencontré
 un nombre impair de $a$ et un nombre pair de $b$. L'état de départ $PP$ indique que l'on a vu un nombre pair de $a$ et de $b$. C'est vrai tout au début aussi, car on a alors rencontré
 aucun $a$ et aucun $b$.
 {{% /expand%}}
 
+---
+
 {{%expand "Soit l'expression régulière $\color{darkgreen}{0^*(100^*)^*(1|\epsilon)}$ décrivant les chaînes de bits sur l'alphabet $\{0, 1\}$ ne contenant pas la sous-chaîne $11$. Transformer cette expression régulière en un automate fini non-déterministe, puis transformer ce dernier en un automate fini déterministe et pour terminer, minimiser ce dernier." %}}
-TO DO
+La transformation de l'expression régulière en un automate fini non-déterministe donne l'automate suivant. Notons que nous avons pris quelques libertés avec les transformations que
+nous avions vu dans la vidéo pour réduire un peu la taille de l'automate, mais la transformation est très similaire à ce que nous avions vu.
+
+{{< figure src="/images/minijava/scanner/dfa_question2_1.svg" width="1000px" height="auto">}}
+
+L'automate fini déterministe correspondant (en utilisant la transformation que nous avons vu) est donné ci-dessous.
+
+<a name="dfa_question2_2"></a>
+{{< figure src="/images/minijava/scanner/dfa_question2_2.svg" width="650px" height="auto">}}
+
+Dans cet automate, par exemple, l'état $0$ correspond à l'ensemble des états $\\{0,1,3,4,10,11\\}$ de l'automate fini non-déterministe et l'état $4$ correspond
+à l'ensemble $\\{8,7,9,4,10,11\\}$.
+
+Il nous reste maintenant à minimiser cet automate. Nous allons tout d'abord rendre explicite l'état puits que nous allons noter `P`,
+qui est implicite dans la [figure](#dfa_question2_2) ci-dessus représentant l'automate déterministe.
+C'est l'état qui est atteint sur une transition qui n'est pas indiquée dans l'automate de la [figure](#dfa_question2_2). Si nous
+rendons explicite cet état, nous obtenons l'automate équivalent suivant :
+
+{{< figure src="/images/minijava/scanner/dfa_question2_2_puits.svg" width="650px" height="auto" link="">}}
+
+Nous allons tout d'abord considérer les deux ensembles d'états que nous pouvons tout de suite distinguer : les états terminaux
+et les états non terminaux. On obtient les deux groupes suivants.
+
+ * $G_1 = \\{0,1,2,3,4\\}$
+ * $G_2 = \\{P\\}$
+
+Pour le groupe $G\_1$, les états $0,1,3$ et $4$ transitionnent vers un des états du groupe $G_1$ sur un `0` ou un `1`. Par contre, l'état $2$ lui transitionne
+vers le groupe $G\_2$ sur un `1`. Le groupe $G\_1$ va devoir donc être scindé. Le groupe $G\_2$ ne possède qu'un élément, il reste donc inchangé.
+On obtient maintenant les trois groupes suivants.
+
+ * $G\_{1,1} = \\{0,1,3,4\\}$
+ * $G\_{1,2} = \\{2\\}$
+ * $G\_2 = \\{P\\}$
+
+Dans le groupe $G_{1,1}$, on a
+
+ * $0 \xrightarrow[]{0} G\_{1,1}$
+ * $1 \xrightarrow[]{0} G\_{1,1}$
+ * $3 \xrightarrow[]{0} G\_{1,1}$
+ * $4 \xrightarrow[]{0} G\_{1,1}$
+ * $0 \xrightarrow[]{1} G\_{1,2}$
+ * $1 \xrightarrow[]{1} G\_{1,2}$
+ * $3 \xrightarrow[]{1} G\_{1,2}$
+ * $4 \xrightarrow[]{1} G\_{1,2}$
+
+L'état $G\_{1,1}$ n'a donc pas besoin d'être scindé d'avantage car les transitions sur `0` comme sur `1` font transitionner chacun des états de
+$G\_{1,1}$ dans le même groupe. Il ne reste plus aucun groupe pouvant être scindé, on a donc fini la minimisation. Les états $0, 1, 3$ et $4$ vont
+donc être regroupés dans un seul état. L'automate obtenu après minimisation est donné ci-dessous (nous ne faisons pas apparaître l'état puits).
+
+{{< figure src="/images/minijava/scanner/dfa_question2_3.svg" width="400px" height="auto">}}
+
+Si l'on interprète cet automate, on peut voir que l'état $0$ indique que l'on vient de rencontrer un zéro, ou bien que l'on n'a encore rien lu.
+Quant à l'état $2$, il indique que l'on vient de rencontrer un $1$.
+
 {{% /expand%}}
 
 
@@ -513,5 +565,6 @@ La vidéo suivante va détailler cette construction.
 {{% notice info %}}
 [Jouer avec les expressions régulières](https://regexcrossword.com/)\
 [Tester des expressions régulières](https://regex101.com/)\
+[Générer des exemples et contre-exemples pour une expression régulière donnée](https://regex-generate.github.io/regenerate/)\
 [Transformer des expressions régulières en automates](https://cyberzhg.github.io/toolbox/min_dfa)\
 {{% /notice %}}
