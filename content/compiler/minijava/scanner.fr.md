@@ -165,12 +165,16 @@ et des mots qui ne sont pas reconnus.
 
 ---
 
-{{%expand "Cette question même si on pourrait penser qu'elle ressemble beaucoup à la précédente n'est pas facile. Vous pouvez revenir sur cette question après avoir vu la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb$ $\}$." %}}
+{{%expand "Cette question même si on pourrait penser qu'elle ressemble beaucoup à la précédente est moins facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb$ $\}$." %}}
 
-Une expression régulière représentant ce langage est la suivante :
+Puisque l'on ne peut pas avoir deux $a$ ou deux $b$ qui se suivent, on doit alterner les $a$ et les $b$. C'est l'idée derrière l'expression régulière suivante.
+
+${\color{green}{(}}ab{\color{green}{)}}^{\color{green}{\*}}{\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}\ {\color{green}{|}}\ {\color{green}{(}}ba{\color{green}{)}}^{\color{green}{\*}}{\color{green}{(}}b\ {\color{green}{|}}\ \epsilon{\color{green}{)}}$
+
+Une autre expression régulière représentant le même langage, que nous avons obtenu en utilisant des techniques que nous verrons dans la section suivante est donnée ci-dessous.
+
 ${\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}\ {\color{green}{|}}\ {\color{green}{(}}b\ {\color{green}{|}}\ ab{\color{green}{)}}{\color{green}{(}}ab{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}$
 
-Nous expliquerons comment arriver à cette expression régulière de manière assez intuitive lorsque nous aurons vu les automates dans la prochaine section.
 {{% /expand%}}
 
 ---
@@ -239,8 +243,19 @@ mais on ne doit pas trouver quatre `H` ou quatre `D`. On doit donc avoir exactem
 {{% /expand%}}
 
 ---
+<a name="regular_expressions_q4"></a>
 
-{{%expand "Cette question n'est pas facile. Vous pouvez revenir sur cette question après avoir vu la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ et un nombre impair de $b$ $\}$." %}}
+{{%expand "Cette question n'est pas trop facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ $\}$." %}}
+
+Une expression régulière représentant ce langage est la suivante.
+
+${\color{green}{(}}b\ {\color{green}{|}}\ ab^{\color{green}{\*}}a{\color{green}{)}}^{\color{green}{\*}}$
+
+La partie $ab^{\color{green}{\*}}a$ de l'expression régulière permet d'assurer que le nombre de $a$ est pair. Le mot $\epsilon$ n'est pas oublié grâce à l'opérateur
+d'itération sur toute l'alternative. La première partie de l'alternative, en conjonction avec l'opérateur d'itération, permet de mettre des $b$ à gauche ou à droite
+de la partie $ab^{\color{green}{\*}}a$ et permet aussi de n'avoir que des $b$.
+
+Notons que nous avons obtenu cette expression régulière en utilisant des techniques de la section suivante en passant d'abord par un automate.
 
 {{% /expand%}}
 
@@ -432,14 +447,16 @@ Le code utilisé dans la vidéo précédente est accessible [ici](https://gist.g
 
 Dans la vidéo suivante, nous allons montrer comment fonctionne un analyseur lexical et comment obtenir un automate fini déterministe de taille minimale.
 
+<a name="dfa_lexer_cpp"></a>
 Dans la vidéo suivante, nous allons coder en [C++](https://isocpp.org/) un analyseur lexical pour la partie du langage présentée dans la vidéo précédente.
 Le code utilisé dans cette vidéo est accessible [ici](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
 
 
 #### Questions
 
+<a name="dfa_question2_1"></a>
 {{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$. Par exemple, $abb$ est dans le langage, ainsi que $bbabbaa$ et $aaaaa$, mais pas $b$ ni $aabb$." %}}
- {{< figure src="/images/minijava/scanner/dfa_question1.fr.svg" width="500px" height="auto">}}
+{{< figure src="/images/minijava/scanner/dfa_question1.fr.svg" width="500px" height="auto">}}
 Dans l'automate ci-dessus, on a un état par configuration possible de la parité des $a$ et des $b$. Par exemple, l'état d'acceptation $IP$ indique que l'on a rencontré
 un nombre impair de $a$ et un nombre pair de $b$. L'état de départ $PP$ indique que l'on a vu un nombre pair de $a$ et de $b$. C'est vrai tout au début aussi, car on a alors rencontré
 aucun $a$ et aucun $b$.
@@ -556,9 +573,88 @@ La vidéo suivante va détailler cette construction.
 
 #### Questions
 
+{{%expand "Soit l'alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ $\}$. Transformer ensuite cet automate en une expression régulière." %}}
+
+Nous avions déjà rencontré ce langage dans la section sur les expressions régulières dans cette [question](#regular_expressions_q4).
+
+L'automate suivant permet de représenter le langage des mots sur le vocabulaire $\\{a, b\\}$ où le nombre de $a$ est pair.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_1.svg" width="500px" height="auto">}}
+
+Les différentes étapes de la transformation de l'automate vers une expression régulière équivalente sont données ci-dessous.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_2.svg" width="650px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_3.svg" width="350px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_4.svg" width="350px" height="auto">}}
+
+On obtient donc l'expression régulière ${\color{darkgreen}{(}}b\ {\color{darkgreen}{|}}\ ab^{\color{darkgreen}{\*}}a{\color{darkgreen}{)}}^{\color{darkgreen}{*}}$. C'est ce que l'on avait obtenu comme réponse à cette [question](#regular_expressions_q4). C'est pas étonnant, car nous avions
+procédé comme ici pour obtenir l'expression régulière <i class="far fa-smile-beam"></i>.
+
+{{% /expand%}}
+
+---
+
+{{%expand "Soit l'alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas un nombre impair de $a$ ou ne contient pas un nombre pair de $b \}$. Transformer ensuite cet automate en une expression régulière. Notons que ce langage est le complémentaire du langage $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$ que nous avions déjà rencontré." %}}
+
+L'automate suivant permet de représenter ce langage. Notons que cet automate est l'automate que nous avions rencontré dans cette [question](#dfa_question2_1)
+avec les états d'acceptations qui sont devenus des états normaux et les états normaux qui sont devenus d'acceptations.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_1.fr.svg" width="500px" height="auto">}}
+
+Les différentes étapes de la transformation de l'automate vers une expression régulière équivalente sont données ci-dessous.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_2.fr.svg" width="550px" height="auto">}}
+
+{{% /expand%}}
+
 ## Identification de motifs
 
 ## Analyseur lexical avec ocamllex
+
+Nous allons décrire maintenant l'analyseur lexical de `MiniJava` qui est réalisé à l'aide de [ocamllex](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319).
+L'outil `ocamllex` est un générateur d'analyseur lexical. On lui donne une liste d'expressions régulières avec des actions à réaliser lorsque une expression régulière est reconnue.
+L'outil va alors générer automatiquement un analyseur lexical qui ressemble, en gros, au programme [lexer.cpp](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56)
+que l'on avait étudié [plus haut](#dfa_lexer_cpp).
+
+Le programme suivant montre un programme MiniJava, `Lexical.java`, non valide, mais qui est néanmoins lexicalement correct.
+
+{{< highlight java >}}
+class
+/*/*/
+public 123MrC00der;
+while )(
+{ int
+int42
+[]
+{{< /highlight>}}
+
+Si on exécute la commande `./mini-java --show-tokens-with-loc Lexical.java` pour lancer notre transpileur `mini-java` avec pour option de ne sortir que les unités lexicale produite par
+l'analyseur lexical, nous obtenons les unités lexicales suivantes^[Plus précisément, nous obtenons une représentation des unités lexicales.].
+
+{{< highlight bash >}}
+CLASS
+PUBLIC
+INT_CONST ‘123‘
+IDENT ‘MrC00der‘ ▸ line 3, char 11 ◂
+SEMICOLON
+WHILE
+RPAREN
+LPAREN
+LBRACE
+INTEGER
+IDENT ‘int42‘ ▸ line 6, char 1 ◂
+LBRACKET
+RBRACKET
+EOF
+{{< /highlight >}}
+
+Les unités lexicales seront utilisées par l'analyseur syntaxique que nous étudierons dans le prochain chapitre.
+
+La vidéo suivante va présenter `ocamllex` et l'analyseur lexical de notre transpileur.
+
+### Questions
 
 ## Ressources
 
@@ -567,4 +663,6 @@ La vidéo suivante va détailler cette construction.
 [Tester des expressions régulières](https://regex101.com/)\
 [Générer des exemples et contre-exemples pour une expression régulière donnée](https://regex-generate.github.io/regenerate/)\
 [Transformer des expressions régulières en automates](https://cyberzhg.github.io/toolbox/min_dfa)\
+[Documentation de ocamllex](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319)\
+[Partie sur ocamllex dans Real World OCaml](http://dev.realworldocaml.org/parsing-with-ocamllex-and-menhir.html#lexing-and-parsing)\
 {{% /notice %}}

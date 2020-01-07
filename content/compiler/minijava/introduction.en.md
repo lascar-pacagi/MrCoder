@@ -114,6 +114,8 @@ RBRACE
 EOF
 {{< /highlight >}}
 
+In the following video, we give an overview of the transpiler and we present the lexical analyzer.
+
 {{< youtube DaSCO7JwpGU >}}
 
 ### Syntactic Analysis
@@ -199,6 +201,8 @@ Identifier = Letter { Letter | Digit | '_' } ;
 
 {{< /highlight>}}
 
+The following video presents the syntactic analyzer of MiniJava.
+
 {{< youtube xUatwjMbjYk >}}
 
 <!-- Pour reprendre la description donnée par [Andrew W. Appel](https://www.cs.princeton.edu/~appel/) dans -->
@@ -209,6 +213,8 @@ Identifier = Letter { Letter | Digit | '_' } ;
 The third step, the typechecker, takes as input the abstract syntax tree and will check if the types are correct. For example, the typechecker will check if we call
 a method with the correct number of arguments, that the operators `+` and `*` are used with integer operands, that a class is compatible with another one using
 the class hierarchy, ...
+
+The following video presents an overview of the MiniJava typechecker.
 
 {{< youtube mz0kVQd0rXY >}}
 
@@ -224,6 +230,8 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 {{< /highlight >}}
+
+The following video briefly describes the C code generation in MiniJava.
 
 {{< youtube 4wsr3Zr1vjs >}}
 
@@ -318,7 +326,7 @@ $ java Init
 ### Review of Java's Dynamic Binding
 
 We will review dynamic binding in Java in the following video, because the management of dynamic binding will
-be one of the most difficult point to handle in our transpiler.
+be a difficult point to handle in our transpiler.
 
 {{< youtube zYWyqyrNSOs >}}
 
