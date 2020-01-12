@@ -143,7 +143,7 @@ Dans la vidéo suivante, nous allons définir formellement les expressions régu
 
 {{< youtube 5VNKh7aaZ-g >}}
 
-La vidéo suivante va donner des exemples d'expressions régulières que l'on trouvera dans `MiniJava` et montrer quelques extensions des expressions régulières.
+La vidéo suivante va donner des exemples d'expressions régulières que l'on trouvera dans MiniJava et montrer quelques extensions des expressions régulières.
 
 {{< youtube Wl8FXqv6dak >}}
 
@@ -369,6 +369,9 @@ Nous allons détailler dans les deux vidéos suivantes les automates finis non d
 
 
 {{< youtube rZGSM0vvz58 >}}
+
+---
+
 {{< youtube uJmyT-tE7dY >}}
 
 Dans la vidéo suivante, nous allons montrer comment passer d'une expression régulière à un automate fini non déterministe.
@@ -447,10 +450,21 @@ Le code utilisé dans la vidéo précédente est accessible [ici](https://gist.g
 
 Dans la vidéo suivante, nous allons montrer comment fonctionne un analyseur lexical et comment obtenir un automate fini déterministe de taille minimale.
 
+{{< youtube WMsfcjieU9s >}}
+
 <a name="dfa_lexer_cpp"></a>
-Dans la vidéo suivante, nous allons coder en [C++](https://isocpp.org/) un analyseur lexical pour la partie du langage présentée dans la vidéo précédente.
+Dans les vidéos suivantes, nous allons coder en [C++](https://isocpp.org/) un analyseur lexical pour la partie du langage présentée dans la vidéo précédente.
 Le code utilisé dans cette vidéo est accessible [ici](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
 
+{{< youtube F8oztkX3e6E >}}
+
+---
+
+{{< youtube BSBK5s-q9qU >}}
+
+---
+
+{{< youtube LhxurDuCNls >}}
 
 #### Questions
 
@@ -571,6 +585,9 @@ de départ à l'état d'acceptation.
 
 La vidéo suivante va détailler cette construction.
 
+La prochaine vidéo va détailler un programme en OCaml permettant de transformer un automate en une expression régulière en utilisant l'algorithme de [Floyd-Warshall](https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall).
+Le code présenté dans la vidéo se trouve [ici](https://gist.github.com/lascar-pacagi/41c306b9804e2fa7fde275e4c043756f).
+
 #### Questions
 
 {{%expand "Soit l'alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ $\}$. Transformer ensuite cet automate en une expression régulière." %}}
@@ -607,19 +624,104 @@ Les différentes étapes de la transformation de l'automate vers une expression 
 
 {{< figure src="/images/minijava/scanner/dfa_to_regex_q2_2.fr.svg" width="550px" height="auto">}}
 
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_3.fr.svg" width="600px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_4.fr.svg" width="650px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_5.fr.svg" width="600px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_6.fr.svg" width="600px" height="auto">}}
+
+L'expression régulière obtenue est donc la suivante.
+
+${\color{darkgreen}{(}}aa\ {\color{darkgreen}{|}}\ bb\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}ba\ {\color{darkgreen}{|}}\ ab{\color{darkgreen}{)}}{\color{darkgreen}{)}}^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ b\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ a{\color{darkgreen}{)}}{\color{darkgreen}{)}}$
+
+Pour vérifier que l'on a pas fait d'erreurs durant la transformation, on peut utiliser le site [suivant](https://cyberzhg.github.io/toolbox/min_dfa) et passer de l'expression régulière vers un automate minimal pour voir si l'on reconnaît notre
+automate de départ. Si vous faites cela, vous verrez qu'on retrouve le même automate (avec des noms d'états différents).
+
 {{% /expand%}}
 
 ## Identification de motifs
 
+Nous allons mettre en pratique les notions que nous venons de voir sur les expressions régulières et les automates en réalisant une petite application permettant de tester
+si une chaîne de caractères vérifie ou non un motif représenté par une expression régulière.
+
+Nous allons présenter une séquence d'intéractions dans l'interpréteur OCaml que nous pourrons réaliser grâce à cette application.
+
+{{< highlight ocaml "linenos=inline">}}
+utop # let re = RE.regex_from_string "0*(100*)*1?";;
+val re : RE.regex =
+  RE.Concatenation (RE.ZeroOrMore (RE.CharSet <abstr>),
+   RE.Concatenation
+    (RE.ZeroOrMore
+      (RE.Concatenation (RE.CharSet <abstr>,
+        RE.Concatenation (RE.CharSet <abstr>,
+         RE.ZeroOrMore (RE.CharSet <abstr>)))),
+    RE.ZeroOrOne (RE.CharSet <abstr>)))
+{{< /highlight>}}
+
+À la ligne 1, on crée l'expression régulière $\color{darkgreen}{0^\*(100^\*)^\*(1|\epsilon)}$ qui permet de représenter les mots sur ne contenant pas de `1` consécutifs.
+Notons que nous utilisons la notation `1?` pour représenter $\color{darkgreen}{(1|\epsilon)}$.
+
+On crée ensuite un automate fini non-déterministe équivalent.
+
+{{< highlight ocaml >}}
+utop # let nfa = NFA.init re;;
+val nfa : NFA.t = <abstr>
+{{< /highlight>}}
+
+On peut ensuite tester si une chaîne de caractères, ici `101010` appartient ou non au langage engendré par l'automate fini non-déterministe et donc par l'expression
+régulière.
+
+{{< highlight ocaml >}}
+utop # NFA.full_match nfa "101010";;
+- : bool = true
+{{< /highlight>}}
+
+On voit dans l'exemple suivant, que la chaîne `011111100100`, contenant des `1` consécutifs, n'est pas représenté par l'expression régulière.
+
+{{< highlight ocaml >}}
+utop # NFA.full_match nfa "011111100100";;
+- : bool = false
+{{< /highlight>}}
+
+
+On peut chercher une sous-chaîne dans une chaîne de caractères en entourant une expression de l'expression `.*`. Le `.` représente n'importe quel caractère.
+L'exemple suivant va définir une expression régulière permettant de rechercher la sous-chaîne `Doc`.
+
+{{< highlight ocaml >}}
+utop # let re = RE.regex_from_string ".*Doc.*";;
+val re : RE.regex =
+  RE.Concatenation (RE.ZeroOrMore (RE.CharSet <abstr>),
+   RE.Concatenation (RE.CharSet <abstr>,
+    RE.Concatenation (RE.CharSet <abstr>,
+     RE.Concatenation (RE.CharSet <abstr>, RE.ZeroOrMore (RE.CharSet <abstr>)))))
+
+utop # let dfa = DFA.init re;;
+val dfa : DFA.t = <abstr>
+
+utop # DFA.full_match dfa "Wait a minute, Doc. Ah... Are you telling me that you built a time machine... out of a DeLorean?";;
+- : bool = true
+
+utop # DFA.full_match dfa "The way I see it, if you're gonna build a time machine into a car, why not do it with some style?";;
+- : bool = false
+{{< /highlight>}}
+
+Le code qui sera expliqué dans les vidéos suivantes se trouve [ici](https://github.com/lascar-pacagi/regex).
+
+Dans la vidéo suivante, nous allons présenter une vue d'ensemble de l'application et détailler le passage d'une chaîne de caractères représentant une expression
+règulière, vers une représentation OCaml de cette expression régulière.
+
 ## Analyseur lexical avec ocamllex
 
-Nous allons décrire maintenant l'analyseur lexical de `MiniJava` qui est réalisé à l'aide de [ocamllex](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319).
+Nous allons décrire maintenant l'analyseur lexical de MiniJava qui est réalisé à l'aide d'[ocamllex](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319).
 L'outil `ocamllex` est un générateur d'analyseur lexical. On lui donne une liste d'expressions régulières avec des actions à réaliser lorsque une expression régulière est reconnue.
 L'outil va alors générer automatiquement un analyseur lexical qui ressemble, en gros, au programme [lexer.cpp](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56)
 que l'on avait étudié [plus haut](#dfa_lexer_cpp).
 
 Le programme suivant montre un programme MiniJava, `Lexical.java`, non valide, mais qui est néanmoins lexicalement correct.
 
+<a name="lexical_prog"></a>
 {{< highlight java >}}
 class
 /*/*/
@@ -628,6 +730,7 @@ while )(
 { int
 int42
 []
+// this sentence is false
 {{< /highlight>}}
 
 Si on exécute la commande `./mini-java --show-tokens-with-loc Lexical.java` pour lancer notre transpileur `mini-java` avec pour option de ne sortir que les unités lexicale produite par
@@ -654,7 +757,95 @@ Les unités lexicales seront utilisées par l'analyseur syntaxique que nous étu
 
 La vidéo suivante va présenter `ocamllex` et l'analyseur lexical de notre transpileur.
 
+Le code de la calculatrice en [notation polonaise inverse](https://fr.wikipedia.org/wiki/Notation_polonaise_inverse) se trouve
+[ici](https://gist.github.com/lascar-pacagi/d16ad415913e5546ab0049595596f1f8).
+
 ### Questions
+
+{{%expand "Supposons que dans l'analyseur lexical, on n'utilise pas la règle du plus long appariement (l'expression régulière qui reconnaît le plus de caractères est sélectionnée), mais la règle du plus court appariement. Pourquoi ne pourrions nous pas reconnaître correctement les unités lexicales de MiniJava ?" %}}
+
+On peut essayer en modifiant le fichier `lexer.mll` de notre transpileur en utilisant l'option du plus court appariement. On remplace alors la ligne
+
+{{< highlight ocaml >}}
+rule get_token = parse
+{{< /highlight >}}
+
+par la ligne
+
+{{< highlight ocaml >}}
+rule get_token = shortest
+{{< /highlight >}}
+
+Reprenons maintenant l'exemple que nous avions vu [plus haut](#lexical_prog). Si on recompile notre transpileur et que l'on exécute la commande ci-dessous,
+
+{{< highlight bash >}}
+./mini-java --show-tokens-with-loc Lexical.java
+{{< /highlight >}}
+
+on obtient la sortie suivante.
+
+{{< highlight bash >}}
+IDENT ‘c‘ ▸ line 1, char 1 ◂
+IDENT ‘l‘ ▸ line 1, char 2 ◂
+IDENT ‘a‘ ▸ line 1, char 3 ◂
+IDENT ‘s‘ ▸ line 1, char 4 ◂
+IDENT ‘s‘ ▸ line 1, char 5 ◂
+Lexical error file "Lexical.java", line 2, character 1:
+Illegal character: /.
+{{< /highlight >}}
+
+Notre analyseur lexical, avec la règle du plus court appariement, reconnaît chaque caractère du mot clé `class` comme un identifiant. Lorsqu'il rencontre le `/` du commentaire,
+il ne peut pas reconnaître un identifiant et il passe donc à la prochaine règle permettant de reconnaître un seul caractère qui est la règle ci-dessous.
+
+{{< highlight ocaml >}}
+| _ as c  { raise (Error ("Illegal character: " ^ String.make 1 c)) }
+{{< /highlight >}}
+
+{{% /expand%}}
+
+---
+
+On souhaite écrire un programme, en utilisant `ocamllex`, qui nous permette de remplacer les tabulations par quatre espaces et de supprimer les espaces
+et les tabulations avant les fins de ligne. Par exemple, supposons que nous ayons un fichier `fichier.txt`. Le contenu du fichier est indiqué ci-dessous. On utilise
+la commande `cat` d'unix pour afficher les tabulations représentée par `^I` et les retours à la ligne représentés par `$`.
+
+{{< highlight bash >}}
+cat -ET fichier.txt
+    Je vous souhaite^I ^I$
+ une très belle^I^I année^I  $
+          ^I$
+$
+{{< /highlight >}}
+
+Si le fichier `ocamllex` se nomme `clean.mll`, on le compilera comme indiqué ci-dessous.
+
+{{< highlight bash >}}
+ocamllex clean.mll
+ocamlopt clean.ml -o clean
+{{< /highlight >}}
+
+On utilisera ensuite le programme `clean` sur un fichier `fichier.txt` par exemple, comme suit.
+
+{{< highlight bash >}}
+./clean < fichier.txt > res.txt
+{{< /highlight >}}
+
+On obtiendra alors dans le fichier `res.txt` le contenu du fichier `fichier.txt` où les tabulations auront été transformées en quatre espaces, et où on aura
+supprimé les espaces et les tabulations avant les fins de ligne.
+
+{{< highlight bash >}}
+cat -ET res.txt
+    Je vous souhaite$
+ une très belle         année$
+$
+$
+{{< /highlight >}}
+
+{{%expand "Réaliser le programme permettant de remplacer les tabulations par quatre espaces et de supprimer les espaces et les tabulations en fin de ligne." %}}
+
+Le fichier `ocamllex` [suivant](https://gist.github.com/lascar-pacagi/b3cff072c864e636e4a2416c1491a8fe) répond à la question.
+
+{{% /expand%}}
 
 ## Ressources
 
@@ -663,6 +854,14 @@ La vidéo suivante va présenter `ocamllex` et l'analyseur lexical de notre tran
 [Tester des expressions régulières](https://regex101.com/)\
 [Générer des exemples et contre-exemples pour une expression régulière donnée](https://regex-generate.github.io/regenerate/)\
 [Transformer des expressions régulières en automates](https://cyberzhg.github.io/toolbox/min_dfa)\
+[Russ Cox on regular expression matching](https://swtch.com/~rsc/regexp/regexp1.html)\
+[Apprendre OCaml](https://ocaml.org/learn/index.fr.html)\
+[Essayer OCaml](https://try.ocamlpro.com/)\
+[Cours sur la programmation fonctionnelle utilisant OCaml](https://www.cs.cornell.edu/courses/cs3110/2019fa/)\
+[Documentation d'OCaml](https://caml.inria.fr/pub/docs/manual-ocaml/)\
 [Documentation de ocamllex](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319)\
 [Partie sur ocamllex dans Real World OCaml](http://dev.realworldocaml.org/parsing-with-ocamllex-and-menhir.html#lexing-and-parsing)\
+[ISO C++](https://isocpp.org/)\
+[C++ bonnes pratiques](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)\
+[C++ standard](http://www.open-std.org/jtc1/sc22/wg21/)\
 {{% /notice %}}

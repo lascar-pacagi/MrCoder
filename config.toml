@@ -35,7 +35,8 @@ url = "https://protonmail.com/"
 weight = 20
 
 [[Languages.en.menu.shortcuts]]
-name = "<b>IRC</b> freenode #mrcoder"
+name = "<i class='fab fa-fw fa-discord'></i> <font face='Mono'>MrC00der</font>"
+url = "https://discord.gg/UX5XS44"
 #identifier = "ds"
 weight = 30
 
@@ -58,7 +59,7 @@ url = "https://protonmail.com/"
 weight = 20
 
 [[Languages.fr.menu.shortcuts]]
-name = "<b>IRC</b> freenode #mrcoder"
-url = "https://kiwiirc.com/nextclient/irc.freenode.net/#mrcoder"
+name = "<i class='fab fa-fw fa-discord'></i> <font face='Mono'>MrC00der</font>"
+url = "https://discord.gg/UX5XS44"
 #identifier = "ds"
 weight = 30
