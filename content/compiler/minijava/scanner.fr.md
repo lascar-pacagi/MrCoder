@@ -173,7 +173,7 @@ ${\color{green}{(}}ab{\color{green}{)}}^{\color{green}{\*}}{\color{green}{(}}a\ 
 
 Une autre expression régulière représentant le même langage, que nous avons obtenu en utilisant des techniques que nous verrons dans la section suivante est donnée ci-dessous.
 
-${\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}\ {\color{green}{|}}\ {\color{green}{(}}b\ {\color{green}{|}}\ ab{\color{green}{)}}{\color{green}{(}}ab{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}$
+$\epsilon\ {\color{green}{|}}\ a\ {\color{green}{|}}\ {\color{green}{(}}b\ {\color{green}{|}}\ ab{\color{green}{)}}{\color{green}{(}}ab{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}$
 
 {{% /expand%}}
 
