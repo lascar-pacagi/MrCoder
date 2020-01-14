@@ -585,6 +585,8 @@ de départ à l'état d'acceptation.
 
 La vidéo suivante va détailler cette construction.
 
+{{< youtube kO5ejPkHPCk >}}
+
 La prochaine vidéo va détailler un programme en OCaml permettant de transformer un automate en une expression régulière en utilisant l'algorithme de [Floyd-Warshall](https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall).
 Le code présenté dans la vidéo se trouve [ici](https://gist.github.com/lascar-pacagi/41c306b9804e2fa7fde275e4c043756f).
 
