@@ -587,8 +587,15 @@ La vidéo suivante va détailler cette construction.
 
 {{< youtube kO5ejPkHPCk >}}
 
-La prochaine vidéo va détailler un programme en OCaml permettant de transformer un automate en une expression régulière en utilisant l'algorithme de [Floyd-Warshall](https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall).
-Le code présenté dans la vidéo se trouve [ici](https://gist.github.com/lascar-pacagi/41c306b9804e2fa7fde275e4c043756f).
+Les prochaines vidéos vont détailler un programme en OCaml permettant de transformer un automate en une expression régulière en utilisant l'algorithme de [Floyd-Warshall](https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall).
+
+La vidéo suivante présente l'algorithme de fermeture transitive de Floyd-Warshall sur un graphe pour présenter plus simplement les concepts avant de passer
+à la création automatique des expressions régulières à partir de l'automate. Le code présenté dans la vidéo se trouve [ici](https://gist.github.com/lascar-pacagi/593a5d40ccda8e908628ada1013c8d13).
+
+{{< youtube 5jj2Lp8EbPI >}}
+
+
+<!-- Le code présenté dans la vidéo se trouve [ici](https://gist.github.com/lascar-pacagi/41c306b9804e2fa7fde275e4c043756f). -->
 
 #### Questions
 
@@ -689,7 +696,7 @@ utop # NFA.full_match nfa "011111100100";;
 
 
 On peut chercher une sous-chaîne dans une chaîne de caractères en entourant une expression de l'expression `.*`. Le `.` représente n'importe quel caractère.
-L'exemple suivant va définir une expression régulière permettant de rechercher la sous-chaîne `Doc`.
+L'exemple suivant va définir une expression régulière permettant de rechercher la sous-chaîne `Doc`^[On ne gère que les caractères <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> dans notre application, on a donc mis la version anglaise des dialogues (sans accents). La version française donne : "Mais attendez un peu Doc, est-ce que j'ai bien entendu ? Vous dites que vous avez fabriqué une machine à voyager dans le temps... à partir d’une DeLorean ?" et "Faut voir grand dans la vie, quitte à voyager à travers le temps au volant d'une voiture, autant en choisir une qui ait de la gueule." <i class="far fa-smile-beam"></i>]
 
 {{< highlight ocaml >}}
 utop # let re = RE.regex_from_string ".*Doc.*";;
