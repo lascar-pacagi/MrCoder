@@ -594,8 +594,11 @@ La vidéo suivante présente l'algorithme de fermeture transitive de Floyd-Warsh
 
 {{< youtube 5jj2Lp8EbPI >}}
 
+La vidéo suivante décrit le code qui permet de transformer un automate en une expression régulière. Le code se trouve [ici](https://gist.github.com/lascar-pacagi/02fe4e05b97b5fd5d8efa89c9c2ebf33),
+et le petit script python permettant de transformer notre représentation en celle attendue
+sur ce [site](https://cyberzhg.github.io/toolbox/min_dfa) se trouve [ici](https://gist.github.com/lascar-pacagi/0a3e184568256c45d19b040c6912fd44).
 
-<!-- Le code présenté dans la vidéo se trouve [ici](https://gist.github.com/lascar-pacagi/41c306b9804e2fa7fde275e4c043756f). -->
+{{< youtube OfFBAvJiunc >}}
 
 #### Questions
 
