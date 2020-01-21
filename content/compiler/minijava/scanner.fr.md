@@ -722,7 +722,41 @@ utop # DFA.full_match dfa "The way I see it, if you're gonna build a time machin
 Le code qui sera expliqué dans les vidéos suivantes se trouve [ici](https://github.com/lascar-pacagi/regex).
 
 Dans la vidéo suivante, nous allons présenter une vue d'ensemble de l'application et détailler le passage d'une chaîne de caractères représentant une expression
-règulière, vers une représentation OCaml de cette expression régulière.
+règulière, vers une représentation OCaml de cette expression régulière. La grammaire décrivant les expressions régulières se trouve [ici](/images/minijava/scanner/regex.xhtml).
+
+{{< youtube kZuPXP06OOQ >}}
+
+Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé sur du retour arrière et des continuations.
+
+### Questions
+
+Le code ci-dessous décrit la partie de la fonction `regex_from_string` qui s'occupe de reconnaître les concaténations à partir de la liste de caractères.
+
+{{< highlight ocaml "linenos=inline" >}}
+and re1 l =
+  let e, l = re2 l in
+  let e, l =
+    let rec re1' e l =
+      match l with
+      | '?' :: r -> re1' (ZeroOrOne e) r
+      | '*' :: r -> re1' (ZeroOrMore e) r
+      | '+' :: r -> re1' (OneOrMore e) r
+      | _ -> e, l
+    in
+    re1' e l
+  in
+  match l with
+  | c :: _ when c <> ')' && c <> '|' ->
+     let e', l = re1 l in
+     Concatenation (e, e'), l
+  | _ ->
+     e, l
+{{< /highlight >}}
+
+{{%expand "Durant la vidéo, nous avons dit que les deux cas qui permettaient de savoir s'il n'y avait plus de nouvelles concaténations à gérer, à la ligne 17, était si le prochain caractère était une barre verticale ou la parenthèse fermante. Il y a un autre cas, que le code gère bien, mais dont nous n'avons pas parlé. Quel est ce dernier cas ?" %}}
+S'il n'y a plus de caractères, autrement dit si la liste `l` est vide à la ligne 13, on n'a plus aucune concaténation possible. Ce cas est bien géré à la ligne 17, car le test à la ligne 14
+nécessite au moins un caractère pour pouvoir réussir.
+{{% /expand%}}
 
 ## Analyseur lexical avec ocamllex
 
