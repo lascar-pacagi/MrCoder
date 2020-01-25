@@ -726,7 +726,20 @@ règulière, vers une représentation OCaml de cette expression régulière. La 
 
 {{< youtube kZuPXP06OOQ >}}
 
+Dans la vidéo suivante, nous présentons la notion de programmation par continuation que nous allons utiliser dans le module de reconnaissance de motifs basé sur du retour arrière.
+Le code pour illustrer les continuations se trouve [ici](https://gist.github.com/lascar-pacagi/4c945c43c8f5e010aacd3635d203cec7).
+
+{{% notice warning %}}
+Il y a la solution à une des questions que nous posons dans la vidéo à la fin du listing sur les continuations.
+{{% /notice %}}
+
+{{< youtube utqHa9ESDCw >}}
+
 Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé sur du retour arrière et des continuations.
+
+{{< youtube JQ-8s5u5E4U >}}
+
+Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé des automates finis non-déterministes.
 
 ### Questions
 
