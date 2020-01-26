@@ -739,7 +739,9 @@ Dans la vidéo suivante, nous allons décrire le module de reconnaissance de mot
 
 {{< youtube JQ-8s5u5E4U >}}
 
-Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé des automates finis non-déterministes.
+Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé sur des automates finis non-déterministes.
+
+{{< youtube 5wPEbAWMDUU >}}
 
 ### Questions
 
