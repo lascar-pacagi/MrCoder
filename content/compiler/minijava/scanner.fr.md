@@ -743,6 +743,19 @@ Dans la vidéo suivante, nous allons décrire le module de reconnaissance de mot
 
 {{< youtube 5wPEbAWMDUU >}}
 
+Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé sur des automates finis déterministes.
+
+{{< youtube gO5UsU0mijM >}}
+
+Dans la vidéo suivante, nous allons montrer comment nous avons testé nos différents modules.
+
+<!-- {{< youtube 5wPEbAWMDUU >}} -->
+
+
+{{% notice info %}}
+TO DO
+{{% /notice %}}
+
 ### Questions
 
 Le code ci-dessous décrit la partie de la fonction `regex_from_string` qui s'occupe de reconnaître les concaténations à partir de la liste de caractères.
@@ -771,6 +784,12 @@ and re1 l =
 {{%expand "Durant la vidéo, nous avons dit que les deux cas qui permettaient de savoir s'il n'y avait plus de nouvelles concaténations à gérer, à la ligne 17, était si le prochain caractère était une barre verticale ou la parenthèse fermante. Il y a un autre cas, que le code gère bien, mais dont nous n'avons pas parlé. Quel est ce dernier cas ?" %}}
 S'il n'y a plus de caractères, autrement dit si la liste `l` est vide à la ligne 13, on n'a plus aucune concaténation possible. Ce cas est bien géré à la ligne 17, car le test à la ligne 14
 nécessite au moins un caractère pour pouvoir réussir.
+{{% /expand%}}
+
+---
+
+{{%expand "Pour le module d'indentification de motifs par retour arrière, nous avons vu que que pour l'expression régulière $\color{green}{(a?)^{40}a^{40}}$ (le 40 en exposant indique que l'on répète la chaîne quarante fois) et la chaîne d'entrée $a^{40}$ on obtenait un temps d'exécution prohibitif. Pouvez-vous trouver une autre expression régulière et une autre chaîne d'entrée qui donneraient lieu aussi à un temps d'exécution très long ?" %}}
+TO DO
 {{% /expand%}}
 
 ## Analyseur lexical avec ocamllex
