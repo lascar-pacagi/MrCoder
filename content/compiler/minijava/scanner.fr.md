@@ -749,8 +749,7 @@ Dans la vidéo suivante, nous allons décrire le module de reconnaissance de mot
 
 Dans la vidéo suivante, nous allons montrer comment nous avons testé nos différents modules.
 
-<!-- {{< youtube 5wPEbAWMDUU >}} -->
-
+{{< youtube 6ABsd5s42NQ >}}
 
 {{% notice info %}}
 TO DO
@@ -789,7 +788,7 @@ nécessite au moins un caractère pour pouvoir réussir.
 ---
 
 {{%expand "Pour le module d'indentification de motifs par retour arrière, nous avons vu que que pour l'expression régulière $\color{green}{(a?)^{40}a^{40}}$ (le 40 en exposant indique que l'on répète la chaîne quarante fois) et la chaîne d'entrée $a^{40}$ on obtenait un temps d'exécution prohibitif. Pouvez-vous trouver une autre expression régulière et une autre chaîne d'entrée qui donneraient lieu aussi à un temps d'exécution très long ?" %}}
-TO DO
+Par exemple, l'expression régulière $\color{green}{a^{++}}$ donne lieu à un temps prohibitif sur la chaîne d'entrée `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab`.
 {{% /expand%}}
 
 ## Analyseur lexical avec ocamllex
