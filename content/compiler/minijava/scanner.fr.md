@@ -749,11 +749,7 @@ Dans la vidéo suivante, nous allons décrire le module de reconnaissance de mot
 
 Dans la vidéo suivante, nous allons montrer comment nous avons testé nos différents modules.
 
-{{< youtube UYemM89ld_8 >}}
-
-{{% notice info %}}
-TO DO
-{{% /notice %}}
+{{< youtube DYnRo6TOhA0 >}}
 
 ### Questions
 
