@@ -787,6 +787,38 @@ nécessite au moins un caractère pour pouvoir réussir.
 Par exemple, l'expression régulière $\color{green}{a^{++}}$ donne lieu à un temps prohibitif sur la chaîne d'entrée `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab`.
 {{% /expand%}}
 
+---
+
+Dans notre module `DFA`, nous mémorisons les transitions déjà rencontrées grâce au module `Memo` dont la définition est rappelée ci-dessous.
+
+{{< highlight ocaml "linenos=inline">}}
+module Memo =
+  Map.Make(
+      struct
+        type t = S.t * char
+        let compare (s1, c1) (s2, c2) =
+          let res = compare c1 c2 in
+          if res = 0 then
+            S.compare s1 s2
+          else
+            res
+      end)
+{{< /highlight >}}
+
+La fonction de comparaison des clés dans cette table, définie à partir de la ligne `5`, peut nécessiter de comparer des ensembles à la ligne `8`.
+Lorsque l'on se trouve dans un état donné de l'automate fini déterministe, il est suffisant de regarder si la transition sur un caractère particulier a déjà
+été rencontrée. Il est donc inutile de comparer des ensembles et de devoir pour chaque transition à partir du même état d'avoir
+une clé qui contienne l'état et le caractère.\
+Pour éviter de créer une table qui nécessite comme clé un état et un caractère, il faudrait associer à chaque état de l'automate fini déterministe (qui est
+un ensemble d'états de l'automate fini non-déterministe) une table.
+Les clés de cette table seront des caractères, et celle-ci permettra de stocker les transitions déjà rencontrées.
+
+{{%expand "Coder un nouveau module de type `Matching` permettant d'implémenter notre nouvelle idée." %}}
+Une solution possible se trouve [ici](https://gist.github.com/lascar-pacagi/00d4c601efb5ef7c96cdce56785dceca). Le fichier pour tester en prenant en compte le nouveau
+module se trouve quant à lui [ici](https://gist.github.com/lascar-pacagi/d8cdf22311a08e724a0da7d9365cfbb4).
+{{% /expand%}}
+
+
 ## Analyseur lexical avec ocamllex
 
 Nous allons décrire maintenant l'analyseur lexical de MiniJava qui est réalisé à l'aide d'[ocamllex](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319).
