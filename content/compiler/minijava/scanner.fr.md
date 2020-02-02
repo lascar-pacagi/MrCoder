@@ -785,6 +785,37 @@ nécessite au moins un caractère pour pouvoir réussir.
 
 {{%expand "Pour le module d'indentification de motifs par retour arrière, nous avons vu que que pour l'expression régulière $\color{green}{(a?)^{40}a^{40}}$ (le 40 en exposant indique que l'on répète la chaîne quarante fois) et la chaîne d'entrée $a^{40}$ on obtenait un temps d'exécution prohibitif. Pouvez-vous trouver une autre expression régulière et une autre chaîne d'entrée qui donneraient lieu aussi à un temps d'exécution très long ?" %}}
 Par exemple, l'expression régulière $\color{green}{a^{++}}$ donne lieu à un temps prohibitif sur la chaîne d'entrée `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab`.
+
+Comment expliquer ce comportement ?
+
+On peut visualiser l'expression régulière $\color{green}{(a^+)^+}$ comme l'hypothétique expression régulière suivante
+$\color{green}{aa^\*\ |\ aa^\*aa^\* \ |\ aa^\*aa^\*aa^\*\ |\ aa^\*aa^\*aa^\*aa^\*\ |\ \cdots}$. Si on prend la sous-expression $\color{green}{aa^\*aa^\*}$, le
+premier $\color{green}{aa^\*}$ va d'abord consommer tous les `a` et le deuxième $\color{green}{aa^\*}$ va alors échouer car il y a un `b` dans l'entrée. Maintenant,
+le premier $\color{green}{aa^\*}$ va laisser un seul `a` et le deuxième va consommer le dernier et on va échouer car il reste un `b` en entrée alors qu'on a fini
+d'analyser l'expression régulière. Maintenant, le premier $\color{green}{aa^\*}$ va laisser deux `a` dans l'entrée et le deuxième $\color{green}{aa^\*}$ va consommer
+les deux derniers et échouer, puis un seul et échouer aussi. Du coup, le premier $\color{green}{aa^\*}$ va laisser trois `a` dans l'entrée et le deuxième $\color{green}{aa^\*}$
+va d'abord consommer les trois `a` et échouer, puis essayer en consommant que deux `a` et échouer, puis un seul `a` et échouer aussi. Et Maintenant, le premier
+$\color{green}{aa^\*}$ va laisser quatre `a` et ainsi de suite. Le nombre de tentatives va être encore plus important avec la
+sous-expression $\color{green}{aa^\*aa^\*aa^\*}$.
+
+Notons que dans notre implémentation du module `Backtracking`, nous avons le code suivant.
+
+{{< highlight ocaml "linenos=inline">}}
+| ZeroOrMore t1 ->
+  full_match t1 l (fun l' -> l <> l' && full_match t l' k)
+  || k l
+{{< /highlight >}}
+
+Inverser les lignes
+`2` et `3` comme ci-dessous donne toujours lieu à un temps prohibitif contrairement à ce qu'on avait vu pour l'expression
+$\color{green}{(a?)^{40}a^{40}}$ et la chaîne d'entrée $a^{40}$ lorsqu'on avait fait une inversion équivalente pour `ZeroOrOne t1`.
+
+{{< highlight ocaml "linenos=inline">}}
+| ZeroOrMore t1 ->
+  k l
+  || full_match t1 l (fun l' -> l <> l' && full_match t l' k)
+{{< /highlight >}}
+
 {{% /expand%}}
 
 ---
@@ -807,13 +838,20 @@ module Memo =
 
 La fonction de comparaison des clés dans cette table, définie à partir de la ligne `5`, peut nécessiter de comparer des ensembles à la ligne `8`.
 Lorsque l'on se trouve dans un état donné de l'automate fini déterministe, il est suffisant de regarder si la transition sur un caractère particulier a déjà
-été rencontrée. Il est donc inutile de comparer des ensembles et de devoir pour chaque transition à partir du même état d'avoir
+été rencontrée. Il est donc inutile de comparer des ensembles et de devoir avoir, pour chaque transition à partir du même état,
 une clé qui contienne l'état et le caractère.\
 Pour éviter de créer une table qui nécessite comme clé un état et un caractère, il faudrait associer à chaque état de l'automate fini déterministe (qui est
 un ensemble d'états de l'automate fini non-déterministe) une table.
-Les clés de cette table seront des caractères, et celle-ci permettra de stocker les transitions déjà rencontrées.
+Les clés de cette table seront des caractères, et celle-ci permettra de stocker les transitions déjà rencontrées.\
+Le nouveau module que nous souhaitons réaliser sera le suivant.
 
-{{%expand "Coder un nouveau module de type `Matching` permettant d'implémenter notre nouvelle idée." %}}
+{{< highlight ocaml >}}
+module DFA2 : Matching = struct
+  (* À faire *)
+end
+{{< /highlight >}}
+
+{{%expand "Votre mission, si vous l'acceptez, est de coder ce module permettant d'implémenter notre nouvelle idée." %}}
 Une solution possible se trouve [ici](https://gist.github.com/lascar-pacagi/00d4c601efb5ef7c96cdce56785dceca). Le fichier pour tester en prenant en compte le nouveau
 module se trouve quant à lui [ici](https://gist.github.com/lascar-pacagi/d8cdf22311a08e724a0da7d9365cfbb4).
 {{% /expand%}}
@@ -862,10 +900,10 @@ EOF
 
 Les unités lexicales seront utilisées par l'analyseur syntaxique que nous étudierons dans le prochain chapitre.
 
-La vidéo suivante va présenter `ocamllex` et l'analyseur lexical de notre transpileur.
-
-Le code de la calculatrice en [notation polonaise inverse](https://fr.wikipedia.org/wiki/Notation_polonaise_inverse) se trouve
+La vidéo suivante va présenter `ocamllex` et l'analyseur lexical de notre transpileur. Le code de la calculatrice en [notation polonaise inverse](https://fr.wikipedia.org/wiki/Notation_polonaise_inverse) se trouve
 [ici](https://gist.github.com/lascar-pacagi/d16ad415913e5546ab0049595596f1f8).
+
+{{< youtube 246sQu7ty00 >}}
 
 ### Questions
 
