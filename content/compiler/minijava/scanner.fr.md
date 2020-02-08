@@ -40,11 +40,7 @@ décrivent.\
 
  * L'expression régulière $\color{green}\epsilon$ génère l'ensemble contenant simplement le mot vide^[Le mot vide est l'équivalent de la chaîne de caractères `""`.]: $\\{\epsilon\\}$.
  * Pour $c \in \mathcal{V}$, l'expression régulière $\color{green}c$ représente l'ensemble contenant un seul mot : $\\{c\\}$.
-<!--  <style> -->
-<!-- table { -->
-<!--     width:50%; -->
-<!-- } -->
-<!-- </style> -->
+
 
         | <center>Expression</center> | <center>Ensemble de mots</center> |
         | :----------------:          | :----------------:                |
@@ -84,8 +80,6 @@ décrivent.\
  $\color{green}{r\_1\\ |\\ r\_2} = \color{green}{r\_2\\ |\\ r\_1}$. Il est aussi associatif, c'est-à-dire que pour toute
  expression régulière $\color{green}{r\_1}$, $\color{green}{r\_2}$ et $\color{green}{r\_3}$, on a
  $\color{green}{(r\_1\\ |\\ r\_2)\\ |\\ r\_3} = \color{green}{r\_1\\ |\\ (r\_2\\ |\\ r\_3)}$ que l'on notera simplement $\color{green}{r\_1\\ |\\ r\_2\\ |\\ r\_3}$.
-
-
 
         | <center>Expression</center>  | <center>Ensemble de mots</center> |
         | :----------------:           | :----------------:                |
