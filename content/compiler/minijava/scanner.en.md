@@ -31,7 +31,7 @@ they describe.
 
 * Basic regular expressions:
 
- * The regular expression $\color{green}\epsilon$ generates the set containing only the empty word^[The empty word is the equivalent of the string `""`.]: $\{\epsilon\}$.
+ * The regular expression $\color{green}\epsilon$ generates the set containing only the empty word^[The empty word is the equivalent of the string `""`.]: $\\{\epsilon\\}$.
  * For $c \in \mathcal{V}$, the regular expression $\color{green}c$ represents the set containing a single word: $\\{c\\}$.
 
         | <center>Expression</center> | <center>Set of words</center> |
