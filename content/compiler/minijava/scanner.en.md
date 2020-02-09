@@ -105,7 +105,7 @@ We give below some examples of regular expressions still on the vocabulary $\mat
 | :----------------:                                                 | :----------------:                    | :----------------:                |
 | Binary numbers (without leading zeros)                  | $\color{green}{0\\ \| \\ 1(0\\ \| \\ 1)^*}$  | $\\{0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, 1100, \cdots\\}$ |
 | Odd binary numbers                                       | $\color{green}{1\\ \| \\ 1(0\\ \| \\ 1)^*1}$ | $\\{1, 11, 101, 111, 1001, 1011, 1101, 1111, 10001, \cdots\\}$                 |
-| Bit strings of even length containing only alternate zeros and ones | $\color{green}{(10)^* \\ \| \\ (01)^*}$  | $\\{\epsilon, 10, 01, 1010, 0101, 101010, 010101, \cdots\\}$                              |
+| Bit strings of even length containing alternating zeros and ones | $\color{green}{(10)^* \\ \| \\ (01)^*}$  | $\\{\epsilon, 10, 01, 1010, 0101, 101010, 010101, \cdots\\}$                              |
 | Bit strings whose length is a multiple of 3             | $\color{green}{((0\\ \| \\ 1)(0\\ \| \\ 1)(0\\ \| \\ 1))^*}$ | $\\{\epsilon, 000, 001, 010, 011, 100, \cdots, 111000, 111001, \cdots, 101011110, \cdots \\}$ |
 | Bit strings that do not contain the sub-string $11$           | $\color{green}{0^* ( 100^* )^* (1\\ \| \\ \epsilon)}$ | $\\{\epsilon, 0, 1, 00, 01, 10, 000, 001, 010, 100, 101, 0000, 0001, \cdots\\}$ |
 
