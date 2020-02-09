@@ -45,6 +45,10 @@
   </url>
   
   <url>
+    <loc>/fr/compiler/minijava/parser/</loc>
+  </url>
+  
+  <url>
     <loc>/fr/tags/bash/</loc>
     <priority>0</priority>
     <xhtml:link

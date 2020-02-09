@@ -27,7 +27,7 @@ class Factorial { public static void main(String[] a) { System.out.println(new F
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/en/compiler/minijava/scanner/</guid>
-      <description> graph LR; A[MiniJava source file] --|characters| B(fa:fa-tools Lexical  analysis) B --|tokens| C(fa:fa-tools  Syntactic  analysis) C --|abstract syntax tree| D(fa:fa-tools  Typechecker) D --|abstract syntax tree| E(fa:fa-tools  C code  generator) E --|characters| F[C source file] classDef green fill:#74B559,stroke:#222723,stroke-width:5px; class B green  Regular Expressions Automata Regular Expressions Matching Scanner with ocamlex Questions Ressources </description>
+      <description>graph LR; A[MiniJava source file] --|characters| B(fa:fa-tools Lexical  analysis) B --|tokens| C(fa:fa-tools  Syntactic  analysis) C --|abstract syntax tree| D(fa:fa-tools  Typechecker) D --|abstract syntax tree| E(fa:fa-tools  C code  generator) E --|characters| F[C source file] classDef green fill:#74B559,stroke:#222723,stroke-width:5px; class B green  We will describe the MiniJava lexical analyzer, also called scanner, which will group the characters of the source file into lexical units also called tokens.</description>
     </item>
     
   </channel>

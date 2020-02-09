@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0}
+
+\begin{document}
+
+%\begin{center}
+  \begin{tabular}{c}
+    \\
+    \begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (8.5,-24.7) circle (3);
+\draw (8.5,-24.7) node {$0$};
+\draw [black] (23.8,-24.7) circle (3);
+\draw (23.8,-24.7) node {$PP$};
+\draw [black] (38.3,-53.5) circle (3);
+\draw (38.3,-53.5) node {$1$};
+\draw [black] (38.3,-53.5) circle (2.4);
+\draw [black] (3.7,-21) -- (6.12,-22.87);
+\fill [black] (6.12,-22.87) -- (5.8,-21.98) -- (5.19,-22.78);
+\draw [black] (11.5,-24.7) -- (20.8,-24.7);
+\fill [black] (20.8,-24.7) -- (20,-24.2) -- (20,-25.2);
+\draw (16.15,-25.2) node [below] {$\epsilon$};
+\draw [black] (22.477,-22.02) arc (234:-54:2.25);
+\draw (23.8,-17.45) node [above] {${\color{darkgreen}{(}}aa\ {\color{darkgreen}{|}}\ bb\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{*}}{\color{darkgreen}{(}}ba\ {\color{darkgreen}{|}}\ ab{\color{darkgreen}{)}}{\color{darkgreen}{)}}$};
+\fill [black] (25.12,-22.02) -- (26,-21.67) -- (25.19,-21.08);
+\draw [black] (25.334,-27.278) arc (30.34817:23.0998:207.708);
+\fill [black] (37.14,-50.73) -- (37.29,-49.8) -- (36.37,-50.19);
+\draw (32.3,-37.7) node [right] {${\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ b\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{*}}{\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ a{\color{darkgreen}{)}}{\color{darkgreen}{)}}$};
+\end{tikzpicture}\\
+\end{tabular}
+%  \end{center}
+
+\end{document}

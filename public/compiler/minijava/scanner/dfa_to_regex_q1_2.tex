@@ -1,0 +1,48 @@
+\documentclass{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0}
+
+\begin{document}
+
+%\begin{center}
+  \begin{tabular}{c}
+    \\
+    \begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (26.5,-27.2) circle (3);
+\draw (26.5,-27.2) node {$1$};
+\draw [black] (49.1,-27.2) circle (3);
+\draw (49.1,-27.2) node {$2$};
+\draw [black] (5.3,-27.2) circle (3);
+\draw (5.3,-27.2) node {$0$};
+\draw [black] (26.5,-47.9) circle (3);
+\draw (26.5,-47.9) node {$3$};
+\draw [black] (26.5,-47.9) circle (2.4);
+\draw [black] (28.802,-25.283) arc (124.38926:55.61074:15.931);
+\fill [black] (46.8,-25.28) -- (46.42,-24.42) -- (45.86,-25.24);
+\draw (37.8,-22) node [above] {$a$};
+\draw [black] (46.907,-29.24) arc (-52.78748:-127.21252:15.058);
+\fill [black] (28.69,-29.24) -- (29.03,-30.12) -- (29.63,-29.33);
+\draw (37.8,-32.81) node [below] {$a$};
+\draw [black] (25.177,-24.52) arc (234:-54:2.25);
+\draw (26.5,-19.95) node [above] {$b$};
+\fill [black] (27.82,-24.52) -- (28.7,-24.17) -- (27.89,-23.58);
+\draw [black] (51.78,-25.877) arc (144:-144:2.25);
+\draw (56.35,-27.2) node [right] {$b$};
+\fill [black] (51.78,-28.52) -- (52.13,-29.4) -- (52.72,-28.59);
+\draw [black] (1.9,-21.9) -- (3.68,-24.67);
+\fill [black] (3.68,-24.67) -- (3.67,-23.73) -- (2.83,-24.27);
+\draw [black] (8.3,-27.2) -- (23.5,-27.2);
+\fill [black] (23.5,-27.2) -- (22.7,-26.7) -- (22.7,-27.7);
+\draw (15.9,-27.7) node [below] {$\epsilon$};
+\draw [black] (26.5,-30.2) -- (26.5,-44.9);
+\fill [black] (26.5,-44.9) -- (27,-44.1) -- (26,-44.1);
+\draw (26,-37.55) node [left] {$\epsilon$};
+\end{tikzpicture}\\
+\end{tabular}
+%  \end{center}
+
+\end{document}

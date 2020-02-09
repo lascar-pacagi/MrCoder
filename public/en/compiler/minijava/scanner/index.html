@@ -12,20 +12,20 @@
     <title>Lexical Analysis :: MrCoder</title>
 
     
-    <link href="/css/nucleus.css?1574358075" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1574358075" rel="stylesheet">
-    <link href="/css/hybrid.css?1574358075" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1574358075" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1574358075" rel="stylesheet">
-    <link href="/css/auto-complete.css?1574358075" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1574358075" rel="stylesheet">
-    <link href="/css/theme.css?1574358075" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1574358075" rel="stylesheet">
+    <link href="/css/nucleus.css?1581258246" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1581258246" rel="stylesheet">
+    <link href="/css/hybrid.css?1581258246" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1581258246" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1581258246" rel="stylesheet">
+    <link href="/css/auto-complete.css?1581258246" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1581258246" rel="stylesheet">
+    <link href="/css/theme.css?1581258246" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1581258246" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1574358075" rel="stylesheet">
+      <link href="/css/theme-green.css?1581258246" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1574358075"></script>
+    <script src="/js/jquery-3.3.1.min.js?1581258246"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1574358075"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1574358075"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1581258246"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1581258246"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/en";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1574358075"></script>
+<script type="text/javascript" src="/js/search.js?1581258246"></script>
 
     
   </div>
@@ -198,7 +198,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="/en/"><b>IRC</b> freenode #mrcoder</a>
+                  <a class="padding" href="https://discord.gg/UX5XS44"><i class='fab fa-fw fa-discord'></i> <font face='Mono'>MrC00der</font></a>
               </li>
           
         </ul>
@@ -325,10 +325,13 @@
 <ul>
 <li>
 <ul>
-<li><a href="#regular-expressions">Regular Expressions</a></li>
+<li><a href="#regular-expressions">Regular Expressions</a>
+<ul>
+<li><a href="#examples">Examples</a></li>
+</ul></li>
 <li><a href="#automata">Automata</a></li>
 <li><a href="#regular-expressions-matching">Regular Expressions Matching</a></li>
-<li><a href="#scanner-with-ocamlex">Scanner with ocamlex</a></li>
+<li><a href="#scanner-with-ocamllex">Scanner with Ocamllex</a></li>
 <li><a href="#questions">Questions</a></li>
 <li><a href="#ressources">Ressources</a></li>
 </ul></li>
@@ -354,7 +357,34 @@
             
 
             
-            
+            <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: { equationNumbers: { autoNumber: "AMS" } }
+ });
+</script>
 
 
 
@@ -372,17 +402,292 @@ class B green
 </div>
 
 
+<p>We will describe the MiniJava lexical analyzer, also called scanner, which will group the characters
+of the source file into lexical units also called tokens. These lexical units will then be given to the syntactic analyzer in the following phase of the transpiler.<br />
+Before describing the lexical analyzer of MiniJava, we will present regular expressions that will be used
+to describe tokens. We will also study automata, a kind of graph, and use them to match regular expressions.
+<a name="regular_expressions"></a></p>
+
 <h2 id="regular-expressions">Regular Expressions</h2>
+
+<p>Regular expressions will allow us to describe succinctly and quite intuitively
+the MiniJava lexical units and will be used in the <code>ocamllex</code> lexical analyzer generator that we
+will be using in our transpiler.</p>
+
+<p>A regular expression describes a set of words from a given vocabulary. We will take as an example
+the vocabulary $\mathcal{V} = \{0, 1\}$ consisting simply of two elements: <code>0</code> and <code>1</code>. We describe below the basic elements and operators for creating regular expressions and the words that
+they describe.</p>
+
+<ul>
+<li><p>Basic regular expressions:</p>
+
+<ul>
+<li>The regular expression $\color{green}\epsilon$ generates the set containing only the empty word<sup class="footnote-ref" id="fnref:The-empty-word-i"><a href="#fn:The-empty-word-i">1</a></sup>: $\{\epsilon\}$.</li>
+
+<li><p>For $c \in \mathcal{V}$, the regular expression $\color{green}c$ represents the set containing a single word: $\{c\}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Set of words</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}0$</td>
+<td align="center">$\{0\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}1$</td>
+<td align="center">$\{1\}$</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+
+<li><p>Compound regular expressions:</p>
+
+<ul>
+<li><p>Parentheses can be used to group together regular expressions. Let $\color{green}{r}$ be a regular expression, then $\color{green}{(r)}$ represents the same set of
+words that the expression $\color{\green}{r}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Set of words</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{(0)}$</td>
+<td align="center">$\{0\}$</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>The concatenation operator allows to juxtapose the words generated by two regular expressions. Let $\color{green}{r_1}$ and $\color{green}{r_2}$ be two regular expressions.
+The concatenation of these two regular expressions is noted: $\color{green}{r_1r_2}$. The set of words described by this regular expression is
+the concatenation of the words described by $\color{green}{r_1}$ with those described by $\color{green}{r_2}$.<br />
+Note that this operator is associative, which means that for any
+regular expression $\color{green}{r_1}$, $\color{green}{r_2}$ and $\color{green}{r_3}$, we have
+$\color{green}{(r_1r_2)r_3} = \color{green}{r_1(r_2r_3)}$ that we will simply write down as $\color{green}{r_1r_2r_3}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Set of words</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{\epsilon1}$</td>
+<td align="center">$\{1\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{10}$</td>
+<td align="center">$\{10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(10)1}$</td>
+<td align="center">$\{101\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{1(01)}$</td>
+<td align="center">$\{101\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{101}$</td>
+<td align="center">$\{101\}$</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>The union operator is used to get the union of the words generated by two regular expressions. Let $\color{green}{r_1}$ and $\color{green}{r_2}$ be two regular expressions.
+The union of these two regular expressions is noted: $\color{green}{r_1\ |\ r_2}$. The set of words described by this regular expression is
+the union of the words described by $\color{green}{r_1}$ with those described by $\color{green}{r_2}$.<br />
+Note that this operator is commutative, that is
+$\color{green}{r_1\ |\ r_2} = \color{green}{r_2\ |\ r_1}$. It&rsquo;s also associative, meaning that for every
+regular expression $\color{green}{r_1}$, $\color{green}{r_2}$ and $\color{green}{r_3}$, we have
+$\color{green}{(r_1\ |\ r_2)\ |\ r_3} = \color{green}{r_1\ |\ (r_2\ |\ r_3)}$ that we will simply write down as $\color{green}{r_1\ |\ r_2\ |\ r_3}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Set of words</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{\epsilon \ | \ 1}$</td>
+<td align="center">$\{\epsilon, 1\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(00) \ | \ (10)}$</td>
+<td align="center">$\{00, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(10) \ | \ (00)}$</td>
+<td align="center">$\{00, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(0 \ | \ 1)\ |\ (10)}$</td>
+<td align="center">$\{0, 1, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{0\ |\ (1 \ | \ (10))}$</td>
+<td align="center">$\{0, 1, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{0 \ | \ 1\ |\ (10)}$</td>
+<td align="center">$\{0, 1, 10\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(0\ |\ 1)(0\ |\ 1)}$</td>
+<td align="center">$\{00, 01, 10, 11\}$</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>The iteration operator noted <code>*</code> allows to juxtapose $0$ or several times the words generated by a regular expression. Let $\color{green}{r}$ be a regular expression, then
+the regular expression $\color{green}{r^*}$ represents the hypothetical<sup class="footnote-ref" id="fnref:A-regular-expres"><a href="#fn:A-regular-expres">2</a></sup> regular expression
+$\color{\green}{\epsilon\ |\ rr\ |\ rrr\ |\ rrrr\ |\ \cdots}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Set of words</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\color{green}{0^*}$</td>
+<td align="center">$\{\epsilon, 0, 00, 000, 0000, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">$\color{green}{(0\ | \ 1)^*}$</td>
+<td align="center">$\{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001, 010, 011, 100, \cdots\}$</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul>
+
+
+<div class="notices note" ><p>To avoid too many parentheses, there is a priority between the different operators: the parentheses have the highest priority,
+then the $\color{green}{*}$ operator, then the concatenation operator and finally the $\color{green}{|}$ operator. We have also seen above that the operators
+of concatenation and union are associative, which allows us to remove more brackets.
+Thus, the regular expression $\color{green}{10^*1\ |\ 11\ |\ \epsilon}$ reads $\color{green}{(((1(0^ *))1)\ |\ (11))\ |\ \epsilon}$.</p>
+</div>
+
+
+<h3 id="examples">Examples</h3>
+
+<p>We give below some examples of regular expressions still on the vocabulary $\mathcal{V} = \{0, 1\}$.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><center>Description</center></th>
+<th align="center"><center>Expression</center></th>
+<th align="center"><center>Set of words</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Binary numbers (without leading zeros)</td>
+<td align="center">$\color{green}{0\ | \ 1(0\ | \ 1)^*}$</td>
+<td align="center">$\{0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, 1100, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">Odd binary numbers</td>
+<td align="center">$\color{green}{1\ | \ 1(0\ | \ 1)^*1}$</td>
+<td align="center">$\{1, 11, 101, 111, 1001, 1011, 1101, 1111, 10001, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">Bit strings of even length containing alternating zeros and ones</td>
+<td align="center">$\color{green}{(10)^* \ | \ (01)^*}$</td>
+<td align="center">$\{\epsilon, 10, 01, 1010, 0101, 101010, 010101, \cdots\}$</td>
+</tr>
+
+<tr>
+<td align="center">Bit strings whose length is a multiple of 3</td>
+<td align="center">$\color{green}{((0\ | \ 1)(0\ | \ 1)(0\ | \ 1))^*}$</td>
+<td align="center">$\{\epsilon, 000, 001, 010, 011, 100, \cdots, 111000, 111001, \cdots, 101011110, \cdots \}$</td>
+</tr>
+
+<tr>
+<td align="center">Bit strings that do not contain the sub-string $11$</td>
+<td align="center">$\color{green}{0^* ( 100^* )^* (1\ | \ \epsilon)}$</td>
+<td align="center">$\{\epsilon, 0, 1, 00, 01, 10, 000, 001, 010, 100, 101, 0000, 0001, \cdots\}$</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="notices info" ><p><a href="https://regexcrossword.com/">You can have fun using regular expressions on Regex Crossword <i class="far fa-smile-beam"></i>.</a></p>
+</div>
+
+
+<p>In the following video, we will formally define regular expressions and the languages they generate. We will also see how they are defined in
+<code>ocamllex</code>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/5VNKh7aaZ-g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>The following video will give examples of regular expressions found in MiniJava and show some extensions of regular expressions.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/Wl8FXqv6dak" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
 
 <h2 id="automata">Automata</h2>
 
 <h2 id="regular-expressions-matching">Regular Expressions Matching</h2>
 
-<h2 id="scanner-with-ocamlex">Scanner with ocamlex</h2>
+<h2 id="scanner-with-ocamllex">Scanner with Ocamllex</h2>
 
 <h2 id="questions">Questions</h2>
 
 <h2 id="ressources">Ressources</h2>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:The-empty-word-i">The empty word is the equivalent of the string <code>&quot;&quot;</code>. <a class="footnote-return" href="#fnref:The-empty-word-i"><sup>[return]</sup></a></li>
+<li id="fn:A-regular-expres">A regular expression must be of finite size. <a class="footnote-return" href="#fnref:A-regular-expres"><sup>[return]</sup></a></li>
+</ol>
+</div>
 
 
 <footer class=" footline" >
@@ -510,20 +815,20 @@ class B green
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1574358075"></script>
-    <script src="/js/perfect-scrollbar.min.js?1574358075"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1574358075"></script>
-    <script src="/js/jquery.sticky.js?1574358075"></script>
-    <script src="/js/featherlight.min.js?1574358075"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1574358075"></script>
-    <script src="/js/highlight.pack.js?1574358075"></script>
+    <script src="/js/clipboard.min.js?1581258246"></script>
+    <script src="/js/perfect-scrollbar.min.js?1581258246"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1581258246"></script>
+    <script src="/js/jquery.sticky.js?1581258246"></script>
+    <script src="/js/featherlight.min.js?1581258246"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1581258246"></script>
+    <script src="/js/highlight.pack.js?1581258246"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1574358075"></script>
-    <script src="/js/learn.js?1574358075"></script>
-    <script src="/js/hugo-learn.js?1574358075"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1581258246"></script>
+    <script src="/js/learn.js?1581258246"></script>
+    <script src="/js/hugo-learn.js?1581258246"></script>
 
-    <link href="/mermaid/mermaid.css?1574358075" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1574358075"></script>
+    <link href="/mermaid/mermaid.css?1581258246" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1581258246"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

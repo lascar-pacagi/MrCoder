@@ -12,20 +12,20 @@
     <title>Analyse lexicale :: MrCodeur</title>
 
     
-    <link href="/css/nucleus.css?1574358075" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1574358075" rel="stylesheet">
-    <link href="/css/hybrid.css?1574358075" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1574358075" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1574358075" rel="stylesheet">
-    <link href="/css/auto-complete.css?1574358075" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1574358075" rel="stylesheet">
-    <link href="/css/theme.css?1574358075" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1574358075" rel="stylesheet">
+    <link href="/css/nucleus.css?1581258246" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1581258246" rel="stylesheet">
+    <link href="/css/hybrid.css?1581258246" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1581258246" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1581258246" rel="stylesheet">
+    <link href="/css/auto-complete.css?1581258246" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1581258246" rel="stylesheet">
+    <link href="/css/theme.css?1581258246" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1581258246" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1574358075" rel="stylesheet">
+      <link href="/css/theme-green.css?1581258246" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1574358075"></script>
+    <script src="/js/jquery-3.3.1.min.js?1581258246"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1574358075"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1574358075"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1581258246"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1581258246"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1574358075"></script>
+<script type="text/javascript" src="/js/search.js?1581258246"></script>
 
     
   </div>
@@ -163,6 +163,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fr/compiler/minijava/parser/" title="Analyse syntaxique" class="dd-item ">
+        <a href="/fr/compiler/minijava/parser/">
+        Analyse syntaxique
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -198,7 +217,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://kiwiirc.com/nextclient/irc.freenode.net/#mrcoder"><b>IRC</b> freenode #mrcoder</a>
+                  <a class="padding" href="https://discord.gg/UX5XS44"><i class='fab fa-fw fa-discord'></i> <font face='Mono'>MrC00der</font></a>
               </li>
           
         </ul>
@@ -328,21 +347,32 @@
 <li><a href="#expressions-régulières">Expressions régulières</a>
 <ul>
 <li><a href="#définition">Définition</a></li>
-<li><a href="#examples">Examples</a></li>
+<li><a href="#exemples">Exemples</a></li>
 <li><a href="#questions">Questions</a></li>
 </ul></li>
 <li><a href="#automates">Automates</a>
 <ul>
 <li><a href="#automates-finis-non-déterministes">Automates finis non-déterministes</a>
 <ul>
-<li><a href="#test-de-l-appartenance-d-un-mot-au-langage-décrit-par-l-automate">Test de l&rsquo;appartenance d&rsquo;un mot au langage décrit par l&rsquo;automate</a></li>
 <li><a href="#questions-1">Questions</a></li>
 </ul></li>
-<li><a href="#automates-finis-déterministes">Automates finis déterministes</a></li>
-<li><a href="#passage-d-un-automate-à-une-expression-régulière">Passage d&rsquo;un automate à une expression régulière</a></li>
+<li><a href="#automates-finis-déterministes">Automates finis déterministes</a>
+<ul>
+<li><a href="#questions-2">Questions</a></li>
 </ul></li>
-<li><a href="#identification-de-motifs">Identification de motifs</a></li>
-<li><a href="#analyseur-lexical-avec-ocamllex">Analyseur lexical avec ocamllex</a></li>
+<li><a href="#passage-d-un-automate-à-une-expression-régulière">Passage d&rsquo;un automate à une expression régulière</a>
+<ul>
+<li><a href="#questions-3">Questions</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#identification-de-motifs">Identification de motifs</a>
+<ul>
+<li><a href="#questions-4">Questions</a></li>
+</ul></li>
+<li><a href="#analyseur-lexical-avec-ocamllex">Analyseur lexical avec ocamllex</a>
+<ul>
+<li><a href="#questions-5">Questions</a></li>
+</ul></li>
 <li><a href="#ressources">Ressources</a></li>
 </ul></li>
 </ul>
@@ -399,17 +429,19 @@
 
 
 
-<p>{{<mermaid align="center">}}
-graph LR;
-A[source en MiniJava] &ndash;&gt;|caractères| B(fa:fa-tools<br/> Analyse <br/> lexicale)
-B &ndash;&gt;|unités lexicales| C(fa:fa-tools <br/> Analyse <br/> syntaxique)
-C &ndash;&gt;|arbre syntaxique abstrait| D(fa:fa-tools <br/> Analyse <br/> de types)
-D &ndash;&gt;|arbre syntaxique abstrait| E(fa:fa-tools <br/> Générateur <br/> de code C)
-E &ndash;&gt;|caractères| F[source en C]</p>
 
-<p>classDef green fill:#74B559,stroke:#222723,stroke-width:5px;
+<div class="mermaid" align="center">
+graph LR;
+A[source en MiniJava] -->|caractères| B(fa:fa-tools<br/> Analyse <br/> lexicale)
+B -->|unités lexicales| C(fa:fa-tools <br/> Analyse <br/> syntaxique)
+C -->|arbre syntaxique abstrait| D(fa:fa-tools <br/> Analyse <br/> de types)
+D -->|arbre syntaxique abstrait| E(fa:fa-tools <br/> Générateur <br/> de code C)
+E -->|caractères| F[source en C]
+
+classDef green fill:#74B559,stroke:#222723,stroke-width:5px;
 class B green
-{{&lt; /mermaid &gt;}}</p>
+</div>
+
 
 <p>Nous allons décrire l&rsquo;analyseur lexical de MiniJava qui va permettre de découper les caractères
 du fichier source en unités lexicales. Ces unités lexicales seront ensuite utilisées par l&rsquo;analyseur
@@ -438,12 +470,7 @@ décrivent.</p>
 <ul>
 <li>L&rsquo;expression régulière $\color{green}\epsilon$ génère l&rsquo;ensemble contenant simplement le mot vide<sup class="footnote-ref" id="fnref:Le-mot-vide-est"><a href="#fn:Le-mot-vide-est">1</a></sup>: $\{\epsilon\}$.</li>
 
-<li><p>Pour $c \in \mathcal{V}$, l&rsquo;expression régulière $\color{green}c$ représente l&rsquo;ensemble contenant un seul mot : $\{c\}$.
-<!--  <style> -->
-<!-- table { -->
-<!--     width:50%; -->
-<!-- } -->
-<!-- </style> --></p>
+<li><p>Pour $c \in \mathcal{V}$, l&rsquo;expression régulière $\color{green}c$ représente l&rsquo;ensemble contenant un seul mot : $\{c\}$.</p>
 
 <table>
 <thead>
@@ -613,16 +640,17 @@ $\color{green}{\epsilon \ |\ r\ |\ rr\ |\ rrr\ |\ rrrr\ |\ \cdots}$.</p>
 </ul></li>
 </ul>
 
-<p>{{% notice note %}}
-Pour éviter trop de parenthèses, il existe une priorité entre les différents opérateurs : les parenthèses ont la plus grande priorité,
+
+<div class="notices note" ><p>Pour éviter trop de parenthèses, il existe une priorité entre les différents opérateurs : les parenthèses ont la plus grande priorité,
 ensuite l&rsquo;opérateur $\color{green}{*}$, puis l&rsquo;opérateur de concaténation et enfin l&rsquo;opérateur $\color{green}{|}$. On a vu aussi ci-dessus que les opérateurs
 de concaténation et d&rsquo;union sont associatifs, ce qui nous permet de supprimer d&rsquo;avantage de parenthèses.
-Ainsi, l&rsquo;expression régulière $\color{green}{10^*1\ |\ 11\ |\ \epsilon}$ se lit $\color{green}{(((1(0^ *))1)\ |\ (11))\ |\ \epsilon}$
-{{% /notice %}}</p>
+Ainsi, l&rsquo;expression régulière $\color{green}{10^*1\ |\ 11\ |\ \epsilon}$ se lit $\color{green}{(((1(0^ *))1)\ |\ (11))\ |\ \epsilon}$</p>
+</div>
 
-<h3 id="examples">Examples</h3>
 
-<p>Nous donnons ci-dessous quelques examples d&rsquo;expressions régulières toujours sur le vocabulaire $\mathcal{V} = \{0, 1\}$.</p>
+<h3 id="exemples">Exemples</h3>
+
+<p>Nous donnons ci-dessous quelques exemples d&rsquo;expressions régulières toujours sur le vocabulaire $\mathcal{V} = \{0, 1\}$.</p>
 
 <!--  <style> -->
 
@@ -657,9 +685,9 @@ Ainsi, l&rsquo;expression régulière $\color{green}{10^*1\ |\ 11\ |\ \epsilon}$
 </tr>
 
 <tr>
-<td align="center">Les chaînes de bits ne contenant que des zeros et des uns alternés</td>
-<td align="center">$\color{green}{10(10)^* \ | \ 01(01)^*}$</td>
-<td align="center">$\{10, 01, 1010, 0101, 101010, 010101, \cdots\}$</td>
+<td align="center">Les chaînes de bits de longueur paire ne contenant que des zeros et des uns alternés</td>
+<td align="center">$\color{green}{(10)^* \ | \ (01)^*}$</td>
+<td align="center">$\{\epsilon, 10, 01, 1010, 0101, 101010, 010101, \cdots\}$</td>
 </tr>
 
 <tr>
@@ -676,13 +704,27 @@ Ainsi, l&rsquo;expression régulière $\color{green}{10^*1\ |\ 11\ |\ \epsilon}$
 </tbody>
 </table>
 
-<p>{{% notice info %}}
-<a href="https://regexcrossword.com/">Vous pouvez vous amuser en utilisant les expressions régulières sur Regex Crossword <i class="far fa-smile-beam"></i>.</a>
-{{% /notice %}}</p>
 
-<p>{{&lt; youtube 5VNKh7aaZ-g &gt;}}</p>
+<div class="notices info" ><p><a href="https://regexcrossword.com/">Vous pouvez vous amuser en utilisant les expressions régulières sur Regex Crossword <i class="far fa-smile-beam"></i>.</a></p>
+</div>
 
-<p>{{&lt; youtube Wl8FXqv6dak &gt;}}</p>
+
+<p>Dans la vidéo suivante, nous allons définir formellement les expressions régulières et les langages qu&rsquo;elles engendrent. Nous verrons aussi comment elles sont définies dans
+<code>ocamllex</code>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/5VNKh7aaZ-g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>La vidéo suivante va donner des exemples d&rsquo;expressions régulières que l&rsquo;on trouvera dans MiniJava et montrer quelques extensions des expressions régulières.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/Wl8FXqv6dak" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
 
 <h3 id="questions">Questions</h3>
 
@@ -691,109 +733,176 @@ régulière $\color{green}{(a\ |\ b)^*}$.</p>
 
 <hr />
 
-<p>{{%expand &ldquo;Soit l&rsquo;alphabet ${a, b}$. Donner une expression régulière permettant de décrire le langage : ${ w \in { a, b}^*\ |\ w$ contient les mots $aa$ ou $bb$ $}$.&rdquo; %}}</p>
 
-<p>{{% /expand%}}</p>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient les mots $aa$ ou $bb$ $\}$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Une expression régulière représentant ce langage est la suivante :
+${\color{green}{(}}a\ {\color{green}{|}}\ b{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}aa\ {\color{green}{|}}\ bb{\color{green}{)}}{\color{green}{(}}a\ {\color{green}{|}}\ b{\color{green}{)}}^{\color{green}{*}}$</p>
+
+<p>Pour tester votre expression régulière, vous pouvez utiliser le site <a href="https://regex-generate.github.io/regenerate/">suivant</a>, qui permet de générer des mots reconnus par votre expression régulière,
+et des mots qui ne sont pas reconnus.</p>
+
+    </div>
+</div>
 
 <hr />
 
-<p>{{%expand &ldquo;Cette question même si on pourrait penser qu&rsquo;elle ressemble beaucoup à la précédente n&rsquo;est pas facile. Vous pouvez revenir sur cette question après avoir vu la section suivante sur les automates. Soit l&rsquo;alphabet ${a, b}$. Donner une expression régulière permettant de décrire le langage : ${ w \in { a, b}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb$ $}$.&rdquo; %}}</p>
 
-<p>{{% /expand%}}</p>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Cette question même si on pourrait penser qu&#39;elle ressemble beaucoup à la précédente est moins facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l&#39;alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb$ $\}$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Puisque l&rsquo;on ne peut pas avoir deux $a$ ou deux $b$ qui se suivent, on doit alterner les $a$ et les $b$. C&rsquo;est l&rsquo;idée derrière l&rsquo;expression régulière suivante.</p>
+
+<p>${\color{green}{(}}ab{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}\ {\color{green}{|}}\ {\color{green}{(}}ba{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}b\ {\color{green}{|}}\ \epsilon{\color{green}{)}}$</p>
+
+<p>Une autre expression régulière représentant le même langage, que nous avons obtenu en utilisant des techniques que nous verrons dans la section suivante est donnée ci-dessous.</p>
+
+<p>$\epsilon\ {\color{green}{|}}\ a\ {\color{green}{|}}\ {\color{green}{(}}b\ {\color{green}{|}}\ ab{\color{green}{)}}{\color{green}{(}}ab{\color{green}{)}}^{\color{green}{*}}{\color{green}{(}}a\ {\color{green}{|}}\ \epsilon{\color{green}{)}}$</p>
+
+    </div>
+</div>
 
 <hr />
 
 <p>On veut se déplacer dans la grille ci-dessous en utilisant les deux actions : &ldquo;aller à droite&rdquo; et &ldquo;aller en haut&rdquo;. On part du coin inférieur gauche et
 on veut arriver au coin supérieur droit. Un chemin possible est indiqué dans la figure de droite.</p>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/scanner_question_grid3.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
 
-<p>{{%expand &ldquo;Écrire une expression régulière permettant de décrire toutes les actions permettant d&rsquo;aller du coin inférieur gauche au coin supérieur droit.&rdquo; %}}</p>
+<figure>
+    
+        <img src="/images/minijava/scanner/scanner_question_grid3.svg" width="600px" height="auto" />
+    
+    
+</figure>
 
-<p>On ne peut pas écrire succintement cette expression régulière sans utiliser des extensions. On va devoir énumérer les différentes configurations.
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Écrire une expression régulière permettant de décrire toutes les actions permettant d&#39;aller du coin inférieur gauche au coin supérieur droit.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>On ne peut pas écrire succintement cette expression régulière sans utiliser des extensions. On va devoir énumérer les différentes configurations.
 Le nombre de possibilités est le nombre de combinaisons de 3 éléments parmis 6 : ${{6}\choose{3}} = 20$. En effet, il faut 6 actions pour aller du départ jusqu&rsquo;à l&rsquo;arrivée.
 Parmis ces 6 actions, 3 doivent aller vers la droite et 3 vers le haut. On va donc créer une expression régulière avec 20 parties. Nous utilisons <code>D</code> pour allez
 à droite et <code>H</code> pour allez en haut.</p>
 
-<p>$$
-\scriptsize
-\color{green}{HHHDDD\ |<br />
-HHDHDD\ |<br />
-HHDDHD\ |<br />
-HHDDDH\ |<br />
-HDHHDD\ |<br />
-HDHDHD\ |<br />
-HDHDDH\ |<br />
-HDDHHD\ |<br />
-HDDHDH\ |<br />
-HDDDHH\ |<br />
-DHHHDD\ |<br />
-DHHDHD\ |<br />
-DHHDDH\ |<br />
-DHDHHD\ |<br />
-DHDHDH\ |<br />
-DHDDHH\ |<br />
-DDHHHD\ |<br />
-DDHHDH\ |<br />
-DDHDHH\ |<br />
-DDDHHH
-}
-$$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl">HHHDDD <span style="color:#f92672">|</span> HHDHDD <span style="color:#f92672">|</span> HHDDHD <span style="color:#f92672">|</span> HHDDDH <span style="color:#f92672">|</span> HDHHDD <span style="color:#f92672">|</span>
+HDHDHD <span style="color:#f92672">|</span> HDHDDH <span style="color:#f92672">|</span> HDDHHD <span style="color:#f92672">|</span> HDDHDH <span style="color:#f92672">|</span> HDDDHH <span style="color:#f92672">|</span>
+DHHHDD <span style="color:#f92672">|</span> DHHDHD <span style="color:#f92672">|</span> DHHDDH <span style="color:#f92672">|</span> DHDHHD <span style="color:#f92672">|</span> DHDHDH <span style="color:#f92672">|</span>
+DHDDHH <span style="color:#f92672">|</span> DDHHHD <span style="color:#f92672">|</span> DDHHDH <span style="color:#f92672">|</span> DDHDHH <span style="color:#f92672">|</span> DDDHHH</code></pre></div>
 
 <p>Nous avons généré les combinaisons ci-dessus grâce au programme suivant.</p>
 
-<p>{{&lt; highlight cpp&gt;}}
-#include <string>
-#include <iostream></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-<p>using namespace std;</p>
+<span style="color:#66d9ef">const</span> string HAUT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;H&#34;</span>;
+<span style="color:#66d9ef">const</span> string DROITE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;D&#34;</span>;
 
-<p>const string HAUT = &ldquo;H&rdquo;;
-const string DROITE = &ldquo;D&rdquo;;</p>
-
-<p>void combos(int nH, int nD, string res)
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">combos</span>(<span style="color:#66d9ef">int</span> nH, <span style="color:#66d9ef">int</span> nD, string res)
 {
-    if (!nH &amp;&amp; !nD) {
-        cout &lt;&lt; res &lt;&lt; &ldquo;\n&rdquo;;
-        return;
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>nH <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>nD) {
+        cout <span style="color:#f92672">&lt;&lt;</span> res <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+        <span style="color:#66d9ef">return</span>;
     }
-    if (nH) {
-        combos(nH - 1, nD, res + HAUT);
+    <span style="color:#66d9ef">if</span> (nH) {
+        combos(nH <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, nD, res <span style="color:#f92672">+</span> HAUT);
     }
-    if (nD) {
-        combos(nH, nD - 1, res + DROITE);
+    <span style="color:#66d9ef">if</span> (nD) {
+        combos(nH, nD <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, res <span style="color:#f92672">+</span> DROITE);
     }
-}</p>
-
-<p>int main(int argc, char *argv[])
-{
-    combos(3, 3, &ldquo;&rdquo;);
 }
-{{&lt; /highlight &gt;}}</p>
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+{
+    combos(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;&#34;</span>);
+}
+</code></pre></div>
 
 <p>En utilisant les extensions des expressions régulières on peut obtenir la forme plus concise suivante.</p>
 
-<p>{{&lt; highlight julia&gt;}}
-^(?!(.<em>H.</em>){4}|(.<em>D.</em>){4})(H|D){6}$
-{{&lt; /highlight&gt;}}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#f92672">^</span>(<span style="color:#f92672">?!</span>(<span style="color:#f92672">.*</span>H<span style="color:#f92672">.*</span>){<span style="color:#ae81ff">4</span>}<span style="color:#f92672">|</span>(<span style="color:#f92672">.*</span>D<span style="color:#f92672">.*</span>){<span style="color:#ae81ff">4</span>})(H<span style="color:#f92672">|</span>D){<span style="color:#ae81ff">6</span>}<span style="color:#f92672">$</span></code></pre></div>
 
 <p>Dans cette expression, l&rsquo;opérateur <code>(?!(.*H.*){4}|(.*D.*){4})</code> exprime qu&rsquo;il ne faut pas réussir à trouver quatre <code>H</code> ou quatre <code>D</code> dans la suite de la ligne.
 L&rsquo;expression <code>(H|D){6}</code> exprime qu&rsquo;il faut reconnaître six caractères parmis <code>H</code> et <code>D</code>. On exprime donc qu&rsquo;il faut reconnaître six caractères parmis <code>H</code> et <code>D</code>,
 mais on ne doit pas trouver quatre <code>H</code> ou quatre <code>D</code>. On doit donc avoir exactement trois <code>H</code> et trois <code>D</code>.</p>
 
-<p>{{% /expand%}}</p>
+    </div>
+</div>
 
 <hr />
 
-<p>{{%expand &ldquo;Cette question n&rsquo;est pas facile. Vous pouvez revenir sur cette question après avoir vu la section suivante sur les automates. Soit l&rsquo;alphabet ${a, b}$. Donner une expression régulière permettant de décrire le langage : ${ w \in { a, b}^*\ |\ w$ contient un nombre pair de $a$ et un nombre impair de $b$ $}$.&rdquo; %}}</p>
+<p><a name="regular_expressions_q4"></a></p>
 
-<p>{{% /expand%}}</p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Cette question n&#39;est pas trop facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l&#39;alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ $\}$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Une expression régulière représentant ce langage est la suivante.</p>
+
+<p>${\color{green}{(}}b\ {\color{green}{|}}\ ab^{\color{green}{*}}a{\color{green}{)}}^{\color{green}{*}}$</p>
+
+<p>La partie $ab^{\color{green}{*}}a$ de l&rsquo;expression régulière permet d&rsquo;assurer que le nombre de $a$ est pair. Le mot $\epsilon$ n&rsquo;est pas oublié grâce à l&rsquo;opérateur
+d&rsquo;itération sur toute l&rsquo;alternative. La première partie de l&rsquo;alternative, en conjonction avec l&rsquo;opérateur d&rsquo;itération, permet de mettre des $b$ à gauche ou à droite
+de la partie $ab^{\color{green}{*}}a$ et permet aussi de n&rsquo;avoir que des $b$.</p>
+
+<p>Notons que nous avons obtenu cette expression régulière en utilisant des techniques de la section suivante en passant d&rsquo;abord par un automate.</p>
+
+    </div>
+</div>
 
 <hr />
 
-<p>{{%expand &ldquo;Soit l&rsquo;alphabet ${0, 1}$. Quel est le langage décrit par l&rsquo;expression régulière suivante : $\color{green}{0^*10^<em>10^</em>(10^*\ |\ \epsilon)}$ ?&rdquo; %}}
-Le langage contenant deux ou trois <code>1</code>.
-{{% /expand%}}</p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{0, 1\}$. Quel est le langage décrit par l&#39;expression régulière suivante : $\color{green}{0^*10^*10^*(10^*\ |\ \epsilon)}$ ?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Le langage contenant deux ou trois <code>1</code>.</p>
+
+    </div>
+</div>
 
 <h2 id="automates">Automates</h2>
 
@@ -826,11 +935,18 @@ l&rsquo;état <code>2</code>, nous avons mis plusieurs symboles sur la transitio
 Formellement, nous aurions dû écrire deux transitions au lieu d&rsquo;une, avec chacune un des deux symboles, mais faire comme nous l&rsquo;avons fait permet d&rsquo;écrire plus succinctement l&rsquo;automate.</p></li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
 
 <p>L&rsquo;automate va nous permettre de savoir si un mot <code>m</code> construit à partir du vocabulaire $\mathcal{V}$ appartient au langage décrit par l&rsquo;automate (on note ce langage $\mathcal{L}(A_{fnd})$).</p>
 
-<h4 id="test-de-l-appartenance-d-un-mot-au-langage-décrit-par-l-automate">Test de l&rsquo;appartenance d&rsquo;un mot au langage décrit par l&rsquo;automate</h4>
+<!-- #### Test de l'appartenance d'un mot au langage décrit par l'automate -->
 
 <p>Soit <code>/*/*/</code> un mot, que nous appellerons <code>m</code>, appartenant à $\mathcal{V}^*$.
 Comment savoir si ce mot est décrit par l&rsquo;automate $A_{fnd}$ ?</p>
@@ -838,14 +954,28 @@ Comment savoir si ce mot est décrit par l&rsquo;automate $A_{fnd}$ ?</p>
 <p>On va partir de l&rsquo;état initial, l&rsquo;état <code>0</code>, et on va suivre les transitions,
 caractères après caractères, en cherchant un chemin qui nous mène vers l&rsquo;état d&rsquo;acceptation <code>7</code> après avoir lu tous les caractères du mot <code>m</code>.</p>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments1.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments1.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>À Partir de l&rsquo;état <code>0</code>, il n&rsquo;y a qu&rsquo;une seule transition, il n&rsquo;y a donc pas le choix. Le mot doit donc forcément commencer par <code>/</code>, car c&rsquo;est le symbole sur cette transition.
 Une fois cette transition passée, on se trouve dans l&rsquo;état <code>1</code> et il nous reste à analyser la partie <code>*/*/</code> de <code>m</code>.</li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments2.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments2.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>À Partir de l&rsquo;état <code>1</code>, il n&rsquo;y a aussi qu&rsquo;une seule transition possible. On doit donc forcément avoir le symbole <code>*</code> dans ce qu&rsquo;il nous reste à analyser <code>*/*/</code>,
@@ -853,7 +983,14 @@ car c&rsquo;est le symbole sur la seule transition partant de l&rsquo;état <cod
 Une fois cette transition passée, on se trouve dans l&rsquo;état <code>2</code> et il nous reste à analyser la partie <code>/*/</code> de <code>m</code>.</li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments3.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments3.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>L&rsquo;état <code>2</code> possède trois transitions sortantes. Elles sont toutes les trois labelées avec le symbole $\epsilon$. Ce symbole signifie que l&rsquo;on ne modifie pas l&rsquo;entrée lorsque
@@ -862,14 +999,28 @@ Comment faire pour s&rsquo;orienter ? On va supposer pour le moment que l&rsquo;
 les vidéos comment automatiser cela.</li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments4.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments4.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>Dans l&rsquo;état <code>4</code> nous avons encore le choix entre deux transitions : ne pas consommer un caractère de l&rsquo;entrée en prenant la transition $\epsilon$, ou consommer le caractère <code>/</code>
 en bouclant sur l&rsquo;état <code>4</code>. Comme nous sommes devin, nous allons boucler sur l&rsquo;état <code>4</code> et consommer le <code>/</code>.</li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments5.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments5.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>Maintenant, l&rsquo;entrée qu&rsquo;il nous reste à consommer est <code>*/</code>. Nous allons prendre la transition $\epsilon$ jusqu&rsquo;à l&rsquo;état <code>2</code>, puis la transition $\epsilon$ de l&rsquo;état <code>2</code> vers l&rsquo;état <code>3</code>. Encore
@@ -877,21 +1028,42 @@ une fois on ne se préoccupe pas pour l&rsquo;instant du comment faire les bons 
 d&rsquo;entrée n&rsquo;a pas bougé.</li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments6.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments6.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>Dans l&rsquo;état <code>5</code>, nous n&rsquo;avons qu&rsquo;une transition sortante sur le caractère <code>*</code>. Le curseur sur l&rsquo;entrée est placé sur le <code>*</code>, on peut donc
 prendre cette transition et déplacer le curseur vers la droite. Il nous reste maintenant simplement à reconnaître le <code>/</code>.</li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments7.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments7.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>Dans l&rsquo;état <code>6</code>, il n&rsquo;y a là aussi qu&rsquo;une seule transition sur le symbole <code>/</code>. Comme le curseur sur l&rsquo;entrée pointe sur un caractère <code>/</code>, on peut prendre cette transition et se placer
 sur l&rsquo;état final <code>7</code>.</li>
 </ul>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_comments8.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/nfa_comments8.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
 
 <ul>
 <li>Comme la chaîne d&rsquo;entrée est maintenant vide et que nous sommes dans un état d&rsquo;acceptation, on peut conclure que le mot <code>/*/*/</code> appartient bien au langage $\mathcal{L}(A_{fnd})$.
@@ -900,28 +1072,94 @@ Le mot <code>/*/*/</code> est donc bien un commentaire.</li>
 
 <p>La chaîne d&rsquo;entrée <code>/*/*/</code> est acceptée par notre automate, mais comment sait-on si une chaîne n&rsquo;est pas dans le langage $\mathcal{L}(A_{fnd})$, autrement dit
 comment sait-on si le mot n&rsquo;est pas accepté ?
-Pour un automate non déterministe, il faut montrer qu&rsquo;après avoir lu tous les caractères de la chaîne d&rsquo;entrée, on ne peut pas être dans un état d&rsquo;acceptation.
-Nous allons détailler dans la vidéo suivante comment détecter si un mot appartient ou non au langage engendré par un automate fini non déterministe.</p>
+Pour un automate non déterministe, il faut montrer qu&rsquo;après avoir lu tous les caractères de la chaîne d&rsquo;entrée, on ne peut pas être dans un état d&rsquo;acceptation.</p>
 
-<p>{{% notice note %}}
-Il nous semble plus aisé de construire l&rsquo;automate fini non déterministe que nous venons de voir pour décrire le langage des commentaires que l&rsquo;expression régulière
+
+<div class="notices note" ><p>Il nous semble plus aisé de construire l&rsquo;automate fini non déterministe que nous venons de voir pour décrire le langage des commentaires que l&rsquo;expression régulière
 <em>$/*\color{darkgreen}{(}*^{\color{darkgreen}{+}}\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}\ \color{darkgreen}{|}\ \color{darkgreen}{(}a\ |\ b\ |\ /\color{darkgreen}{)}\color{darkgreen}{)}^{\color{darkgreen}{*}}*^{\color{darkgreen}{+}}/$</em> que nous avions vu dans la section <a href="#regular_expressions">précedente</a>.
-Après, vous êtes peut-être des gourous de <a href="https://fr.wikipedia.org/wiki/Perl_(langage)">Perl</a><sup class="footnote-ref" id="fnref:Perl-signifie-Pr"><a href="#fn:Perl-signifie-Pr">4</a></sup>
-et c&rsquo;est juste trop facile pour vous <i class="far fa-smile-beam"></i>.
-{{% /notice %}}</p>
+Après, vous êtes peut-être des gourous de <a href="https://fr.wikipedia.org/wiki/Perl_(langage)">Perl</a><sup class="footnote-ref" id="fnref:Perl-signifie-Pr"><a href="#fn:Perl-signifie-Pr">1</a></sup>
+et c&rsquo;est juste trop facile pour vous <i class="far fa-smile-beam"></i>.</p>
+<div class="footnotes">
 
-<!-- {{< https://youtu.be/rZGSM0vvz58 >}} -->
+<hr />
+
+<ol>
+<li id="fn:Perl-signifie-Pr"><code>Perl</code> signifie <em>Practical Extraction and Report Language</em>, ou <em>Pathologically Eclectic Rubbish Lister</em> <i class="far fa-smile-wink"></i>. <a class="footnote-return" href="#fnref:Perl-signifie-Pr"><sup>[return]</sup></a></li>
+</ol>
+</div>
+</div>
+
+
+<p>Nous allons détailler dans les deux vidéos suivantes les automates finis non déterministes, et comment détecter si un mot appartient ou non au langage engendré par un automate fini non déterministe.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/rZGSM0vvz58" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<hr />
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/uJmyT-tE7dY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Dans la vidéo suivante, nous allons montrer comment passer d&rsquo;une expression régulière à un automate fini non déterministe.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/KFqUYGvmAHA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
 
 <h4 id="questions-1">Questions</h4>
 
-<p>{{%expand &ldquo;Soit l&rsquo;alphabet ${a, b}$. Construire un automate qui reconnait le langage : ${ w \in { a, b}^*\ |\ w$ contient le mot $aba$ $}$. Par example, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$.&rdquo; %}}
- {{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_question1.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
 
-<p>Notons que cet automate calque vraiment l&rsquo;expression régulière $\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{*}}aba\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{*}}$.
-{{% /expand%}}</p>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient le mot $aba$ $\}$. Par exemple, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <figure>
+    
+        <img src="/images/minijava/scanner/nfa_question1.svg" width="600px" height="auto" />
+    
+    
+</figure>
 
-<p>{{%expand &ldquo;Soit l&rsquo;alphabet ${a, b}$. Construire un automate qui reconnait le langage : ${ w \in { a, b}^*\ |\ w$ ne contient pas le mot $aba$ sauf s&rsquo;il est précédé par le mot $bbb$ $}$. Par exemple, $aaabbbaabaa$ est dans le langage, $abba$ aussi, mais pas $bbababbb$.&rdquo; %}}
-{{&lt; figure src=&ldquo;/images/minijava/scanner/nfa_question2.svg&rdquo; width=&ldquo;600px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+<p>Notons que cet automate calque vraiment l&rsquo;expression régulière $\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{*}}aba\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{*}}$.</p>
+
+    </div>
+</div>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas le mot $aba$ sauf s&#39;il est précédé par le mot $bbb$ $\}$. Par exemple, $aaabbbaabaa$ est dans le langage, $abba$ aussi, mais pas $bbababbb$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <figure>
+    
+        <img src="/images/minijava/scanner/nfa_question2.svg" width="600px" height="auto" />
+    
+    
+</figure>
 
 <p><a name="nfa_question2_states"></a>
 La partie haute de l&rsquo;automate, les états <code>1</code>, <code>2</code>, <code>3</code> et <code>4</code>, permet de reconnaître une suite de trois <code>b</code> suivie de n&rsquo;importe quoi. La partie basse s&rsquo;occupe de reconnaître tout sauf <code>aba</code>.
@@ -931,7 +1169,7 @@ et l&rsquo;état <code>7</code> qu&rsquo;on vient de voir <code>ab</code>, donc 
 
 <p>Comment être sûr que la partie basse reconnaît bien tout sauf <code>aba</code> ? Pour la partie haute, il est assez facile de se convaincre qu&rsquo;elle reconnaît bien $bbb\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{*}}$.
 Mais ce n&rsquo;est pas si évident de se convaincre que la partie basse décrit bien tout sauf la chaîne <code>aba</code>. Quand on veut vraiment être sûr, il n&rsquo;y a qu&rsquo;un moyen,
-c&rsquo;est faire une preuve !<sup class="footnote-ref" id="fnref:Vous-me-direz-qu"><a href="#fn:Vous-me-direz-qu">5</a></sup></p>
+c&rsquo;est faire une preuve !<sup class="footnote-ref" id="fnref:Vous-me-direz-qu"><a href="#fn:Vous-me-direz-qu">1</a></sup></p>
 
 <p>On va faire une preuve par récurrence sur la longueur de la chaîne. Pour une chaîne de longueur 0 ($\epsilon$) de longueur 1 ($a$ et $b$) et de longueur 2 ($aa$, $ab$, $ba$ et $bb$), on peut suivre les transitions
 à partir de l&rsquo;état 0 vers la partie basse et voir qu&rsquo;on les reconnaît toutes et elles n&rsquo;ont pas <code>aba</code> dedans (car la longueur de la chaîne est inférieure ou égale à 2). Supposons
@@ -953,45 +1191,873 @@ chaîne de longueur $n+1$ <code>ma</code> ou <code>mb</code>.</p></li>
 </ul>
 
 <p>En supposant donc qu&rsquo;on peut générer tous les mots de longueur $n$ ne contenant pas <code>aba</code>, on vient de montrer qu&rsquo;on peut générer tous les mots de longueur $n+1$ ne contenant pas <code>aba</code>.</p>
+<div class="footnotes">
 
-<p>{{% /expand%}}</p>
+<hr />
+
+<ol>
+<li id="fn:Vous-me-direz-qu">Vous me direz qu&rsquo;il faut encore qu&rsquo;elle soit correcte. C&rsquo;est pas faux <i class="far fa-smile-beam"></i>, mais dans une preuve il faut juste se convaincre que chaque étape élémentaire est correcte. <a class="footnote-return" href="#fnref:Vous-me-direz-qu"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </div>
+</div>
 
 <h3 id="automates-finis-déterministes">Automates finis déterministes</h3>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/dfa_comments.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+<p>Les automates finis déterministes sont un sous-ensemble des automates finis non-déterministes. L&rsquo;intérêt de ces automates, c&rsquo;est de ne plus avoir besoin
+de &ldquo;deviner&rdquo; la bonne transition à suivre car, dans un état donné et pour un symbole donné de l&rsquo;entrée, il n&rsquo;y a au plus qu&rsquo;une transition possible. Comme nous l&rsquo;avons vu
+dans la section précédente, on peut en réalité se servir d&rsquo;un automate non-déterministe sans avoir besoin de deviner. L&rsquo;algorithme que nous avons vu permet en fait de construire dynamiquement
+un automate fini déterministe. L&rsquo;intérêt de partir directement d&rsquo;un automate déterministe, c&rsquo;est que l&rsquo;on n&rsquo;a pas besoin de reconstruire à chaque fois ce dernier.
+Ce sera d&rsquo;autant plus intéressant pour un analyseur lexical car les expressions régulières permettant de décrire les unités lexicales ne changeront pas
+et on gagnera en efficacité en construisant une fois pour toute les automates correspondants aux expressions régulières.</p>
+
+<p>L&rsquo;automate suivant est une version
+déterministe de l&rsquo;automate non-déterministe qui reconnaît les commentaires en <code>C</code> de la section précédente.</p>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<p>Comme les automates finis déterministes sont une restriction des automates finis non-déterministes, on pourrait à juste titre croire qu&rsquo;ils permettent de décrire moins de langages.
+En fait ce n&rsquo;est pas le cas et ils sont aussi puissants que les automates finis non-déterministes.</p>
+
+<p>La vidéo ci-dessous va décrire les automates finis déterministe et montrer comment transformer un automate non-déterministe en un automate déterministe.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/hOAbe3TbdJ0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Le code utilisé dans la vidéo précédente est accessible <a href="https://gist.github.com/lascar-pacagi/e2ac6243986672d9c85a839f26eadc52">ici</a>.</p>
+
+<p>Dans la vidéo suivante, nous allons montrer comment fonctionne un analyseur lexical et comment obtenir un automate fini déterministe de taille minimale.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/WMsfcjieU9s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p><a name="dfa_lexer_cpp"></a>
+Dans les vidéos suivantes, nous allons coder en <a href="https://isocpp.org/">C++</a> un analyseur lexical pour la partie du langage présentée dans la vidéo précédente.
+Le code utilisé dans cette vidéo est accessible <a href="https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56">ici</a>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/F8oztkX3e6E" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<hr />
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/BSBK5s-q9qU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<hr />
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/LhxurDuCNls" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h4 id="questions-2">Questions</h4>
+
+<p><a name="dfa_question2_1"></a>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$. Par exemple, $abb$ est dans le langage, ainsi que $bbabbaa$ et $aaaaa$, mais pas $b$ ni $aabb$.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <figure>
+    
+        <img src="/images/minijava/scanner/dfa_question1.fr.svg" width="500px" height="auto" />
+    
+    
+</figure>
+
+<p>Dans l&rsquo;automate ci-dessus, on a un état par configuration possible de la parité des $a$ et des $b$. Par exemple, l&rsquo;état d&rsquo;acceptation $IP$ indique que l&rsquo;on a rencontré
+un nombre impair de $a$ et un nombre pair de $b$. L&rsquo;état de départ $PP$ indique que l&rsquo;on a vu un nombre pair de $a$ et de $b$. C&rsquo;est vrai tout au début aussi, car on a alors rencontré
+aucun $a$ et aucun $b$.</p>
+
+    </div>
+</div></p>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;expression régulière $\color{darkgreen}{0^*(100^*)^*(1|\epsilon)}$ décrivant les chaînes de bits sur l&#39;alphabet $\{0, 1\}$ ne contenant pas la sous-chaîne $11$. Transformer cette expression régulière en un automate fini non-déterministe, puis transformer ce dernier en un automate fini déterministe et pour terminer, minimiser ce dernier.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>La transformation de l&rsquo;expression régulière en un automate fini non-déterministe donne l&rsquo;automate suivant. Notons que nous avons pris quelques libertés avec les transformations que
+nous avions vu dans la vidéo pour réduire un peu la taille de l&rsquo;automate, mais la transformation est très similaire à ce que nous avions vu.</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_question2_1.svg" width="1000px" height="auto" />
+    
+    
+</figure>
+
+<p>L&rsquo;automate fini déterministe correspondant (en utilisant la transformation que nous avons vu) est donné ci-dessous.</p>
+
+<p><a name="dfa_question2_2"></a></p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_question2_2.svg" width="650px" height="auto" />
+    
+    
+</figure>
+
+<p>Dans cet automate, par exemple, l&rsquo;état $0$ correspond à l&rsquo;ensemble des états $\{0,1,3,4,10,11\}$ de l&rsquo;automate fini non-déterministe et l&rsquo;état $4$ correspond
+à l&rsquo;ensemble $\{8,7,9,4,10,11\}$.</p>
+
+<p>Il nous reste maintenant à minimiser cet automate. Nous allons tout d&rsquo;abord rendre explicite l&rsquo;état puits que nous allons noter <code>P</code>,
+qui est implicite dans la <a href="#dfa_question2_2">figure</a> ci-dessus représentant l&rsquo;automate déterministe.
+C&rsquo;est l&rsquo;état qui est atteint sur une transition qui n&rsquo;est pas indiquée dans l&rsquo;automate de la <a href="#dfa_question2_2">figure</a>. Si nous
+rendons explicite cet état, nous obtenons l&rsquo;automate équivalent suivant :</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_question2_2_puits.svg" width="650px" height="auto" />
+    
+    
+</figure>
+
+<p>Nous allons tout d&rsquo;abord considérer les deux ensembles d&rsquo;états que nous pouvons tout de suite distinguer : les états terminaux
+et les états non terminaux. On obtient les deux groupes suivants.</p>
+
+<ul>
+<li>$G_1 = \{0,1,2,3,4\}$</li>
+<li>$G_2 = \{P\}$</li>
+</ul>
+
+<p>Pour le groupe $G_1$, les états $0,1,3$ et $4$ transitionnent vers un des états du groupe $G_1$ sur un <code>0</code> ou un <code>1</code>. Par contre, l&rsquo;état $2$ lui transitionne
+vers le groupe $G_2$ sur un <code>1</code>. Le groupe $G_1$ va devoir donc être scindé. Le groupe $G_2$ ne possède qu&rsquo;un élément, il reste donc inchangé.
+On obtient maintenant les trois groupes suivants.</p>
+
+<ul>
+<li>$G_{1,1} = \{0,1,3,4\}$</li>
+<li>$G_{1,2} = \{2\}$</li>
+<li>$G_2 = \{P\}$</li>
+</ul>
+
+<p>Dans le groupe $G_{1,1}$, on a</p>
+
+<ul>
+<li>$0 \xrightarrow[]{0} G_{1,1}$</li>
+<li>$1 \xrightarrow[]{0} G_{1,1}$</li>
+<li>$3 \xrightarrow[]{0} G_{1,1}$</li>
+<li>$4 \xrightarrow[]{0} G_{1,1}$</li>
+<li>$0 \xrightarrow[]{1} G_{1,2}$</li>
+<li>$1 \xrightarrow[]{1} G_{1,2}$</li>
+<li>$3 \xrightarrow[]{1} G_{1,2}$</li>
+<li>$4 \xrightarrow[]{1} G_{1,2}$</li>
+</ul>
+
+<p>L&rsquo;état $G_{1,1}$ n&rsquo;a donc pas besoin d&rsquo;être scindé d&rsquo;avantage car les transitions sur <code>0</code> comme sur <code>1</code> font transitionner chacun des états de
+$G_{1,1}$ dans le même groupe. Il ne reste plus aucun groupe pouvant être scindé, on a donc fini la minimisation. Les états $0, 1, 3$ et $4$ vont
+donc être regroupés dans un seul état. L&rsquo;automate obtenu après minimisation est donné ci-dessous (nous ne faisons pas apparaître l&rsquo;état puits).</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_question2_3.svg" width="400px" height="auto" />
+    
+    
+</figure>
+
+<p>Si l&rsquo;on interprète cet automate, on peut voir que l&rsquo;état $0$ indique que l&rsquo;on vient de rencontrer un zéro, ou bien que l&rsquo;on n&rsquo;a encore rien lu.
+Quant à l&rsquo;état $2$, il indique que l&rsquo;on vient de rencontrer un $1$.</p>
+
+    </div>
+</div>
 
 <h3 id="passage-d-un-automate-à-une-expression-régulière">Passage d&rsquo;un automate à une expression régulière</h3>
 
-<p>Nous allons décrire plus en détail les liens entre expressions régulières et automates dans les vidéos ci-dessous, mais nous
-pouvons retrouver l&rsquo;expression régulière permettant de décrire les commentaires en C automatiquement à partir d&rsquo;un automate fini (déterministe ou non-déterministe).
-Nous montrons ci-dessous une suite de transformations permettant de passer de l&rsquo;automate fini déterministe vu plus haut vers une expression régulière équivalente.
-On peut voir sur les transitions apparaître des expressions régulières au fur et à mesure des transformations. Pour ne pas confondre le caractère <code>*</code> avec l&rsquo;opérateur
+<p>Nous pouvons construire automatiquement l&rsquo;expression régulière correspondant à un automate fini (déterministe ou non-déterministe).
+Nous montrons ci-dessous une suite de transformations permettant de passer de l&rsquo;automate fini déterministe correspondant aux commentaires en C vu plus haut,
+vers une expression régulière équivalente. Nous détaillerons dans la vidéo ci-dessous cette transformation.</p>
+
+<p>On peut voir sur les transitions apparaître des expressions régulières au fur et à mesure des transformations. Pour ne pas confondre le caractère <code>*</code> avec l&rsquo;opérateur
 <span style="color:green">*</span>, nous avons écrit l&rsquo;opérateur en vert.</p>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/automata_to_regex1.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+<!-- 
+<figure>
+    
+        <img src="/images/minijava/scanner/automata_to_regex1.svg" width="800px" height="auto" />
+    
+    
+</figure>
+ -->
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/automata_to_regex2.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+<!-- 
+<figure>
+    
+        <img src="/images/minijava/scanner/automata_to_regex2.svg" width="800px" height="auto" />
+    
+    
+</figure>
+ -->
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/automata_to_regex3.svg&rdquo; width=&ldquo;300px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+<!-- 
+<figure>
+    
+        <img src="/images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto" />
+    
+    
+</figure>
+ -->
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/dfa_comments.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/dfa_comments_to_regex1.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto" />
+    
+    
+</figure>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/dfa_comments_to_regex2.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
 
-<p>{{&lt; figure src=&ldquo;/images/minijava/scanner/dfa_comments_to_regex3.svg&rdquo; width=&ldquo;800px&rdquo; height=&ldquo;auto&rdquo;&gt;}}</p>
+<p>Tout d&rsquo;abord, nous allons réécrire l&rsquo;automate en faisant apparaître clairement les expressions régulières représentant les alternatives sur les transitions.</p>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments_to_regex0.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<p>Nous allons maintenant éliminer tour à tour des états pour arriver à un automate ne contenant plus que deux états: un état initial et un état
+d&rsquo;acceptation.</p>
+
+<p>Pour éliminer l&rsquo;état $q = \{3,5,6\}$, il faut regarder pour chaque paire d&rsquo;états $(q_1, q_2)$ s&rsquo;il existe
+un arc entre $q_1$ et $q$ et entre $q$ et $q_2$. Il faut alors maintenir cette information en modifiant l&rsquo;arc entre $q_1$ et $q_2$.</p>
+
+<p>Par exemple, ici, on va devoir considérer le chemin $\{2,3,4,5\}\rightarrow q \rightarrow \{7\}$ et ajouter l&rsquo;expression régulière
+$**^{\color{darkgreen}{*}}/$
+entre les états $\{2,3,4,5\}$ et $\{7\}$ afin de conserver la même information. On doit aussi considérer le chemin $\{2,3,4,5\}\rightarrow q \rightarrow \{2,3,4,5\}$
+et ajouter l&rsquo;expression régulière
+$**^{\color{darkgreen}{*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}}$ sur la boucle de l&rsquo;état $\{2,3,4,5\}$.
+On obtient alors l&rsquo;automate suivant.</p>
+
+<!-- $**^{\color{darkgreen}{*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}$ -->
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<p>En éliminant l&rsquo;état $\{2,3,4,5\}$ on obtient alors l&rsquo;automate suivant.</p>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<p>Et enfin, en éliminant l&rsquo;état $\{1\}$, on obtient l&rsquo;expression régulière finale qui se trouve sur l&rsquo;arc reliant l&rsquo;état
+de départ à l&rsquo;état d&rsquo;acceptation.</p>
+
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto" />
+    
+    
+</figure>
+
+
+<p>La vidéo suivante va détailler cette construction.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/kO5ejPkHPCk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Les prochaines vidéos vont détailler un programme en OCaml permettant de transformer un automate en une expression régulière en utilisant l&rsquo;algorithme de <a href="https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall">Floyd-Warshall</a>.</p>
+
+<p>La vidéo suivante présente l&rsquo;algorithme de fermeture transitive de Floyd-Warshall sur un graphe pour présenter plus simplement les concepts avant de passer
+à la création automatique des expressions régulières à partir de l&rsquo;automate. Le code présenté dans la vidéo se trouve <a href="https://gist.github.com/lascar-pacagi/593a5d40ccda8e908628ada1013c8d13">ici</a>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/5jj2Lp8EbPI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>La vidéo suivante décrit le code qui permet de transformer un automate en une expression régulière. Le code se trouve <a href="https://gist.github.com/lascar-pacagi/02fe4e05b97b5fd5d8efa89c9c2ebf33">ici</a>,
+et le petit script python permettant de transformer notre représentation en celle attendue
+sur ce <a href="https://cyberzhg.github.io/toolbox/min_dfa">site</a> se trouve <a href="https://gist.github.com/lascar-pacagi/0a3e184568256c45d19b040c6912fd44">ici</a>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/OfFBAvJiunc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h4 id="questions-3">Questions</h4>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ $\}$. Transformer ensuite cet automate en une expression régulière.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Nous avions déjà rencontré ce langage dans la section sur les expressions régulières dans cette <a href="#regular_expressions_q4">question</a>.</p>
+
+<p>L&rsquo;automate suivant permet de représenter le langage des mots sur le vocabulaire $\{a, b\}$ où le nombre de $a$ est pair.</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q1_1.svg" width="500px" height="auto" />
+    
+    
+</figure>
+
+<p>Les différentes étapes de la transformation de l&rsquo;automate vers une expression régulière équivalente sont données ci-dessous.</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q1_2.svg" width="650px" height="auto" />
+    
+    
+</figure>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q1_3.svg" width="350px" height="auto" />
+    
+    
+</figure>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q1_4.svg" width="350px" height="auto" />
+    
+    
+</figure>
+
+<p>On obtient donc l&rsquo;expression régulière ${\color{darkgreen}{(}}b\ {\color{darkgreen}{|}}\ ab^{\color{darkgreen}{*}}a{\color{darkgreen}{)}}^{\color{darkgreen}{*}}$. C&rsquo;est ce que l&rsquo;on avait obtenu comme réponse à cette <a href="#regular_expressions_q4">question</a>. C&rsquo;est pas étonnant, car nous avions
+procédé comme ici pour obtenir l&rsquo;expression régulière <i class="far fa-smile-beam"></i>.</p>
+
+    </div>
+</div>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Soit l&#39;alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas un nombre impair de $a$ ou ne contient pas un nombre pair de $b \}$. Transformer ensuite cet automate en une expression régulière. Notons que ce langage est le complémentaire du langage $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$ que nous avions déjà rencontré.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>L&rsquo;automate suivant permet de représenter ce langage. Notons que cet automate est l&rsquo;automate que nous avions rencontré dans cette <a href="#dfa_question2_1">question</a>
+avec les états d&rsquo;acceptations qui sont devenus des états normaux et les états normaux qui sont devenus d&rsquo;acceptations.</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q2_1.fr.svg" width="500px" height="auto" />
+    
+    
+</figure>
+
+<p>Les différentes étapes de la transformation de l&rsquo;automate vers une expression régulière équivalente sont données ci-dessous.</p>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q2_2.fr.svg" width="550px" height="auto" />
+    
+    
+</figure>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q2_3.fr.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q2_4.fr.svg" width="650px" height="auto" />
+    
+    
+</figure>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q2_5.fr.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
+<figure>
+    
+        <img src="/images/minijava/scanner/dfa_to_regex_q2_6.fr.svg" width="600px" height="auto" />
+    
+    
+</figure>
+
+<p>L&rsquo;expression régulière obtenue est donc la suivante.</p>
+
+<p>${\color{darkgreen}{(}}aa\ {\color{darkgreen}{|}}\ bb\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{*}}{\color{darkgreen}{(}}ba\ {\color{darkgreen}{|}}\ ab{\color{darkgreen}{)}}{\color{darkgreen}{)}}^{\color{darkgreen}{*}}{\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ b\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{*}}{\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ a{\color{darkgreen}{)}}{\color{darkgreen}{)}}$</p>
+
+<p>Pour vérifier que l&rsquo;on a pas fait d&rsquo;erreurs durant la transformation, on peut utiliser le site <a href="https://cyberzhg.github.io/toolbox/min_dfa">suivant</a> et passer de l&rsquo;expression régulière vers un automate minimal pour voir si l&rsquo;on reconnaît notre
+automate de départ. Si vous faites cela, vous verrez qu&rsquo;on retrouve le même automate (avec des noms d&rsquo;états différents).</p>
+
+    </div>
+</div>
 
 <h2 id="identification-de-motifs">Identification de motifs</h2>
 
+<p>Nous allons mettre en pratique les notions que nous venons de voir sur les expressions régulières et les automates en réalisant une petite application permettant de tester
+si une chaîne de caractères vérifie ou non un motif représenté par une expression régulière.</p>
+
+<p>Nous allons présenter une séquence d&rsquo;intéractions dans l&rsquo;interpréteur OCaml que nous pourrons réaliser grâce à cette application.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>utop <span style="color:#f92672">#</span> <span style="color:#66d9ef">let</span> re <span style="color:#f92672">=</span> RE.regex_from_string <span style="color:#e6db74">&#34;0*(100*)*1?&#34;</span><span style="color:#f92672">;;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#66d9ef">val</span> re <span style="color:#f92672">:</span> RE.regex <span style="color:#f92672">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>  RE.<span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">ZeroOrMore</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;),</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>   RE.<span style="color:#a6e22e">Concatenation</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">ZeroOrMore</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>      <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>        RE.<span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>         RE.<span style="color:#a6e22e">ZeroOrMore</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;)))),</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span>    RE.<span style="color:#a6e22e">ZeroOrOne</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;)))</span></code></pre></div>
+
+<p>À la ligne 1, on crée l&rsquo;expression régulière $\color{darkgreen}{0^*(100^*)^*(1|\epsilon)}$ qui permet de représenter les mots sur ne contenant pas de <code>1</code> consécutifs.
+Notons que nous utilisons la notation <code>1?</code> pour représenter $\color{darkgreen}{(1|\epsilon)}$.</p>
+
+<p>On crée ensuite un automate fini non-déterministe équivalent.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml">utop <span style="color:#f92672">#</span> <span style="color:#66d9ef">let</span> nfa <span style="color:#f92672">=</span> NFA.init re<span style="color:#f92672">;;</span>
+<span style="color:#66d9ef">val</span> nfa <span style="color:#f92672">:</span> NFA.t <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;</span></code></pre></div>
+
+<p>On peut ensuite tester si une chaîne de caractères, ici <code>101010</code> appartient ou non au langage engendré par l&rsquo;automate fini non-déterministe et donc par l&rsquo;expression
+régulière.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml">utop <span style="color:#f92672">#</span> NFA.full_match nfa <span style="color:#e6db74">&#34;101010&#34;</span><span style="color:#f92672">;;</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">bool</span> <span style="color:#f92672">=</span> true</code></pre></div>
+
+<p>On voit dans l&rsquo;exemple suivant, que la chaîne <code>011111100100</code>, contenant des <code>1</code> consécutifs, n&rsquo;est pas représenté par l&rsquo;expression régulière.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml">utop <span style="color:#f92672">#</span> NFA.full_match nfa <span style="color:#e6db74">&#34;011111100100&#34;</span><span style="color:#f92672">;;</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">bool</span> <span style="color:#f92672">=</span> false</code></pre></div>
+
+<p>On peut chercher une sous-chaîne dans une chaîne de caractères en entourant une expression de l&rsquo;expression <code>.*</code>. Le <code>.</code> représente n&rsquo;importe quel caractère.
+L&rsquo;exemple suivant va définir une expression régulière permettant de rechercher la sous-chaîne <code>Doc</code><sup class="footnote-ref" id="fnref:On-ne-g-re-que-l"><a href="#fn:On-ne-g-re-que-l">4</a></sup></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml">utop <span style="color:#f92672">#</span> <span style="color:#66d9ef">let</span> re <span style="color:#f92672">=</span> RE.regex_from_string <span style="color:#e6db74">&#34;.*Doc.*&#34;</span><span style="color:#f92672">;;</span>
+<span style="color:#66d9ef">val</span> re <span style="color:#f92672">:</span> RE.regex <span style="color:#f92672">=</span>
+  RE.<span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">ZeroOrMore</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;),</span>
+   RE.<span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;,</span>
+    RE.<span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;,</span>
+     RE.<span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;,</span> RE.<span style="color:#a6e22e">ZeroOrMore</span> <span style="color:#f92672">(</span>RE.<span style="color:#a6e22e">CharSet</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;)))))</span>
+
+utop <span style="color:#f92672">#</span> <span style="color:#66d9ef">let</span> dfa <span style="color:#f92672">=</span> DFA.init re<span style="color:#f92672">;;</span>
+<span style="color:#66d9ef">val</span> dfa <span style="color:#f92672">:</span> DFA.t <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span>abstr<span style="color:#f92672">&gt;</span>
+
+utop <span style="color:#f92672">#</span> DFA.full_match dfa <span style="color:#e6db74">&#34;Wait a minute, Doc. Ah... Are you telling me that you built a time machine... out of a DeLorean?&#34;</span><span style="color:#f92672">;;</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">bool</span> <span style="color:#f92672">=</span> true
+
+utop <span style="color:#f92672">#</span> DFA.full_match dfa <span style="color:#e6db74">&#34;The way I see it, if you&#39;re gonna build a time machine into a car, why not do it with some style?&#34;</span><span style="color:#f92672">;;</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">bool</span> <span style="color:#f92672">=</span> false</code></pre></div>
+
+<p>Le code qui sera expliqué dans les vidéos suivantes se trouve <a href="https://github.com/lascar-pacagi/regex">ici</a>.</p>
+
+<p>Dans la vidéo suivante, nous allons présenter une vue d&rsquo;ensemble de l&rsquo;application et détailler le passage d&rsquo;une chaîne de caractères représentant une expression
+règulière, vers une représentation OCaml de cette expression régulière. La grammaire décrivant les expressions régulières se trouve <a href="/images/minijava/scanner/regex.xhtml">ici</a>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/kZuPXP06OOQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Dans la vidéo suivante, nous présentons la notion de programmation par continuation que nous allons utiliser dans le module de reconnaissance de motifs basé sur du retour arrière.
+Le code pour illustrer les continuations se trouve <a href="https://gist.github.com/lascar-pacagi/4c945c43c8f5e010aacd3635d203cec7">ici</a>.</p>
+
+
+<div class="notices warning" ><p>Il y a la solution à une des questions que nous posons dans la vidéo à la fin du listing sur les continuations.</p>
+</div>
+
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/utqHa9ESDCw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé sur du retour arrière et des continuations.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/JQ-8s5u5E4U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé sur des automates finis non-déterministes.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/5wPEbAWMDUU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Dans la vidéo suivante, nous allons décrire le module de reconnaissance de motifs basé sur des automates finis déterministes.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/gO5UsU0mijM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<p>Dans la vidéo suivante, nous allons montrer comment nous avons testé nos différents modules.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/DYnRo6TOhA0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="questions-4">Questions</h3>
+
+<p>Le code ci-dessous décrit la partie de la fonction <code>regex_from_string</code> qui s&rsquo;occupe de reconnaître les concaténations à partir de la liste de caractères.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#f92672">and</span> re1 l <span style="color:#f92672">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>  <span style="color:#66d9ef">let</span> e<span style="color:#f92672">,</span> l <span style="color:#f92672">=</span> re2 l <span style="color:#66d9ef">in</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>  <span style="color:#66d9ef">let</span> e<span style="color:#f92672">,</span> l <span style="color:#f92672">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">rec</span> re1&#39; e l <span style="color:#f92672">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>      <span style="color:#66d9ef">match</span> l <span style="color:#66d9ef">with</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>      <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;?&#39;</span> <span style="color:#f92672">::</span> r <span style="color:#f92672">-&gt;</span> re1&#39; <span style="color:#f92672">(</span><span style="color:#a6e22e">ZeroOrOne</span> e<span style="color:#f92672">)</span> r
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>      <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;*&#39;</span> <span style="color:#f92672">::</span> r <span style="color:#f92672">-&gt;</span> re1&#39; <span style="color:#f92672">(</span><span style="color:#a6e22e">ZeroOrMore</span> e<span style="color:#f92672">)</span> r
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>      <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;+&#39;</span> <span style="color:#f92672">::</span> r <span style="color:#f92672">-&gt;</span> re1&#39; <span style="color:#f92672">(</span><span style="color:#a6e22e">OneOrMore</span> e<span style="color:#f92672">)</span> r
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>      <span style="color:#f92672">|</span> <span style="color:#f92672">_</span> <span style="color:#f92672">-&gt;</span> e<span style="color:#f92672">,</span> l
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    <span style="color:#66d9ef">in</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>    re1&#39; e l
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>  <span style="color:#66d9ef">in</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>  <span style="color:#66d9ef">match</span> l <span style="color:#66d9ef">with</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>  <span style="color:#f92672">|</span> c <span style="color:#f92672">::</span> <span style="color:#f92672">_</span> <span style="color:#66d9ef">when</span> c <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#f92672">&amp;&amp;</span> c <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;|&#39;</span> <span style="color:#f92672">-&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>     <span style="color:#66d9ef">let</span> e&#39;<span style="color:#f92672">,</span> l <span style="color:#f92672">=</span> re1 l <span style="color:#66d9ef">in</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>     <span style="color:#a6e22e">Concatenation</span> <span style="color:#f92672">(</span>e<span style="color:#f92672">,</span> e&#39;<span style="color:#f92672">),</span> l
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>  <span style="color:#f92672">|</span> <span style="color:#f92672">_</span> <span style="color:#f92672">-&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>     e<span style="color:#f92672">,</span> l</code></pre></div>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Durant la vidéo, nous avons dit que les deux cas qui permettaient de savoir s&#39;il n&#39;y avait plus de nouvelles concaténations à gérer, à la ligne 17, était si le prochain caractère était une barre verticale ou la parenthèse fermante. Il y a un autre cas, que le code gère bien, mais dont nous n&#39;avons pas parlé. Quel est ce dernier cas ?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>S&rsquo;il n&rsquo;y a plus de caractères, autrement dit si la liste <code>l</code> est vide à la ligne 13, on n&rsquo;a plus aucune concaténation possible. Ce cas est bien géré à la ligne 17, car le test à la ligne 14
+nécessite au moins un caractère pour pouvoir réussir.</p>
+
+    </div>
+</div>
+
+<hr />
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Pour le module d&#39;indentification de motifs par retour arrière, nous avons vu que que pour l&#39;expression régulière $\color{green}{(a?)^{40}a^{40}}$ (le 40 en exposant indique que l&#39;on répète la chaîne quarante fois) et la chaîne d&#39;entrée $a^{40}$ on obtenait un temps d&#39;exécution prohibitif. Pouvez-vous trouver une autre expression régulière et une autre chaîne d&#39;entrée qui donneraient lieu aussi à un temps d&#39;exécution très long ?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Par exemple, l&rsquo;expression régulière $\color{green}{a^{++}}$ donne lieu à un temps prohibitif sur la chaîne d&rsquo;entrée <code>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab</code>.</p>
+
+<p>Comment expliquer ce comportement ?</p>
+
+<p>On peut visualiser l&rsquo;expression régulière $\color{green}{(a^+)^+}$ comme l&rsquo;hypothétique expression régulière suivante
+$\color{green}{aa^*\ |\ aa^*aa^* \ |\ aa^*aa^*aa^*\ |\ aa^*aa^*aa^*aa^*\ |\ \cdots}$. Si on prend la sous-expression $\color{green}{aa^*aa^*}$, le
+premier $\color{green}{aa^*}$ va d&rsquo;abord consommer tous les <code>a</code> et le deuxième $\color{green}{aa^*}$ va alors échouer car il y a un <code>b</code> dans l&rsquo;entrée. Maintenant,
+le premier $\color{green}{aa^*}$ va laisser un seul <code>a</code> et le deuxième va consommer le dernier et on va échouer car il reste un <code>b</code> en entrée alors qu&rsquo;on a fini
+d&rsquo;analyser l&rsquo;expression régulière. Maintenant, le premier $\color{green}{aa^*}$ va laisser deux <code>a</code> dans l&rsquo;entrée et le deuxième $\color{green}{aa^*}$ va consommer
+les deux derniers et échouer, puis un seul et échouer aussi. Du coup, le premier $\color{green}{aa^*}$ va laisser trois <code>a</code> dans l&rsquo;entrée et le deuxième $\color{green}{aa^*}$
+va d&rsquo;abord consommer les trois <code>a</code> et échouer, puis essayer en consommant que deux <code>a</code> et échouer, puis un seul <code>a</code> et échouer aussi. Et Maintenant, le premier
+$\color{green}{aa^*}$ va laisser quatre <code>a</code> et ainsi de suite. Le nombre de tentatives va être encore plus important avec la
+sous-expression $\color{green}{aa^*aa^*aa^*}$.</p>
+
+<p>Notons que dans notre implémentation du module <code>Backtracking</code>, nous avons le code suivant.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#f92672">|</span> <span style="color:#a6e22e">ZeroOrMore</span> t1 <span style="color:#f92672">-&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  full_match t1 l <span style="color:#f92672">(</span><span style="color:#66d9ef">fun</span> l&#39; <span style="color:#f92672">-&gt;</span> l <span style="color:#f92672">&lt;&gt;</span> l&#39; <span style="color:#f92672">&amp;&amp;</span> full_match t l&#39; k<span style="color:#f92672">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>  <span style="color:#f92672">||</span> k l</code></pre></div>
+
+<p>Inverser les lignes
+<code>2</code> et <code>3</code> comme ci-dessous donne toujours lieu à un temps prohibitif contrairement à ce qu&rsquo;on avait vu pour l&rsquo;expression
+$\color{green}{(a?)^{40}a^{40}}$ et la chaîne d&rsquo;entrée $a^{40}$ lorsqu&rsquo;on avait fait une inversion équivalente pour <code>ZeroOrOne t1</code>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#f92672">|</span> <span style="color:#a6e22e">ZeroOrMore</span> t1 <span style="color:#f92672">-&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  k l
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>  <span style="color:#f92672">||</span> full_match t1 l <span style="color:#f92672">(</span><span style="color:#66d9ef">fun</span> l&#39; <span style="color:#f92672">-&gt;</span> l <span style="color:#f92672">&lt;&gt;</span> l&#39; <span style="color:#f92672">&amp;&amp;</span> full_match t l&#39; k<span style="color:#f92672">)</span></code></pre></div>
+
+    </div>
+</div>
+
+<hr />
+
+<p>Dans notre module <code>DFA</code>, nous mémorisons les transitions déjà rencontrées grâce au module <code>Memo</code> dont la définition est rappelée ci-dessous.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#66d9ef">module</span> <span style="color:#a6e22e">Memo</span> <span style="color:#f92672">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>  Map.<span style="color:#a6e22e">Make</span><span style="color:#f92672">(</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>      <span style="color:#66d9ef">struct</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>        <span style="color:#66d9ef">type</span> t <span style="color:#f92672">=</span> S.t <span style="color:#f92672">*</span> <span style="color:#66d9ef">char</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>        <span style="color:#66d9ef">let</span> compare <span style="color:#f92672">(</span>s1<span style="color:#f92672">,</span> c1<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>s2<span style="color:#f92672">,</span> c2<span style="color:#f92672">)</span> <span style="color:#f92672">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>          <span style="color:#66d9ef">let</span> res <span style="color:#f92672">=</span> compare c1 c2 <span style="color:#66d9ef">in</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>          <span style="color:#66d9ef">if</span> res <span style="color:#f92672">=</span> 0 <span style="color:#66d9ef">then</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>            S.compare s1 s2
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>          <span style="color:#66d9ef">else</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>            res
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>      <span style="color:#66d9ef">end</span><span style="color:#f92672">)</span></code></pre></div>
+
+<p>La fonction de comparaison des clés dans cette table, définie à partir de la ligne <code>5</code>, peut nécessiter de comparer des ensembles à la ligne <code>8</code>.
+Lorsque l&rsquo;on se trouve dans un état donné de l&rsquo;automate fini déterministe, il est suffisant de regarder si la transition sur un caractère particulier a déjà
+été rencontrée. Il est donc inutile de comparer des ensembles et de devoir avoir, pour chaque transition à partir du même état,
+une clé qui contienne l&rsquo;état et le caractère.<br />
+Pour éviter de créer une table qui nécessite comme clé un état et un caractère, il faudrait associer à chaque état de l&rsquo;automate fini déterministe (qui est
+un ensemble d&rsquo;états de l&rsquo;automate fini non-déterministe) une table.
+Les clés de cette table seront des caractères, et celle-ci permettra de stocker les transitions déjà rencontrées.<br />
+Le nouveau module que nous souhaitons réaliser sera le suivant.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#66d9ef">module</span> <span style="color:#a6e22e">DFA2</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Matching</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">struct</span>
+  <span style="color:#75715e">(* À faire *)</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Votre mission, si vous l&#39;acceptez, est de coder ce module permettant d&#39;implémenter notre nouvelle idée.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Une solution possible se trouve <a href="https://gist.github.com/lascar-pacagi/00d4c601efb5ef7c96cdce56785dceca">ici</a>. Le fichier pour tester en prenant en compte le nouveau
+module se trouve quant à lui <a href="https://gist.github.com/lascar-pacagi/d8cdf22311a08e724a0da7d9365cfbb4">ici</a>.</p>
+
+    </div>
+</div>
+
 <h2 id="analyseur-lexical-avec-ocamllex">Analyseur lexical avec ocamllex</h2>
+
+<p>Nous allons décrire maintenant l&rsquo;analyseur lexical de MiniJava qui est réalisé à l&rsquo;aide d&rsquo;<a href="https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319">ocamllex</a>.
+L&rsquo;outil <code>ocamllex</code> est un générateur d&rsquo;analyseur lexical. On lui donne une liste d&rsquo;expressions régulières avec des actions à réaliser lorsque une expression régulière est reconnue.
+L&rsquo;outil va alors générer automatiquement un analyseur lexical qui ressemble, en gros, au programme <a href="https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56">lexer.cpp</a>
+que l&rsquo;on avait étudié <a href="#dfa_lexer_cpp">plus haut</a>.</p>
+
+<p>Le programme suivant montre un programme MiniJava, <code>Lexical.java</code>, non valide, mais qui est néanmoins lexicalement correct.</p>
+
+<p><a name="lexical_prog"></a>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span>
+<span style="color:#960050;background-color:#1e0010">/*/*/
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">public</span> 123MrC00der<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">while</span> <span style="color:#f92672">)(</span>
+<span style="color:#f92672">{</span> <span style="color:#66d9ef">int</span>
+int42
+<span style="color:#f92672">[]</span>
+<span style="color:#f92672">//</span> <span style="color:#66d9ef">this</span> sentence is <span style="color:#66d9ef">false</span></code></pre></div></p>
+
+<p>Si on exécute la commande <code>./mini-java --show-tokens-with-loc Lexical.java</code> pour lancer notre transpileur <code>mini-java</code> avec pour option de ne sortir que les unités lexicale produite par
+l&rsquo;analyseur lexical, nous obtenons les unités lexicales suivantes<sup class="footnote-ref" id="fnref:Plus-pr-cis-ment"><a href="#fn:Plus-pr-cis-ment">5</a></sup>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CLASS
+PUBLIC
+INT_CONST ‘123‘
+IDENT ‘MrC00der‘ ▸ line <span style="color:#ae81ff">3</span>, char <span style="color:#ae81ff">11</span> ◂
+SEMICOLON
+WHILE
+RPAREN
+LPAREN
+LBRACE
+INTEGER
+IDENT ‘int42‘ ▸ line <span style="color:#ae81ff">6</span>, char <span style="color:#ae81ff">1</span> ◂
+LBRACKET
+RBRACKET
+EOF</code></pre></div>
+
+<p>Les unités lexicales seront utilisées par l&rsquo;analyseur syntaxique que nous étudierons dans le prochain chapitre.</p>
+
+<p>La vidéo suivante va présenter <code>ocamllex</code> et l&rsquo;analyseur lexical de notre transpileur. Le code de la calculatrice en <a href="https://fr.wikipedia.org/wiki/Notation_polonaise_inverse">notation polonaise inverse</a> se trouve
+<a href="https://gist.github.com/lascar-pacagi/d16ad415913e5546ab0049595596f1f8">ici</a>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/246sQu7ty00" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="questions-5">Questions</h3>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Supposons que dans l&#39;analyseur lexical, on n&#39;utilise pas la règle du plus long appariement (l&#39;expression régulière qui reconnaît le plus de caractères est sélectionnée), mais la règle du plus court appariement. Pourquoi ne pourrions nous pas reconnaître correctement les unités lexicales de MiniJava ?
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>On peut essayer en modifiant le fichier <code>lexer.mll</code> de notre transpileur en utilisant l&rsquo;option du plus court appariement. On remplace alors la ligne</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml">rule get_token <span style="color:#f92672">=</span> parse</code></pre></div>
+
+<p>par la ligne</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml">rule get_token <span style="color:#f92672">=</span> shortest</code></pre></div>
+
+<p>Reprenons maintenant l&rsquo;exemple que nous avions vu <a href="#lexical_prog">plus haut</a>. Si on recompile notre transpileur et que l&rsquo;on exécute la commande ci-dessous,</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./mini-java --show-tokens-with-loc Lexical.java</code></pre></div>
+
+<p>on obtient la sortie suivante.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">IDENT ‘c‘ ▸ line <span style="color:#ae81ff">1</span>, char <span style="color:#ae81ff">1</span> ◂
+IDENT ‘l‘ ▸ line <span style="color:#ae81ff">1</span>, char <span style="color:#ae81ff">2</span> ◂
+IDENT ‘a‘ ▸ line <span style="color:#ae81ff">1</span>, char <span style="color:#ae81ff">3</span> ◂
+IDENT ‘s‘ ▸ line <span style="color:#ae81ff">1</span>, char <span style="color:#ae81ff">4</span> ◂
+IDENT ‘s‘ ▸ line <span style="color:#ae81ff">1</span>, char <span style="color:#ae81ff">5</span> ◂
+Lexical error file <span style="color:#e6db74">&#34;Lexical.java&#34;</span>, line <span style="color:#ae81ff">2</span>, character <span style="color:#ae81ff">1</span>:
+Illegal character: /.</code></pre></div>
+
+<p>Notre analyseur lexical, avec la règle du plus court appariement, reconnaît chaque caractère du mot clé <code>class</code> comme un identifiant. Lorsqu&rsquo;il rencontre le <code>/</code> du commentaire,
+il ne peut pas reconnaître un identifiant et il passe donc à la prochaine règle permettant de reconnaître un seul caractère qui est la règle ci-dessous.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#f92672">|</span> <span style="color:#f92672">_</span> <span style="color:#66d9ef">as</span> c  <span style="color:#f92672">{</span> <span style="color:#66d9ef">raise</span> <span style="color:#f92672">(</span><span style="color:#a6e22e">Error</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Illegal character: &#34;</span> <span style="color:#f92672">^</span> String.make 1 c<span style="color:#f92672">))</span> <span style="color:#f92672">}</span></code></pre></div>
+
+    </div>
+</div>
+
+<hr />
+
+<p>On souhaite écrire un programme, en utilisant <code>ocamllex</code>, qui nous permette de remplacer les tabulations par quatre espaces et de supprimer les espaces
+et les tabulations avant les fins de ligne. Par exemple, supposons que nous ayons un fichier <code>fichier.txt</code>. Le contenu du fichier est indiqué ci-dessous. On utilise
+la commande <code>cat</code> d&rsquo;unix pour afficher les tabulations représentée par <code>^I</code> et les retours à la ligne représentés par <code>$</code>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat -ET fichier.txt
+    Je vous souhaite^I ^I$
+ une très belle^I^I année^I  $
+          ^I$
+$</code></pre></div>
+
+<p>Si le fichier <code>ocamllex</code> se nomme <code>clean.mll</code>, on le compilera comme indiqué ci-dessous.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ocamllex clean.mll
+ocamlopt clean.ml -o clean</code></pre></div>
+
+<p>On utilisera ensuite le programme <code>clean</code> sur un fichier <code>fichier.txt</code> par exemple, comme suit.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./clean &lt; fichier.txt &gt; res.txt</code></pre></div>
+
+<p>On obtiendra alors dans le fichier <code>res.txt</code> le contenu du fichier <code>fichier.txt</code> où les tabulations auront été transformées en quatre espaces, et où on aura
+supprimé les espaces et les tabulations avant les fins de ligne.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat -ET res.txt
+    Je vous souhaite$
+ une très belle         année$
+$
+$</code></pre></div>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Réaliser le programme permettant de remplacer les tabulations par quatre espaces et de supprimer les espaces et les tabulations en fin de ligne.
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>Le fichier <code>ocamllex</code> <a href="https://gist.github.com/lascar-pacagi/b3cff072c864e636e4a2416c1491a8fe">suivant</a> répond à la question.</p>
+
+    </div>
+</div>
 
 <h2 id="ressources">Ressources</h2>
 
-<p>{{% notice info %}}
-<a href="https://regexcrossword.com/">Jouer avec les expressions régulières</a><br />
+
+<div class="notices info" ><p><a href="https://regexcrossword.com/">Jouer avec les expressions régulières</a><br />
 <a href="https://regex101.com/">Tester des expressions régulières</a><br />
-{{% /notice %}}</p>
+<a href="https://regex-generate.github.io/regenerate/">Générer des exemples et contre-exemples pour une expression régulière donnée</a><br />
+<a href="https://cyberzhg.github.io/toolbox/min_dfa">Transformer des expressions régulières en automates</a><br />
+<a href="https://swtch.com/~rsc/regexp/regexp1.html">Russ Cox on regular expression matching</a><br />
+<a href="https://ocaml.org/learn/index.fr.html">Apprendre OCaml</a><br />
+<a href="https://try.ocamlpro.com/">Essayer OCaml</a><br />
+<a href="https://www.cs.cornell.edu/courses/cs3110/2019fa/">Cours sur la programmation fonctionnelle utilisant OCaml</a><br />
+<a href="https://caml.inria.fr/pub/docs/manual-ocaml/">Documentation d&rsquo;OCaml</a><br />
+<a href="https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319">Documentation de ocamllex</a><br />
+<a href="http://dev.realworldocaml.org/parsing-with-ocamllex-and-menhir.html#lexing-and-parsing">Partie sur ocamllex dans Real World OCaml</a><br />
+<a href="https://isocpp.org/">ISO C++</a><br />
+<a href="http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">C++ bonnes pratiques</a><br />
+<a href="http://www.open-std.org/jtc1/sc22/wg21/">C++ standard</a></p>
+</div>
+
 <div class="footnotes">
 
 <hr />
@@ -1000,8 +2066,8 @@ On peut voir sur les transitions apparaître des expressions régulières au fur
 <li id="fn:Le-mot-vide-est">Le mot vide est l&rsquo;équivalent de la chaîne de caractères <code>&quot;&quot;</code>. <a class="footnote-return" href="#fnref:Le-mot-vide-est"><sup>[return]</sup></a></li>
 <li id="fn:Une-expression-r">Une expression régulière doit être de taille finie. <a class="footnote-return" href="#fnref:Une-expression-r"><sup>[return]</sup></a></li>
 <li id="fn:fnd-pour-fini-no"><code>fnd</code> pour <em>fini non déterministe</em>. <a class="footnote-return" href="#fnref:fnd-pour-fini-no"><sup>[return]</sup></a></li>
-<li id="fn:Perl-signifie-Pr"><code>Perl</code> signifie <em>Practical Extraction and Report Language</em>, ou <em>Pathologically Eclectic Rubbish Lister</em> <i class="far fa-smile-wink"></i>. <a class="footnote-return" href="#fnref:Perl-signifie-Pr"><sup>[return]</sup></a></li>
-<li id="fn:Vous-me-direz-qu">Vous me direz qu&rsquo;il faut encore qu&rsquo;elle soit correcte. C&rsquo;est pas faux <i class="far fa-smile-beam"></i>, mais dans une preuve il faut juste se convaincre que chaque étape élémentaire est correcte. <a class="footnote-return" href="#fnref:Vous-me-direz-qu"><sup>[return]</sup></a></li>
+<li id="fn:On-ne-g-re-que-l">On ne gère que les caractères <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> dans notre application, on a donc mis la version anglaise des dialogues (sans accents). La version française donne : &ldquo;Mais attendez un peu Doc, est-ce que j&rsquo;ai bien entendu ? Vous dites que vous avez fabriqué une machine à voyager dans le temps&hellip; à partir d’une DeLorean ?&rdquo; et &ldquo;Faut voir grand dans la vie, quitte à voyager à travers le temps au volant d&rsquo;une voiture, autant en choisir une qui ait de la gueule.&rdquo; <i class="far fa-smile-beam"></i> <a class="footnote-return" href="#fnref:On-ne-g-re-que-l"><sup>[return]</sup></a></li>
+<li id="fn:Plus-pr-cis-ment">Plus précisément, nous obtenons une représentation des unités lexicales. <a class="footnote-return" href="#fnref:Plus-pr-cis-ment"><sup>[return]</sup></a></li>
 </ol>
 </div>
 
@@ -1103,6 +2169,25 @@ On peut voir sur les transitions apparaître des expressions régulières au fur
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1121,7 +2206,7 @@ On peut voir sur les transitions apparaître des expressions régulières au fur
 			<a class="nav nav-prev" href="/fr/compiler/minijava/introduction/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/fr/compiler/minijava/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/fr/compiler/minijava/parser/" title="Analyse syntaxique" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1131,20 +2216,20 @@ On peut voir sur les transitions apparaître des expressions régulières au fur
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1574358075"></script>
-    <script src="/js/perfect-scrollbar.min.js?1574358075"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1574358075"></script>
-    <script src="/js/jquery.sticky.js?1574358075"></script>
-    <script src="/js/featherlight.min.js?1574358075"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1574358075"></script>
-    <script src="/js/highlight.pack.js?1574358075"></script>
+    <script src="/js/clipboard.min.js?1581258246"></script>
+    <script src="/js/perfect-scrollbar.min.js?1581258246"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1581258246"></script>
+    <script src="/js/jquery.sticky.js?1581258246"></script>
+    <script src="/js/featherlight.min.js?1581258246"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1581258246"></script>
+    <script src="/js/highlight.pack.js?1581258246"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1574358075"></script>
-    <script src="/js/learn.js?1574358075"></script>
-    <script src="/js/hugo-learn.js?1574358075"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1581258246"></script>
+    <script src="/js/learn.js?1581258246"></script>
+    <script src="/js/hugo-learn.js?1581258246"></script>
 
-    <link href="/mermaid/mermaid.css?1574358075" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1574358075"></script>
+    <link href="/mermaid/mermaid.css?1581258246" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1581258246"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
