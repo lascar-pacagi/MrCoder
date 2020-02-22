@@ -14,16 +14,16 @@ We will go together, step by step, through different themes of computer science,
 thoroughly understand the different subjects.
 I hope this will be helpful for some of you and that you will have fun learning.
 
-## Site structure
+## Site Structure
 
 I will use text, videos and code to explain the different subjects:
 
-* Videos are in french with english subtitles (I hope with the help of the community for the translations <i class="far fa-smile-beam"></i>).
+* Videos are in french with english subtitles (Hopefully with the help of the community for the translations <i class="far fa-smile-beam"></i>).
 * Code is on [github](https://github.com/lascar-pacagi).
 
 Go to the left panel or look at the themes below to choose your subject and let's dive into the vast and beautiful world of computer science!
 
-## Subjects overview
+## Subjects Overview
 * [**MiniJava transpiler**]({{%relref "compiler/minijava/_index.md" %}})
  * We transform a [MiniJava](http://www.cambridge.org/resources/052182060X/#java) source file, which is a subset of [Java](https://en.wikipedia.org/wiki/Java_(langage)),
  into a [C](https://en.wikipedia.org/wiki/C_%28programming_language%29) source file. We then use [gcc](https://gcc.gnu.org/) to translate the C file into an executable one.\

@@ -395,6 +395,50 @@ So assuming that we can generate all words of length $n$ not containing `aba`, w
 
 {{% /expand%}}
 
+### Deterministic Finite Automata
+
+Deterministic finite automata are a subset of the non-deterministic finite automata. The advantage of these automata is that they no longer need to
+"guess" the right transition to follow because, in a given state and for a given symbol of the input, there is at most one possible transition. As we have seen
+in the previous section, we can actually use a non-deterministic automaton without the need to guess. The algorithm we have seen actually allows us to dynamically construct
+a deterministic finite automaton. The advantage of starting directly from a deterministic automaton is that one does not need to reconstruct it each time.
+This will be all the more interesting for a lexical analyser because the regular expressions used to describe the lexical units will not change
+and we will gain efficiency by building once and for all the automata corresponding to the regular expressions.
+
+The following automaton is a
+deterministic version of the non-deterministic automaton that recognizes the multiline comments in `C` in the previous section.
+
+
+{{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
+
+Since deterministic finite automata are a restriction of non-deterministic finite automata, one could rightly believe that they allow us to describe fewer languages.
+In fact this is not the case and they are as powerful as non-deterministic finite automata.
+
+The video below will describe deterministic finite automata and show how to transform a non-deterministic automaton into a deterministic one.
+
+{{< youtube hOAbe3TbdJ0 >}}
+
+The code used in the previous video is available [here](https://gist.github.com/lascar-pacagi/e2ac6243986672d9c85a839f26eadc52).
+
+In the following video, we will show how a lexical analyzer works and how to obtain a deterministic finite automaton of minimal size.
+
+{{< youtube WMsfcjieU9s >}}
+
+<a name="dfa_lexer_cpp"></a>
+In the following videos, we will code in [C++](https://isocpp.org/) a lexical analyzer for the small language fragment described in the previous video.
+The code used in this video is available [here](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
+
+{{< youtube F8oztkX3e6E >}}
+
+---
+
+{{< youtube BSBK5s-q9qU >}}
+
+---
+
+{{<youtube LhxurDuCNls >}}
+
+#### Questions
+
 ## Regular Expressions Matching
 
 ## Scanner with Ocamllex
