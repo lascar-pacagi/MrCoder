@@ -148,7 +148,7 @@ régulière $\color{green}{(a\ |\ b)^*}$.
 
 ---
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient les mots $aa$ ou $bb$ $\}$." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient les mots $aa$ ou $bb\}$." %}}
 
 Une expression régulière représentant ce langage est la suivante :
 ${\color{green}{(}}a\ {\color{green}{|}}\ b{\color{green}{)}}^{\color{green}{\*}}{\color{green}{(}}aa\ {\color{green}{|}}\ bb{\color{green}{)}}{\color{green}{(}}a\ {\color{green}{|}}\ b{\color{green}{)}}^{\color{green}{*}}$
@@ -159,7 +159,7 @@ et des mots qui ne sont pas reconnus.
 
 ---
 
-{{%expand "Cette question même si on pourrait penser qu'elle ressemble beaucoup à la précédente est moins facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb$ $\}$." %}}
+{{%expand "Cette question même si on pourrait penser qu'elle ressemble beaucoup à la précédente est moins facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas les mots $aa$ ou $bb\}$." %}}
 
 Puisque l'on ne peut pas avoir deux $a$ ou deux $b$ qui se suivent, on doit alterner les $a$ et les $b$. C'est l'idée derrière l'expression régulière suivante.
 
@@ -239,7 +239,7 @@ mais on ne doit pas trouver quatre `H` ou quatre `D`. On doit donc avoir exactem
 ---
 <a name="regular_expressions_q4"></a>
 
-{{%expand "Cette question n'est pas trop facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ $\}$." %}}
+{{%expand "Cette question n'est pas trop facile. Vous pouvez revenir sur cette question après avoir étudié la section suivante sur les automates. Soit l'alphabet $\{a, b\}$. Donner une expression régulière permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a\}$." %}}
 
 Une expression régulière représentant ce langage est la suivante.
 
@@ -328,7 +328,7 @@ caractères après caractères, en cherchant un chemin qui nous mène vers l'ét
  {{< figure src="/images/minijava/scanner/nfa_comments5.svg" width="600px" height="auto">}}
 
 
- * Maintenant, l'entrée qu'il nous reste à consommer est `*/`. Nous allons prendre la transition $\epsilon$ jusqu'à l'état `2`, puis la transition $\epsilon$ de l'état `2` vers l'état `3`. Encore
+ * Maintenant, l'entrée qu'il nous reste à consommer est `*/`. Nous allons prendre la transition $\epsilon$ jusqu'à l'état `2`, puis la transition $\epsilon$ de l'état `2` vers l'état `5`. Encore
  une fois on ne se préoccupe pas pour l'instant du comment faire les bons choix de transitions lorsqu'il y a plus d'une possibilité. Nous nous retrouvons dans la configuration ci-dessous, où le curseur sous la chaîne
  d'entrée n'a pas bougé.
 
@@ -354,7 +354,7 @@ Pour un automate non déterministe, il faut montrer qu'après avoir lu tous les 
 
 {{% notice note %}}
 Il nous semble plus aisé de construire l'automate fini non déterministe que nous venons de voir pour décrire le langage des commentaires que l'expression régulière
-*$/\*\color{darkgreen}{(}\*^{\color{darkgreen}{+}}\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}\ \color{darkgreen}{|}\ \color{darkgreen}{(}a\ |\ b\ |\ /\color{darkgreen}{)}\color{darkgreen}{)}^{\color{darkgreen}{\*}}\*^{\color{darkgreen}{+}}/$* que nous avions vu dans la section [précedente](#regular_expressions).
+*$/\*\color{darkgreen}{(}\*^{\color{darkgreen}{+}}\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}\ \color{darkgreen}{|}\ \color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\ \color{darkgreen}{|}\ /\color{darkgreen}{)}\color{darkgreen}{)}^{\color{darkgreen}{\*}}\*^{\color{darkgreen}{+}}/$* que nous avions vu dans la section [précedente](#regular_expressions).
 Après, vous êtes peut-être des gourous de [Perl](https://fr.wikipedia.org/wiki/Perl_(langage))^[`Perl` signifie *Practical Extraction and Report Language*, ou *Pathologically Eclectic Rubbish Lister* <i class="far fa-smile-wink"></i>.]
 et c'est juste trop facile pour vous <i class="far fa-smile-beam"></i>.
 {{% /notice %}}
@@ -375,7 +375,7 @@ Dans la vidéo suivante, nous allons montrer comment passer d'une expression ré
 
 #### Questions
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient le mot $aba$ $\}$. Par exemple, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient le mot $aba\}$. Par exemple, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$." %}}
  {{< figure src="/images/minijava/scanner/nfa_question1.svg" width="600px" height="auto">}}
 
 Notons que cet automate calque vraiment l'expression régulière $\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}aba\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
@@ -383,14 +383,14 @@ Notons que cet automate calque vraiment l'expression régulière $\color{darkgre
 
 ---
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas le mot $aba$ sauf s'il est précédé par le mot $bbb$ $\}$. Par exemple, $aaabbbaabaa$ est dans le langage, $abba$ aussi, mais pas $bbababbb$." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas le mot $aba$ sauf s'il est précédé par le mot $bbb\}$. Par exemple, $aaabbbaabaa$ est dans le langage, $abba$ aussi, mais pas $bbababbb$." %}}
 {{< figure src="/images/minijava/scanner/nfa_question2.svg" width="600px" height="auto">}}
 
 <a name="nfa_question2_states"></a>
 La partie haute de l'automate, les états `1`, `2`, `3` et `4`, permet de reconnaître une suite de trois `b` suivie de n'importe quoi. La partie basse s'occupe de reconnaître tout sauf `aba`.
 L'état `5` indique que l'on a pas encore vu de `a` ou bien que l'on vient de rencontrer une séquence se terminant par `bb` (on est donc sûr de ne pas avoir vu une séquence se terminant par `ab`).
 L'état `6` indique qu'on est en train d'analyser une suite d'au moins un `a`
-et l'état `7` qu'on vient de voir `ab`, donc qu'on ne doit pas avoir un `a` maintenant). À partir des états `5`, `6` et `7` on peut rejoindre la partie haute de l'automate car on vient d'analyser un préfixe correcte et on peut vouloir ajouter `aba` dans la suite (en ajoutant `bbb` avant).
+et l'état `7` qu'on vient de voir `ab`, donc qu'on ne doit pas avoir un `a` maintenant. À partir des états `5`, `6` et `7` on peut rejoindre la partie haute de l'automate car on vient d'analyser un préfixe correcte et on peut vouloir ajouter `aba` dans la suite (en ajoutant `bbb` avant).
 
 Comment être sûr que la partie basse reconnaît bien tout sauf `aba` ? Pour la partie haute, il est assez facile de se convaincre qu'elle reconnaît bien $bbb\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
 Mais ce n'est pas si évident de se convaincre que la partie basse décrit bien tout sauf la chaîne `aba`. Quand on veut vraiment être sûr, il n'y a qu'un moyen,

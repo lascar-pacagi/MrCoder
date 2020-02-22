@@ -17,7 +17,7 @@ J'espère que ce site sera utile pour certains d'entre vous et que vous vous amu
 
 Je vais utiliser du texte, des vidéos et du code pour expliquer les différents sujets:
 
-* Les vidéos seront en français avec des sous-titres anglais.
+* Les vidéos seront en français avec des sous-titres anglais (j'espère avec l'aide de la communauté pour les traductions <i class="far fa-smile-beam"></i>).
 * Le code sera sur [github](https://github.com/lascar-pacagi).
 
 Choisissez votre sujet sur le panneau de gauche ou parmis les thèmes ci-dessous, et nous allons pouvoir commencer à explorer ensemble le monde vaste et passionnant
