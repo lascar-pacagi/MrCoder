@@ -42,7 +42,7 @@ they describe.
 * Compound regular expressions:
 
  * Parentheses can be used to group together regular expressions. Let $\color{green}{r}$ be a regular expression, then $\color{green}{\(r\)}$ represents the same set of
- words that the expression $\color{\green}{r}$.
+ words as the expression $\color{\green}{r}$.
 
         | <center>Expression</center> | <center>Set of words</center> |
         | :----------------:          | :----------------:                |
@@ -92,8 +92,8 @@ they describe.
 
  {{% notice note %}}
 To avoid too many parentheses, there is a priority between the different operators: the parentheses have the highest priority,
-then the $\color{green}{*}$ operator, then the concatenation operator and finally the $\color{green}{|}$ operator. We have also seen above that the operators
-of concatenation and union are associative, which allows us to remove more brackets.
+then the $\color{green}{*}$ operator, then the concatenation operator and finally the $\color{green}{|}$ operator. We have also seen above that the concatenation and union operators
+are associative, which allows us to remove more brackets.
 Thus, the regular expression $\color{green}{10^*1\ \|\ 11\ \|\ \epsilon}$ reads $\color{green}{(((1(0^ *))1)\ \|\ (11))\ \|\ \epsilon}$.
 {{% /notice %}}
 
@@ -139,7 +139,7 @@ and words that are not recognized.
 
 ---
 
-{{%expand "This question, although one might think that it is very similar to the previous one, is not so easy. You can come back to this question after studying the next section on automata. Let's consider the alphabet $\{a, b\}$. Give a regular expression to describe the language: $\{ w \in \ a, b\}^*\ |\ w$ does not contain the words $aa$ or $bb$ $\}$." %}}
+{{%expand "This question, although one might think that it is very similar to the previous one, is not so easy. You can come back to this question after studying the next section on automata. Let's consider the alphabet $\{a, b\}$. Give a regular expression to describe the language: $\{ w \in \{a, b\}^*\ |\ w$ does not contain the words $aa$ or $bb\}$." %}}
 
 Since you cannot have two $a$ or two $b$ following each other, you have to alternate $a$ and $b$. This is the idea behind the following regular expression.
 
@@ -217,7 +217,8 @@ but we cannot find four `H` or four `D`. So we need to have exactly three `H` an
 
 ---
 
-{{%expand "This question is not too easy. You can come back to this question after studying the next section on automata. Let's consider the alphabet $\{a, b\}$. Give a regular expression to describe the language: $\{ w \in \ a, b\}^*\ |\ w$ contains an even number of $a$ $\}$." %}}
+<a name="regular_expressions_q4"></a>
+{{%expand "This question is not too easy. You can come back to this question after studying the next section on automata. Let's consider the alphabet $\{a, b\}$. Give a regular expression to describe the language: $\{ w \in \{a, b\}^*\ |\ w$ contains an even number of $a\}$." %}}
 
 A regular expression representing this language is as follows.
 
@@ -259,11 +260,11 @@ In this figure we can see the following:
 
 * <span style="color:green">**states**</span>, the circles on the figure, numbered from `0` to `7` for this example.
 You can see the <span style="color:green">**starting state**</span> (or initial state), the `0` state, which has an arrow coming at it,
-but which doesn't start from any state. The `7` state is an <span style="color:green">**acceptance state**</span> (or final state), it is represented by a double circle.
+but which doesn't start from any state. The `7` state is an <span style="color:green">**accepting state**</span> (or final state), it is represented by a double circle.
 
 * <span style="color:green">**transitions**</span> between states, the arrows on the figure. On the arrows, there are symbols
-belonging to the vocabulary $\mathcal{V}$ or the symbol $\epsilon$. Note that on some transitions, for example the transition between the state `3` and
-the state `2`, we put several symbols on the transition (on this transition there are the two symbols `a` and `b`).
+belonging to the vocabulary $\mathcal{V}$ or the symbol $\epsilon$. Note that on some transitions, for example the transition between state `3` and
+state `2`, we put several symbols on the transition (on this transition there are the two symbols `a` and `b`).
 Formally, we should have written two transitions instead of one, each with one of the two symbols, but doing as we did allows us to write the automaton more succinctly.
 
 {{< figure src="/images/minijava/scanner/nfa_comments.svg" width="800px" height="auto">}}
@@ -323,14 +324,14 @@ the accepting state `7`.
  The word `/*/*/` is therefore a comment.
 
 
-The input string `/*/*/` is accepted by our automaton, but how do we know if a string is not in the $\mathcal{L}(A_{nfd})$ language, that is to say
+The input string `/*/*/` is accepted by our automaton, but how do we know if a string is not in the $\mathcal{L}(A_{ndf})$ language, that is to say
 how do you know if the word is not accepted?
-For a non-deterministic automaton, it must be shown that after reading all the characters of the input string, one cannot be in an acceptance state.
+For a non-deterministic automaton, it must be shown that after reading all the characters of the input string, one cannot be in an accepting state.
 
 {{% notice note %}}
 It seems easier to construct the non-deterministic finite automaton we have just seen to describe the language of comments than the regular expression
 *$/\*\color{darkgreen}{(}\*^{\color{darkgreen}{+}}\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}\ \color{darkgreen}{|}\ \color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\ \color{darkgreen}{|}\ /\color{darkgreen}{)}\color{darkgreen}{)}^{\color{darkgreen}{\*}}\*^{\color{darkgreen}{+}}/$* that we saw in the [previous](#regular_expressions) section.
-Next, you may be [Perl](https://fr.wikipedia.org/wiki/Perl_(language))^[`Perl` stands for *Practical Extraction and Report Language*, or *Pathologically Eclectic Rubbish Lister* <i class="far fa-smile-wink"></i>.] guru
+But you may be a [Perl](https://fr.wikipedia.org/wiki/Perl_(language))^[`Perl` stands for *Practical Extraction and Report Language*, or *Pathologically Eclectic Rubbish Lister* <i class="far fa-smile-wink"></i>.] guru
 and it's just too easy for you <i class="far fa-smile-beam"></i>.
 {{% /notice %}}
 
@@ -367,19 +368,19 @@ The upper part of the automaton, the states `1`, `2`, `3` and `4`, is used to re
 The lower part of the automaton is used to recognize anything but `aba`.
 The state `5` indicates that you haven't yet seen an `a` or that you've just encountered a sequence ending in `bb` (so you're sure you haven't seen a sequence ending in `ab`).
 The state `6` indicates that we are analyzing a sequence of at least one `a`
-and the state `7` that we just saw `ab`, so we must not have an `a` now.
-From states `5`, `6` and `7` we can reach the upper part of the automaton because we just analyzed a correct prefix and we may want to add `aba` in the following (adding `bbb` before).
+and state `7` that we just saw `ab`, so we must not have an `a` now.
+From states `5`, `6` and `7` we can reach the upper part of the automaton because we have just analyzed a correct prefix and we may want to add `aba` in the following (adding `bbb` before).
 
 How can we be sure that the lower part recognizes everything but `aba`? For the upper part, it is quite easy to convince yourself that it recognizes $bbb\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
-But it's not so easy to convince yourself that the bottom part describes everything but the `aba` chain. When you really want to be sure, there's only one way,
+But it's not so easy to convince yourself that the bottom part describes everything but the `aba` chain. When you really want to be sure, there is only one way,
 you have to make a proof! Sure, You can tell me that it still has to be correct. You are right <i class="far fa-smile-beam"></i>, but in a proof you just have to
 convince yourself that every elementary step is correct.
 
 We will do a proof by induction on the length of the input string. For a string of length 0 ($\epsilon$) of length 1 ($a$ and $b$) and of length 2 ($aa$, $ab$, $ba$ and $bb$), we can follow the transitions
-from state `0` to the lower part and see that they are all recognized and they don't have `aba` in them (because the string length is less than or equal to 2). Suppose
-that the property holds for strings of length $n \ge $2, is it still true for strings of length $n + $1? Let's look at the last two characters of the string of length $n$ `m`.
+from state `0` to the lower part and see that they are all recognized and they do not have `aba` in them (because the string length is less than or equal to 2). Suppose
+that the property holds for strings of length $n \ge 2$, is it still true for strings of length $n + 1$? Let's look at the last two characters of the string `m` of length $n$.
 
- * `m` ends with `aa`. In this case we must be in state `6` [as shown above](#nfa_question2_states). We can add a `a` and accept
+ * `m` ends with `aa`. In this case we must be in state `6` [as shown above](#nfa_question2_states). We can add an `a` and accept
  the new `ma` string because we stay in state `6` which is an accepting state, and we can also add a `b` and accept the `mb` string because we are in state `7` which is also an accepting state.
 
  * `m` ends with `ab`. In this case we must be in state `7` [as indicated above](#nfa_question2_states). You cannot add an `a` because there is no transition on the character `a`
@@ -425,7 +426,7 @@ In the following video, we will show how a lexical analyzer works and how to obt
 
 <a name="dfa_lexer_cpp"></a>
 In the following videos, we will code in [C++](https://isocpp.org/) a lexical analyzer for the small language fragment described in the previous video.
-The code used in this video is available [here](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
+The code used in these videos is available [here](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
 
 {{< youtube F8oztkX3e6E >}}
 
@@ -439,10 +440,537 @@ The code used in this video is available [here](https://gist.github.com/lascar-p
 
 #### Questions
 
+<a name="dfa_question2_1"></a>
+{{%expand "Let's consider the alphabet $\{a, b\}$. Construct an automaton that recognizes the language: $\{ w \in \{a, b\}^*\ |\ w$ contains an odd number of $a$ and an even number of $b \}$. For example, $abb$ is in the language, as well as $bbabbaa$ and $aaaa$, but not $b$ nor $aabb$." %}}
+{{< figure src="/images/minijava/scanner/dfa_question1.en.svg" width="500px" height="auto">}}
+In the above automaton, each state represents a possible configuration of the parity of the $a$ and $b$. For example, the accepting state $OE$ indicates that we have encountered
+an odd number of $a$ and an even number of $b$. The starting state $EE$ indicates that we saw an even number of $a$ and $b$ which is true at the very beginning as well, because then we did not meet any
+$a$ and $b$.
+{{% /expand%}}
+
+---
+
+{{%expand "Let's consider the regular expression $\color{darkgreen}{0^*(100^*)^*(1|\epsilon)}$ that describes the bit strings on the alphabet $\{0, 1\}$ not containing the substring $11$. Transform this regular expression into a non-deterministic finite automaton, then transform it into a deterministic finite automaton and finally minimize it." %}}
+The transformation of the regular expression into a non-deterministic finite automaton gives the following automaton. Note that we have taken some liberties with the transformations that
+we had seen in the video to reduce the size of the automaton a little bit, but the resulting automaton is very similar to what we had seen.
+
+{{< figure src="/images/minijava/scanner/dfa_question2_1.svg" width="1000px" height="auto">}}
+
+The corresponding deterministic finite automaton (using the transformation we have seen) is given below.
+
+<a name="dfa_question2_2"></a>
+{{< figure src="/images/minijava/scanner/dfa_question2_2.svg" width="650px" height="auto">}}
+
+In this automaton, for example, the state $0$ corresponds to the set of states $\\{0,1,3,4,10,11\\}$ of the non-deterministic finite automaton and the state $4$ corresponds to
+the set $\\{8,7,9,4,10,11\\}$.
+
+Now we just need to minimize that automaton. First, we will make explicit the dead state that we are going to denote by `D`,
+which is implicit in the [figure](#dfa_question2_2) above representing the deterministic automaton.
+It is the state that is reached on a transition that is not indicated in the automaton of the above [figure](#dfa_question2_2).
+If we make this state explicit, we get the following equivalent automaton:
+
+{{< figure src="/images/minijava/scanner/dfa_question2_2_dead.svg" width="650px" height="auto" >}}
+
+We will first consider the two sets of states that we can immediately distinguish: the terminal states
+and non-terminal states. This gives us the following two groups.
+
+ * $G_1 = \\{0,1,2,3,4\\}$
+ * $G_2 = \\{D\\}$
+
+For the $G\_1$ group, the states $0,1,3$ and $4$ have a transition to one of the $G\_1$ group states on a `0` or `1`. On the other hand, state $2$ have a transition
+to the $G\_2$ group on a `1`. So the group $G\_1$ will have to be split. The group $G\_2$ has only one element, so it remains unchanged.
+We now get the next three groups.
+
+ * $G\_{1,1} = \\{0,1,3,4\\}$
+ * $G\_{1,2} = \\{2\\}$
+ * $G\_2 = \\{D\\}$
+
+In the group $G_{1,1}$, we have
+
+ * $0 \xrightarrow[]{0} G\_{1,1}$
+ * $1 \xrightarrow[]{0} G\_{1,1}$
+ * $3 \xrightarrow[]{0} G\_{1,1}$
+ * $4 \xrightarrow[]{0} G\_{1,1}$
+ * $0 \xrightarrow[]{1} G\_{1,2}$
+ * $1 \xrightarrow[]{1} G\_{1,2}$
+ * $3 \xrightarrow[]{1} G\_{1,2}$
+ * $4 \xrightarrow[]{1} G\_{1,2}$
+
+The $G\_{1,1}$ state does not need to be split any further because the transitions on `0` and `1` make each of the states of
+$G\_{1,1}$ reach the same group. There is no more groups that can be split, so we are done minimizing. The states $0$, $1$, $3$ and $4$ will
+so be grouped together in one state. The automaton obtained after minimization is given below (we do not show the dead state).
+
+{{< figure src="/images/minijava/scanner/dfa_question2_3.svg" width="400px" height="auto">}}
+
+If we interpret this automaton, we can see that state $0$ indicates that we have just seen a zero, or that we have not yet read anything.
+As for state $2$, it indicates that we have just encountered a $1$.
+
+{{% /expand%}}
+
+#### Transformation from an Automaton to a Regular Expression
+
+We can automatically construct the regular expression corresponding to a finite automaton (deterministic or non-deterministic).
+We show below a series of transformations to go from the deterministic finite automaton corresponding to the comments in C seen above,
+to an equivalent regular expression. We will detail this transformation in the video below.
+
+We can see, on the transitions, regular expressions appearing as the transformation progress. In order not to confuse the `*` character with the operator
+<span style="color:green">*</span>, we write the operator in green.
+
+{{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
+
+First of all, we will rewrite the automaton by making clear the regular expressions representing the alternatives on the transitions.
+
+{{< figure src="/images/minijava/scanner/dfa_comments_to_regex0.svg" width="800px" height="auto">}}
+
+We are now going to eliminate one state at a time to arrive at an automaton containing only two states: the initial state and the accepting state.
+
+To eliminate the state $q = \\{3,5,6\\}$, for each pair of states $(q_1, q_2)$, if there is an arc
+between $q_1$ and $q$ and between $q$ and $q_2$, we need to keep this information by modifying the arc between $q_1$ and $q_2$ accordingly.
+
+For example, here, we will have to consider the path $\\{2,3,4,5\\} \rightarrow q \rightarrow \\{7\\}$ and add the regular expression
+$\*\*^{\color{darkgreen}{\*}}/$
+between the states $\\{2,3,4,5\\}$ and $\\{7\\}$ to keep the same information.
+We also need to consider the $\\{2,3,4,5\\} \rightarrow q \rightarrow \\{2,3,4,5\\}$ path
+and add the regular expression
+$\*\*^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}}$
+on the loop on state $\\{2,3,4,5\\}$.
+We then get the following automaton.
+
+{{< figure src="/images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto">}}
+
+By eliminating the state $\\{2,3,4,5\\}$ we get the next automaton.
+
+{{< figure src="/images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto">}}
+
+And finally, by eliminating state $\\{1\\}$, we get the final regular expression on the arc connecting the initial state
+to the accepting state.
+
+{{< figure src="/images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto">}}
+
+The following video will detail this construction.
+
+{{< youtube kO5ejPkHPCk >}}
+
+The next videos will detail a program in OCaml to transform an automaton into a regular expression using the [Floyd-Warshall](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) algorithm.
+
+The following video presents the Floyd-Warshall transitive closure algorithm on a graph to present the concepts more simply before moving on to the next video
+to the automatic creation of a regular expression from an automaton. The code presented in the video can be found [here](https://gist.github.com/lascar-pacagi/593a5d40ccda8e908628ada1013c8d13).
+
+{{< youtube 5jj2Lp8EbPI >}}
+
+The following video describes the code that can transform an automaton into a regular expression. The code can be found [here](https://gist.github.com/lascar-pacagi/02fe4e05b97b5fd5d8efa89c9c2ebf33),
+and the little python script that transforms our representation into the expected one
+on this [site](https://cyberzhg.github.io/toolbox/min_dfa) can be found [here](https://gist.github.com/lascar-pacagi/0a3e184568256c45d19b040c6912fd44).
+
+{{< youtube OfFBAvJiunc >}}
+
+#### Questions
+
+{{%expand "Let's consider the alphabet $\{a, b\}$. Find a deterministic automaton that describes the language: $\{ w \in \{a, b\}^*\ |\ w$ contains an even number of $a\}$. Then transform this automaton into a regular expression." %}}
+
+We had already seen this language in the section on regular expressions in this [question](#regular_expressions_q4).
+
+The following automaton describes the language, on the vocabulary $\\{a, b\\}$, where the number of $a$ is even.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_1.svg" width="500px" height="auto">}}
+
+The different steps of the transformation are given below.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_2.svg" width="650px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_3.svg" width="350px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_4.svg" width="350px" height="auto">}}
+
+So we get the regular expression ${\color{darkgreen}{(}}b\ {\color{darkgreen}{|}}\ ab^{\color{darkgreen}{\*}}a{\color{darkgreen}{)}}^{\color{darkgreen}{*}}$.
+This is the answer to this [question](#regular_expressions_q4). That is not surprising, because we did
+the same thing as we did here to obtain the regular expression <i class="far fa-smile-beam"></i>.
+
+{{% /expand%}}
+
+---
+
+{{%expand "Let's consider the alphabet $\{a, b\}$. Find a deterministic automaton to describe the language: $\{ w \in \{a, b\}^*\ |\ w$ does not contain an odd number of $a$ or does not contain an even number of $b\}$. Then, transform this automaton into a regular expression. Note that this language is complementary to the language $\{ w \in \{a, b\}^*\ |\ w$ contains an odd number of $a$ and an even number of $b\}$ that we have already seen." %}}
+
+The following automaton represents this language. Note that this automaton is the automaton we met in this [question](#dfa_question2_1)
+with the accepting states becoming normal states and normal states becoming accepting states.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_1.en.svg" width="500px" height="auto">}}
+
+The different steps of the transformation are given below.
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_2.en.svg" width="550px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_3.en.svg" width="600px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_4.en.svg" width="650px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_5.en.svg" width="600px" height="auto">}}
+
+{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_6.fr.svg" width="600px" height="auto">}}
+
+The regular expression produced is therefore the following.
+
+${\color{darkgreen}{(}}aa\ {\color{darkgreen}{|}}\ bb\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}ba\ {\color{darkgreen}{|}}\ ab{\color{darkgreen}{)}}{\color{darkgreen}{)}}^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ b\ {\color{darkgreen}{|}}\ {\color{darkgreen}{(}}ab\ {\color{darkgreen}{|}}\ ba{\color{darkgreen}{)}}{\color{darkgreen}{(}}bb\ {\color{darkgreen}{|}}\ aa{\color{darkgreen}{)}}^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}\epsilon\ {\color{darkgreen}{|}}\ a{\color{darkgreen}{)}}{\color{darkgreen}{)}}$
+
+To check that we did not make any errors during the transformation, we can use the [following](https://cyberzhg.github.io/toolbox/min_dfa) site and transform the regular expression
+to a minimal deterministic automaton to see if we can recognize our automaton. If you do this, you will see that you get the same automaton (with different state names).
+
+{{% /expand%}}
+
 ## Regular Expressions Matching
 
-## Scanner with Ocamllex
+We are going to put into practice the notions we have just seen about regular expressions and automata by making a small application to test
+whether or not a string matches a pattern represented by a regular expression.
 
-## Questions
+We will present a sequence of interactions in the OCaml interpreter that we will be able to do with this application.
+
+{{< highlight ocaml "linenos=inline">}}
+utop # let re = RE.regex_from_string "0*(100*)*1?";;
+val re : RE.regex =
+  RE.Concatenation (RE.ZeroOrMore (RE.CharSet <abstr>),
+   RE.Concatenation
+    (RE.ZeroOrMore
+      (RE.Concatenation (RE.CharSet <abstr>,
+        RE.Concatenation (RE.CharSet <abstr>,
+         RE.ZeroOrMore (RE.CharSet <abstr>)))),
+    RE.ZeroOrOne (RE.CharSet <abstr>)))
+{{< /highlight>}}
+
+On line 1, we create the regular expression $\color{darkgreen}{0^\*(100^\*)^\*(1|\epsilon)}$ which allows us to describe the words that do not contain consecutive `1`.
+Note that we use the notation `1?` to represent $\color{darkgreen}{(1|\epsilon)}$.
+
+We then create an equivalent non-deterministic finite automaton.
+
+{{< highlight ocaml >}}
+utop # let nfa = NFA.init re;;
+val nfa : NFA.t = <abstr>
+{{< /highlight>}}
+
+We can then test if a string, here `101010`, belongs or not to the language generated by the non-deterministic finite automaton and thus by the regular expression.
+
+{{< highlight ocaml >}}
+utop # NFA.full_match nfa "101010";;
+- : bool = true
+{{< /highlight>}}
+
+We can see in the following example, that the string `011111100100`, containing consecutive `1`, does not match the regular expression.
+
+{{< highlight ocaml >}}
+utop # NFA.full_match nfa "011111100100";;
+- : bool = false
+{{< /highlight>}}
+
+We can test if a substring is in a given string by surrounding an expression with `.*`. The `.` represents any character.
+The following example will define a regular expression to search for the substring `Doc`.
+
+{{< highlight ocaml >}}
+utop # let re = RE.regex_from_string ".*Doc.*";;
+val re : RE.regex =
+  RE.Concatenation (RE.ZeroOrMore (RE.CharSet <abstr>),
+   RE.Concatenation (RE.CharSet <abstr>,
+    RE.Concatenation (RE.CharSet <abstr>,
+     RE.Concatenation (RE.CharSet <abstr>, RE.ZeroOrMore (RE.CharSet <abstr>)))))
+
+utop # let dfa = DFA.init re;;
+val dfa : DFA.t = <abstr>
+
+utop # DFA.full_match dfa "Wait a minute, Doc. Ah... Are you telling me that you built a time machine... out of a DeLorean?";;
+- : bool = true
+
+utop # DFA.full_match dfa "The way I see it, if you're gonna build a time machine into a car, why not do it with some style?";;
+- : bool = false
+{{< /highlight>}}
+
+The code that will be explained in the following videos can be found [here](https://github.com/lascar-pacagi/regex).
+
+In the following video, we will present an overview of the application and detail the code to go from a string representing a
+regular expression to an OCaml representation of this regular expression.
+The grammar describing regular expressions can be found [here](/images/minijava/scanner/regex.xhtml).
+
+{{< youtube kZuPXP06OOQ >}}
+
+In the following video, we present the notion of [programming with continuation](https://en.wikipedia.org/wiki/Continuation-passing_style)
+that we will use in conjonction with backtracking in the pattern recognition module.
+The code to illustrate continuations can be found [here](https://gist.github.com/lascar-pacagi/4c945c43c8f5e010aacd3635d203cec7).
+
+{{% notice warning %}}
+There is the solution to one of the questions we ask in the video at the end of the listing on continuations.
+{{% /notice %}}
+
+{{< youtube utqHa9ESDCw >}}
+
+In the following video, we will describe the pattern recognition module based on backtracking and continuations.
+
+{{< youtube JQ-8s5u5E4U >}}
+
+In the following video, we will describe the pattern recognition module based on non-deterministic finite automata.
+
+{{< youtube 5wPEbAWMDUU >}}
+
+In the following video, we will describe the pattern recognition module based on deterministic finite automata.
+
+{{< youtube gO5UsU0mijM >}}
+
+In the following video, we will show how we have tested our different modules.
+
+{{< youtube DYnRo6TOhA0 >}}
+
+### Questions
+
+The code below describes the part of the `regex_from_string` function that handles concatenations.
+
+{{< highlight ocaml "linenos=inline" >}}
+and re1 l =
+  let e, l = re2 l in
+  let e, l =
+    let rec re1' e l =
+      match l with
+      | '?' :: r -> re1' (ZeroOrOne e) r
+      | '*' :: r -> re1' (ZeroOrMore e) r
+      | '+' :: r -> re1' (OneOrMore e) r
+      | _ -> e, l
+    in
+    re1' e l
+  in
+  match l with
+  | c :: _ when c <> ')' && c <> '|' ->
+     let e', l = re1 l in
+     Concatenation (e, e'), l
+  | _ ->
+     e, l
+{{< /highlight >}}
+
+{{%expand "During the video, we said that there were two cases to handle to see if there were no new concatenations. To do so, we test on line 17 if the next character is a vertical bar or the closing parenthesis but there is another case, which the code handles well, but which we have not talked about. What is this other case?" %}}
+If there are no more characters, i.e. if the list `l` is empty on line 13, there is no more possible concatenation.
+We take care of this case on line 17, because the test on line 14 requires at least one character to be successful.
+{{% /expand%}}
+
+---
+
+{{%expand "For the backtracking pattern matching module, we saw that for the regular expression $\color{green}{(a?)^{40}a^{40}}$ (the superscript 40 indicates that the string is repeated forty times) and the input string $a^{40}$ we got a prohibitive execution time. Can you find another regular expression and another input string that would also result in a very long execution time?" %}}
+For example, the regular expression $\color{green}{a^{++}}$ results in a prohibitive execution time on the input string `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab`.
+
+How to explain this behaviour?
+
+We can visualize the regular expression $\color{green}{(a^+)^+}$ as the following hypothetical regular expression
+$\color{green}{aa^\*\ |\ aa^\*aa^\* \ |\ aa^\*aa^\*aa^\*\ |\ aa^\*aa^\*aa^\*aa^\*\ |\ \cdots}$. If we take the subexpression $\color{\green}{aa^\*aa^\*}$, the
+first $\color{green}{aa^\*}$ will first consume all the `a` and the second $\color{green}{aa^\*}$ will then fail because there is a `b` in the input. Now,
+the first $\color{\green}{aa^\*}$ will leave only one `a` and the second will consume the last one and we will fail because there is still one `b` left in the input when we are done.
+Now, the first $\color{green}{aa^\*}$ will leave two `a` in the input and the second $\color{green}{aa^\*}$ will consume
+the last two and fail, then one and fail too. So, the first $\color{green}{aa^\*}$ will leave three `a` in the input and the second $\color{green}{aa^\*}$
+will first consume all three `a` and fail, then try to consume only two `a` and fail, then only one `a` and fail as well. And now, the first
+$\color{\green}{aa^\*}$ will leave four `a` and so on. The number of attempts is going to be even greater with the
+subexpression $\color{green}{aa^\*aa^\*aa^\*}$.
+
+Note that in our implementation of the `Backtracking` module, we have the following code.
+
+{{< highlight ocaml "linenos=inline">}}
+| ZeroOrMore t1 ->
+  full_match t1 l (fun l' -> l <> l' && full_match t l' k)
+  || k l
+{{< /highlight >}}
+
+Switching the lines
+`2` and `3` as below still gives rise to a prohibitive amount of time contrary to the expression
+$\color{green}{(a?)^{40}a^{40}}$ and the input string $a^{40}$ when we did the same inversion for `ZeroOrOne t1`.
+
+{{< highlight ocaml "linenos=inline">}}
+| ZeroOrMore t1 ->
+  k l
+  || full_match t1 l (fun l' -> l <> l' && full_match t l' k)
+{{< /highlight >}}
+
+{{% /expand%}}
+
+---
+
+In our `DFA` module, we memoized the transitions already seen thanks to the `Memo` module whose definition is given below.
+
+{{< highlight ocaml "linenos=inline">}}
+module Memo =
+  Map.Make(
+      struct
+        type t = S.t * char
+        let compare (s1, c1) (s2, c2) =
+          let res = compare c1 c2 in
+          if res = 0 then
+            S.compare s1 s2
+          else
+            res
+      end)
+{{< /highlight >}}
+
+The key comparison function in this table, defined from line `5` to line `10`, may require to compare sets on line `8`.\
+When one is in a given state of the deterministic finite automaton, it is sufficient to look whether the transition on a particular character has already
+been seen. There is therefore no need to compare sets and to have for each transition from the same state,
+a key that contains a state and a character.\
+To avoid creating a table that requires a pair of state and character as a key, one should associate to each state of the deterministic finite automaton (which is
+a set of states of the non-deterministic finite automaton) a table.
+The keys of this table will be characters, and the table will allow to store the transitions already encountered.\
+The new module that we want to realize is the following.
+
+{{< highlight ocaml >}}
+module DFA2 : Matching = struct
+  (* TO DO *)
+end
+{{< /highlight >}}
+
+{{%expand "Your mission, if you choose to accept it, is to code the module to implement our new idea." %}}
+A possible solution can be found [here](https://gist.github.com/lascar-pacagi/00d4c601efb5ef7c96cdce56785dceca). The file to test this new
+module can be found [here](https://gist.github.com/lascar-pacagi/d8cdf22311a08e724a0da7d9365cfbb4).
+{{% /expand%}}
+
+## Lexical Analyzer with Ocamllex
+
+We will now describe the MiniJava lexical analyzer (or scanner) which is created using [ocamllex](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319).
+The tool `ocamllex` is a lexical analyzer generator. You give it a list of regular expressions with actions to perform when a regular expression is recognized.
+The tool will then automatically generate a lexical analyzer that looks roughly like the [lexer.cpp](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56) program
+that have we studied [above](#dfa_lexer_cpp).
+
+The following program shows a MiniJava program, `Lexical.java`, which is invalid, but is nevertheless lexically correct.
+<a name="lexical_prog"></a>
+{{< highlight java >}}
+class
+/*/*/
+public 123MrC00der;
+while )(
+{ int
+int42
+[]
+// this sentence is false
+{{< /highlight>}}
+
+If we execute the command `./mini-java --show-tokens-with-loc Lexical.java` to run our `mini-java` transpiler with the option to output only the tokens produced by
+the lexical analyzer, we obtain the following tokens^[More precisely, we obtain a representation of the tokens.].
+
+{{< highlight bash >}}
+CLASS
+PUBLIC
+INT_CONST ‘123‘
+IDENT ‘MrC00der‘ ▸ line 3, char 11 ◂
+SEMICOLON
+WHILE
+RPAREN
+LPAREN
+LBRACE
+INTEGER
+IDENT ‘int42‘ ▸ line 6, char 1 ◂
+LBRACKET
+RBRACKET
+EOF
+{{< /highlight >}}
+
+The tokens will be used by the syntax analyzer that we will study in the next chapter.
+
+The following video will introduce `ocamllex` and describe the lexical analyzer of our transpiler. The code of the calculator in [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) can be found
+[here](https://gist.github.com/lascar-pacagi/d16ad415913e5546ab0049595596f1f8).
+
+{{< youtube 246sQu7ty00 >}}
+
+### Questions
+
+{{%expand "Suppose that in the lexical analyzer, the longest matching rule (the regular expression that matches the maximum number of characters is selected) is not used, but instead, the shortest matching rule is used. Why cannot we correctly recognize the tokens of MiniJava?" %}}
+
+We can try this by modifying the `lexer.mll` file of our transpiler using the shortest matching rule option. We then replace the line
+
+
+{{< highlight ocaml >}}
+rule get_token = parse
+{{< /highlight >}}
+
+with the line
+
+{{< highlight ocaml >}}
+rule get_token = shortest
+{{< /highlight >}}
+
+Now let's consider again the example we saw [above](#lexical_prog). If we recompile our transpiler and execute the command below,
+
+{{< highlight bash >}}
+./mini-java --show-tokens-with-loc Lexical.java
+{{< /highlight >}}
+
+we get the following output.
+
+{{< highlight bash >}}
+IDENT ‘c‘ ▸ line 1, char 1 ◂
+IDENT ‘l‘ ▸ line 1, char 2 ◂
+IDENT ‘a‘ ▸ line 1, char 3 ◂
+IDENT ‘s‘ ▸ line 1, char 4 ◂
+IDENT ‘s‘ ▸ line 1, char 5 ◂
+Lexical error file "Lexical.java", line 2, character 1:
+Illegal character: /.
+{{< /highlight >}}
+
+Our lexical analyzer, with the shortest matching rule, recognizes each character of the keyword `class` as an identifier. When it gets to the `/`, the first character of the multiline comment,
+it cannot recognize an identifier, so it moves on to the next rule for matching a single character, which is the rule below.
+
+{{< highlight ocaml >}}
+| _ as c  { raise (Error ("Illegal character: " ^ String.make 1 c)) }
+{{< /highlight >}}
+
+{{% /expand%}}
+
+---
+
+We want to write a program, using `ocamllex`, that replaces tabulations by four spaces and removes spaces
+and tabulations just before the end of line. For example, suppose we have a `file.txt` file whose content is shown below using
+the unix `cat` command to display tabulations, represented by `^I`, and line breaks represented by `$`.
+
+{{< highlight bash >}}
+cat -ET file.txt
+    I wish you^I ^I$
+ a very happy new^I^I year^I  $
+          ^I$
+$
+{{< /highlight >}}
+
+If the `ocamllex` file is called `clean.mll`, it is compiled as shown below.
+
+{{< highlight bash >}}
+ocamllex clean.mll
+ocamlopt clean.ml -o clean
+{{< /highlight >}}
+
+We will then use the `clean` program on a `file.txt` file, for example, as follows.
+
+{{< highlight bash >}}
+./clean < fichier.txt > res.txt
+{{< /highlight >}}
+
+We will then get in the `res.txt` file, the contents of the `file.txt` file where the tabulations have been transformed into four spaces, and where
+the spaces and tabulations right before the end of line have been removed.
+
+{{< highlight bash >}}
+cat -ET res.txt
+    I wish you$
+ a very happy new         year$
+$
+$
+{{< /highlight >}}
+
+{{%expand "Implement the program that replaces tabulations with four spaces and removes spaces and tabulations just before the end of line." %}}
+
+The following `ocamllex` [file](https://gist.github.com/lascar-pacagi/b3cff072c864e636e4a2416c1491a8fe) answers the question.
+
+{{% /expand%}}
 
 ## Ressources
+
+{{% notice info %}}
+[Play with regular expressions](https://regexcrossword.com/)\
+[Test regular expressions](https://regex101.com/)\
+[Generate test-cases for regular expressions](https://regex-generate.github.io/regenerate/)\
+[Transform regular expressions into automata](https://cyberzhg.github.io/toolbox/min_dfa)\
+[Russ Cox on regular expression matching](https://swtch.com/~rsc/regexp/regexp1.html)\
+[Learn OCaml](https://ocaml.org/learn/)\
+[Try OCaml](https://try.ocamlpro.com/)\
+[Functional programming course using OCaml](https://www.cs.cornell.edu/courses/cs3110/2019fa/)\
+[OCaml documentation](https://caml.inria.fr/pub/docs/manual-ocaml/)\
+[Ocamllex documentation](https://caml.inria.fr/pub/docs/manual-ocaml/lexyacc.html#sec319)\
+[Ocamllex in Real World OCaml](http://dev.realworldocaml.org/parsing-with-ocamllex-and-menhir.html#lexing-and-parsing)\
+[ISO C++](https://isocpp.org/)\
+[C++ core guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)\
+[C++ standard](http://www.open-std.org/jtc1/sc22/wg21/)\
+{{% /notice %}}

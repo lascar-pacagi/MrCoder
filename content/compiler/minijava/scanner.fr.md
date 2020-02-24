@@ -448,7 +448,7 @@ Dans la vidéo suivante, nous allons montrer comment fonctionne un analyseur lex
 
 <a name="dfa_lexer_cpp"></a>
 Dans les vidéos suivantes, nous allons coder en [C++](https://isocpp.org/) un analyseur lexical pour la partie du langage présentée dans la vidéo précédente.
-Le code utilisé dans cette vidéo est accessible [ici](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
+Le code utilisé dans ces vidéos est accessible [ici](https://gist.github.com/lascar-pacagi/a98b218c00eb446c8294b2683866ed56).
 
 {{< youtube F8oztkX3e6E >}}
 
@@ -596,7 +596,7 @@ sur ce [site](https://cyberzhg.github.io/toolbox/min_dfa) se trouve [ici](https:
 
 #### Questions
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a$ $\}$. Transformer ensuite cet automate en une expression régulière." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre pair de $a\}$. Transformer ensuite cet automate en une expression régulière." %}}
 
 Nous avions déjà rencontré ce langage dans la section sur les expressions régulières dans cette [question](#regular_expressions_q4).
 
@@ -619,7 +619,7 @@ procédé comme ici pour obtenir l'expression régulière <i class="far fa-smile
 
 ---
 
-{{%expand "Soit l'alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas un nombre impair de $a$ ou ne contient pas un nombre pair de $b \}$. Transformer ensuite cet automate en une expression régulière. Notons que ce langage est le complémentaire du langage $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$ que nous avions déjà rencontré." %}}
+{{%expand "Soit l'alphabet $\{a, b\}$. Donner un automate déterministe permettant de décrire le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas un nombre impair de $a$ ou ne contient pas un nombre pair de $b\}$. Transformer ensuite cet automate en une expression régulière. Notons que ce langage est le complémentaire du langage $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b\}$ que nous avions déjà rencontré." %}}
 
 L'automate suivant permet de représenter ce langage. Notons que cet automate est l'automate que nous avions rencontré dans cette [question](#dfa_question2_1)
 avec les états d'acceptations qui sont devenus des états normaux et les états normaux qui sont devenus d'acceptations.
@@ -993,7 +993,7 @@ Le fichier `ocamllex` [suivant](https://gist.github.com/lascar-pacagi/b3cff072c8
 [Tester des expressions régulières](https://regex101.com/)\
 [Générer des exemples et contre-exemples pour une expression régulière donnée](https://regex-generate.github.io/regenerate/)\
 [Transformer des expressions régulières en automates](https://cyberzhg.github.io/toolbox/min_dfa)\
-[Russ Cox on regular expression matching](https://swtch.com/~rsc/regexp/regexp1.html)\
+[Russ Cox sur la reconnaissance des expressions régulières](https://swtch.com/~rsc/regexp/regexp1.html)\
 [Apprendre OCaml](https://ocaml.org/learn/index.fr.html)\
 [Essayer OCaml](https://try.ocamlpro.com/)\
 [Cours sur la programmation fonctionnelle utilisant OCaml](https://www.cs.cornell.edu/courses/cs3110/2019fa/)\
