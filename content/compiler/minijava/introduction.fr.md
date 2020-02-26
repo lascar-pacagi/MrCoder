@@ -64,7 +64,7 @@ Pour suivre les démos dans les différentes vidéos qui vont suivre, commencer 
 Télécharger ensuite le code en faisant
 
 {{< highlight git >}}
-git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git
+git clone --recurse-submodules https://github.com/lascar-pacagi/MiniJava.git
 cd MiniJava
 git checkout v1.0
 make

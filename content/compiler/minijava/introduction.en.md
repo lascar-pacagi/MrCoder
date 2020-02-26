@@ -59,7 +59,7 @@ To follow along with the videos that follow, start to install the dependencies a
 Then download the code
 
 {{< highlight git >}}
-git clone --recurse-submodules git@github.com:lascar-pacagi/MiniJava.git
+git clone --recurse-submodules https://github.com/lascar-pacagi/MiniJava.git
 cd MiniJava
 git checkout v1.0
 make
