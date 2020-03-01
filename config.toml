@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-US"
-defaultContentLanguage = "en"
+defaultContentLanguage = "fr"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir = true
 theme = "hugo-theme-learn"
@@ -17,33 +17,9 @@ home = [ "HTML", "RSS", "JSON" ]
 
 
 [Languages]
-[Languages.en]
-title = "MrCoder"
-weight = 1
-languageName = "English"
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
-#identifier = "ds"
-url = "https://github.com/lascar-pacagi"
-weight = 10
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='far fa-fw fa-envelope'></i> lascar.pacagi@protonmail.com"
-url = "https://protonmail.com/"
-#identifier = "ds"
-weight = 20
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fab fa-fw fa-discord'></i> <font face='Mono'>MrC00der</font>"
-url = "https://discord.gg/UX5XS44"
-#identifier = "ds"
-weight = 30
-
-
 [Languages.fr]
 title = "MrCodeur"
-weight = 2
+weight = 1
 languageName = "Français"
 
 [[Languages.fr.menu.shortcuts]]
@@ -59,6 +35,29 @@ url = "https://protonmail.com/"
 weight = 20
 
 [[Languages.fr.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-discord'></i> <font face='Mono'>MrC00der</font>"
+url = "https://discord.gg/UX5XS44"
+#identifier = "ds"
+weight = 30
+
+[Languages.en]
+title = "MrCoder"
+weight = 2
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+#identifier = "ds"
+url = "https://github.com/lascar-pacagi"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='far fa-fw fa-envelope'></i> lascar.pacagi@protonmail.com"
+url = "https://protonmail.com/"
+#identifier = "ds"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-fw fa-discord'></i> <font face='Mono'>MrC00der</font>"
 url = "https://discord.gg/UX5XS44"
 #identifier = "ds"
