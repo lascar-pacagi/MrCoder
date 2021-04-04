@@ -15,3 +15,14 @@ E -->|caractères| F[source en C]
 classDef green fill:#74B559,stroke:#222723,stroke-width:5px;
 class C green
 {{< /mermaid >}}
+
+
+## Analyse syntaxique ascendante
+
+### LR(0)
+
+{{< youtube 5Zk8l8k33C >}}
+
+### SLR(1) et LR(1)
+
+{{< youtube Bh5hK0v2IGw >}}
