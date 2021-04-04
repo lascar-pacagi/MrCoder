@@ -21,7 +21,7 @@ class C green
 
 ### LR(0)
 
-{{< youtube 5Zk8l8k33C >}}
+{{< youtube 5Zk8l8k33Cg >}}
 
 ### SLR(1) et LR(1)
 
