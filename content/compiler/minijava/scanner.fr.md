@@ -176,7 +176,7 @@ $\epsilon\ {\color{green}{|}}\ a\ {\color{green}{|}}\ {\color{green}{(}}b\ {\col
 On veut se déplacer dans la grille ci-dessous en utilisant les deux actions : "aller à droite" et "aller en haut". On part du coin inférieur gauche et
 on veut arriver au coin supérieur droit. Un chemin possible est indiqué dans la figure de droite.
 
-{{< figure src="/images/minijava/scanner/scanner_question_grid3.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/scanner_question_grid3.svg" width="600px" height="auto">}}
 
 
 {{%expand "Écrire une expression régulière permettant de décrire toutes les actions permettant d'aller du coin inférieur gauche au coin supérieur droit." %}}
@@ -288,7 +288,7 @@ appartenant au vocabulaire $\mathcal{V}$ ou bien le symbole $\epsilon$. Notons q
 l'état `2`, nous avons mis plusieurs symboles sur la transition (sur cette transition il y a les deux symboles `a` et  `b`).
 Formellement, nous aurions dû écrire deux transitions au lieu d'une, avec chacune un des deux symboles, mais faire comme nous l'avons fait permet d'écrire plus succinctement l'automate.
 
-{{< figure src="/images/minijava/scanner/nfa_comments.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments.svg" width="800px" height="auto">}}
 
 L'automate va nous permettre de savoir si un mot `m` construit à partir du vocabulaire $\mathcal{V}$ appartient au langage décrit par l'automate (on note ce langage $\mathcal{L}(A_{fnd})$).
 
@@ -301,48 +301,48 @@ Comment savoir si ce mot est décrit par l'automate $A_{fnd}$ ?
 On va partir de l'état initial, l'état `0`, et on va suivre les transitions,
 caractères après caractères, en cherchant un chemin qui nous mène vers l'état d'acceptation `7` après avoir lu tous les caractères du mot `m`.
 
-{{< figure src="/images/minijava/scanner/nfa_comments1.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments1.svg" width="600px" height="auto">}}
 
  * À Partir de l'état `0`, il n'y a qu'une seule transition, il n'y a donc pas le choix. Le mot doit donc forcément commencer par `/`, car c'est le symbole sur cette transition.
  Une fois cette transition passée, on se trouve dans l'état `1` et il nous reste à analyser la partie `*/*/` de `m`.
 
-{{< figure src="/images/minijava/scanner/nfa_comments2.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments2.svg" width="600px" height="auto">}}
 
 
  * À Partir de l'état `1`, il n'y a aussi qu'une seule transition possible. On doit donc forcément avoir le symbole `*` dans ce qu'il nous reste à analyser `*/*/`,
  car c'est le symbole sur la seule transition partant de l'état `1`.
  Une fois cette transition passée, on se trouve dans l'état `2` et il nous reste à analyser la partie `/*/` de `m`.
 
-{{< figure src="/images/minijava/scanner/nfa_comments3.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments3.svg" width="600px" height="auto">}}
 
  * L'état `2` possède trois transitions sortantes. Elles sont toutes les trois labelées avec le symbole $\epsilon$. Ce symbole signifie que l'on ne modifie pas l'entrée lorsque
  l'on passe par une telle transition. On peut voir maintenant pourquoi l'automate est non déterministe car sur le même symbole, ici $\epsilon$, on a le choix entre plusieurs transitions.
  Comment faire pour s'orienter ? On va supposer pour le moment que l'on a des dons de clairvoyance et que l'on va choisir la bonne transition, qui est celle vers l'état `4`. On verra dans
  les vidéos comment automatiser cela.
 
-{{< figure src="/images/minijava/scanner/nfa_comments4.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments4.svg" width="600px" height="auto">}}
 
  * Dans l'état `4` nous avons encore le choix entre deux transitions : ne pas consommer un caractère de l'entrée en prenant la transition $\epsilon$, ou consommer le caractère `/`
  en bouclant sur l'état `4`. Comme nous sommes devin, nous allons boucler sur l'état `4` et consommer le `/`.
 
- {{< figure src="/images/minijava/scanner/nfa_comments5.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_comments5.svg" width="600px" height="auto">}}
 
 
  * Maintenant, l'entrée qu'il nous reste à consommer est `*/`. Nous allons prendre la transition $\epsilon$ jusqu'à l'état `2`, puis la transition $\epsilon$ de l'état `2` vers l'état `5`. Encore
  une fois on ne se préoccupe pas pour l'instant du comment faire les bons choix de transitions lorsqu'il y a plus d'une possibilité. Nous nous retrouvons dans la configuration ci-dessous, où le curseur sous la chaîne
  d'entrée n'a pas bougé.
 
- {{< figure src="/images/minijava/scanner/nfa_comments6.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_comments6.svg" width="600px" height="auto">}}
 
 * Dans l'état `5`, nous n'avons qu'une transition sortante sur le caractère `*`. Le curseur sur l'entrée est placé sur le `*`, on peut donc
 prendre cette transition et déplacer le curseur vers la droite. Il nous reste maintenant simplement à reconnaître le `/`.
 
- {{< figure src="/images/minijava/scanner/nfa_comments7.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_comments7.svg" width="600px" height="auto">}}
 
 * Dans l'état `6`, il n'y a là aussi qu'une seule transition sur le symbole `/`. Comme le curseur sur l'entrée pointe sur un caractère `/`, on peut prendre cette transition et se placer
 sur l'état final `7`.
 
- {{< figure src="/images/minijava/scanner/nfa_comments8.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_comments8.svg" width="600px" height="auto">}}
 
  * Comme la chaîne d'entrée est maintenant vide et que nous sommes dans un état d'acceptation, on peut conclure que le mot `/*/*/` appartient bien au langage $\mathcal{L}(A_{fnd})$.
  Le mot `/*/*/` est donc bien un commentaire.
@@ -376,7 +376,7 @@ Dans la vidéo suivante, nous allons montrer comment passer d'une expression ré
 #### Questions
 
 {{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient le mot $aba\}$. Par exemple, $aba$ est dans le langage, ainsi que $bbbbbaabaaaabb$, mais pas $babbbaaa$." %}}
- {{< figure src="/images/minijava/scanner/nfa_question1.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_question1.svg" width="600px" height="auto">}}
 
 Notons que cet automate calque vraiment l'expression régulière $\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}aba\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
 {{% /expand%}}
@@ -384,7 +384,7 @@ Notons que cet automate calque vraiment l'expression régulière $\color{darkgre
 ---
 
 {{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ ne contient pas le mot $aba$ sauf s'il est précédé par le mot $bbb\}$. Par exemple, $aaabbbaabaa$ est dans le langage, $abba$ aussi, mais pas $bbababbb$." %}}
-{{< figure src="/images/minijava/scanner/nfa_question2.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_question2.svg" width="600px" height="auto">}}
 
 <a name="nfa_question2_states"></a>
 La partie haute de l'automate, les états `1`, `2`, `3` et `4`, permet de reconnaître une suite de trois `b` suivie de n'importe quoi. La partie basse s'occupe de reconnaître tout sauf `aba`.
@@ -431,7 +431,7 @@ L'automate suivant est une version
 déterministe de l'automate non-déterministe qui reconnaît les commentaires en `C` de la section précédente.
 
 
-{{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
 
 Comme les automates finis déterministes sont une restriction des automates finis non-déterministes, on pourrait à juste titre croire qu'ils permettent de décrire moins de langages.
 En fait ce n'est pas le cas et ils sont aussi puissants que les automates finis non-déterministes.
@@ -464,7 +464,7 @@ Le code utilisé dans ces vidéos est accessible [ici](https://gist.github.com/l
 
 <a name="dfa_question2_1"></a>
 {{%expand "Soit l'alphabet $\{a, b\}$. Construire un automate qui reconnait le langage : $\{ w \in \{ a, b\}^*\ |\ w$ contient un nombre impair de $a$ et un nombre pair de $b \}$. Par exemple, $abb$ est dans le langage, ainsi que $bbabbaa$ et $aaaaa$, mais pas $b$ ni $aabb$." %}}
-{{< figure src="/images/minijava/scanner/dfa_question1.fr.svg" width="500px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question1.fr.svg" width="500px" height="auto">}}
 Dans l'automate ci-dessus, on a un état par configuration possible de la parité des $a$ et des $b$. Par exemple, l'état d'acceptation $IP$ indique que l'on a rencontré
 un nombre impair de $a$ et un nombre pair de $b$. L'état de départ $PP$ indique que l'on a vu un nombre pair de $a$ et de $b$. C'est vrai tout au début aussi, car on a alors rencontré
 aucun $a$ et aucun $b$.
@@ -476,12 +476,12 @@ aucun $a$ et aucun $b$.
 La transformation de l'expression régulière en un automate fini non-déterministe donne l'automate suivant. Notons que nous avons pris quelques libertés avec les transformations que
 nous avions vu dans la vidéo pour réduire un peu la taille de l'automate, mais la transformation est très similaire à ce que nous avions vu.
 
-{{< figure src="/images/minijava/scanner/dfa_question2_1.svg" width="1000px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question2_1.svg" width="1000px" height="auto">}}
 
 L'automate fini déterministe correspondant (en utilisant la transformation que nous avons vu) est donné ci-dessous.
 
 <a name="dfa_question2_2"></a>
-{{< figure src="/images/minijava/scanner/dfa_question2_2.svg" width="650px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question2_2.svg" width="650px" height="auto">}}
 
 Dans cet automate, par exemple, l'état $0$ correspond à l'ensemble des états $\\{0,1,3,4,10,11\\}$ de l'automate fini non-déterministe et l'état $4$ correspond
 à l'ensemble $\\{8,7,9,4,10,11\\}$.
@@ -491,7 +491,7 @@ qui est implicite dans la [figure](#dfa_question2_2) ci-dessus représentant l'a
 C'est l'état qui est atteint sur une transition qui n'est pas indiquée dans l'automate de la [figure](#dfa_question2_2). Si nous
 rendons explicite cet état, nous obtenons l'automate équivalent suivant :
 
-{{< figure src="/images/minijava/scanner/dfa_question2_2_puits.svg" width="650px" height="auto" link="">}}
+{{< figure src="images/minijava/scanner/dfa_question2_2_puits.svg" width="650px" height="auto" link="">}}
 
 Nous allons tout d'abord considérer les deux ensembles d'états que nous pouvons tout de suite distinguer : les états terminaux
 et les états non terminaux. On obtient les deux groupes suivants.
@@ -522,7 +522,7 @@ L'état $G\_{1,1}$ n'a donc pas besoin d'être scindé d'avantage car les transi
 $G\_{1,1}$ dans le même groupe. Il ne reste plus aucun groupe pouvant être scindé, on a donc fini la minimisation. Les états $0, 1, 3$ et $4$ vont
 donc être regroupés dans un seul état. L'automate obtenu après minimisation est donné ci-dessous (nous ne faisons pas apparaître l'état puits).
 
-{{< figure src="/images/minijava/scanner/dfa_question2_3.svg" width="400px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question2_3.svg" width="400px" height="auto">}}
 
 Si l'on interprète cet automate, on peut voir que l'état $0$ indique que l'on vient de rencontrer un zéro, ou bien que l'on n'a encore rien lu.
 Quant à l'état $2$, il indique que l'on vient de rencontrer un $1$.
@@ -539,17 +539,17 @@ vers une expression régulière équivalente. Nous détaillerons dans la vidéo 
 On peut voir sur les transitions apparaître des expressions régulières au fur et à mesure des transformations. Pour ne pas confondre le caractère `*` avec l'opérateur
 <span style="color:green">*</span>, nous avons écrit l'opérateur en vert.
 
-<!-- {{< figure src="/images/minijava/scanner/automata_to_regex1.svg" width="800px" height="auto">}} -->
+<!-- {{< figure src="images/minijava/scanner/automata_to_regex1.svg" width="800px" height="auto">}} -->
 
-<!-- {{< figure src="/images/minijava/scanner/automata_to_regex2.svg" width="800px" height="auto">}} -->
+<!-- {{< figure src="images/minijava/scanner/automata_to_regex2.svg" width="800px" height="auto">}} -->
 
-<!-- {{< figure src="/images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto">}} -->
+<!-- {{< figure src="images/minijava/scanner/automata_to_regex3.svg" width="300px" height="auto">}} -->
 
-{{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
 
 Tout d'abord, nous allons réécrire l'automate en faisant apparaître clairement les expressions régulières représentant les alternatives sur les transitions.
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex0.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex0.svg" width="800px" height="auto">}}
 
 Nous allons maintenant éliminer tour à tour des états pour arriver à un automate ne contenant plus que deux états: un état initial et un état
 d'acceptation.
@@ -566,16 +566,16 @@ On obtient alors l'automate suivant.
 
 <!-- $**^{\color{darkgreen}{*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}$ -->
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto">}}
 
 En éliminant l'état $\\{2,3,4,5\\}$ on obtient alors l'automate suivant.
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto">}}
 
 Et enfin, en éliminant l'état $\\{1\\}$, on obtient l'expression régulière finale qui se trouve sur l'arc reliant l'état
 de départ à l'état d'acceptation.
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto">}}
 
 La vidéo suivante va détailler cette construction.
 
@@ -602,15 +602,15 @@ Nous avions déjà rencontré ce langage dans la section sur les expressions ré
 
 L'automate suivant permet de représenter le langage des mots sur le vocabulaire $\\{a, b\\}$ où le nombre de $a$ est pair.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_1.svg" width="500px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_1.svg" width="500px" height="auto">}}
 
 Les différentes étapes de la transformation de l'automate vers une expression régulière équivalente sont données ci-dessous.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_2.svg" width="650px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_2.svg" width="650px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_3.svg" width="350px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_3.svg" width="350px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_4.svg" width="350px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_4.svg" width="350px" height="auto">}}
 
 On obtient donc l'expression régulière ${\color{darkgreen}{(}}b\ {\color{darkgreen}{|}}\ ab^{\color{darkgreen}{\*}}a{\color{darkgreen}{)}}^{\color{darkgreen}{*}}$. C'est ce que l'on avait obtenu comme réponse à cette [question](#regular_expressions_q4). C'est pas étonnant, car nous avions
 procédé comme ici pour obtenir l'expression régulière <i class="far fa-smile-beam"></i>.
@@ -624,19 +624,19 @@ procédé comme ici pour obtenir l'expression régulière <i class="far fa-smile
 L'automate suivant permet de représenter ce langage. Notons que cet automate est l'automate que nous avions rencontré dans cette [question](#dfa_question2_1)
 avec les états d'acceptations qui sont devenus des états normaux et les états normaux qui sont devenus d'acceptations.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_1.fr.svg" width="500px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_1.fr.svg" width="500px" height="auto">}}
 
 Les différentes étapes de la transformation de l'automate vers une expression régulière équivalente sont données ci-dessous.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_2.fr.svg" width="550px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_2.fr.svg" width="550px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_3.fr.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_3.fr.svg" width="600px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_4.fr.svg" width="650px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_4.fr.svg" width="650px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_5.fr.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_5.fr.svg" width="600px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_6.fr.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_6.fr.svg" width="600px" height="auto">}}
 
 L'expression régulière obtenue est donc la suivante.
 

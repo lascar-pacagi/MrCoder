@@ -156,7 +156,7 @@ $\epsilon\ {\color{green}{|}}\ a\ {\color{green}{|}}\ {\color{green}{(}}b\ {\col
 We want to move in the grid below using the two actions: "go right" and "go up". We start from the lower left corner and
 we want to get to the top right corner. A possible path is shown in the figure on the right.
 
-{{< figure src="/images/minijava/scanner/scanner_question_grid3_en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/scanner_question_grid3_en.svg" width="600px" height="auto">}}
 
 {{%expand "Write a regular expression to describe all the actions that lead from the lower left corner to the upper right corner." %}}
 
@@ -267,7 +267,7 @@ belonging to the vocabulary $\mathcal{V}$ or the symbol $\epsilon$. Note that on
 state `2`, we put several symbols on the transition (on this transition there are the two symbols `a` and `b`).
 Formally, we should have written two transitions instead of one, each with one of the two symbols, but doing as we did allows us to write the automaton more succinctly.
 
-{{< figure src="/images/minijava/scanner/nfa_comments.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments.svg" width="800px" height="auto">}}
 
 The automaton will allow us to know if a word `m` constructed from the vocabulary $\mathcal{V}$ belongs to the language described by the automaton (we note this language $\mathcal{L}(A_{ndf})$).
 
@@ -277,48 +277,48 @@ How do we know if this word is described by the $A_{ndf}$ automaton?
 We will start from the initial state, the state `0`, and we will follow the transitions,
 character after character, looking for a path that leads us to the accepting state `7` after reading all the characters of the word `m`.
 
-{{< figure src="/images/minijava/scanner/nfa_comments1_en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments1_en.svg" width="600px" height="auto">}}
 
  * Starting from state `0`, there is only one transition, so there is no choice. The word must therefore begin with `/`, because that is the symbol on that transition.
  Once this transition is passed, we are in state `1` and we still have to analyze the `*/*/` part of `m`.
 
-{{< figure src="/images/minijava/scanner/nfa_comments2_en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments2_en.svg" width="600px" height="auto">}}
 
 
  * Starting from state `1`, there is also only one possible transition. We must therefore have the symbol `*` in the remaining part `*/*/` of `m`,
  because it is the symbol on the only transition from state `1`.
  Once this transition is done, we are in state `2` and we still have to analyze the `/*/` part of `m`.
 
-{{< figure src="/images/minijava/scanner/nfa_comments3_en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments3_en.svg" width="600px" height="auto">}}
 
  * The state `2` has three outgoing transitions. All three are labeled with the $\epsilon$ symbol. This symbol means that the input is not modified when
  you go through such a transition. We can see now why the automaton is non-deterministic because on the same symbol, here $\epsilon$, we have the choice between several transitions.
  How do we choose the transition to follow? We are going to assume for the moment that we have the skill of clairvoyance and that we are going
  to choose the right transition, which is the one towards state `4`. We will see in the videos how to automate this.
 
-{{< figure src="/images/minijava/scanner/nfa_comments4_en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments4_en.svg" width="600px" height="auto">}}
 
  * In state `4` we still have the choice between two transitions: we can choose not to consume a character in the input by taking the $\epsilon$ transition, or to consume the `/` character
  by looping back to state `4`. As we are assuming that we can guess correctly, we will loop back to state `4` and consume the `/`.
 
-{{< figure src="/images/minijava/scanner/nfa_comments5_en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_comments5_en.svg" width="600px" height="auto">}}
 
 
  * Now, the entry we have left to consume is `*/`. We will take the $\epsilon$ transition to state `2`, then the $\epsilon$ transition from state `2` to state `5`. Once again,
 we do not worry for the moment about how to make the right transition choices when there is more than one possibility. We now find ourselves in the configuration below, where the cursor under the input string
 has not moved.
 
- {{< figure src="/images/minijava/scanner/nfa_comments6_en.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_comments6_en.svg" width="600px" height="auto">}}
 
 * In state `5`, we only have an outgoing transition on the `*` character. The cursor on the input is placed on the `*`, so we can
 take this transition and move the cursor to the right. Now we just have to recognize the `/`.
 
- {{< figure src="/images/minijava/scanner/nfa_comments7_en.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_comments7_en.svg" width="600px" height="auto">}}
 
 * In state `6`, there is also only one transition on the `/` symbol. Since the cursor on the input points to a `/` character, we can take this transition and move to
 the accepting state `7`.
 
- {{< figure src="/images/minijava/scanner/nfa_comments8_en.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_comments8_en.svg" width="600px" height="auto">}}
 
  * Since the input string is now empty and we are in an accepting state, we can conclude that the word `/*/*/` belongs to the $\mathcal{L}(A_{ndf})$ language.
  The word `/*/*/` is therefore a comment.
@@ -352,7 +352,7 @@ In the following video, we will show how to go from a regular expression to a no
 #### Questions
 
 {{%expand "Let's consider the alphabet $\{a, b\}$. Build an automaton that recognizes the following language: $\{ w \in \{a, b\}^*\ |\ w$ contains the word $aba\}$. For example, $aba$ is in the language, as well as $bbbbbaabaaaabb$, but not $babbbaaa$." %}}
- {{< figure src="/images/minijava/scanner/nfa_question1.svg" width="600px" height="auto">}}
+ {{< figure src="images/minijava/scanner/nfa_question1.svg" width="600px" height="auto">}}
 
 We can see that this automaton actually mimics the regular expression $\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}aba\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
 {{% /expand%}}
@@ -360,7 +360,7 @@ We can see that this automaton actually mimics the regular expression $\color{da
 ---
 
 {{%expand "Let's consider the alphabet $\{a, b\}$. Construct an automaton that recognizes the language: $\{ w \in \{a, b\}^*\ |\ w$ does not contain the word $aba$ unless it is preceded by the word $bbb\}$. For example, $aaabbbaabaa$ is in the language, $abba$ is in the language, but not $bbabab$." %}}
-{{< figure src="/images/minijava/scanner/nfa_question2.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/nfa_question2.svg" width="600px" height="auto">}}
 
 <a name="nfa_question2_states"></a>
 
@@ -409,7 +409,7 @@ The following automaton is a
 deterministic version of the non-deterministic automaton that recognizes the multiline comments in `C` in the previous section.
 
 
-{{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
 
 Since deterministic finite automata are a restriction of non-deterministic finite automata, one could rightly believe that they allow us to describe fewer languages.
 In fact this is not the case and they are as powerful as non-deterministic finite automata.
@@ -442,7 +442,7 @@ The code used in these videos is available [here](https://gist.github.com/lascar
 
 <a name="dfa_question2_1"></a>
 {{%expand "Let's consider the alphabet $\{a, b\}$. Construct an automaton that recognizes the language: $\{ w \in \{a, b\}^*\ |\ w$ contains an odd number of $a$ and an even number of $b \}$. For example, $abb$ is in the language, as well as $bbabbaa$ and $aaaa$, but not $b$ nor $aabb$." %}}
-{{< figure src="/images/minijava/scanner/dfa_question1.en.svg" width="500px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question1.en.svg" width="500px" height="auto">}}
 In the above automaton, each state represents a possible configuration of the parity of the $a$ and $b$. For example, the accepting state $OE$ indicates that we have encountered
 an odd number of $a$ and an even number of $b$. The starting state $EE$ indicates that we saw an even number of $a$ and $b$ which is true at the very beginning as well, because then we did not meet any
 $a$ and $b$.
@@ -454,12 +454,12 @@ $a$ and $b$.
 The transformation of the regular expression into a non-deterministic finite automaton gives the following automaton. Note that we have taken some liberties with the transformations that
 we had seen in the video to reduce the size of the automaton a little bit, but the resulting automaton is very similar to what we had seen.
 
-{{< figure src="/images/minijava/scanner/dfa_question2_1.svg" width="1000px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question2_1.svg" width="1000px" height="auto">}}
 
 The corresponding deterministic finite automaton (using the transformation we have seen) is given below.
 
 <a name="dfa_question2_2"></a>
-{{< figure src="/images/minijava/scanner/dfa_question2_2.svg" width="650px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question2_2.svg" width="650px" height="auto">}}
 
 In this automaton, for example, the state $0$ corresponds to the set of states $\\{0,1,3,4,10,11\\}$ of the non-deterministic finite automaton and the state $4$ corresponds to
 the set $\\{8,7,9,4,10,11\\}$.
@@ -469,7 +469,7 @@ which is implicit in the [figure](#dfa_question2_2) above representing the deter
 It is the state that is reached on a transition that is not indicated in the automaton of the above [figure](#dfa_question2_2).
 If we make this state explicit, we get the following equivalent automaton:
 
-{{< figure src="/images/minijava/scanner/dfa_question2_2_dead.svg" width="650px" height="auto" >}}
+{{< figure src="images/minijava/scanner/dfa_question2_2_dead.svg" width="650px" height="auto" >}}
 
 We will first consider the two sets of states that we can immediately distinguish: the terminal states
 and non-terminal states. This gives us the following two groups.
@@ -500,7 +500,7 @@ The $G\_{1,1}$ state does not need to be split any further because the transitio
 $G\_{1,1}$ reach the same group. There is no more groups that can be split, so we are done minimizing. The states $0$, $1$, $3$ and $4$ will
 so be grouped together in one state. The automaton obtained after minimization is given below (we do not show the dead state).
 
-{{< figure src="/images/minijava/scanner/dfa_question2_3.svg" width="400px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_question2_3.svg" width="400px" height="auto">}}
 
 If we interpret this automaton, we can see that state $0$ indicates that we have just seen a zero, or that we have not yet read anything.
 As for state $2$, it indicates that we have just encountered a $1$.
@@ -516,11 +516,11 @@ to an equivalent regular expression. We will detail this transformation in the v
 We can see, on the transitions, regular expressions appearing as the transformation progress. In order not to confuse the `*` character with the operator
 <span style="color:green">*</span>, we write the operator in green.
 
-{{< figure src="/images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments.svg" width="800px" height="auto">}}
 
 First of all, we will rewrite the automaton by making clear the regular expressions representing the alternatives on the transitions.
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex0.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex0.svg" width="800px" height="auto">}}
 
 We are now going to eliminate one state at a time to arrive at an automaton containing only two states: the initial state and the accepting state.
 
@@ -536,16 +536,16 @@ $\*\*^{\color{darkgreen}{\*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|
 on the loop on state $\\{2,3,4,5\\}$.
 We then get the following automaton.
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex1.svg" width="800px" height="auto">}}
 
 By eliminating the state $\\{2,3,4,5\\}$ we get the next automaton.
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex2.svg" width="800px" height="auto">}}
 
 And finally, by eliminating state $\\{1\\}$, we get the final regular expression on the arc connecting the initial state
 to the accepting state.
 
-{{< figure src="/images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_comments_to_regex3.svg" width="800px" height="auto">}}
 
 The following video will detail this construction.
 
@@ -572,15 +572,15 @@ We had already seen this language in the section on regular expressions in this 
 
 The following automaton describes the language, on the vocabulary $\\{a, b\\}$, where the number of $a$ is even.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_1.svg" width="500px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_1.svg" width="500px" height="auto">}}
 
 The different steps of the transformation are given below.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_2.svg" width="650px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_2.svg" width="650px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_3.svg" width="350px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_3.svg" width="350px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q1_4.svg" width="350px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q1_4.svg" width="350px" height="auto">}}
 
 So we get the regular expression ${\color{darkgreen}{(}}b\ {\color{darkgreen}{|}}\ ab^{\color{darkgreen}{\*}}a{\color{darkgreen}{)}}^{\color{darkgreen}{*}}$.
 This is the answer to this [question](#regular_expressions_q4). That is not surprising, because we did
@@ -595,19 +595,19 @@ the same thing as we did here to obtain the regular expression <i class="far fa-
 The following automaton represents this language. Note that this automaton is the automaton we met in this [question](#dfa_question2_1)
 with the accepting states becoming normal states and normal states becoming accepting states.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_1.en.svg" width="500px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_1.en.svg" width="500px" height="auto">}}
 
 The different steps of the transformation are given below.
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_2.en.svg" width="550px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_2.en.svg" width="550px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_3.en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_3.en.svg" width="600px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_4.en.svg" width="650px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_4.en.svg" width="650px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_5.en.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_5.en.svg" width="600px" height="auto">}}
 
-{{< figure src="/images/minijava/scanner/dfa_to_regex_q2_6.fr.svg" width="600px" height="auto">}}
+{{< figure src="images/minijava/scanner/dfa_to_regex_q2_6.fr.svg" width="600px" height="auto">}}
 
 The regular expression produced is therefore the following.
 
