@@ -333,7 +333,7 @@ be a difficult point to handle in our transpiler.
 
 ## Questions
 
-Let's have a look again at the [MiniJava grammar](/fr/compiler/minijava/grammar.xhtml).
+Let's have a look again at the [MiniJava grammar](fr/compiler/minijava/grammar.xhtml).
 We would like to add to the language
 
 * The `==` operator.
@@ -341,7 +341,7 @@ We would like to add to the language
 * `private` methods and constructors.
 
 {{%expand "How to update the grammar to add those new elements?" %}}
-[MiniJava grammar updated](/fr/compiler/minijava/grammar_private_constructor_equality.xhtml).
+[MiniJava grammar updated](fr/compiler/minijava/grammar_private_constructor_equality.xhtml).
 {{% /expand%}}
 
 ---
