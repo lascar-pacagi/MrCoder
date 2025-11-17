@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://lascar-pacagi.github.io/MrCoder/"
 languageCode = "en-US"
 defaultContentLanguage = "fr"
 metaDataFormat = "yaml"
