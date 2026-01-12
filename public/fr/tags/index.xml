@@ -1,95 +1,74 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on MrCodeur</title>
-    <link>/fr/tags/</link>
+    <link>http://localhost:1313/MrCoder/fr/tags/</link>
     <description>Recent content in Tags on MrCodeur</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    
-	<atom:link href="/fr/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo</generator>
+    <language>fr</language>
+    <atom:link href="http://localhost:1313/MrCoder/fr/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bash</title>
-      <link>/fr/tags/bash/</link>
+      <link>http://localhost:1313/MrCoder/fr/tags/bash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/bash/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/bash/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>C</title>
-      <link>/fr/tags/c/</link>
+      <link>http://localhost:1313/MrCoder/fr/tags/c/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/c/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/c/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Compilation</title>
-      <link>/fr/tags/compilation/</link>
+      <link>http://localhost:1313/MrCoder/fr/tags/compilation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/compilation/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/compilation/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Langage À Objets</title>
-      <link>/fr/tags/langage-%C3%A0-objets/</link>
+      <link>http://localhost:1313/MrCoder/fr/tags/langage-%C3%A0-objets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/langage-%C3%A0-objets/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/langage-%C3%A0-objets/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Menhir</title>
-      <link>/fr/tags/menhir/</link>
+      <link>http://localhost:1313/MrCoder/fr/tags/menhir/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/menhir/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/menhir/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Minijava</title>
-      <link>/fr/tags/minijava/</link>
+      <title>MiniJava</title>
+      <link>http://localhost:1313/MrCoder/fr/tags/minijava/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/minijava/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/minijava/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Ocaml</title>
-      <link>/fr/tags/ocaml/</link>
+      <title>OCaml</title>
+      <link>http://localhost:1313/MrCoder/fr/tags/ocaml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/ocaml/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/ocaml/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Ramasse Miettes</title>
-      <link>/fr/tags/ramasse-miettes/</link>
+      <link>http://localhost:1313/MrCoder/fr/tags/ramasse-miettes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/ramasse-miettes/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/ramasse-miettes/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Transpileur</title>
-      <link>/fr/tags/transpileur/</link>
+      <link>http://localhost:1313/MrCoder/fr/tags/transpileur/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/transpileur/</guid>
+      <guid>http://localhost:1313/MrCoder/fr/tags/transpileur/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

@@ -1,34 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MiniJava on MrCoder</title>
-    <link>/en/compiler/minijava/</link>
+    <link>http://localhost:1313/MrCoder/en/compiler/minijava/</link>
     <description>Recent content in MiniJava on MrCoder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    
-	<atom:link href="/en/compiler/minijava/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/MrCoder/en/compiler/minijava/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>/en/compiler/minijava/introduction/</link>
+      <link>http://localhost:1313/MrCoder/en/compiler/minijava/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/compiler/minijava/introduction/</guid>
-      <description>We will build a transpiler, or source to source compiler, for a subset of Java, the MiniJava language. The input representation for our compiler is the MiniJava language and the output representation is the C language.
-A sample program which computes the factorial of a given number is given below.
-class Factorial { public static void main(String[] a) { System.out.println(new Fac().computeFac(10)); } } class Fac { public int computeFac(int num) { int numAux; if (num &amp;lt; 1) numAux = 1; else numAux = num * (this.</description>
+      <guid>http://localhost:1313/MrCoder/en/compiler/minijava/introduction/</guid>
+      <description>&lt;p&gt;We will build a transpiler, or source to source compiler, for a subset of &lt;a href=&#34;https://en.wikipedia.org/wiki/Java_%28programming_language%29&#34;&gt;Java&lt;/a&gt;,&#xA;the &lt;a href=&#34;http://www.cambridge.org/resources/052182060X/&#34;&gt;MiniJava&lt;/a&gt; language. The input representation for our compiler is the MiniJava language and&#xA;the output representation is the &lt;a href=&#34;https://en.wikipedia.org/wiki/C_%28programming_language%29&#34;&gt;C&lt;/a&gt; language.&lt;br&gt;&#xA;A sample program which computes the &lt;a href=&#34;https://en.wikipedia.org/wiki/Factorial&#34;&gt;factorial&lt;/a&gt; of a given number is given below.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Factorial&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; a) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Fac().&lt;span style=&#34;color:#a6e22e&#34;&gt;computeFac&lt;/span&gt;(10));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Fac&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;computeFac&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; num) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; numAux;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (num &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 1) numAux &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; numAux &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; num &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;computeFac&lt;/span&gt;(num&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;1));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; numAux;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;As Minijava is a subset of Java, we will be able to compile our MiniJava programs using the Java compiler &lt;code&gt;javac&lt;/code&gt;. This will be very usefull to test the validity of our translations in C.&#xA;Indeed, we will be able to compare the output of the program compiled with the Java compiler with the output of the program obtained by our transpiler.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Lexical Analysis</title>
-      <link>/en/compiler/minijava/scanner/</link>
+      <link>http://localhost:1313/MrCoder/en/compiler/minijava/scanner/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/compiler/minijava/scanner/</guid>
-      <description>graph LR; A[MiniJava source file] --|characters| B(fa:fa-tools Lexical  analysis) B --|tokens| C(fa:fa-tools  Syntactic  analysis) C --|abstract syntax tree| D(fa:fa-tools  Typechecker) D --|abstract syntax tree| E(fa:fa-tools  C code  generator) E --|characters| F[C source file] classDef green fill:#74B559,stroke:#222723,stroke-width:5px; class B green  We will describe the MiniJava lexical analyzer, also called scanner, which will group the characters of the source file into lexical units also called tokens.</description>
+      <guid>http://localhost:1313/MrCoder/en/compiler/minijava/scanner/</guid>
+      <description>&lt;div class=&#34;mermaid&#34; align=&#34;center&#34;&gt;&#xA;graph LR;&#xA;A[MiniJava source file] --&gt;|characters| B(fa:fa-tools&lt;br/&gt; Lexical &lt;br/&gt; analysis)&#xA;B --&gt;|tokens| C(fa:fa-tools &lt;br/&gt; Syntactic &lt;br/&gt; analysis)&#xA;C --&gt;|abstract syntax tree| D(fa:fa-tools &lt;br/&gt; Typechecker)&#xA;D --&gt;|abstract syntax tree| E(fa:fa-tools &lt;br/&gt; C code &lt;br/&gt; generator)&#xA;E --&gt;|characters| F[C source file]&#xA;classDef green fill:#74B559,stroke:#222723,stroke-width:5px;&#xA;class B green&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;We will describe the MiniJava lexical analyzer, also called scanner, which will group the characters&#xA;of the source file into lexical units also called tokens. These lexical units will then be given to the syntactic analyzer in the following phase of the transpiler.&lt;br&gt;&#xA;Before describing the lexical analyzer of MiniJava, we will present regular expressions that will be used&#xA;to describe tokens. We will also study automata, a kind of graph, and use them to match regular expressions.&#xA;&lt;a name=&#34;regular_expressions&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>Syntactic Analysis</title>
+      <link>http://localhost:1313/MrCoder/en/compiler/minijava/parser/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/MrCoder/en/compiler/minijava/parser/</guid>
+      <description>&lt;div class=&#34;mermaid&#34; align=&#34;center&#34;&gt;&#xA;graph LR;&#xA;A[MiniJava source file] --&gt;|characters| B(fa:fa-tools&lt;br/&gt; Lexical &lt;br/&gt; analysis)&#xA;B --&gt;|tokens| C(fa:fa-tools &lt;br/&gt; Syntactic &lt;br/&gt; analysis)&#xA;C --&gt;|abstract syntax tree| D(fa:fa-tools &lt;br/&gt; Typechecker)&#xA;D --&gt;|abstract syntax tree| E(fa:fa-tools &lt;br/&gt; C code &lt;br/&gt; generator)&#xA;E --&gt;|characters| F[C source file]&#xA;classDef green fill:#74B559,stroke:#222723,stroke-width:5px;&#xA;class C green&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

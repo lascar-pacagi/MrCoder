@@ -1,200 +1,169 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>/en/compiler/minijava/</loc>
+    <loc>http://localhost:1313/MrCoder/en/compiler/minijava/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/compiler/minijava/"
+                href="http://localhost:1313/MrCoder/fr/compiler/minijava/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/compiler/minijava/"
+                href="http://localhost:1313/MrCoder/en/compiler/minijava/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/compiler/minijava/introduction/</loc>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/compiler/minijava/introduction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/compiler/minijava/introduction/"
+                href="http://localhost:1313/MrCoder/fr/compiler/minijava/introduction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/compiler/minijava/introduction/"
+                href="http://localhost:1313/MrCoder/en/compiler/minijava/introduction/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/compiler/minijava/scanner/</loc>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/compiler/minijava/scanner/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/compiler/minijava/scanner/"
+                href="http://localhost:1313/MrCoder/fr/compiler/minijava/scanner/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/compiler/minijava/scanner/"
+                href="http://localhost:1313/MrCoder/en/compiler/minijava/scanner/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/tags/bash/</loc>
-    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/compiler/minijava/parser/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/bash/"
+                href="http://localhost:1313/MrCoder/fr/compiler/minijava/parser/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/bash/"
+                href="http://localhost:1313/MrCoder/en/compiler/minijava/parser/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/tags/c/</loc>
-    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/bash/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/c/"
+                href="http://localhost:1313/MrCoder/fr/tags/bash/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/c/"
+                href="http://localhost:1313/MrCoder/en/tags/bash/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/categories/</loc>
-    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/c/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/categories/"
+                href="http://localhost:1313/MrCoder/fr/tags/c/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/categories/"
+                href="http://localhost:1313/MrCoder/en/tags/c/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/tags/compiler/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/en/compiler/</loc>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/compiler/"
+                href="http://localhost:1313/MrCoder/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/compiler/"
+                href="http://localhost:1313/MrCoder/en/categories/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/tags/garbage-collector/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/en/tags/menhir/</loc>
-    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/compiler/</loc>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/compiler/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/menhir/"
+                href="http://localhost:1313/MrCoder/fr/compiler/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/menhir/"
+                href="http://localhost:1313/MrCoder/en/compiler/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/tags/minijava/</loc>
-    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/garbage-collector/</loc>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/menhir/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/minijava/"
+                href="http://localhost:1313/MrCoder/fr/tags/menhir/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/minijava/"
+                href="http://localhost:1313/MrCoder/en/tags/menhir/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/</loc>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/minijava/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/"
+                href="http://localhost:1313/MrCoder/fr/tags/minijava/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/"
+                href="http://localhost:1313/MrCoder/en/tags/minijava/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/tags/object-oriented-language/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/en/tags/ocaml/</loc>
-    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/ocaml/"
+                href="http://localhost:1313/MrCoder/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/ocaml/"
+                href="http://localhost:1313/MrCoder/en/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/tags/</loc>
-    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/object-oriented-language/</loc>
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/ocaml/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/"
+                href="http://localhost:1313/MrCoder/fr/tags/ocaml/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/"
+                href="http://localhost:1313/MrCoder/en/tags/ocaml/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="http://localhost:1313/MrCoder/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/MrCoder/en/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/MrCoder/en/tags/transpiler/</loc>
   </url>
-  
-  <url>
-    <loc>/en/tags/transpiler/</loc>
-    <priority>0</priority>
-  </url>
-  
 </urlset>

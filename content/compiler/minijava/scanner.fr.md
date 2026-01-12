@@ -38,23 +38,22 @@ décrivent.\
 
 * Expressions régulières de base :
 
- * L'expression régulière $\color{green}\epsilon$ génère l'ensemble contenant simplement le mot vide^[Le mot vide est l'équivalent de la chaîne de caractères `""`.]: $\\{\epsilon\\}$.
+ * L'expression régulière $\color{green}\epsilon$ génère l'ensemble contenant simplement le mot vide[^1]: $\\{\epsilon\\}$.
  * Pour $c \in \mathcal{V}$, l'expression régulière $\color{green}c$ représente l'ensemble contenant un seul mot : $\\{c\\}$.
 
-
-        | <center>Expression</center> | <center>Ensemble de mots</center> |
-        | :----------------:          | :----------------:                |
-        | $\color{green}0$            | $\\{0\\}$                         |
-        | $\color{green}1$            | $\\{1\\}$                         |
+ | <center>Expression</center> | <center>Ensemble de mots</center> |
+ | :----------------:          | :----------------:                |
+ | $\color{green}0$            | $\\{0\\}$                         |
+ | $\color{green}1$            | $\\{1\\}$                         |
 
 * Expressions régulières composées :
 
  * On peut utiliser des parenthèses pour regrouper des expressions régulières. Soit $\color{green}{r}$ une expression régulière, alors $\color{green}{\(r\)}$ représente le même ensemble de
  mots que l'expression $\color{green}{r}$.
 
-        | <center>Expression</center> | <center>Ensemble de mots</center> |
-        | :----------------:          | :----------------:                |
-        | $\color{green}{(0)}$ | $\\{0\\}$ |
+ | <center>Expression</center> | <center>Ensemble de mots</center> |
+ | :----------------:          | :----------------:                |
+ | $\color{green}{(0)}$ | $\\{0\\}$ |
 
 
  * L'opérateur de concaténation permet de juxtaposer les mots engendrés par deux expressions régulières. Soit $\color{green}{r\_1}$ et $\color{green}{r\_2}$ deux expressions régulières.
@@ -64,14 +63,13 @@ décrivent.\
  expression régulière $\color{green}{r\_1}$, $\color{green}{r\_2}$ et $\color{green}{r\_3}$, on a
  $\color{green}{(r\_1r\_2)r\_3} = \color{green}{r\_1(r\_2r\_3)}$ que l'on notera simplement $\color{green}{r\_1r\_2r\_3}$.
 
-
-        | <center>Expression</center> | <center>Ensemble de mots</center> |
-        | :----------------:          | :----------------:                |
-        | $\color{green}{\epsilon1}$  | $\\{1\\}$                         |
-        | $\color{green}{10}$         | $\\{10\\}$                        |
-        | $\color{green}{(10)1}$         | $\\{101\\}$                        |
-        | $\color{green}{1(01)}$         | $\\{101\\}$                        |
-        | $\color{green}{101}$         | $\\{101\\}$                        |
+ | <center>Expression</center> | <center>Ensemble de mots</center> |
+ | :----------------:          | :----------------:                |
+ | $\color{green}{\epsilon1}$  | $\\{1\\}$                         |
+ | $\color{green}{10}$         | $\\{10\\}$                        |
+ | $\color{green}{(10)1}$         | $\\{101\\}$                        |
+ | $\color{green}{1(01)}$         | $\\{101\\}$                        |
+ | $\color{green}{101}$         | $\\{101\\}$                        |
 
  * L'opérateur d'union permet de faire l'union des mots engendrés par deux expressions régulières. Soit $\color{green}{r\_1}$ et $\color{green}{r\_2}$ deux expressions régulières.
  L'union de ces deux expressions régulières est notée : $\color{green}{r\_1 | \\ r\_2}$. L'ensemble des mots décrit par cette expression régulière est
@@ -81,25 +79,24 @@ décrivent.\
  expression régulière $\color{green}{r\_1}$, $\color{green}{r\_2}$ et $\color{green}{r\_3}$, on a
  $\color{green}{(r\_1\\ |\\ r\_2)\\ |\\ r\_3} = \color{green}{r\_1\\ |\\ (r\_2\\ |\\ r\_3)}$ que l'on notera simplement $\color{green}{r\_1\\ |\\ r\_2\\ |\\ r\_3}$.
 
-        | <center>Expression</center>  | <center>Ensemble de mots</center> |
-        | :----------------:           | :----------------:                |
-        | $\color{green}{\epsilon \\ \| \\ 1}$                            | $\\{\epsilon, 1\\}$ |
-        | $\color{green}{(00) \\ \| \\ (10)}$                           | $\\{00, 10\\}$      |
-        | $\color{green}{(10) \\ \| \\ (00)}$                           | $\\{00, 10\\}$      |
-        | $\color{green}{(0 \\ \| \\ 1)\\ \|\\ (10)}$                           | $\\{0, 1, 10\\}$      |
-        | $\color{green}{0\\ \|\\ (1 \\ \| \\ (10))}$                           | $\\{0, 1, 10\\}$      |
-        | $\color{green}{0 \\ \| \\ 1\\ \|\\ (10)}$                           | $\\{0, 1, 10\\}$      |
-        | $\color{green}{(0\\ \|\\ 1)(0\\ \|\\ 1)}$                           | $\\{00, 01, 10, 11\\}$      |
+ | <center>Expression</center>  | <center>Ensemble de mots</center> |
+ | :----------------:           | :----------------:                |
+ | $\color{green}{\epsilon \\ \| \\ 1}$                            | $\\{\epsilon, 1\\}$ |
+ | $\color{green}{(00) \\ \| \\ (10)}$                           | $\\{00, 10\\}$      |
+ | $\color{green}{(10) \\ \| \\ (00)}$                           | $\\{00, 10\\}$      |
+ | $\color{green}{(0 \\ \| \\ 1)\\ \|\\ (10)}$                           | $\\{0, 1, 10\\}$      |
+ | $\color{green}{0\\ \|\\ (1 \\ \| \\ (10))}$                           | $\\{0, 1, 10\\}$      |
+ | $\color{green}{0 \\ \| \\ 1\\ \|\\ (10)}$                           | $\\{0, 1, 10\\}$      |
+ | $\color{green}{(0\\ \|\\ 1)(0\\ \|\\ 1)}$                           | $\\{00, 01, 10, 11\\}$      |
 
  * L'opérateur d'itération noté `*` permet de juxtaposer $0$ ou plusieurs fois les mots engendrés par une expression régulières. Soit $\color{green}{r}$ une expression régulière, alors
- l'expression régulière $\color{green}{r^*}$ représente l'hypothétique^[Une expression régulière doit être de taille finie.] expression régulière
+ l'expression régulière $\color{green}{r^*}$ représente l'hypothétique[^2] expression régulière
  $\color{green}{\epsilon \\ |\\ r\\ |\\ rr\\ |\\ rrr\\ |\\ rrrr\\ |\\ \cdots}$.
 
-
-        | <center>Expression</center> | <center>Ensemble de mots</center>          |
-        | :----------------:          | :----------------:                         |
-        | $\color{green}{0^*}$        | $\\{\epsilon, 0, 00, 000, 0000, \cdots\\}$ |
-        | $\color{green}{(0\\ \| \\ 1)^*}$ | $\\{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001, 010, 011, 100, \cdots\\}$ |
+ | <center>Expression</center> | <center>Ensemble de mots</center>          |
+ | :----------------:          | :----------------:                         |
+ | $\color{green}{0^*}$        | $\\{\epsilon, 0, 00, 000, 0000, \cdots\\}$ |
+ | $\color{green}{(0\\ \| \\ 1)^*}$ | $\\{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001, 010, 011, 100, \cdots\\}$ |
 
 
 {{% notice note %}}
@@ -275,7 +272,7 @@ sont donc deux moyens équivalents permettant de décrire les mêmes langages.
 
 ### Automates finis non-déterministes
 
-La figure suivante représente un automate fini non-déterministe, que nous appellerons $A_{fnd}$^[`fnd` pour *fini non déterministe*.], qui décrit les commentaires en C de type `/*...*/`. On suppose, pour simplifier, que notre vocabulaire
+La figure suivante représente un automate fini non-déterministe, que nous appellerons $A_{fnd}$[^3], qui décrit les commentaires en C de type `/*...*/`. On suppose, pour simplifier, que notre vocabulaire
 est $\mathcal{V} = \\{ a, b, /, * \\}$.
 Sur cette figure on peut voir les éléments suivants :
 
@@ -355,7 +352,7 @@ Pour un automate non déterministe, il faut montrer qu'après avoir lu tous les 
 {{% notice note %}}
 Il nous semble plus aisé de construire l'automate fini non déterministe que nous venons de voir pour décrire le langage des commentaires que l'expression régulière
 *$/\*\color{darkgreen}{(}\*^{\color{darkgreen}{+}}\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}\ \color{darkgreen}{|}\ \color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\ \color{darkgreen}{|}\ /\color{darkgreen}{)}\color{darkgreen}{)}^{\color{darkgreen}{\*}}\*^{\color{darkgreen}{+}}/$* que nous avions vu dans la section [précedente](#regular_expressions).
-Après, vous êtes peut-être des gourous de [Perl](https://fr.wikipedia.org/wiki/Perl_(langage))^[`Perl` signifie *Practical Extraction and Report Language*, ou *Pathologically Eclectic Rubbish Lister* <i class="far fa-smile-wink"></i>.]
+Après, vous êtes peut-être des gourous de [Perl](https://fr.wikipedia.org/wiki/Perl_(langage))[^4]
 et c'est juste trop facile pour vous <i class="far fa-smile-beam"></i>.
 {{% /notice %}}
 
@@ -394,7 +391,7 @@ et l'état `7` qu'on vient de voir `ab`, donc qu'on ne doit pas avoir un `a` mai
 
 Comment être sûr que la partie basse reconnaît bien tout sauf `aba` ? Pour la partie haute, il est assez facile de se convaincre qu'elle reconnaît bien $bbb\color{darkgreen}{(}a\ \color{darkgreen}{|}\ b\color{darkgreen}{)}^{\color{darkgreen}{\*}}$.
 Mais ce n'est pas si évident de se convaincre que la partie basse décrit bien tout sauf la chaîne `aba`. Quand on veut vraiment être sûr, il n'y a qu'un moyen,
-c'est faire une preuve !^[Vous me direz qu'il faut encore qu'elle soit correcte. C'est pas faux <i class="far fa-smile-beam"></i>, mais dans une preuve il faut juste se convaincre que chaque étape élémentaire est correcte.]
+c'est faire une preuve ![^5]
 
 On va faire une preuve par récurrence sur la longueur de la chaîne. Pour une chaîne de longueur 0 ($\epsilon$) de longueur 1 ($a$ et $b$) et de longueur 2 ($aa$, $ab$, $ba$ et $bb$), on peut suivre les transitions
 à partir de l'état 0 vers la partie basse et voir qu'on les reconnaît toutes et elles n'ont pas `aba` dedans (car la longueur de la chaîne est inférieure ou égale à 2). Supposons
@@ -693,7 +690,7 @@ utop # NFA.full_match nfa "011111100100";;
 
 
 On peut chercher une sous-chaîne dans une chaîne de caractères en entourant une expression de l'expression `.*`. Le `.` représente n'importe quel caractère.
-L'exemple suivant va définir une expression régulière permettant de rechercher la sous-chaîne `Doc`^[On ne gère que les caractères <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> dans notre application, on a donc mis la version anglaise des dialogues (sans accents). La version française donne : "Mais attendez un peu Doc, est-ce que j'ai bien entendu ? Vous dites que vous avez fabriqué une machine à voyager dans le temps... à partir d’une DeLorean ?" et "Faut voir grand dans la vie, quitte à voyager à travers le temps au volant d'une voiture, autant en choisir une qui ait de la gueule." <i class="far fa-smile-beam"></i>]
+L'exemple suivant va définir une expression régulière permettant de rechercher la sous-chaîne `Doc`[^6]
 
 {{< highlight ocaml >}}
 utop # let re = RE.regex_from_string ".*Doc.*";;
@@ -716,7 +713,7 @@ utop # DFA.full_match dfa "The way I see it, if you're gonna build a time machin
 Le code qui sera expliqué dans les vidéos suivantes se trouve [ici](https://github.com/lascar-pacagi/regex).
 
 Dans la vidéo suivante, nous allons présenter une vue d'ensemble de l'application et détailler le passage d'une chaîne de caractères représentant une expression
-règulière, vers une représentation OCaml de cette expression régulière. La grammaire décrivant les expressions régulières se trouve [ici](/images/minijava/scanner/regex.xhtml).
+règulière, vers une représentation OCaml de cette expression régulière. La grammaire décrivant les expressions régulières se trouve [ici](images/minijava/scanner/regex.xhtml).
 
 {{< youtube kZuPXP06OOQ >}}
 
@@ -873,7 +870,7 @@ int42
 {{< /highlight>}}
 
 Si on exécute la commande `./mini-java --show-tokens-with-loc Lexical.java` pour lancer notre transpileur `mini-java` avec pour option de ne sortir que les unités lexicale produite par
-l'analyseur lexical, nous obtenons les unités lexicales suivantes^[Plus précisément, nous obtenons une représentation des unités lexicales.].
+l'analyseur lexical, nous obtenons les unités lexicales suivantes[^7].
 
 {{< highlight bash >}}
 CLASS
@@ -1004,3 +1001,11 @@ Le fichier `ocamllex` [suivant](https://gist.github.com/lascar-pacagi/b3cff072c8
 [C++ bonnes pratiques](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)\
 [C++ standard](http://www.open-std.org/jtc1/sc22/wg21/)\
 {{% /notice %}}
+
+[^1]: Le mot vide est l'équivalent de la chaîne de caractères `""`.
+[^2]: Une expression régulière doit être de taille finie.
+[^3]: `fnd` pour *fini non déterministe*.
+[^4]: `Perl` signifie *Practical Extraction and Report Language*, ou *Pathologically Eclectic Rubbish Lister* <i class="far fa-smile-wink"></i>.
+[^5]: Vous me direz qu'il faut encore qu'elle soit correcte. C'est pas faux <i class="far fa-smile-beam"></i>, mais dans une preuve il faut juste se convaincre que chaque étape élémentaire est correcte.
+[^6]: On ne gère que les caractères <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> dans notre application, on a donc mis la version anglaise des dialogues (sans accents). La version française donne : "Mais attendez un peu Doc, est-ce que j'ai bien entendu ? Vous dites que vous avez fabriqué une machine à voyager dans le temps... à partir d'une DeLorean ?" et "Faut voir grand dans la vie, quitte à voyager à travers le temps au volant d'une voiture, autant en choisir une qui ait de la gueule." <i class="far fa-smile-beam"></i>
+[^7]: Plus précisément, nous obtenons une représentation des unités lexicales.

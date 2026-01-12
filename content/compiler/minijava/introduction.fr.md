@@ -152,7 +152,7 @@ L'analyse syntaxique a besoin de connaître la structure d'un programme MiniJava
 Cette structure est donnée sous la forme d'une grammaire.
 La grammaire de MiniJava, dans sa forme [EBNF](https://fr.wikipedia.org/wiki/Extended_Backus-Naur_Form)
 est donnée ci-dessous. Une version sûrement plus lisible pour nous en [diagramme syntaxique](https://fr.wikipedia.org/wiki/Diagramme_syntaxique) est donnée
-[ici](fr/compiler/minijava/grammar.xhtml).^[La description de la grammaire qui permet de générer le diagramme ne suit pas strictement la forme EBNF. Les détails sont donnés [ici](https://www.w3.org/TR/xml/#sec-notation).]
+[ici](/MrCoder/fr/compiler/minijava/grammar.xhtml).^[La description de la grammaire qui permet de générer le diagramme ne suit pas strictement la forme EBNF. Les détails sont donnés [ici](https://www.w3.org/TR/xml/#sec-notation).]
 
 {{< highlight ebnf >}}
 Program = MainClass { ClassDeclaration } 'eof' ;
@@ -335,7 +335,7 @@ de la liaison dynamique sera un des points difficiles à gérer dans notre trans
 
 ## Questions
 
-Reprenons la [grammaire de MiniJava](fr/compiler/minijava/grammar.xhtml).
+Reprenons la [grammaire de MiniJava](../grammar.xhtml).
 Nous voudrions ajouter la possibilité d'avoir
 
 * L'opérateur de comparaison `==`.
@@ -343,7 +343,7 @@ Nous voudrions ajouter la possibilité d'avoir
 * Des constructeurs et méthodes `private`.
 
 {{%expand "Quelles sont les modifications à apporter à cette grammaire pour incorporer ces nouveaux éléments ?" %}}
-[Grammaire de MiniJava modifiée](fr/compiler/minijava/grammar_private_constructor_equality.xhtml).
+[Grammaire de MiniJava modifiée](../grammar_private_constructor_equality.xhtml).
 {{% /expand%}}
 
 ---

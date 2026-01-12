@@ -1,0 +1,43 @@
+\documentclass{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0}
+
+\begin{document}
+
+%\begin{center}
+  \begin{tabular}{c}
+    \\
+    \begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (6.2,-27.8) circle (3);
+\draw (6.2,-27.8) node {$0$};
+\draw [black] (18.1,-27.8) circle (3);
+\draw (18.1,-27.8) node {$1$};
+\draw [black] (71.1,-27.8) circle (3);
+\draw (71.1,-27.8) node {$7$};
+\draw [black] (71.1,-27.8) circle (2.4);
+\draw [black] (33.9,-27.8) circle (3);
+\draw (33.9,-27.8) node {$2,3,4,5$};
+\draw [black] (2.1,-22.5) -- (4.36,-25.43);
+\fill [black] (4.36,-25.43) -- (4.27,-24.49) -- (3.48,-25.1);
+\draw [black] (9.2,-27.8) -- (15.1,-27.8);
+\fill [black] (15.1,-27.8) -- (14.3,-27.3) -- (14.3,-28.3);
+\draw (12.15,-28.3) node [below] {$/$};
+\draw [black] (21.1,-27.8) -- (30.9,-27.8);
+\fill [black] (30.9,-27.8) -- (30.1,-27.3) -- (30.1,-28.3);
+\draw (26,-28.3) node [below] {$*$};
+\draw [black] (36.9,-27.8) -- (68.1,-27.8);
+\fill [black] (68.1,-27.8) -- (67.3,-27.3) -- (67.3,-28.3);
+\draw (52.5,-27.3) node [above] {$**^{\color{darkgreen}{*}}/$};
+\draw [black] (32.577,-25.12) arc (234:-54:2.25);
+\draw (33.9,-20.55) node [above] {${\color{darkgreen}{(}}/\mbox{ }{\color{darkgreen}{|}}\mbox{ }a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}}\mbox{ }{\color{darkgreen}{|}}\mbox{ }**^{\color{darkgreen}{*}}{\color{darkgreen}{(}}a\mbox{ }{\color{darkgreen}{|}}\mbox{ }b{\color{darkgreen}{)}}$};
+\fill [black] (35.22,-25.12) -- (36.1,-24.77) -- (35.29,-24.18);
+\end{tikzpicture}
+\\
+\end{tabular}
+%  \end{center}
+
+\end{document}

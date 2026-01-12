@@ -1,95 +1,74 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on MrCoder</title>
-    <link>/en/tags/</link>
+    <link>http://localhost:1313/MrCoder/en/tags/</link>
     <description>Recent content in Tags on MrCoder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    
-	<atom:link href="/en/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/MrCoder/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bash</title>
-      <link>/en/tags/bash/</link>
+      <link>http://localhost:1313/MrCoder/en/tags/bash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/bash/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/bash/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>C</title>
-      <link>/en/tags/c/</link>
+      <link>http://localhost:1313/MrCoder/en/tags/c/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/c/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/c/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Compiler</title>
-      <link>/en/tags/compiler/</link>
+      <link>http://localhost:1313/MrCoder/en/tags/compiler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/compiler/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/compiler/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Garbage Collector</title>
-      <link>/en/tags/garbage-collector/</link>
+      <link>http://localhost:1313/MrCoder/en/tags/garbage-collector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/garbage-collector/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/garbage-collector/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Menhir</title>
-      <link>/en/tags/menhir/</link>
+      <link>http://localhost:1313/MrCoder/en/tags/menhir/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/menhir/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/menhir/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Minijava</title>
-      <link>/en/tags/minijava/</link>
+      <title>MiniJava</title>
+      <link>http://localhost:1313/MrCoder/en/tags/minijava/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/minijava/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/minijava/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Object Oriented Language</title>
-      <link>/en/tags/object-oriented-language/</link>
+      <link>http://localhost:1313/MrCoder/en/tags/object-oriented-language/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/object-oriented-language/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/object-oriented-language/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Ocaml</title>
-      <link>/en/tags/ocaml/</link>
+      <title>OCaml</title>
+      <link>http://localhost:1313/MrCoder/en/tags/ocaml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/ocaml/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/ocaml/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Transpiler</title>
-      <link>/en/tags/transpiler/</link>
+      <link>http://localhost:1313/MrCoder/en/tags/transpiler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/en/tags/transpiler/</guid>
+      <guid>http://localhost:1313/MrCoder/en/tags/transpiler/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

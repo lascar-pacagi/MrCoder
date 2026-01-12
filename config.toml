@@ -6,6 +6,13 @@ defaultContentLanguageInSubdir = true
 theme = "hugo-theme-learn"
 title = "MrCoder"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      footnote = true
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
 disableInlineCopyToClipBoard = true
 # Change default color scheme with a variant one. Can be "red", "blue", "green".
